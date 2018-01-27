@@ -8,10 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742d6643578186a4495d4c3b68860c70, type: 3}
+  m_Script: {fileID: 11500000, guid: 652432123ceae724da6c88405821c90e, type: 3}
   m_Name: Frogman
   m_EditorClassIdentifier: 
   characterName: Frogman
   health: 50
   damage: 10
-  defence: 5
+  defence: 10
+  frogAsset: {fileID: 0}

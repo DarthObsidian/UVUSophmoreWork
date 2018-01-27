@@ -1,12 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Character", menuName = "Character")]
-public class Character_SO : ScriptableObject 
+public abstract class Character_SO : ScriptableObject 
 {
-	public string characterName;
-	public int health;
-	public int damage;
-	public int defence;
+	public string characterName = "defaultChar";
+	public int health = 50;
+	public int damage = 10;
+	public int defence = 10;
 }
