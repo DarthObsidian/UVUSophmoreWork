@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public abstract class Character_SO : ScriptableObject 
+public abstract class SO_Character : ScriptableObject 
 {
 	public string characterName = "defaultChar";
 	public int health = 50;

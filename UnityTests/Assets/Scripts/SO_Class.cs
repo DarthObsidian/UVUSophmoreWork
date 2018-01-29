@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public abstract class Class_SO : ScriptableObject
+public abstract class SO_Class : ScriptableObject
 {
-	public string className;
+	public string className = "defaultClass";
 	public int healthModifier;
 	public int damageModifier;
 	public int defenceModifier;

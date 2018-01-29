@@ -6,8 +6,9 @@ public class CharacterControl : MonoBehaviour
 	int currentHealth;
 	int currentDamage;
 	int currentDefence;
-	public Character_SO character;
-	public Class_SO characterClass;
+	public SO_Character character;
+	public SO_Class characterClass;
+	public SO_Abilities powers;
 
 	void Start () 
 	{
@@ -15,6 +16,7 @@ public class CharacterControl : MonoBehaviour
 		currentDamage = character.damage + characterClass.damageModifier;
 		currentDefence = character.defence + characterClass.defenceModifier;
 		Debug.Log(character.characterName + " " + characterClass.className +
-		 " " + currentHealth + " " + currentDamage + " " + currentDefence);
+		 " " + currentHealth + " " + currentDamage + " " + currentDefence
+		 + " " + powers.abilityName);
 	}
 }
