@@ -6,6 +6,7 @@ public class CharacterControl : MonoBehaviour
 	int currentHealth;
 	int currentDamage;
 	int currentDefence;
+	
 	public SO_Character character;
 	public SO_Class characterClass;
 	public SO_Abilities powers;

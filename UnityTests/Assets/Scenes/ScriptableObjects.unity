@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263a5358fda6b5847996e80bb0733dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 4d4d785c538e3c945a9baa9515e86c32, type: 2}
+  character: {fileID: 11400000, guid: e7a88a24f9395354d9c05006ca312929, type: 2}
   characterClass: {fileID: 11400000, guid: c27da80a0c3885d489761e594a2cb611, type: 2}
   powers: {fileID: 11400000, guid: af87bcd03b4c42d48a3d779f48825e2d, type: 2}
 --- !u!23 &874725027
