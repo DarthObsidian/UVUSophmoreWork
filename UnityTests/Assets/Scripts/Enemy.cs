@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.GetComponentInParent<NavMeshAgent>().remainingDistance < navi.remainingDistance)
+		if(other.gameObject.GetComponent<NavMeshAgent>().remainingDistance > navi.remainingDistance)
 		{
 			StartCoroutine(Block());
 		}
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
 	{
 		navi.enabled = false;
 		block.enabled = true;
-		yield return new WaitForFixedUpdate();
+		yield return new WaitForSeconds(5f);
 		block.enabled = false;
 		navi.enabled = true;
 	}
