@@ -1,14 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * 
- * */
 public abstract class ABS_Player : ScriptableObject 
 {
 	// 
 	public float lookSensitivity = 3.0f;
+
+	public float healthPercentage = 0.0f;
 
 	// This a generic group of variables related to jumping.
 	public float gravity = 14.0f;

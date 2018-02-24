@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class ABS_Enemies : ScriptableObject 
 {
-	public int healthPercentage;
+	public float healthPercentage = 0.0f;
 }
