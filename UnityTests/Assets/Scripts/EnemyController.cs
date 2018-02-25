@@ -28,7 +28,12 @@ public class EnemyController : MonoBehaviour
 	{
 		if(knockbackCount <= 0 && IsGrounded())
 		{
-			navi.enabled = true;
+			if(!navi.enabled)
+			{
+				navi.enabled = true;
+				navi.isStopped = false;
+				rb.isKinematic = true;
+			}
 			navi.SetDestination(player.transform.position);
 		}
 		else
@@ -70,11 +75,10 @@ public class EnemyController : MonoBehaviour
 	{
 		knockbackCount = knockbackTime;
 		navi.enabled = false;
+		rb.isKinematic = false;
 
 		healthPercent += _damage;
 		knockDistance = (healthPercent / 100) + _knockPower;
-
-		print(_direction);
 
 		rb.velocity = _direction * knockDistance;		
 	}
