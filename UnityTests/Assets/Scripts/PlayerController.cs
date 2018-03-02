@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 	private CharacterController cc;
 	public SO_Player player;
 	public List<ABS_Abilities> abilities;
+	Animator anims;
 
 	float healthPercent;
 	float knockDistance;
@@ -17,11 +18,12 @@ public class PlayerController : MonoBehaviour
 
 	private float verticalVelocity = 0.0f;
 	private float speed = 0;
-	public Vector3 move = Vector3.zero;
+	Vector3 move = Vector3.zero;
 
 	void Start() 
 	{
 		cc = GetComponent<CharacterController>();
+		anims = GetComponent<Animator>();
 		healthPercent = player.healthPercentage;
 	}
 
@@ -37,7 +39,7 @@ public class PlayerController : MonoBehaviour
 			{
 				if(isGrounded()) 
 				{
-					verticalVelocity = player.Jump(verticalVelocity);
+					verticalVelocity = player.Jump(verticalVelocity, anims);
 				}
 		
 				speed = player.Run(speed);
@@ -60,6 +62,15 @@ public class PlayerController : MonoBehaviour
 			}
 
 			move.y = verticalVelocity;
+			anims.SetFloat("VerticalSpeed", verticalVelocity);
+			anims.SetFloat("HorizontalSpeed", Mathf.Abs(move.x));
+
+			if(move.x == 0)
+			{
+				anims.SetFloat("HorizontalSpeed", Mathf.Abs(move.z));
+			}
+			anims.SetBool("Land", isGrounded());
+
 			cc.Move(move * Time.deltaTime);
 		}
 	}

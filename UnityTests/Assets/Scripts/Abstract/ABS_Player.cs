@@ -17,9 +17,7 @@ public abstract class ABS_Player : ScriptableObject
 	public float walkSpeed = 5.0f;
 	public float runSpeed = 10.0f;
 
-	public Elemental.elementType currentElement = Elemental.elementType.NEUTRAL;
-
-	public abstract float Jump (float _verticalVelocity);
+	public abstract float Jump (float _verticalVelocity, Animator _anims);
 	public abstract float ApplyGravity (float _verticalVelocity);
 	public abstract float Run(float _speed);
 }

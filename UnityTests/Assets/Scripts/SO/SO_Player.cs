@@ -5,12 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Player", menuName = "Scriptable Objects/Player")]
 public class SO_Player : ABS_Player 
 {
-	public override float Jump(float _verticalVelocity)
+	public override float Jump(float _verticalVelocity, Animator _anims)
 	{
 		_verticalVelocity = -gravity * Time.deltaTime;
 		if(Input.GetButtonDown("Jump"))
 		{
 			_verticalVelocity = jumpForce;
+			_anims.SetTrigger("Jump");
 		}
 		return _verticalVelocity;
 	}
