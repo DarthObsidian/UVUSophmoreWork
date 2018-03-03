@@ -10,8 +10,8 @@ public class SO_Player : ABS_Player
 		_verticalVelocity = -gravity * Time.deltaTime;
 		if(Input.GetButtonDown("Jump"))
 		{
-			_verticalVelocity = jumpForce;
 			_anims.SetTrigger("Jump");
+			_verticalVelocity = jumpForce;
 		}
 		return _verticalVelocity;
 	}
