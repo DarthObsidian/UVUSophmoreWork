@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
 				
 				//this makes the character controller move based off the local rotation and not global
 				move = transform.TransformDirection(move);
-				
 			}
 			else
 			{
