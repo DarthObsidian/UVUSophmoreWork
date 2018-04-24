@@ -1,6 +1,6 @@
 //Maya ASCII 2017ff05 scene
 //Name: Vader.ma
-//Last modified: Tue, Apr 24, 2018 02:42:52 PM
+//Last modified: Tue, Apr 24, 2018 04:01:04 PM
 //Codeset: 1252
 requires maya "2017ff05";
 requires -nodeType "HIKSolverNode" -nodeType "HIKCharacterNode" -nodeType "HIKFK2State"
@@ -18,8 +18,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "B553B2BD-47ED-A844-659A-92A590CEDA62";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 0.18160068172849197 36.160141206471508 35.155884836278958 ;
-	setAttr ".r" -type "double3" 6106.4616479150282 -1443.0000000012519 9.9528734467357486e-017 ;
+	setAttr ".t" -type "double3" 2.0416201803556469 32.291021150526547 13.68653599921846 ;
+	setAttr ".r" -type "double3" 6099.2616479288054 -1070.9999999997531 0 ;
 	setAttr ".rp" -type "double3" 1.3322676295501878e-015 3.5527136788005009e-015 -1.7763568394002505e-015 ;
 	setAttr ".rpt" -type "double3" -8.4892039485790091e-015 2.6185183297424185e-016 
 		4.9074216975066466e-015 ;
@@ -27,7 +27,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "1B50A03D-4697-A931-E13C-689F498E1CAA";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 33.681942023069482;
+	setAttr ".coi" 15.092338503802594;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -159,7 +159,6 @@ createNode transform -n "Geometry";
 	rename -uid "59A74084-4152-5C28-2343-6EB8FE94780A";
 createNode transform -n "R_BeltBox" -p "Geometry";
 	rename -uid "8E65FF33-4637-7957-11E3-1AB9063B3F99";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 1.7809693006214893 26.607022559660756 0.8329175596517473 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -175,10 +174,22 @@ createNode transform -n "R_BeltBox" -p "Geometry";
 createNode mesh -n "R_BeltBoxShape" -p "R_BeltBox";
 	rename -uid "E94CCD1B-44BD-578A-F9CA-0CB9248110D2";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:4]";
+	setAttr -s 6 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.59867084135619741 0.7707798330415605 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "R_BeltBoxShapeOrig" -p "R_BeltBox";
+	rename -uid "843D7A33-4523-5354-F0B4-5F8F278BC065";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 12 ".uvst[0].uvsp[0:11]" -type "float2" 0.52697325 0.69954014
 		 0.52743101 0.84247768 0.67036861 0.84201932 0.66991079 0.69908226 0.52788925 0.98541516
@@ -843,7 +854,6 @@ createNode mesh -n "R_BootShape" -p "R_Boot";
 	setAttr ".vcs" 2;
 createNode transform -n "R_ShoulderPlate" -p "Geometry";
 	rename -uid "1F0BD6AE-413B-7918-20AF-9FA253481E6F";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 3.3583375218213605 31.999666903754832 4.5396983451675883e-015 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -859,9 +869,22 @@ createNode transform -n "R_ShoulderPlate" -p "Geometry";
 createNode mesh -n "R_ShoulderPlateShape" -p "R_ShoulderPlate";
 	rename -uid "5CC38BF1-4DEB-05A8-69F8-01B83A27AAA4";
 	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.15886210097693954 0.77673283519701197 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "R_ShoulderPlateShapeOrig" -p "R_ShoulderPlate";
+	rename -uid "F8D2800A-4C4B-10DE-ABC0-528A2ECA293F";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 84 ".uvst[0].uvsp[0:83]" -type "float2" 0.065627694 0.691131
 		 0.087756634 0.67755371 0.084895253 0.70756358 0.052844584 0.721443 0.11267751 0.6690141
@@ -7765,7 +7788,6 @@ createNode mesh -n "CapeShape" -p "Cape";
 	setAttr ".bw" 3;
 createNode transform -n "ChestControlBox" -p "Geometry";
 	rename -uid "22FDE10A-4950-E257-2555-D79CAF8C11AA";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0 28.732697029823456 1.3559832188632988 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -7780,9 +7802,22 @@ createNode transform -n "ChestControlBox" -p "Geometry";
 createNode mesh -n "ChestControlBoxShape" -p "ChestControlBox";
 	rename -uid "B6977D3F-4905-99A0-6CBE-91817AC21738";
 	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.80698402663103552 0.18139034665691917 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "ChestControlBoxShapeOrig" -p "ChestControlBox";
+	rename -uid "61EE3AA5-4E45-C51B-740E-C1BA01D8B72F";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 22 ".uvst[0].uvsp[0:21]" -type "float2" 0.74127126 0.26458368
 		 0.72744668 0.11410633 0.65937817 0.11216125 0.7417171 0.33075586 0.79894674 0.10423234
@@ -7841,7 +7876,6 @@ createNode mesh -n "ChestControlBoxShape" -p "ChestControlBox";
 	setAttr ".vcs" 2;
 createNode transform -n "BeltClip" -p "Geometry";
 	rename -uid "5DBC783C-4B6E-40DD-C877-DB932451AFE2";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0.15159927793154215 26.639111252859465 1.1346884166778279 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -7859,9 +7893,22 @@ createNode transform -n "BeltClip" -p "Geometry";
 createNode mesh -n "BeltClipShape" -p "BeltClip";
 	rename -uid "8929C6DE-46EC-5EE9-D4FE-CD811E133D35";
 	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.17524895856071065 0.88158973251805883 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "BeltClipShapeOrig" -p "BeltClip";
+	rename -uid "DD8DE239-4B87-F6EE-A29B-CBA116921021";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 16 ".uvst[0].uvsp[0:15]" -type "float2" 0.17516467 0.93129075
 		 0.081360102 0.93113172 0.17533326 0.83188868 0.081528664 0.83172953 0.17543057 0.77454728
@@ -7903,7 +7950,6 @@ createNode mesh -n "BeltClipShape" -p "BeltClip";
 	setAttr ".vcs" 2;
 createNode transform -n "L_BeltBox" -p "Geometry";
 	rename -uid "0D8E4521-4C26-744C-AB06-EF9BAB5A366B";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 1.7809693006214893 26.607022559660756 0.8329175596517473 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -7919,10 +7965,22 @@ createNode transform -n "L_BeltBox" -p "Geometry";
 createNode mesh -n "L_BeltBoxShape" -p "L_BeltBox";
 	rename -uid "D15A83D4-4AFB-41AC-B41F-87BEDC5A95AD";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:4]";
+	setAttr -s 6 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.22603094577789307 0.54533699076837272 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "L_BeltBoxShapeOrig" -p "L_BeltBox";
+	rename -uid "5C42D3E7-408E-7066-860D-62A8D674D249";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 12 ".uvst[0].uvsp[0:11]" -type "float2" 0.15578954 0.47165883
 		 0.29970929 0.47509563 0.29627255 0.61901486 0.15235269 0.61557865 0.29283625 0.76293468
@@ -7955,7 +8013,6 @@ createNode mesh -n "L_BeltBoxShape" -p "L_BeltBox";
 	setAttr ".vcs" 2;
 createNode transform -n "Belt" -p "Geometry";
 	rename -uid "839A2FFF-4694-14E2-39F7-898E3C4CCC59";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0.0032412057613915302 25.924443273843185 0.09023579151345984 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -7971,9 +8028,22 @@ createNode transform -n "Belt" -p "Geometry";
 createNode mesh -n "BeltShape" -p "Belt";
 	rename -uid "DF938355-42A1-1271-D24C-F9B15E0E1C73";
 	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.49683054705709628 0.36864105760271004 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "BeltShapeOrig" -p "Belt";
+	rename -uid "3366CF93-44F5-46E4-B377-AE8516012573";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 105 ".uvst[0].uvsp[0:104]" -type "float2" 0.77770388 0.46613497
 		 0.80411792 0.48676473 0.74320531 0.54939312 0.72287035 0.53289515 0.81288779 0.50535625
@@ -8219,7 +8289,6 @@ createNode mesh -n "BeltShape" -p "Belt";
 	setAttr ".vcs" 2;
 createNode transform -n "L_ShoulderPlate" -p "Geometry";
 	rename -uid "95939D51-4223-B16F-FCE0-2FBEC86A4B5D";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 3.3583375218213605 31.999666903754832 4.5396983451675883e-015 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -8235,9 +8304,22 @@ createNode transform -n "L_ShoulderPlate" -p "Geometry";
 createNode mesh -n "L_ShoulderPlateShape" -p "L_ShoulderPlate";
 	rename -uid "FABF3229-4F62-8579-587A-D2B66FF5B30A";
 	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.16456628348838243 0.44381957079883655 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "L_ShoulderPlateShapeOrig" -p "L_ShoulderPlate";
+	rename -uid "7B9499C3-411A-96EE-837A-2BA503EC12A0";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 84 ".uvst[0].uvsp[0:83]" -type "float2" 0.073443651 0.53248489
 		 0.059738636 0.50257885 0.09219861 0.51546955 0.09597683 0.54537761 0.12210786 0.52675188
@@ -9088,7 +9170,7 @@ createNode mesh -n "L_BootShape" -p "L_Boot";
 	setAttr ".vcs" 2;
 createNode transform -n "CodPiece" -p "Geometry";
 	rename -uid "7206E71D-4F29-A943-C69E-D49EC81B8892";
-	setAttr -av ".v" no;
+	setAttr -av ".v";
 	setAttr ".t" -type "double3" 0 -0.074880405231543865 1.2831878946654709 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -9106,9 +9188,23 @@ createNode transform -n "CodPiece" -p "Geometry";
 createNode mesh -n "CodPieceShape" -p "CodPiece";
 	rename -uid "BC51A922-44FF-E834-AD91-FAAAFE41A0F2";
 	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.38800226951642813 0.098517319801902203 ;
+	setAttr ".pv" -type "double2" 0.7467968761920929 0.033965863287448883 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".pt[0]" -type "float3"  0 -2.9802322e-008 1.4901161e-008;
+	setAttr ".vcs" 2;
+createNode mesh -n "CodPieceShapeOrig" -p "CodPiece";
+	rename -uid "55A6CA8A-47E6-2559-B0AC-9384D07C6B7D";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 214 ".uvst[0].uvsp[0:213]" -type "float2" 0.74714053 0.24552862
 		 0.73021048 0.24184984 0.72889209 0.21874374 0.74740255 0.21861285 0.40799004 0.025138974
@@ -9169,7 +9265,6 @@ createNode mesh -n "CodPieceShape" -p "CodPiece";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr ".pt[0]" -type "float3"  0 -2.9802322e-008 1.4901161e-008;
 	setAttr -s 196 ".vt";
 	setAttr ".vt[0:165]"  -5.2117358e-018 23.37794876 2.9802322e-008 0.29020497 23.37794876 0
 		 -2.4899067e-018 23.78824806 0 0.29020497 23.78824806 0 -4.0111526e-018 24.03094101 -0.057098389
@@ -9631,7 +9726,6 @@ createNode mesh -n "CodPieceShape" -p "CodPiece";
 	setAttr ".vcs" 2;
 createNode transform -n "ChestPlate" -p "Geometry";
 	rename -uid "545F95A3-48AF-9339-8405-58A22BD6128D";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0.49074207152947258 30.505111044845499 1.7619845073905211 ;
 	setAttr -l on ".tx";
 	setAttr -l on ".ty";
@@ -9648,9 +9742,22 @@ createNode transform -n "ChestPlate" -p "Geometry";
 createNode mesh -n "ChestPlateShape" -p "ChestPlate";
 	rename -uid "7FBFBC91-49CB-090E-9164-FD83CBB6C5E6";
 	setAttr -k off ".v";
+	setAttr -s 4 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".pv" -type "double2" 0.17196530317045688 0.15746523389173434 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".vcs" 2;
+createNode mesh -n "ChestPlateShapeOrig" -p "ChestPlate";
+	rename -uid "B90FA637-498B-B564-C412-329A12B90D7C";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 191 ".uvst[0].uvsp[0:190]" -type "float2" 0.16823456 0.025552928
 		 0.17943496 0.026312441 0.18210721 0.058741599 0.16840783 0.059318274 0.18492305 0.090370566
@@ -10180,7 +10287,7 @@ createNode mesh -n "BodyShape" -p "Body";
 	setAttr ".vcs" 2;
 	setAttr -cb on ".GoZBrushID" -type "string" "polySurface5";
 createNode mesh -n "BodyShapeOrig" -p "Body";
-	rename -uid "D4F431E2-4236-12A5-AFAF-099914EDAA83";
+	rename -uid "30B0D227-4DD1-67A4-1E10-398583B5E91B";
 	setAttr -k off ".v";
 	setAttr ".io" yes;
 	setAttr ".vir" yes;
@@ -11909,8 +12016,8 @@ createNode mesh -n "BodyShapeOrig" -p "Body";
 		 -2.72131348 3.048116922 -1.13890839 -2.94712162 3.084392309 -0.77320564 -3.059837103 3.10736513 -0.29854587
 		 -2.81239438 3.16815829 0.13551269 -2.33051348 3.23201513 0.38518167 -1.79749012 3.17817116 0.22367831
 		 -1.5860678 3.098330498 -0.16763173 -1.69425166 3.034276247 -0.71728379 -1.79848647 2.99913597 -1.1567452
-		 3.077179193 1.99140787 -0.36576658 2.98935294 1.96725941 -0.78221798 2.2704463 2.0469594 -1.41228652
-		 1.62125075 2.037207842 -0.73815513 1.56338596 2.038384676 -0.31262776 2.41316056 2.18287587 0.32272321
+		 3.077179193 2.064394712 -0.36576658 2.98935294 2.031117916 -0.78221798 2.2704463 2.038000345 -1.41228652
+		 1.62125075 1.90928221 -0.73815513 1.56338596 1.9740237 -0.31262776 2.41316056 2.13796854 0.32272321
 		 -1.55836916 1.9734447 -0.33540589 -1.58082843 1.90887928 -0.7265743 -2.27091718 2.039562941 -1.41340709
 		 -2.98120403 2.034857035 -0.78848064 -3.073329926 2.068397999 -0.36008689 -2.42564631 2.13995886 0.31960672;
 	setAttr -s 5392 ".ed";
@@ -12178,7 +12285,7 @@ createNode mesh -n "BodyShapeOrig" -p "Body";
 		 1104 1106 0 1043 1107 0 1106 1107 1 1107 1105 0 1055 1108 0 1106 1108 0 1042 1109 0
 		 1108 1109 1 1109 1107 0 1056 1110 0 1108 1110 0 1041 1111 0 1110 1111 1 1111 1109 0
 		 1102 1111 0 1103 1110 0 143 2691 1 44 1 0;
-	setAttr ".ed[2158:2323]" 47 2692 0 2 46 1 154 2693 1 3 49 1 51 2694 0 147 2695 1
+	setAttr ".ed[2158:2323]" 47 2692 1 2 46 1 154 2693 1 3 49 1 51 2694 0 147 2695 1
 		 0 52 1 137 2696 1 922 2278 1 1113 1112 1 921 2279 1 923 2276 1 1114 1115 1 1115 2277 1
 		 924 2275 1 1114 1116 1 1113 1117 1 925 2280 1 964 2282 1 1119 1118 1 926 2283 1 1117 1120 1
 		 1120 2281 1 928 2284 1 1116 1121 1 1119 1121 1 965 1122 1 1118 1122 1 929 1123 1
@@ -12235,7 +12342,7 @@ createNode mesh -n "BodyShapeOrig" -p "Body";
 		 1283 1305 1 1305 1306 1 1271 1305 1 1134 1294 1 1293 1294 1 1287 1293 1 1293 1295 1
 		 1295 1304 1 1292 1307 1 1306 1307 1 1132 1276 1 1270 1277 1 1279 2697 1 1280 1309 1
 		 1270 1309 1 1281 1308 1 1308 1309 1 1288 1297 1 1296 1297 1 1135 1296 1 1135 1288 1
-		 1183 2698 0 1291 1310 1 1308 1310 1 1298 1303 1 1297 1298 1 1284 1294 1 1179 2700 0
+		 1183 2698 0 1291 1310 1 1308 1310 1 1298 1303 1 1297 1298 1 1284 1294 1 1179 2700 1
 		 1285 1293 1 1292 1295 1 1304 1307 1 1291 1298 1 1303 1310 1 1289 1297 1 1290 1296 1
 		 1269 1300 1 1299 1300 1 1271 1299 1 1270 1301 1 1300 1301 1 1309 1311 1 1301 1311 1
 		 1299 1312 1 1305 1312 1 1267 1299 1 1267 1313 1 1312 1313 1 1266 1300 1 1266 1267 1
@@ -12636,10 +12743,10 @@ createNode mesh -n "BodyShapeOrig" -p "Body";
 		 2678 44 1 2677 2678 1 2679 45 1 2678 2679 1 2680 47 1 2679 2680 1 2680 2671 1 2681 1180 1
 		 2682 1178 1 2681 2682 1 2683 1179 1 2682 2683 1 2684 1177 1 2683 2684 1 2685 1176 1
 		 2684 2685 1 2686 1185 1 2685 2686 1 2687 1184 1 2686 2687 1 2688 1182 1 2687 2688 1
-		 2689 1183 1 2688 2689 1 2690 1181 1 2689 2690 1 2690 2681 1 2691 45 1 2692 152 0
+		 2689 1183 1 2688 2689 1 2690 1181 1 2689 2690 1 2690 2681 1 2691 45 1 2692 152 1
 		 1 2691 1 2691 2692 1 2692 2 1 2693 48 1 2694 158 0 2695 50 1 2696 53 1 2 2693 1 2693 3 1
 		 3 2694 1 2694 2695 1 2695 0 1 0 2696 1 2696 1 1 2697 1182 1 2698 1290 0 2699 1180 1
-		 2700 1284 0 2701 1177 1 2702 1185 1 1132 2697 1 2697 2698 1 2698 1135 1 1135 2699 1
+		 2700 1284 1 2701 1177 1 2702 1185 1 1132 2697 1 2697 2698 1 2698 1135 1 1135 2699 1
 		 2699 1134 1 1134 2700 1 2700 2701 1 2701 1133 1 1133 2702 1 2702 1132 1;
 	setAttr -s 2690 -ch 10760 ".fc";
 	setAttr ".fc[0:499]" -type "polyFaces" 
@@ -22986,7 +23093,6 @@ createNode joint -n "L_Leg_01_Jnt" -p "Hips_Jnt";
 	rename -uid "DC357975-464D-72F4-C1CB-448859A95856";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" -1.3403877273122156 -1.3098475540458778 -0.13766529806602679 ;
-	setAttr ".r" -type "double3" 0.0030117804345677129 0.17360340542686784 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
@@ -23008,7 +23114,6 @@ createNode joint -n "L_Leg_02_Jnt" -p "L_Leg_01_Jnt";
 		 2.0698655463224913e-013 -0.039726200633397497 0.99921060291774089 0 -0.99974456929017774 -0.022582959307399487 -0.00089784392751160404 0
 		 1.6200108875199304 18.21977446236388 -0.18866958068163786 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "L_Leg_03_Jnt" -p "L_Leg_02_Jnt";
 	rename -uid "9B852C0D-4F9A-5F4E-FC65-7999CDE15749";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23019,7 +23124,6 @@ createNode joint -n "L_Leg_03_Jnt" -p "L_Leg_02_Jnt";
 		 2.0698655463224913e-013 -0.039726200633397497 0.99921060291774089 0 -0.99974456929017774 -0.022582959307399487 -0.00089784392751160404 0
 		 1.752372182128153 12.36940524068007 -0.42126613320163242 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "L_Foot_01_Jnt" -p "L_Leg_03_Jnt";
 	rename -uid "06D06A50-4CEE-4FDA-18DA-86A4A5B7B1FB";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23028,11 +23132,10 @@ createNode joint -n "L_Foot_01_Jnt" -p "L_Leg_03_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -1.0841055829162514 -1.8499398127731166e-014 56.832855596298451 ;
-	setAttr ".bps" -type "matrix" 0.012364520435292459 -0.57976573854395219 0.81468939298667153 0
-		 -4.9960036108132054e-016 0.81475167554161154 0.57981006131502799 0 -0.99992355639539043 -0.0071690733517183487 0.010074013741922627 0
-		 1.7393044773176345 12.368196610584292 -0.39830244810568033 1;
+	setAttr ".bps" -type "matrix" 0.01236452043529287 -0.5797657385439523 0.81468939298667153 0
+		 -7.8756445809347042e-016 0.81475167554161232 0.57981006131502799 0 -0.99992355639539066 -0.0071690733517187147 0.010074013741922669 0
+		 1.7393044773176338 12.368196610584292 -0.39830244810568027 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_Foot_02_Jnt" -p "L_Foot_01_Jnt";
 	rename -uid "8A593F64-4C82-079F-C0A9-F99D5CA4F44C";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23041,22 +23144,20 @@ createNode joint -n "L_Foot_02_Jnt" -p "L_Foot_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -0.27891499942199172 1.9454645405075948 23.159996873902919 ;
-	setAttr ".bps" -type "matrix" 0.045307155482847174 -0.2122346844356636 0.97616786485959861 0
-		 4.5380366131553274e-015 0.9771713185953379 0.21245285150980792 0 -0.99897310357289071 -0.0096256343761247885 0.044272852864978618 0
+	setAttr ".bps" -type "matrix" 0.045307155482847444 -0.21223468443566337 0.97616786485959861 0
+		 4.1121619998030212e-015 0.97717131859533879 0.21245285150980792 0 -0.99897310357289093 -0.0096256343761251459 0.04427285286497866 0
 		 1.75890485322646 11.449145485715443 0.89315227794201757 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_Foot_03_Jnt" -p "L_Foot_02_Jnt";
 	rename -uid "533CE4FA-4EED-764C-190C-439CECFC5F8B";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 1.4988213815305957 9.3263134121935126e-016 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 0.045307155482847174 -0.2122346844356636 0.97616786485959861 0
-		 4.5380366131553274e-015 0.9771713185953379 0.21245285150980792 0 -0.99897310357289071 -0.0096256343761247885 0.044272852864978618 0
-		 1.8268121866004825 11.131043602780872 2.3562535457566534 1;
+	setAttr ".bps" -type "matrix" 0.04580536181137608 -0.2120995139283483 0.97617399321057907 0
+		 -0.0029890470987587224 0.97716620298389067 0.21245535376518074 0 -0.99894591166227353 -0.012649424390267804 0.044125476040769746 0
+		 1.8661168959420205 11.132661278477249 2.3562961947984866 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Leg_01_Jnt" -p "Hips_Jnt";
 	rename -uid "B747C541-4671-4342-A274-A6B5564831C4";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23082,7 +23183,6 @@ createNode joint -n "R_Leg_02_Jnt" -p "R_Leg_01_Jnt";
 		 -0.022600020933470147 -0.9989554049449374 -0.039715714586336645 0 -0.99974458690897994 0.022582180847982535 0.00089780529197316862 0
 		 -1.6200100000000002 18.219799999999999 -0.18866999999999995 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "R_Leg_03_Jnt" -p "R_Leg_02_Jnt";
 	rename -uid "0BDD5C46-4A05-7EE6-6AE7-238500E79CCF";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23093,7 +23193,6 @@ createNode joint -n "R_Leg_03_Jnt" -p "R_Leg_02_Jnt";
 		 -0.022600020933470147 -0.9989554049449374 -0.039715714586336645 0 -0.99974458690897994 0.022582180847982535 0.00089780529197316862 0
 		 -1.7523672547044704 12.369407411429833 -0.42126549036473676 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "R_Foot_01_Jnt" -p "R_Leg_03_Jnt";
 	rename -uid "A0F4209C-4729-4BF2-8CE3-569540CF5E7A";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23102,11 +23201,10 @@ createNode joint -n "R_Foot_01_Jnt" -p "R_Leg_03_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 1.0840499676927169 2.9430716567469858e-005 146.83138240217147 ;
-	setAttr ".bps" -type "matrix" -0.012364066934795748 -0.57978642447809137 0.81467467853109454 0
-		 -4.4408920985006252e-016 0.81473695539202029 0.57983074557886372 0 -0.99992356200303223 0.007169066149189161 -0.010073462250718812 0
-		 -1.7393000000000001 12.3682 -0.39830199999999999 1;
+	setAttr ".bps" -type "matrix" -0.01236406693479588 -0.57978642447809126 0.81467467853109454 0
+		 -4.8572257327350599e-017 0.81473695539202073 0.5798307455788636 0 -0.99992356200303234 0.0071690661491895201 -0.010073462250718678 0
+		 -1.7393000000000003 12.368200000000003 -0.39830199999999988 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Foot_02_Jnt" -p "R_Foot_01_Jnt";
 	rename -uid "1B81D74D-4E50-14C4-9D8B-18A5F78A08E9";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23115,31 +23213,28 @@ createNode joint -n "R_Foot_02_Jnt" -p "R_Foot_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 0.27892183464106551 -1.9456037741558339 23.161494435943535 ;
-	setAttr ".bps" -type "matrix" -0.045309039490681102 -0.21223391933419861 0.97616794375992322 0
-		 1.0330278299441886e-014 0.97717148116049701 0.21245210379424387 0 -0.99897301812432948 0.0096260007607016917 -0.044274701229066044 0
-		 -1.7589000000000006 11.4491 0.89315200000000061 1;
+	setAttr ".bps" -type "matrix" -0.045309039490681075 -0.21223391933419833 0.97616794375992311 0
+		 1.0745744571938332e-014 0.97717148116049746 0.21245210379424376 0 -0.99897301812432959 0.0096260007607020422 -0.044274701229065905 0
+		 -1.758900000000001 11.449100000000003 0.89315200000000061 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Foot_03_Jnt" -p "R_Foot_02_Jnt";
 	rename -uid "5E3A544F-4293-EF4A-73D4-4C9F5EC9F9B6";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 1.4988179127912773 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" -0.045309039490681102 -0.21223391933419861 0.97616794375992322 0
-		 1.0330278299441886e-014 0.97717148116049701 0.21245210379424387 0 -0.99897301812432948 0.0096260007607016917 -0.044274701229066044 0
-		 -1.8268100000000007 11.131000000000004 2.356250000000002 1;
+	setAttr ".bps" -type "matrix" -0.045309039490681075 -0.21223391933419833 0.97616794375992311 0
+		 1.0745744571938332e-014 0.97717148116049746 0.21245210379424376 0 -0.99897301812432959 0.0096260007607020422 -0.044274701229065905 0
+		 -1.8268100000000012 11.131000000000007 2.3562500000000015 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "Spine_01_Jnt" -p "COG_Jnt";
 	rename -uid "BB437EDF-4AE1-4E6A-8E39-7BB2BC80F069";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 2.2204460492503131e-016 1.0000000000000002 0 0 -1.0000000000000002 2.2204460492503131e-016 0 0
-		 0 0 1 0 3.5527136788005025e-015 25.572559115480782 0.13766529806602679 1;
+		 0 0 1 0 0 25.572559115480782 0.13766529806602679 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "Spine_02_Jnt" -p "Spine_01_Jnt";
 	rename -uid "302EC654-4D07-C58A-90E3-708157690025";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23149,9 +23244,8 @@ createNode joint -n "Spine_02_Jnt" -p "Spine_01_Jnt";
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -90 0 1.272221872585404e-014 ;
 	setAttr ".bps" -type "matrix" 2.2204460492503131e-016 1.0000000000000002 0 0 -2.2204460492503136e-016 4.9303806576313238e-032 -1 0
-		 -1.0000000000000002 2.2204460492503131e-016 2.2204460492503131e-016 0 3.5527136788005025e-015 26.493948030370348 0.13766529806602679 1;
+		 -1.0000000000000002 2.2204460492503131e-016 2.2204460492503131e-016 0 0 26.493948030370348 0.13766529806602679 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "Spine_03_Jnt" -p "Spine_02_Jnt";
 	rename -uid "E31DAC5D-4D03-E9BC-80AD-2F98CE03C137";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23162,7 +23256,7 @@ createNode joint -n "Spine_03_Jnt" -p "Spine_02_Jnt";
 	setAttr ".jo" -type "double3" 0 0 3.4418950483723485 ;
 	setAttr ".bps" -type "matrix" 2.0831334850808029e-016 0.99819619585880404 -0.060036277141513154 0
 		 -2.3497481138619429e-016 -0.060036277141513168 -0.99819619585880381 0 -1.0000000000000002 2.2204460492503131e-016 2.2204460492503131e-016 0
-		 3.5527136788005033e-015 28.013034904093079 0.13766529806602679 1;
+		 7.8886090522101181e-031 28.013034904093079 0.13766529806602679 1;
 	setAttr ".radi" 0.5;
 	setAttr ".liw" yes;
 createNode joint -n "Spine_04_Jnt" -p "Spine_03_Jnt";
@@ -23175,9 +23269,8 @@ createNode joint -n "Spine_04_Jnt" -p "Spine_03_Jnt";
 	setAttr ".jo" -type "double3" 0.00038320928495847248 -0.097075442054598324 -0.45235241650752006 ;
 	setAttr ".bps" -type "matrix" -0.0016942852760771677 0.99863763689589602 -0.052153615142042302 0
 		 -6.6882541472414592e-006 -0.052153701313593481 -0.99863906963154592 0 -0.99999856467530546 -0.0016916306551593623 9.5042390545108205e-005 0
-		 3.5136125923414404e-015 30.940897935151476 -0.038430340340789737 1;
+		 -3.9101086459062326e-017 30.940897935151476 -0.038430340340789737 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "Neck_Jnt" -p "Spine_04_Jnt";
 	rename -uid "A749911D-4122-9457-3195-A89D45EF9DC5";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23186,9 +23279,8 @@ createNode joint -n "Neck_Jnt" -p "Spine_04_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" -0.0016942852760771677 0.99863763689589602 -0.052153615142042302 0
 		 -6.6882541472414592e-006 -0.052153701313593481 -0.99863906963154592 0 -0.99999856467530546 -0.0016916306551593623 9.5042390545108205e-005 0
-		 -0.0036563335221053532 33.102676773645157 -0.032084973981826234 1;
+		 -0.0036563335221089059 33.102676773645157 -0.032084973981826234 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "L_Clavical_Jnt" -p "Spine_04_Jnt";
 	rename -uid "E85A71DC-4AC6-DFE2-EA75-6B9FAC1F9865";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23199,9 +23291,8 @@ createNode joint -n "L_Clavical_Jnt" -p "Spine_04_Jnt";
 	setAttr ".jo" -type "double3" 90.320843083635154 72.416764019370632 87.316305734242903 ;
 	setAttr ".bps" -type "matrix" 0.95325174516623379 -4.4174733315749393e-015 -0.30217728296073132 0
 		 -0.30217728296073143 -1.7227972520794665e-016 -0.95325174516623368 0 4.1722268001587182e-015 1.0000000000000002 -1.5145022418196387e-015 0
-		 0.7610970409764084 31.556797801748029 2.7755575615628914e-017 1;
+		 0.76109704097640485 31.556797801748029 2.7755575615628914e-017 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "L_Shoulder_Jnt" -p "L_Clavical_Jnt";
 	rename -uid "C276114F-4A08-1B9A-3E45-889C8F8D9301";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23212,9 +23303,8 @@ createNode joint -n "L_Shoulder_Jnt" -p "L_Clavical_Jnt";
 	setAttr ".jo" -type "double3" 1.4258405825061578e-013 44.454342406584381 -17.588422820076438 ;
 	setAttr ".bps" -type "matrix" 0.7138087599382279 -0.7003406701280811 1.0051563637151844e-015 0
 		 -1.6653345369377348e-016 -1.4990860375980388e-015 -0.99999999999999989 0 0.70034067012808099 0.7138087599382279 -1.1365761183882045e-015 0
-		 2.7890880675375063 31.556797801748022 -0.64286566626543307 1;
+		 2.7890880675375027 31.556797801748022 -0.64286566626543307 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "L_Elbow_Jnt" -p "L_Shoulder_Jnt";
 	rename -uid "307984F7-4FC6-984E-FB14-BA944279A3D4";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23225,9 +23315,8 @@ createNode joint -n "L_Elbow_Jnt" -p "L_Shoulder_Jnt";
 	setAttr ".jo" -type "double3" 1.8084313757315309 3.1138139462731527 -1.7431475644342753 ;
 	setAttr ".bps" -type "matrix" 0.67438286224502553 -0.73775685123546508 0.030374060731802436 0
 		 0.04499417331143786 1.9428902930940239e-016 -0.99898724935207261 0 0.73700968750636331 0.67506653631707469 0.033194759626189362 0
-		 5.3181121712489841 29.075491133955605 -0.64286566626542951 1;
+		 5.3181121712489805 29.075491133955605 -0.64286566626542951 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "L_Wrist_Jnt" -p "L_Elbow_Jnt";
 	rename -uid "C7A9A10C-4790-089E-9BF6-048F4479D54C";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23236,9 +23325,8 @@ createNode joint -n "L_Wrist_Jnt" -p "L_Elbow_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" 0.67438286224502553 -0.73775685123546508 0.030374060731802436 0
 		 0.04499417331143786 1.9428902930940239e-016 -0.99898724935207261 0 0.73700968750636331 0.67506653631707469 0.033194759626189362 0
-		 8.2405492917373184 25.878422927376906 -0.51123971971174309 1;
+		 8.2405492917373149 25.878422927376906 -0.51123971971174309 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "L_Hand_Jnt" -p "L_Wrist_Jnt";
 	rename -uid "EA3D6B16-4C65-07A7-FAF4-00BD41D5F7EA";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23246,10 +23334,10 @@ createNode joint -n "L_Hand_Jnt" -p "L_Wrist_Jnt";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 88.097713856456991 0.24258696553269063 1.7334761402883685 ;
-	setAttr ".bps" -type "matrix" 0.67230881988370828 -0.74027079552456709 0 0 0.74027079552456709 0.67230881988370828 0 0
-		 0 0 1 0 8.2405492917373184 25.878422927376906 -0.5112397197117432 1;
+	setAttr ".bps" -type "matrix" 0.67230881988370839 -0.74027079552456732 -5.4210108624275222e-018 0
+		 0.74027079552456709 0.67230881988370861 5.134781488891349e-016 0 -3.4694469519536142e-016 -4.1286418728248009e-016 1 0
+		 8.2405492917373095 25.87842292737691 -0.51123971971174342 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_Thumb_01_Jnt" -p "L_Hand_Jnt";
 	rename -uid "3C387954-4FA7-42DC-FAF6-7E939FF04030";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23258,11 +23346,10 @@ createNode joint -n "L_Thumb_01_Jnt" -p "L_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 50.623992185055968 -42.44326842284871 8.3243820840675919 ;
-	setAttr ".bps" -type "matrix" 0.56998938322195214 -0.46869635509192353 0.67485985933214621 0
-		 -2.7755575615628914e-016 0.82134506140623909 0.57043166996896444 0 -0.82165205714722012 -0.32513999573587821 0.4681579649633385 0
-		 8.5788510436860559 25.516616532074927 -0.091310768371537454 1;
+	setAttr ".bps" -type "matrix" 0.56998938322195192 -0.46869635509192398 0.67485985933214621 0
+		 -5.3097514925471034e-016 0.8213450614062392 0.57043166996896477 0 -0.82165205714722023 -0.32513999573587865 0.46815796496333806 0
+		 8.578851043686047 25.516616532074931 -0.091310768371537676 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_Thumb_02_Jnt" -p "L_Thumb_01_Jnt";
 	rename -uid "E7F1CB27-46E1-70E6-E6C3-389C169CA24E";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23271,22 +23358,20 @@ createNode joint -n "L_Thumb_02_Jnt" -p "L_Thumb_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -7.6951453740067706 -10.591409246573857 12.457144043999675 ;
-	setAttr ".bps" -type "matrix" 0.39606523347684164 -0.33547364225153781 0.85474543940603875 0
-		 -1.0130785099704553e-015 0.93086975686018203 0.36535119510282926 0 -0.91822237547934704 -0.14470290638944588 0.36868514758735849 0
-		 8.8589744567871094 25.286273956298828 0.24035163223743378 1;
+	setAttr ".bps" -type "matrix" 0.39606523347684142 -0.33547364225153825 0.85474543940603875 0
+		 -1.2073675392798577e-015 0.93086975686018225 0.36535119510282965 0 -0.91822237547934704 -0.14470290638944622 0.3686851475873581 0
+		 8.8589744567871005 25.286273956298832 0.24035163223743355 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_Thumb_03_Jnt" -p "L_Thumb_02_Jnt";
 	rename -uid "457CFB8D-436C-1FF3-7FBC-91B0A15BA6B3";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.51359183657910434 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 0.39606523347684164 -0.33547364225153781 0.85474543940603875 0
-		 -1.0130785099704553e-015 0.93086975686018203 0.36535119510282926 0 -0.91822237547934704 -0.14470290638944588 0.36868514758735849 0
-		 9.0623903274536115 25.11397743225098 0.67934191226959473 1;
+	setAttr ".bps" -type "matrix" 0.39606523347684142 -0.33547364225153825 0.85474543940603875 0
+		 -1.2073675392798577e-015 0.93086975686018225 0.36535119510282965 0 -0.91822237547934704 -0.14470290638944622 0.3686851475873581 0
+		 9.0623903274536026 25.113977432250984 0.67934191226959451 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_Pinky_01_Jnt" -p "L_Hand_Jnt";
 	rename -uid "81BD8456-4029-EBEE-1841-D087B8F3EE9B";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23295,11 +23380,10 @@ createNode joint -n "L_Pinky_01_Jnt" -p "L_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 0 16.736929435880882 8.3093710272209904 ;
-	setAttr ".bps" -type "matrix" 0.73951945219405768 -0.60842399504111788 -0.28797781526500699 0
-		 0.63533880155780731 0.77223351859077516 -3.4694469519536142e-018 0 0.22238612155818061 -0.1829634800257052 0.9576370804825769 0
-		 9.369517326354984 24.880939483642578 -1.0942507982254028 1;
+	setAttr ".bps" -type "matrix" 0.7395194521940579 -0.60842399504111788 -0.28797781526500693 0
+		 0.63533880155780731 0.77223351859077549 5.0540172724130389e-016 0 0.2223861215581803 -0.18296348002570564 0.9576370804825769 0
+		 9.3695173263549769 24.880939483642582 -1.0942507982254031 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_Pinky_02_Jnt" -p "L_Pinky_01_Jnt";
 	rename -uid "A21F2969-4777-4EF7-1BFC-C88D9BAA4F20";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23308,22 +23392,20 @@ createNode joint -n "L_Pinky_02_Jnt" -p "L_Pinky_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -1.0319517308344126 -2.6497447776174172 3.4780987986385457 ;
-	setAttr ".bps" -type "matrix" 0.786151933573492 -0.56831344587258947 -0.24286820413360616 0
-		 0.58585433789576857 0.81041637123685417 1.2420620087993939e-015 0 0.19682436868276795 -0.14228539092862921 0.9700592947964144 0
-		 9.6482744216918981 24.651597976684574 -1.2028021812438965 1;
+	setAttr ".bps" -type "matrix" 0.78615193357349222 -0.56831344587258936 -0.24286820413360605 0
+		 0.58585433789576857 0.8104163712368545 1.7451318168326679e-015 0 0.19682436868276765 -0.14228539092862966 0.9700592947964144 0
+		 9.648274421691891 24.651597976684577 -1.2028021812438965 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_Pinky_03_Jnt" -p "L_Pinky_02_Jnt";
 	rename -uid "1939ABB1-491D-A325-7AED-FFB3653F83D2";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.35604117504183691 1.4240182383967737e-015 4.3021142204224816e-016 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 0.786151933573492 -0.56831344587258947 -0.24286820413360616 0
-		 0.58585433789576857 0.81041637123685417 1.2420620087993939e-015 0 0.19682436868276795 -0.14228539092862921 0.9700592947964144 0
-		 9.9281768798828178 24.449254989624023 -1.289273262023926 1;
+	setAttr ".bps" -type "matrix" 0.78615193357349222 -0.56831344587258936 -0.24286820413360605 0
+		 0.58585433789576857 0.8104163712368545 1.7451318168326679e-015 0 0.19682436868276765 -0.14228539092862966 0.9700592947964144 0
+		 9.9281768798828107 24.449254989624027 -1.2892732620239258 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_RFinger_01_Jnt" -p "L_Hand_Jnt";
 	rename -uid "6855BCF9-4F78-26B1-C13C-35A719F84E19";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23332,11 +23414,10 @@ createNode joint -n "L_RFinger_01_Jnt" -p "L_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 0 6.7369759861450715 12.154714318702826 ;
-	setAttr ".bps" -type "matrix" 0.80748870184596622 -0.57810031245433069 -0.11731165812195042 0
-		 0.58211976270890486 0.81310305734496435 0 0 0.095386467881165116 -0.06828943458893795 0.99309514895033024 0
-		 9.5025796890258807 24.893888473510746 -0.79230409860610973 1;
+	setAttr ".bps" -type "matrix" 0.80748870184596644 -0.57810031245433091 -0.11731165812195032 0
+		 0.58211976270890475 0.81310305734496469 5.0310871818318928e-016 0 0.095386467881164783 -0.06828943458893838 0.99309514895033024 0
+		 9.5025796890258718 24.893888473510749 -0.79230409860610984 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_RFinger_02_Jnt" -p "L_RFinger_01_Jnt";
 	rename -uid "CA77ECD6-4888-6D16-6E30-618B5E8F2DB1";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23345,22 +23426,20 @@ createNode joint -n "L_RFinger_02_Jnt" -p "L_RFinger_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 0.052674874838889628 -0.21762373141542105 -0.44611763036274538 ;
-	setAttr ".bps" -type "matrix" 0.80328826627194105 -0.58466888953156215 -0.11353524071295658 0
-		 0.58847398006756435 0.8085161561672346 -1.4280026813806579e-014 0 0.091795076410769713 -0.066812534980271052 0.99353396978475328 0
-		 9.8923330307006854 24.61485481262207 -0.84892731904983587 1;
+	setAttr ".bps" -type "matrix" 0.80328826627194128 -0.58466888953156249 -0.11353524071295648 0
+		 0.58847398006756424 0.80851615616723493 -1.3776198064252565e-014 0 0.09179507641076938 -0.066812534980271482 0.99353396978475328 0
+		 9.8923330307006765 24.614854812622074 -0.84892731904983587 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_RFinger_03_Jnt" -p "L_RFinger_02_Jnt";
 	rename -uid "E7CC0D32-4F2D-0C64-47AE-19ACD1115382";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.44402124409737215 0 1.1631320906424492e-015 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 0.80328826627194105 -0.58466888953156215 -0.11353524071295658 0
-		 0.58847398006756435 0.8085161561672346 -1.4280026813806579e-014 0 0.091795076410769713 -0.066812534980271052 0.99353396978475328 0
-		 10.249010086059574 24.355249404907237 -0.89933937788009632 1;
+	setAttr ".bps" -type "matrix" 0.80328826627194128 -0.58466888953156249 -0.11353524071295648 0
+		 0.58847398006756424 0.80851615616723493 -1.3776198064252565e-014 0 0.09179507641076938 -0.066812534980271482 0.99353396978475328 0
+		 10.249010086059565 24.355249404907241 -0.89933937788009621 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_MFinger_01_Jnt" -p "L_Hand_Jnt";
 	rename -uid "577F1F2E-48E0-D1A6-BE15-F8A2A0209761";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23369,11 +23448,10 @@ createNode joint -n "L_MFinger_01_Jnt" -p "L_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 0 0.14673890698638811 13.248567507798347 ;
-	setAttr ".bps" -type "matrix" 0.82406495070794106 -0.56648953910316158 -0.0025610742679576136 0
-		 0.56649139694346717 0.82406765328402432 0 0 0.0021104984618819309 -0.0014508265397312761 0.9999967204439193 0
-		 9.5896816253662145 24.91205978393555 -0.43239477276802074 1;
+	setAttr ".bps" -type "matrix" 0.82406495070794117 -0.56648953910316169 -0.0025610742679575012 0
+		 0.56649139694346717 0.82406765328402476 5.0105428796264754e-016 0 0.0021104984618815843 -0.0014508265397316891 0.9999967204439193 0
+		 9.5896816253662056 24.912059783935554 -0.4323947727680208 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_MFinger_02_Jnt" -p "L_MFinger_01_Jnt";
 	rename -uid "05DD4D97-4329-5A2C-0105-14B29075B1CE";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23382,22 +23460,20 @@ createNode joint -n "L_MFinger_02_Jnt" -p "L_MFinger_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 0.0072767291466586245 -0.079646236865085082 -2.8424439116230618 ;
-	setAttr ".bps" -type "matrix" 0.79496113498982601 -0.60665923714465775 -0.0011678367820309153 0
-		 0.60665965083898066 0.79496167709137155 -1.4512851911983177e-012 0 0.00092838548769272203 -0.00070847945327007873 0.99999931807839282 0
-		 10.136878967285158 24.535898208618171 -0.43409538269042974 1;
+	setAttr ".bps" -type "matrix" 0.79496113498982612 -0.60665923714465786 -0.0011678367820308277 0
+		 0.60665965083898066 0.794961677091372 -1.4507791669393644e-012 0 0.00092838548769237552 -0.00070847945327049159 0.99999931807839282 0
+		 10.136878967285149 24.535898208618175 -0.43409538269042974 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_MFinger_03_Jnt" -p "L_MFinger_02_Jnt";
 	rename -uid "B588053F-40A8-460D-5C66-6991CD2F130F";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.44324390661143609 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 0.79496113498982601 -0.60665923714465775 -0.0011678367820309153 0
-		 0.60665965083898066 0.79496167709137155 -1.4512851911983177e-012 0 0.00092838548769272203 -0.00070847945327007873 0.99999931807839282 0
-		 10.48924064636231 24.267000198364258 -0.43461301922798168 1;
+	setAttr ".bps" -type "matrix" 0.79496113498982612 -0.60665923714465786 -0.0011678367820308277 0
+		 0.60665965083898066 0.794961677091372 -1.4507791669393644e-012 0 0.00092838548769237552 -0.00070847945327049159 0.99999931807839282 0
+		 10.489240646362301 24.267000198364261 -0.43461301922798162 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_PFinger_01_Jnt" -p "L_Hand_Jnt";
 	rename -uid "227B4B8A-42B6-DA8F-884A-4695B02D3FFC";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23406,11 +23482,10 @@ createNode joint -n "L_PFinger_01_Jnt" -p "L_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 0 -7.3727170577985062 11.08803281998153 ;
-	setAttr ".bps" -type "matrix" 0.79549372541078034 -0.5922185790164215 0.12832337082483611 0
-		 0.59715563520233683 0.80212539377960945 0 0 -0.10293143435399853 0.076629024016210037 0.9917323794755073 0
-		 9.5694246292114276 24.899694442749027 -0.081107802689075581 1;
+	setAttr ".bps" -type "matrix" 0.79549372541078045 -0.59221857901642161 0.12832337082483619 0
+		 0.59715563520233683 0.80212539377960979 5.0493552988531865e-016 0 -0.10293143435399889 0.076629024016209649 0.9917323794755073 0
+		 9.5694246292114187 24.899694442749031 -0.081107802689075637 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_PFinger_02_Jnt" -p "L_PFinger_01_Jnt";
 	rename -uid "475DEF02-42C0-843D-1119-47B254842D77";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23419,22 +23494,20 @@ createNode joint -n "L_PFinger_02_Jnt" -p "L_PFinger_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 0.072523425834389338 0.97901944917114203 0.56165550720110891 ;
-	setAttr ".bps" -type "matrix" 0.80295091057015688 -0.5855512302761825 0.11135345498279405 0
-		 0.58921564177099883 0.80797582110629396 -3.2824654452867641e-014 0 -0.089970899222726539 0.065611197441131378 0.99378086521294773 0
-		 9.9433841705322319 24.621294021606449 -0.02078331820666799 1;
+	setAttr ".bps" -type "matrix" 0.80295091057015699 -0.58555123027618261 0.11135345498279413 0
+		 0.58921564177099883 0.80797582110629429 -3.2320500442661881e-014 0 -0.089970899222726899 0.065611197441130989 0.99378086521294773 0
+		 9.943384170532223 24.621294021606452 -0.020783318206668011 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "L_PFinger_03_Jnt" -p "L_PFinger_02_Jnt";
 	rename -uid "A2846807-4323-DFE6-C6CD-DFA9FA391F9D";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.44394174988716567 8.2201633737691293e-015 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" 0.80295091057015688 -0.5855512302761825 0.11135345498279405 0
-		 0.58921564177099883 0.80797582110629396 -3.2824654452867641e-014 0 -0.089970899222726539 0.065611197441131378 0.99378086521294773 0
-		 10.299847602844245 24.361343383789066 0.028651129454375326 1;
+	setAttr ".bps" -type "matrix" 0.80295091057015699 -0.58555123027618261 0.11135345498279413 0
+		 0.58921564177099883 0.80797582110629429 -3.2320500442661881e-014 0 -0.089970899222726899 0.065611197441130989 0.99378086521294773 0
+		 10.299847602844237 24.36134338378907 0.02865112945437534 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Clavical_Jnt" -p "Spine_04_Jnt";
 	rename -uid "022F1DDA-4C70-0F3B-1A4B-C3988F4D6EFE";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23445,9 +23518,8 @@ createNode joint -n "R_Clavical_Jnt" -p "Spine_04_Jnt";
 	setAttr ".jo" -type "double3" -89.679349114209046 -72.405880610877105 86.704800764588498 ;
 	setAttr ".bps" -type "matrix" -0.9532517846803944 -3.9343528435153985e-015 -0.30217715830890263 0
 		 0.30217715830890274 3.4163210455018245e-016 -0.95325178468039407 0 3.9326181200394217e-015 -1.0000000000000004 8.6841483816985706e-016 0
-		 -0.76109699999999991 31.556799999999999 -6.9388939039072284e-017 1;
+		 -0.76109700000000347 31.556799999999999 -6.9388939039072284e-017 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "R_Shoulder_Jnt" -p "R_Clavical_Jnt";
 	rename -uid "4926A1E8-45E9-6C5F-3000-15B357517C33";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23458,9 +23530,8 @@ createNode joint -n "R_Shoulder_Jnt" -p "R_Clavical_Jnt";
 	setAttr ".jo" -type "double3" -3.5645995950270536e-014 -44.454311914542096 -17.588415327802085 ;
 	setAttr ".bps" -type "matrix" -0.71380913265000068 -0.70034029024857236 -2.7999251988008326e-016 0
 		 1.2212453270876722e-015 -8.4933236086363408e-016 -1 0 0.70034029024857236 -0.71380913265000079 1.4803052864989149e-015 0
-		 -2.7890899999999998 31.556799999999992 -0.64286600000000027 1;
+		 -2.7890900000000034 31.556799999999992 -0.64286600000000027 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "R_Elbow_Jnt" -p "R_Shoulder_Jnt";
 	rename -uid "F7589B88-4317-B6F8-8E64-6C8957E4C5EA";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23471,9 +23542,8 @@ createNode joint -n "R_Elbow_Jnt" -p "R_Shoulder_Jnt";
 	setAttr ".jo" -type "double3" -1.8084298399532943 -3.1140999517505157 -1.7431385259863792 ;
 	setAttr ".bps" -type "matrix" -0.67437957406861848 -0.73775986376274139 0.030373895038513881 0
 		 -0.044994147300684857 -8.3266726846886741e-016 -0.99898725052359105 0 0.73701269784700019 -0.6750632440155383 -0.033194875982673372 0
-		 -5.3181099999999972 29.075499999999998 -0.64286600000000138 1;
+		 -5.3181100000000008 29.075499999999998 -0.64286600000000138 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "R_Wrist_Jnt" -p "R_Elbow_Jnt";
 	rename -uid "4D6BE315-4197-A505-3985-38982CEF14FC";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23482,9 +23552,8 @@ createNode joint -n "R_Wrist_Jnt" -p "R_Elbow_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".bps" -type "matrix" -0.67437957406861848 -0.73775986376274139 0.030373895038513881 0
 		 -0.044994147300684857 -8.3266726846886741e-016 -0.99898725052359105 0 0.73701269784700019 -0.6750632440155383 -0.033194875982673372 0
-		 -8.2405499999999954 25.878399999999992 -0.51124000000000358 1;
+		 -8.2405499999999989 25.878399999999992 -0.51124000000000358 1;
 	setAttr ".radi" 0.5;
-	setAttr ".liw" yes;
 createNode joint -n "R_Hand_Jnt" -p "R_Wrist_Jnt";
 	rename -uid "2628390D-4A75-F8E5-A9E7-6AA60028E5A7";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23492,10 +23561,10 @@ createNode joint -n "R_Hand_Jnt" -p "R_Wrist_Jnt";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 88.097706368137125 0.24233136257543145 -178.2665248948604 ;
-	setAttr ".bps" -type "matrix" 0.67230881988370839 0.74027079552456709 0 0 0.74027079552456709 -0.67230881988370839 1.4901161316312335e-008 0
-		 1.1030894541866437e-008 -1.0018182179466713e-008 -1 0 -8.2405500000000007 25.878399999999999 -0.51124000000000003 1;
+	setAttr ".bps" -type "matrix" 0.67230881988370872 0.74027079552456732 8.9636414610239079e-017 0
+		 0.7402707955245672 -0.67230881988370883 1.4901161339564428e-008 0 1.1030894458280427e-008 -1.0018181985371744e-008 -0.99999999999999989 0
+		 -8.2405499999999989 25.878400000000003 -0.51124000000000025 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Thumb_01_Jnt" -p "R_Hand_Jnt";
 	rename -uid "4B568E23-4E8A-02C0-75F1-88A02922E3A6";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23504,11 +23573,10 @@ createNode joint -n "R_Thumb_01_Jnt" -p "R_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -50.623993329825687 42.44326854645572 -171.67561868849137 ;
-	setAttr ".bps" -type "matrix" -0.56998938322195669 -0.46869635509191854 0.67485985933214621 0
-		 1.0474927985272687e-016 0.8213450614062423 0.57043166996896022 0 -0.82165205714721734 0.3251399957358786 -0.46815796496334372 0
-		 -8.5788499999999974 25.5166 -0.091310799999999914 1;
+	setAttr ".bps" -type "matrix" -0.56998938322195691 -0.4686963550919187 0.67485985933214609 0
+		 2.6345168978318835e-016 0.82134506140624242 0.57043166996896011 0 -0.82165205714721756 0.32513999573587893 -0.46815796496334372 0
+		 -8.5788499999999956 25.516600000000004 -0.091310800000000247 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Thumb_02_Jnt" -p "R_Thumb_01_Jnt";
 	rename -uid "351ED6B6-4FB7-BDD9-1122-138BD653F608";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23517,22 +23585,20 @@ createNode joint -n "R_Thumb_02_Jnt" -p "R_Thumb_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 7.6949062738545182 10.591084120135571 12.456717077006237 ;
-	setAttr ".bps" -type "matrix" -0.39607129763698729 -0.33547873651978605 0.85474062997569122 0
-		 3.1918911957973251e-016 0.93086717085249282 0.36535778386271817 0 -0.91821975974608261 0.14470773155628114 -0.3686897682872175 0
-		 -8.8589610836553128 25.286267562599196 0.24033700270896735 1;
+	setAttr ".bps" -type "matrix" -0.39607129763698734 -0.33547873651978621 0.85474062997569111 0
+		 4.8572257327350599e-016 0.93086717085249304 0.36535778386271806 0 -0.91821975974608294 0.14470773155628142 -0.36868976828721756 0
+		 -8.858961083655311 25.2862675625992 0.24033700270896696 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Thumb_03_Jnt" -p "R_Thumb_02_Jnt";
 	rename -uid "584D51F5-4950-8148-77C4-73814AAE1038";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.51359439882070068 4.9527430748805313e-015 1.5452972628175916e-016 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" -0.39607129763698729 -0.33547873651978605 0.85474062997569122 0
-		 3.1918911957973251e-016 0.93086717085249282 0.36535778386271817 0 -0.91821975974608261 0.14470773155628114 -0.3686897682872175 0
-		 -9.0623810836553158 25.113967562599193 0.67932700270896129 1;
+	setAttr ".bps" -type "matrix" -0.39607129763698734 -0.33547873651978621 0.85474062997569111 0
+		 4.8572257327350599e-016 0.93086717085249304 0.36535778386271806 0 -0.91821975974608294 0.14470773155628142 -0.36868976828721756 0
+		 -9.062381083655314 25.113967562599196 0.67932700270896085 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Pinky_01_Jnt" -p "R_Hand_Jnt";
 	rename -uid "02A7101A-40E5-8135-90CB-8E8E2005D640";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23541,11 +23607,10 @@ createNode joint -n "R_Pinky_01_Jnt" -p "R_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -8.8217837849320507e-007 -16.738122226953337 -171.6862562333871 ;
-	setAttr ".bps" -type "matrix" -0.7395612508771725 -0.60836374825520334 -0.28799775348059825 0
-		 -0.6352798638495657 0.7722820045729909 -1.4744566998431795e-008 0 0.22241549134057451 0.18295916271562476 -0.95763108449450851 0
-		 -9.3695199999999979 24.8809 -1.0942499999999997 1;
+	setAttr ".bps" -type "matrix" -0.73956125087717295 -0.60836374825520334 -0.28799775348059831 0
+		 -0.6352798638495657 0.77228200457299145 -1.4744567008478687e-008 0 0.22241549134057453 0.18295916271562504 -0.9576310844945084 0
+		 -9.3695199999999979 24.880900000000004 -1.0942500000000002 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Pinky_02_Jnt" -p "R_Pinky_01_Jnt";
 	rename -uid "532EBA4E-4690-B4E3-1AD3-B8862F991726";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23554,22 +23619,20 @@ createNode joint -n "R_Pinky_02_Jnt" -p "R_Pinky_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" 1.0326386779188617 2.650321607212426 3.4801695967473947 ;
-	setAttr ".bps" -type "matrix" -0.78621454518467315 -0.56822265189113275 -0.24287796692550351 0
-		 -0.58576221754863522 0.81048295755833466 2.4043267377038546e-015 0 0.1968484529595361 0.14226873649998883 -0.97005685048977119 0
-		 -9.6482700000000019 24.651599999999995 -1.2028000000000008 1;
+	setAttr ".bps" -type "matrix" -0.7862145451846736 -0.56822265189113264 -0.24287796692550356 0
+		 -0.58576221754863522 0.81048295755833522 2.400857290751901e-015 0 0.1968484529595361 0.14226873649998911 -0.97005685048977108 0
+		 -9.6482700000000019 24.651599999999998 -1.2028000000000014 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_Pinky_03_Jnt" -p "R_Pinky_02_Jnt";
 	rename -uid "BB843A43-4DA8-CF67-499D-CBAE76A122EC";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.35602241362025899 1.1592631437467943e-015 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" -0.78621454518467315 -0.56822265189113275 -0.24287796692550351 0
-		 -0.58576221754863522 0.81048295755833466 2.4043267377038546e-015 0 0.1968484529595361 0.14226873649998883 -0.97005685048977119 0
-		 -9.9281800000000047 24.449300000000012 -1.2892699999999999 1;
+	setAttr ".bps" -type "matrix" -0.7862145451846736 -0.56822265189113264 -0.24287796692550356 0
+		 -0.58576221754863522 0.81048295755833522 2.400857290751901e-015 0 0.1968484529595361 0.14226873649998911 -0.97005685048977108 0
+		 -9.9281800000000047 24.449300000000015 -1.2892700000000006 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_RFinger_01_Jnt" -p "R_Hand_Jnt";
 	rename -uid "3624AA1D-4A7B-D7F8-9503-16B2902440C7";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23578,11 +23641,10 @@ createNode joint -n "R_RFinger_01_Jnt" -p "R_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -8.4042827650523494e-007 -6.7372605255500781 -167.84224643856524 ;
-	setAttr ".bps" -type "matrix" -0.80751889089548934 -0.5780571406282089 -0.11731659309602444 0
-		 -0.58207663100704643 0.81313393462300332 -1.4566949827018178e-008 0 0.095394111361265577 0.068287235507471261 -0.99309456598268719 0
-		 -9.50258 24.893900000000002 -0.7923039999999999 1;
+	setAttr ".bps" -type "matrix" -0.80751889089548967 -0.5780571406282089 -0.1173165930960245 0
+		 -0.58207663100704654 0.81313393462300376 -1.4566949830870969e-008 0 0.095394111361265535 0.068287235507471469 -0.99309456598268708 0
+		 -9.50258 24.893900000000006 -0.79230400000000012 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_RFinger_02_Jnt" -p "R_RFinger_01_Jnt";
 	rename -uid "32922630-44AE-22D8-CBDB-98B887FC60A1";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23591,22 +23653,20 @@ createNode joint -n "R_RFinger_02_Jnt" -p "R_RFinger_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -0.05426286762780598 0.21863542078594539 -0.45954127827341185 ;
-	setAttr ".bps" -type "matrix" -0.80318258659183206 -0.58481654677406281 -0.11352241723516586 0
-		 -0.58862173015441499 0.80840859643501017 -6.1561433034595936e-014 0 0.091772497981026033 0.06682176164422525 -0.99353543509282305 0
-		 -9.8923299999999994 24.614899999999999 -0.8489270000000001 1;
+	setAttr ".bps" -type "matrix" -0.80318258659183239 -0.58481654677406281 -0.11352241723516593 0
+		 -0.5886217301544151 0.80840859643501062 -6.1565986683720375e-014 0 0.091772497981025991 0.066821761644225458 -0.99353543509282294 0
+		 -9.8923299999999994 24.614900000000002 -0.84892700000000032 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_RFinger_03_Jnt" -p "R_RFinger_02_Jnt";
 	rename -uid "7CE13DBE-4887-2D58-4065-17AE8941C64C";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.44407088245459064 1.0760889638391488e-014 1.4040435074346228e-015 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" -0.80318258659183206 -0.58481654677406281 -0.11352241723516586 0
-		 -0.58862173015441499 0.80840859643501017 -6.1561433034595936e-014 0 0.091772497981026033 0.06682176164422525 -0.99353543509282305 0
-		 -10.249000000000001 24.355200000000004 -0.89933899999999978 1;
+	setAttr ".bps" -type "matrix" -0.80318258659183239 -0.58481654677406281 -0.11352241723516593 0
+		 -0.5886217301544151 0.80840859643501062 -6.1565986683720375e-014 0 0.091772497981025991 0.066821761644225458 -0.99353543509282294 0
+		 -10.249000000000001 24.355200000000007 -0.89933900000000011 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_MFinger_01_Jnt" -p "R_Hand_Jnt";
 	rename -uid "5E97EAFB-435C-8959-5029-CAAE08A22EA9";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23615,11 +23675,10 @@ createNode joint -n "R_MFinger_01_Jnt" -p "R_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -8.3105891998315212e-007 -0.14667715106085652 -166.75305706862304 ;
-	setAttr ".bps" -type "matrix" -0.82404889026077177 -0.56651290617319672 -0.0025599998418247396 0
-		 -0.56651476250098387 0.82405159053814991 -1.4504663560795146e-008 0 0.0021095801585121949 0.001450265749841987 -0.99999672319503619 0
-		 -9.5896799999999995 24.912099999999999 -0.43239499999999986 1;
+	setAttr ".bps" -type "matrix" -0.8240488902607721 -0.56651290617319672 -0.0025599998418248319 0
+		 -0.56651476250098398 0.82405159053815036 -1.4504663562888491e-008 0 0.0021095801585121121 0.001450265749842181 -0.99999672319503607 0
+		 -9.5896799999999978 24.912100000000002 -0.43239500000000025 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_MFinger_02_Jnt" -p "R_MFinger_01_Jnt";
 	rename -uid "1C22FC36-4747-14C9-70E4-DAA87E2CDA7E";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23628,22 +23687,20 @@ createNode joint -n "R_MFinger_02_Jnt" -p "R_MFinger_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -0.0072832439407854895 0.079530068837040807 -2.8458611911159455 ;
-	setAttr ".bps" -type "matrix" -0.79490774673062758 -0.60672918846400414 -0.0011687828918719181 0
-		 -0.60672960287667788 0.79490828967441884 -8.3873785195788531e-013 0 0.00092907521008751414 0.0007091351791677844 -0.99999931697304267 0
-		 -10.136900000000002 24.535900000000002 -0.4340949999999999 1;
+	setAttr ".bps" -type "matrix" -0.79490774673062792 -0.60672918846400414 -0.0011687828918720104 0
+		 -0.60672960287667799 0.79490828967441929 -8.387445469063004e-013 0 0.00092907521008743087 0.00070913517916797847 -0.99999931697304256 0
+		 -10.136900000000001 24.535900000000005 -0.43409500000000034 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_MFinger_03_Jnt" -p "R_MFinger_02_Jnt";
 	rename -uid "0F4672E0-4010-4E4E-5C0E-EE986C6AD1D2";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.4431960833807066 2.3569848142240983e-018 9.2621993991073674e-018 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" -0.79490774673062758 -0.60672918846400414 -0.0011687828918719181 0
-		 -0.60672960287667788 0.79490828967441884 -8.3873785195788531e-013 0 0.00092907521008751414 0.0007091351791677844 -0.99999931697304267 0
-		 -10.489199999999999 24.266999999999999 -0.43461299999999992 1;
+	setAttr ".bps" -type "matrix" -0.79490774673062792 -0.60672918846400414 -0.0011687828918720104 0
+		 -0.60672960287667799 0.79490828967441929 -8.387445469063004e-013 0 0.00092907521008743087 0.00070913517916797847 -0.99999931697304256 0
+		 -10.489199999999997 24.267000000000003 -0.43461300000000042 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_PFinger_01_Jnt" -p "R_Hand_Jnt";
 	rename -uid "BE0CA3A5-4B47-7119-0E62-B99E6C70667E";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23652,11 +23709,10 @@ createNode joint -n "R_PFinger_01_Jnt" -p "R_Hand_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -8.4482057198047327e-007 7.3727172766564619 -168.91189211104896 ;
-	setAttr ".bps" -type "matrix" -0.79549450235762975 -0.59221753518121689 0.12832337177097469 0
-		 -0.59715458425658485 0.80212617617264281 -1.462299540794303e-008 0 -0.10293152685223804 -0.076628901352811973 -0.99173237935308345 0
-		 -9.5694199999999991 24.899699999999999 -0.081107799999999897 1;
+	setAttr ".bps" -type "matrix" -0.79549450235763008 -0.59221753518121723 0.12832337177097455 0
+		 -0.59715458425658485 0.80212617617264337 -1.4622995413522345e-008 0 -0.10293152685223816 -0.076628901352811793 -0.99173237935308334 0
+		 -9.5694199999999991 24.899700000000003 -0.081107800000000341 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_PFinger_02_Jnt" -p "R_PFinger_01_Jnt";
 	rename -uid "A518707A-4AD1-540B-C051-2A83703883A8";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
@@ -23665,39 +23721,37 @@ createNode joint -n "R_PFinger_02_Jnt" -p "R_PFinger_01_Jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -0.071423351192818674 -0.97894999826460072 0.55312912975377959 ;
-	setAttr ".bps" -type "matrix" -0.80286387454262653 -0.5856702973475717 0.11135484614155383 0
-		 -0.5893355464115817 0.80788836712491585 -4.2150311019284459e-014 0 -0.089962284820721439 -0.065625369096444036 -0.9937807093321902 0
-		 -9.9433799999999941 24.621300000000002 -0.020783300000000234 1;
+	setAttr ".bps" -type "matrix" -0.80286387454262687 -0.58567029734757203 0.11135484614155371 0
+		 -0.5893355464115817 0.80788836712491641 -4.2154647827974401e-014 0 -0.08996228482072155 -0.065625369096443842 -0.99378070933219009 0
+		 -9.9433799999999941 24.621300000000005 -0.02078330000000074 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode joint -n "R_PFinger_03_Jnt" -p "R_PFinger_02_Jnt";
 	rename -uid "DABD4F22-4893-0EAF-811C-9AB72451658C";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".t" -type "double3" 0.44393577948095381 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".bps" -type "matrix" -0.80286387454262653 -0.5856702973475717 0.11135484614155383 0
-		 -0.5893355464115817 0.80788836712491585 -4.2150311019284459e-014 0 -0.089962284820721439 -0.065625369096444036 -0.9937807093321902 0
-		 -10.299799999962174 24.361300000028166 0.028651100420832146 1;
+	setAttr ".bps" -type "matrix" -0.80286387454262687 -0.58567029734757203 0.11135484614155371 0
+		 -0.5893355464115817 0.80788836712491641 -4.2154647827974401e-014 0 -0.08996228482072155 -0.065625369096443842 -0.99378070933219009 0
+		 -10.299799999962174 24.361300000028169 0.028651100420831584 1;
 	setAttr ".radi" 0.25;
-	setAttr ".liw" yes;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "99B9F903-46A5-3F3A-B4B0-E7B7C2F0B12B";
+	rename -uid "236AC514-44B3-2402-6285-FDBFAC533DFD";
 	setAttr -s 25 ".lnk";
 	setAttr -s 25 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "C64AABDB-4856-E4D2-0B0A-CEAAB65B9702";
+	rename -uid "C035EE08-4FC9-E577-86AB-AE937E63B365";
 	setAttr ".bsdt[0].bscd" -type "Int32Array" 1 0 ;
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "9B07CE34-4A61-E19C-632F-E985B84D06F9";
+	rename -uid "40813497-409F-8031-820A-29B297B307C5";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "269FFDF4-4098-9E34-8154-7FB23D25B6DC";
+	rename -uid "28858151-4F20-3292-11F8-AF895EED340B";
 	setAttr ".cdl" 4;
 	setAttr -s 3 ".dli[1:2]"  4 2;
 createNode displayLayer -n "defaultLayer";
 	rename -uid "B812FB21-4143-9E70-F613-71A91AD34986";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "6A664DBD-47A3-6C02-AB9C-55B1633FC1A5";
+	rename -uid "3F1FFC9F-422B-ECB0-3615-59B17F829C1F";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "D8167694-4A22-43A5-D4E7-ACA612ABD4DE";
 	setAttr ".g" yes;
@@ -23716,7 +23770,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n"
 		+ "\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n"
 		+ "            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n"
-		+ "            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 880\n            -height 710\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 879\n            -height 710\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n"
 		+ "            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n"
 		+ "            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -showAnimLayerWeight 1\n"
@@ -23742,8 +23796,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -activeTab -1\n                -editorMode \"default\" \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 880\\n    -height 710\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 880\\n    -height 710\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 879\\n    -height 710\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 879\\n    -height 710\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 10 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -25849,11 +25903,11 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[288].w[37]"  1;
 	setAttr ".wl[289].w[37]"  1;
 	setAttr ".wl[290].w[37]"  1;
-	setAttr -s 2 ".wl[291].w[1:2]"  0.38090159254781469 0.61909840745218514;
-	setAttr -s 2 ".wl[292].w[1:2]"  0.44973639072637517 0.5502636092736245;
+	setAttr -s 2 ".wl[291].w[1:2]"  0.86035186052322388 0.13964813947677612;
+	setAttr -s 2 ".wl[292].w[1:2]"  0.61365705728530884 0.38634294271469116;
 	setAttr -s 2 ".wl[293].w[1:2]"  0.29151270884399955 0.70848729115600062;
 	setAttr -s 2 ".wl[294].w[1:2]"  0.43957667874864642 0.56042332125135363;
-	setAttr -s 2 ".wl[295].w[1:2]"  0.38675817214260227 0.61324182785739767;
+	setAttr -s 2 ".wl[295].w[1:2]"  0.47259443998336792 0.52740556001663208;
 	setAttr -s 2 ".wl[296].w[1:2]"  0.2055123233729543 0.79448767662704567;
 	setAttr -s 2 ".wl[297].w[1:2]"  0.22011651623316422 0.77988348376683569;
 	setAttr -s 2 ".wl[298].w[1:2]"  0.46176847301155477 0.53823152698844501;
@@ -25945,21 +25999,21 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[316].w[10]" 2.7222519833375992e-005;
 	setAttr ".wl[316].w[11]" 6.0531138287782137e-034;
 	setAttr ".wl[316].w[13]" 7.070835395611562e-028;
-	setAttr ".wl[316].w[14]" 7.151111903420712e-040;
+	setAttr ".wl[316].w[14]" 7.1511119034207112e-040;
 	setAttr -s 6 ".wl[317].w";
 	setAttr ".wl[317].w[8]" 0.060263549676124087;
 	setAttr ".wl[317].w[9]" 0.76981443576330444;
 	setAttr ".wl[317].w[10]" 0.16992201456057121;
 	setAttr ".wl[317].w[11]" 9.2650227818752043e-029;
 	setAttr ".wl[317].w[13]" 6.9574464481123784e-023;
-	setAttr ".wl[317].w[14]" 1.877313654285415e-034;
+	setAttr ".wl[317].w[14]" 1.8773136542854148e-034;
 	setAttr -s 6 ".wl[318].w";
 	setAttr ".wl[318].w[8]" 0.053320559550078493;
 	setAttr ".wl[318].w[9]" 0.71083237991006665;
 	setAttr ".wl[318].w[10]" 0.23584706053985496;
 	setAttr ".wl[318].w[11]" 8.8508870353951712e-033;
 	setAttr ".wl[318].w[13]" 1.0315802144936732e-026;
-	setAttr ".wl[318].w[14]" 1.045656186114562e-038;
+	setAttr ".wl[318].w[14]" 1.0456561861145621e-038;
 	setAttr -s 6 ".wl[319].w";
 	setAttr ".wl[319].w[8]" 0.36983972771185691;
 	setAttr ".wl[319].w[9]" 0.63013598771875368;
@@ -25973,7 +26027,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[320].w[10]" 0.13135840129039872;
 	setAttr ".wl[320].w[11]" 9.1737313756203366e-029;
 	setAttr ".wl[320].w[13]" 6.8887990997619428e-023;
-	setAttr ".wl[320].w[14]" 1.858834736431954e-034;
+	setAttr ".wl[320].w[14]" 1.8588347364319538e-034;
 	setAttr -s 6 ".wl[321].w";
 	setAttr ".wl[321].w[8]" 0.05642274832668593;
 	setAttr ".wl[321].w[9]" 0.82117288477454697;
@@ -26144,7 +26198,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[349].w[8]" 0.73910242422351802;
 	setAttr ".wl[349].w[9]" 0.18784530206809572;
 	setAttr ".wl[349].w[10]" 1.6746414374296546e-010;
-	setAttr ".wl[349].w[11]" 2.32602867985255e-040;
+	setAttr ".wl[349].w[11]" 2.3260286798525496e-040;
 	setAttr ".wl[349].w[13]" 4.6581110146168562e-034;
 	setAttr ".wl[349].w[14]" 1.2207966092939488e-046;
 	setAttr -s 7 ".wl[350].w";
@@ -26219,20 +26273,20 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 2 ".wl[363].w[1:2]"  0.96152930141764748 0.038470698582352567;
 	setAttr -s 2 ".wl[364].w[1:2]"  0.80448956144504313 0.19551043855495701;
 	setAttr -s 2 ".wl[365].w[1:2]"  0.78814925858130302 0.21185074141869734;
-	setAttr -s 2 ".wl[366].w[1:2]"  0.84757700342790609 0.15242299657209399;
-	setAttr -s 2 ".wl[367].w[1:2]"  0.99998652488952 1.3475110480156489e-005;
+	setAttr -s 2 ".wl[366].w[1:2]"  0.83128710091114044 0.16871289908885956;
+	setAttr -s 2 ".wl[367].w[1:2]"  0.90128158032894135 0.098718419671058655;
 	setAttr -s 3 ".wl[368].w";
-	setAttr ".wl[368].w[1]" 0.99999007791448624;
-	setAttr ".wl[368].w[2]" 1.1169173072514599e-009;
+	setAttr ".wl[368].w[1]" 0.90163664840262692;
+	setAttr ".wl[368].w[2]" 0.09835343062877655;
 	setAttr ".wl[368].w[8]" 9.9209685965243248e-006;
 	setAttr -s 3 ".wl[369].w";
-	setAttr ".wl[369].w[1]" 0.92219038285510546;
-	setAttr ".wl[369].w[2]" 0.077809612692657251;
+	setAttr ".wl[369].w[1]" 0.87119191439770771;
+	setAttr ".wl[369].w[2]" 0.12880808115005493;
 	setAttr ".wl[369].w[8]" 4.4522373436646166e-009;
-	setAttr -s 2 ".wl[370].w[1:2]"  0.87625321294803105 0.12374678705196919;
-	setAttr -s 2 ".wl[371].w[1:2]"  0.80683550483337674 0.19316449516662323;
-	setAttr -s 2 ".wl[372].w[1:2]"  0.90452765983391248 0.095472340166087438;
-	setAttr -s 2 ".wl[373].w[1:2]"  0.9999289885356204 7.1011464379757767e-005;
+	setAttr -s 2 ".wl[370].w[1:2]"  0.79534925520420074 0.20465074479579926;
+	setAttr -s 2 ".wl[371].w[1:2]"  0.87438404560089111 0.12561595439910889;
+	setAttr ".wl[372].w[1]"  1;
+	setAttr ".wl[373].w[1]"  1;
 	setAttr -s 2 ".wl[374].w[1:2]"  0.43675197468474231 0.56324802531525786;
 	setAttr -s 2 ".wl[375].w[1:2]"  0.46351663832601392 0.53648336167398591;
 	setAttr -s 4 ".wl[376].w";
@@ -26305,9 +26359,8 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[390].w[1]" 0.81011761595686493;
 	setAttr ".wl[390].w[2]" 0.024647632772447196;
 	setAttr ".wl[390].w[8]" 0.16523475127068787;
-	setAttr -s 3 ".wl[391].w";
-	setAttr ".wl[391].w[1]" 0.37721220696116314;
-	setAttr ".wl[391].w[2]" -1.7638993471631377e-008;
+	setAttr -s 2 ".wl[391].w";
+	setAttr ".wl[391].w[1]" 0.37721218050324823;
 	setAttr ".wl[391].w[8]" 0.62278781949675177;
 	setAttr -s 4 ".wl[392].w";
 	setAttr ".wl[392].w[1]" 0.056289943126041998;
@@ -26582,7 +26635,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[467].w[28]" 1.72022473219009e-011;
 	setAttr -s 2 ".wl[468].w";
 	setAttr ".wl[468].w[21]" 0.99999989477263285;
-	setAttr ".wl[468].w[25]" 1.052273670409453e-007;
+	setAttr ".wl[468].w[25]" 1.0522736704094531e-007;
 	setAttr -s 3 ".wl[469].w";
 	setAttr ".wl[469].w[21]" 0.99902379589220902;
 	setAttr ".wl[469].w[25]" 0.00097620407554964731;
@@ -27033,7 +27086,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 3 ".wl[783].w";
 	setAttr ".wl[783].w[21]" 0.99999993990900171;
 	setAttr ".wl[783].w[22]" 6.0090997978553309e-008;
-	setAttr ".wl[783].w[34]" 1.188938093526616e-020;
+	setAttr ".wl[783].w[34]" 1.1889380935266161e-020;
 	setAttr ".wl[784].w[21]"  1;
 	setAttr -s 2 ".wl[785].w";
 	setAttr ".wl[785].w[15]" 5.2151777413906966e-006;
@@ -27048,23 +27101,19 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[788].w[11]" 0.9999999995109915;
 	setAttr ".wl[788].w[13]" 4.8900835139737311e-010;
 	setAttr ".wl[788].w[14]" 1.093775638805494e-022;
-	setAttr -s 4 ".wl[789].w";
-	setAttr ".wl[789].w[11]" 0.99995156981615407;
-	setAttr ".wl[789].w[13]" 4.8430183846104405e-005;
-	setAttr ".wl[789].w[14]" 1.8795154811815668e-016;
-	setAttr ".wl[789].w[15]" 4.1646756428885325e-039;
-	setAttr -s 5 ".wl[790].w";
-	setAttr ".wl[790].w[10]" 0.99988044138017107;
-	setAttr ".wl[790].w[11]" 7.2829559874431854e-005;
-	setAttr ".wl[790].w[13]" 4.6729059760326136e-005;
+	setAttr -s 2 ".wl[789].w";
+	setAttr ".wl[789].w[11]" 0.91003261958731674;
+	setAttr ".wl[789].w[17]" 0.089967380412681319;
+	setAttr -s 4 ".wl[790].w";
+	setAttr ".wl[790].w[10]" 0.80194008350372314;
+	setAttr ".wl[790].w[11]" 0.1980241675410368;
+	setAttr ".wl[790].w[13]" 3.5748955046205969e-005;
 	setAttr ".wl[790].w[14]" 1.9384189821242452e-013;
-	setAttr ".wl[790].w[15]" 1.4774094043355725e-034;
-	setAttr -s 5 ".wl[791].w";
-	setAttr ".wl[791].w[10]" 0.99986887003760716;
-	setAttr ".wl[791].w[11]" 0.00010297126468180137;
-	setAttr ".wl[791].w[13]" 2.8158697711325364e-005;
+	setAttr -s 4 ".wl[791].w";
+	setAttr ".wl[791].w[10]" 0.86068570613861084;
+	setAttr ".wl[791].w[11]" 0.13930258907748605;
+	setAttr ".wl[791].w[13]" 1.170478390299182e-005;
 	setAttr ".wl[791].w[14]" 8.7687535774243215e-017;
-	setAttr ".wl[791].w[15]" 4.955997812673437e-039;
 	setAttr -s 4 ".wl[792].w";
 	setAttr ".wl[792].w[10]" 0.9999999507335332;
 	setAttr ".wl[792].w[11]" 1.1391854763195614e-016;
@@ -27077,9 +27126,9 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[793].w[14]" 7.116235006605062e-018;
 	setAttr ".wl[793].w[15]" 4.0220622289644836e-040;
 	setAttr -s 4 ".wl[794].w";
-	setAttr ".wl[794].w[10]" 0.99983041236151449;
-	setAttr ".wl[794].w[11]" 1.0454029945625445e-012;
-	setAttr ".wl[794].w[13]" 0.00016958763743999317;
+	setAttr ".wl[794].w[10]" 0.87061420088935748;
+	setAttr ".wl[794].w[11]" 0.12923812866210938;
+	setAttr ".wl[794].w[13]" 0.00014767044853317458;
 	setAttr ".wl[794].w[14]" 6.4398621488701445e-022;
 	setAttr -s 4 ".wl[795].w";
 	setAttr ".wl[795].w[10]" 0.99992193194604406;
@@ -27103,15 +27152,14 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[798].w[13]" 0.87150313741263996;
 	setAttr ".wl[798].w[14]" 2.2690718117873632e-007;
 	setAttr ".wl[798].w[15]" 3.0581850507816854e-029;
-	setAttr -s 5 ".wl[799].w";
-	setAttr ".wl[799].w[10]" 0.87144022774212915;
-	setAttr ".wl[799].w[11]" 3.0542679985991951e-009;
-	setAttr ".wl[799].w[13]" 0.12855976920360251;
+	setAttr -s 4 ".wl[799].w";
+	setAttr ".wl[799].w[10]" 0.80559157875875909;
+	setAttr ".wl[799].w[11]" 0.18630680441856384;
+	setAttr ".wl[799].w[13]" 0.00810161682267708;
 	setAttr ".wl[799].w[14]" 4.3948067670605701e-018;
-	setAttr ".wl[799].w[15]" 2.071181674899183e-039;
 	setAttr -s 4 ".wl[800].w";
 	setAttr ".wl[800].w[10]" 0.99999999999825306;
-	setAttr ".wl[800].w[11]" 1.096049885427126e-017;
+	setAttr ".wl[800].w[11]" 1.0960498854271258e-017;
 	setAttr ".wl[800].w[13]" 1.7460989015066341e-012;
 	setAttr ".wl[800].w[14]" 4.6050662118802567e-027;
 	setAttr -s 4 ".wl[801].w";
@@ -27120,9 +27168,9 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[801].w[13]" 6.7527285013036714e-012;
 	setAttr ".wl[801].w[14]" 9.0707538734975472e-031;
 	setAttr -s 4 ".wl[802].w";
-	setAttr ".wl[802].w[10]" 0.99983238425536936;
-	setAttr ".wl[802].w[11]" 0.00016755096981718953;
-	setAttr ".wl[802].w[13]" 6.4774813672732485e-008;
+	setAttr ".wl[802].w[10]" 0.88538843393325806;
+	setAttr ".wl[802].w[11]" 0.11461154803501586;
+	setAttr ".wl[802].w[13]" 1.8031726078320019e-008;
 	setAttr ".wl[802].w[14]" 4.0995289458503518e-020;
 	setAttr -s 4 ".wl[803].w";
 	setAttr ".wl[803].w[10]" 2.4669784180679667e-012;
@@ -27137,8 +27185,8 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[805].w[13]" 8.0710367840739169e-007;
 	setAttr ".wl[805].w[14]" 5.171827319373954e-019;
 	setAttr -s 4 ".wl[806].w";
-	setAttr ".wl[806].w[11]" 0.99971856723548158;
-	setAttr ".wl[806].w[13]" 0.00028143276451547;
+	setAttr ".wl[806].w[11]" 0.68630805611610168;
+	setAttr ".wl[806].w[13]" 0.31369194388389587;
 	setAttr ".wl[806].w[14]" 2.4979432304595027e-015;
 	setAttr ".wl[806].w[15]" 5.5077224614093311e-038;
 	setAttr -s 4 ".wl[807].w";
@@ -27155,11 +27203,10 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[809].w[15]" 2.4067167335387912e-038;
 	setAttr -s 5 ".wl[810].w[10:14]"  6.1106007804189279e-035 0.99999981160239693 
 		1.8831946079336656e-007 7.8142312594402519e-011 2.5914264446325908e-023;
-	setAttr -s 4 ".wl[811].w";
-	setAttr ".wl[811].w[11]" 0.81822598190026263;
-	setAttr ".wl[811].w[13]" 0.18177401809872468;
-	setAttr ".wl[811].w[14]" 1.0125981266270389e-012;
-	setAttr ".wl[811].w[15]" 3.6422462591434279e-033;
+	setAttr -s 3 ".wl[811].w";
+	setAttr ".wl[811].w[11]" 0.81637467674717934;
+	setAttr ".wl[811].w[17]" 0.18362532323409722;
+	setAttr ".wl[811].w[18]" 1.771525468082772e-011;
 	setAttr -s 4 ".wl[812].w";
 	setAttr ".wl[812].w[11]" 0.39919064219690825;
 	setAttr ".wl[812].w[13]" 0.60080935391804902;
@@ -27175,12 +27222,11 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[814].w[13]" 0.85244961673761466;
 	setAttr ".wl[814].w[14]" 1.2119512434789136e-008;
 	setAttr ".wl[814].w[15]" 1.2762791800305731e-027;
-	setAttr -s 5 ".wl[815].w";
-	setAttr ".wl[815].w[10]" 9.5684716262703789e-017;
-	setAttr ".wl[815].w[11]" 0.37774776761776258;
-	setAttr ".wl[815].w[13]" 0.62225223238185823;
+	setAttr -s 4 ".wl[815].w";
+	setAttr ".wl[815].w[10]" 0.17067974805831909;
+	setAttr ".wl[815].w[11]" 0.3132738738111463;
+	setAttr ".wl[815].w[13]" 0.51604637813015553;
 	setAttr ".wl[815].w[14]" 3.7914037295472076e-013;
-	setAttr ".wl[815].w[15]" 5.5707480083125902e-033;
 	setAttr -s 4 ".wl[816].w";
 	setAttr ".wl[816].w[11]" 0.11211361782321902;
 	setAttr ".wl[816].w[13]" 0.88766473309096694;
@@ -27198,26 +27244,23 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[818].w[11]" 4.2464976343740679e-025;
 	setAttr ".wl[818].w[13]" 7.9663898018969013e-016;
 	setAttr ".wl[818].w[14]" 2.0386263322038361e-035;
-	setAttr -s 4 ".wl[819].w";
-	setAttr ".wl[819].w[11]" 0.87604985875219565;
-	setAttr ".wl[819].w[13]" 0.12395014123570455;
-	setAttr ".wl[819].w[14]" 1.2099855807857262e-011;
-	setAttr ".wl[819].w[15]" 3.4999886940337279e-033;
+	setAttr -s 3 ".wl[819].w";
+	setAttr ".wl[819].w[11]" 0.87446626426187479;
+	setAttr ".wl[819].w[17]" 0.12553373556025746;
+	setAttr ".wl[819].w[18]" 1.6580547452060688e-010;
 	setAttr -s 4 ".wl[820].w";
 	setAttr ".wl[820].w[10]" 8.5175003839552267e-016;
 	setAttr ".wl[820].w[11]" 0.99999999943090478;
 	setAttr ".wl[820].w[13]" 5.690943596571772e-010;
 	setAttr ".wl[820].w[14]" 5.7559145040972759e-022;
-	setAttr -s 5 ".wl[821].w";
-	setAttr ".wl[821].w[10]" 9.5283585362557364e-025;
-	setAttr ".wl[821].w[11]" 0.83322786675305649;
-	setAttr ".wl[821].w[13]" 0.16677213324688073;
-	setAttr ".wl[821].w[14]" 6.2801922597167973e-014;
-	setAttr ".wl[821].w[15]" 2.2568859008202597e-034;
-	setAttr -s 4 ".wl[822].w";
-	setAttr ".wl[822].w[10]" 0.99994762576340812;
-	setAttr ".wl[822].w[11]" 5.2374203149815936e-005;
-	setAttr ".wl[822].w[13]" 3.3441665914950823e-011;
+	setAttr -s 4 ".wl[821].w";
+	setAttr ".wl[821].w[10]" 0.23267555988160238;
+	setAttr ".wl[821].w[11]" 0.63838904991205114;
+	setAttr ".wl[821].w[17]" 0.12893539020613518;
+	setAttr ".wl[821].w[18]" 1.470529271832562e-013;
+	setAttr -s 3 ".wl[822].w";
+	setAttr ".wl[822].w[10]" 0.88729244470596313;
+	setAttr ".wl[822].w[11]" 0.11270755529403687;
 	setAttr ".wl[822].w[14]" 5.7094358452167881e-024;
 	setAttr -s 4 ".wl[823].w";
 	setAttr ".wl[823].w[10]" 1;
@@ -27242,8 +27285,10 @@ createNode skinCluster -n "skinCluster1";
 		1.261975943424655e-016;
 	setAttr -s 3 ".wl[829].w[13:15]"  0.40322582741334179 0.59677417258665744 
 		7.393349906780944e-016;
-	setAttr -s 3 ".wl[830].w[13:15]"  0.46306837363754605 0.53693162636245295 
-		9.6342897768504699e-016;
+	setAttr -s 3 ".wl[830].w";
+	setAttr ".wl[830].w[10]" 0.0021142540499567986;
+	setAttr ".wl[830].w[13]" 0.46095411958759025;
+	setAttr ".wl[830].w[14]" 0.53693162636245295;
 	setAttr -s 3 ".wl[831].w[13:15]"  0.35356965357060954 0.6464303464293899 
 		4.3308304317137499e-016;
 	setAttr -s 3 ".wl[832].w[13:15]"  0.88838270429689215 0.1116172957031079 
@@ -27289,10 +27334,10 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 4 ".wl[843].w";
 	setAttr ".wl[843].w[11]" 0.071606497439790404;
 	setAttr ".wl[843].w[13]" 0.92836423120421219;
-	setAttr ".wl[843].w[14]" 2.927135599724169e-005;
+	setAttr ".wl[843].w[14]" 2.9271355997241687e-005;
 	setAttr ".wl[843].w[15]" 1.4443937842021145e-024;
 	setAttr -s 3 ".wl[844].w[13:15]"  0.99370870703700831 0.0062912929629919522 
-		4.24157693579185e-020;
+		4.2415769357918494e-020;
 	setAttr -s 3 ".wl[845].w[13:15]"  0.94962754594067789 0.050372454059321441 
 		4.4967576069079773e-019;
 	setAttr -s 4 ".wl[846].w";
@@ -27328,16 +27373,15 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[852].w[11]" 4.8435824704132827e-014;
 	setAttr ".wl[852].w[13]" 4.9612794509400654e-009;
 	setAttr ".wl[852].w[14]" 5.7614833827484106e-023;
-	setAttr -s 5 ".wl[853].w";
-	setAttr ".wl[853].w[10]" 0.75821568588358812;
-	setAttr ".wl[853].w[11]" 1.0670207806569232e-005;
-	setAttr ".wl[853].w[13]" 0.24177364370533649;
+	setAttr -s 4 ".wl[853].w";
+	setAttr ".wl[853].w[10]" 0.72931668460380228;
+	setAttr ".wl[853].w[11]" 0.11381222307682037;
+	setAttr ".wl[853].w[13]" 0.15687109211610842;
 	setAttr ".wl[853].w[14]" 2.0326891734639357e-010;
-	setAttr ".wl[853].w[15]" 1.2016614780664787e-029;
 	setAttr -s 5 ".wl[854].w";
 	setAttr ".wl[854].w[10]" 0.75705076565048157;
-	setAttr ".wl[854].w[11]" 1.45405714043513e-009;
-	setAttr ".wl[854].w[13]" 0.24294923289544534;
+	setAttr ".wl[854].w[11]" 0.12905047833919525;
+	setAttr ".wl[854].w[13]" 0.11389875601030708;
 	setAttr ".wl[854].w[14]" 1.6111677141327253e-014;
 	setAttr ".wl[854].w[15]" 1.0231385345871626e-034;
 	setAttr -s 5 ".wl[855].w";
@@ -27346,12 +27390,11 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[855].w[13]" 5.5789063686822137e-005;
 	setAttr ".wl[855].w[14]" 4.9391396713441694e-015;
 	setAttr ".wl[855].w[15]" 3.1362402997040049e-035;
-	setAttr -s 5 ".wl[856].w";
-	setAttr ".wl[856].w[10]" 0.75897641318173603;
-	setAttr ".wl[856].w[11]" 9.0761498348630812e-006;
-	setAttr ".wl[856].w[13]" 0.24101451066839377;
+	setAttr -s 4 ".wl[856].w";
+	setAttr ".wl[856].w[10]" 0.70477409971155536;
+	setAttr ".wl[856].w[11]" 0.16789887845516205;
+	setAttr ".wl[856].w[13]" 0.12732702183324768;
 	setAttr ".wl[856].w[14]" 3.4882044692259078e-014;
-	setAttr ".wl[856].w[15]" 2.2151860585449504e-034;
 	setAttr -s 4 ".wl[857].w";
 	setAttr ".wl[857].w[10]" 0.99999999999973399;
 	setAttr ".wl[857].w[11]" 7.9646640933026489e-019;
@@ -27376,39 +27419,39 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[860].w[15]" 2.9980575342910262e-040;
 	setAttr -s 5 ".wl[861].w";
 	setAttr ".wl[861].w[10]" 0.72051560077463495;
-	setAttr ".wl[861].w[11]" 0.012160965598857149;
-	setAttr ".wl[861].w[13]" 0.26732343361009225;
+	setAttr ".wl[861].w[11]" 0.16900864243507385;
+	setAttr ".wl[861].w[13]" 0.11047575677387567;
 	setAttr ".wl[861].w[14]" 1.6415482270940473e-011;
 	setAttr ".wl[861].w[15]" 5.0019092834005106e-030;
-	setAttr -s 5 ".wl[862].w";
-	setAttr ".wl[862].w[10]" 0.84389232020606852;
-	setAttr ".wl[862].w[11]" 6.765094398119395e-009;
-	setAttr ".wl[862].w[13]" 0.15610767302883718;
+	setAttr -s 4 ".wl[862].w";
+	setAttr ".wl[862].w[10]" 0.81923533553218053;
+	setAttr ".wl[862].w[11]" 0.066846191883087158;
+	setAttr ".wl[862].w[13]" 0.11391847258473235;
 	setAttr ".wl[862].w[14]" 8.7446080750945099e-019;
-	setAttr ".wl[862].w[15]" 2.1857229713140166e-039;
 	setAttr -s 2 ".wl[863].w[1:2]"  0.90743970057680878 0.092560299423191189;
-	setAttr -s 5 ".wl[864].w";
-	setAttr ".wl[864].w[10]" 1.3821384284892074e-020;
-	setAttr ".wl[864].w[11]" 0.52148927354889008;
-	setAttr ".wl[864].w[13]" 0.47851072645062653;
+	setAttr -s 4 ".wl[864].w";
+	setAttr ".wl[864].w[10]" 0.19213761389255524;
+	setAttr ".wl[864].w[11]" 0.42129156885859531;
+	setAttr ".wl[864].w[13]" 0.38657081724836573;
 	setAttr ".wl[864].w[14]" 4.8368567148503054e-013;
-	setAttr ".wl[864].w[15]" 5.5727597757165177e-033;
 	setAttr -s 3 ".wl[865].w[13:15]"  0.64724706834720558 0.35275293165279453 
 		3.2963888766414556e-016;
 	setAttr -s 3 ".wl[866].w[13:15]"  0.51247588584404735 0.48752411415595204 
 		4.2887602145427859e-016;
 	setAttr -s 4 ".wl[867].w";
-	setAttr ".wl[867].w[11]" 0.99913635309806226;
-	setAttr ".wl[867].w[13]" 0.00086364688540180442;
+	setAttr ".wl[867].w[11]" 0.69751018284097743;
+	setAttr ".wl[867].w[13]" 0.30248981714248657;
 	setAttr ".wl[867].w[14]" 1.6536009291370715e-011;
 	setAttr ".wl[867].w[15]" 9.3224786923450299e-033;
-	setAttr -s 4 ".wl[868].w[11:14]"  0.99997420211822086 2.5791676077813329e-005 
-		6.2057016683559512e-009 5.6656763380296024e-021;
+	setAttr -s 3 ".wl[868].w";
+	setAttr ".wl[868].w[11]" 0.99994078137073705;
+	setAttr ".wl[868].w[12]" 4.273206491347667e-005;
+	setAttr ".wl[868].w[17]" 1.6486564349865875e-005;
 	setAttr -s 4 ".wl[869].w";
 	setAttr ".wl[869].w[10]" 0.999999999999999;
 	setAttr ".wl[869].w[11]" 8.9308151914712505e-022;
 	setAttr ".wl[869].w[13]" 2.1340725265708311e-016;
-	setAttr ".wl[869].w[14]" 1.607147591144224e-031;
+	setAttr ".wl[869].w[14]" 1.6071475911442242e-031;
 	setAttr -s 4 ".wl[870].w";
 	setAttr ".wl[870].w[10]" 1;
 	setAttr ".wl[870].w[11]" 4.2104177943663207e-026;
@@ -27435,8 +27478,8 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[874].w[13]" 7.4830529389074429e-009;
 	setAttr ".wl[874].w[14]" 6.9121924066059931e-023;
 	setAttr -s 4 ".wl[875].w";
-	setAttr ".wl[875].w[11]" 0.99949815698205247;
-	setAttr ".wl[875].w[13]" 0.00050184301359720125;
+	setAttr ".wl[875].w[11]" 0.76852668821376657;
+	setAttr ".wl[875].w[13]" 0.23147331178188324;
 	setAttr ".wl[875].w[14]" 4.350182017052018e-012;
 	setAttr ".wl[875].w[15]" 1.2126566825904387e-033;
 	setAttr -s 4 ".wl[876].w";
@@ -27447,21 +27490,17 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 5 ".wl[877].w";
 	setAttr ".wl[877].w[9]" -4.3147096289729378e-016;
 	setAttr ".wl[877].w[10]" 1;
-	setAttr ".wl[877].w[11]" 1.408693809892765e-025;
+	setAttr ".wl[877].w[11]" 1.4086938098927653e-025;
 	setAttr ".wl[877].w[13]" 2.4301085574190201e-016;
 	setAttr ".wl[877].w[14]" 2.8545450593589575e-031;
-	setAttr -s 6 ".wl[878].w";
-	setAttr ".wl[878].w[9]" -2.1810722526254965e-024;
-	setAttr ".wl[878].w[10]" 0.99996443794413103;
-	setAttr ".wl[878].w[11]" 6.1521441026697896e-006;
-	setAttr ".wl[878].w[13]" 2.9409911765986634e-005;
-	setAttr ".wl[878].w[14]" 1.0673637303892963e-018;
-	setAttr ".wl[878].w[15]" 9.133263959425633e-040;
-	setAttr -s 5 ".wl[879].w";
+	setAttr -s 3 ".wl[878].w";
+	setAttr ".wl[878].w[10]" 0.82655201192509442;
+	setAttr ".wl[878].w[11]" 0.17342370215794004;
+	setAttr ".wl[878].w[17]" 2.428591696556205e-005;
+	setAttr -s 4 ".wl[879].w";
 	setAttr ".wl[879].w[9]" -1.8661935177799537e-020;
-	setAttr ".wl[879].w[10]" 0.9744941050390471;
-	setAttr ".wl[879].w[11]" 2.0242565369816507e-012;
-	setAttr ".wl[879].w[13]" 0.025505894958928601;
+	setAttr ".wl[879].w[10]" 0.80575777590274811;
+	setAttr ".wl[879].w[11]" 0.19424222409725189;
 	setAttr ".wl[879].w[14]" 1.1168450811060643e-022;
 	setAttr -s 4 ".wl[880].w";
 	setAttr ".wl[880].w[10]" 0.99999999999872091;
@@ -27474,8 +27513,8 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[881].w[13]" 4.8781296352626465e-009;
 	setAttr ".wl[881].w[14]" 7.0264372855293326e-023;
 	setAttr -s 4 ".wl[882].w";
-	setAttr ".wl[882].w[11]" 0.99883880342872855;
-	setAttr ".wl[882].w[13]" 0.0011611965636145853;
+	setAttr ".wl[882].w[11]" 0.74155384301373584;
+	setAttr ".wl[882].w[13]" 0.25844615697860718;
 	setAttr ".wl[882].w[14]" 7.6570012384695967e-012;
 	setAttr ".wl[882].w[15]" 1.1226247423925866e-032;
 	setAttr -s 5 ".wl[883].w";
@@ -27494,42 +27533,40 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[885].w[11]" 0.99999999926180183;
 	setAttr ".wl[885].w[13]" 7.3819794751813532e-010;
 	setAttr ".wl[885].w[14]" 3.4161480779423105e-022;
-	setAttr -s 4 ".wl[886].w";
-	setAttr ".wl[886].w[11]" 0.92237199861628605;
-	setAttr ".wl[886].w[13]" 0.077628001383711023;
-	setAttr ".wl[886].w[14]" 2.6394860769135956e-015;
-	setAttr ".wl[886].w[15]" 5.8755413802465773e-038;
+	setAttr -s 2 ".wl[886].w";
+	setAttr ".wl[886].w[11]" 0.92110251298404455;
+	setAttr ".wl[886].w[17]" 0.078897487015906112;
 	setAttr -s 4 ".wl[887].w";
-	setAttr ".wl[887].w[11]" 0.49759992038349932;
-	setAttr ".wl[887].w[13]" 0.50240007960409205;
+	setAttr ".wl[887].w[11]" 0.53628265857696533;
+	setAttr ".wl[887].w[13]" 0.46371734141062571;
 	setAttr ".wl[887].w[14]" 1.2408935396095191e-011;
 	setAttr ".wl[887].w[15]" 3.5063417842693797e-033;
 	setAttr -s 4 ".wl[888].w";
-	setAttr ".wl[888].w[11]" 0.11998952281935921;
-	setAttr ".wl[888].w[13]" 0.88001044605652212;
+	setAttr ".wl[888].w[11]" 0.36897486448287964;
+	setAttr ".wl[888].w[13]" 0.63102510439300219;
 	setAttr ".wl[888].w[14]" 3.1124118116423645e-008;
 	setAttr ".wl[888].w[15]" 7.5189081381694561e-029;
 	setAttr -s 2 ".wl[889].w";
 	setAttr ".wl[889].w[11]" 0.3945300281047821;
 	setAttr ".wl[889].w[13]" 0.6054699718952179;
 	setAttr -s 4 ".wl[890].w";
-	setAttr ".wl[890].w[11]" 0.11421742578032183;
-	setAttr ".wl[890].w[13]" 0.88578256096272567;
+	setAttr ".wl[890].w[11]" 0.22802411019802094;
+	setAttr ".wl[890].w[13]" 0.77197587654502631;
 	setAttr ".wl[890].w[14]" 1.3256952777625589e-008;
 	setAttr ".wl[890].w[15]" 6.9005745216137887e-029;
 	setAttr -s 4 ".wl[891].w";
-	setAttr ".wl[891].w[11]" 0.14350277158748737;
-	setAttr ".wl[891].w[13]" 0.85649476426844606;
+	setAttr ".wl[891].w[11]" 0.35305288434028625;
+	setAttr ".wl[891].w[13]" 0.64694465151564751;
 	setAttr ".wl[891].w[14]" 2.4641440662150589e-006;
 	setAttr ".wl[891].w[15]" 2.9497032328756133e-028;
 	setAttr -s 4 ".wl[892].w";
-	setAttr ".wl[892].w[11]" 0.99898592658416641;
-	setAttr ".wl[892].w[13]" 0.0010140734023173193;
+	setAttr ".wl[892].w[11]" 0.6371618807180669;
+	setAttr ".wl[892].w[13]" 0.36283811926841736;
 	setAttr ".wl[892].w[14]" 1.3515774994876074e-011;
 	setAttr ".wl[892].w[15]" 1.168649502973394e-032;
 	setAttr -s 4 ".wl[893].w";
-	setAttr ".wl[893].w[11]" 0.99923957308075195;
-	setAttr ".wl[893].w[13]" 0.0007604269162998752;
+	setAttr ".wl[893].w[11]" 0.88518681376877639;
+	setAttr ".wl[893].w[13]" 0.1148131862282753;
 	setAttr ".wl[893].w[14]" 2.9483401953760839e-012;
 	setAttr ".wl[893].w[15]" 1.6317652076277703e-033;
 	setAttr -s 4 ".wl[894].w";
@@ -27538,8 +27575,8 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[894].w[14]" 2.1611929427519178e-015;
 	setAttr ".wl[894].w[15]" 1.5208801223621681e-037;
 	setAttr -s 4 ".wl[895].w";
-	setAttr ".wl[895].w[11]" 0.99867220141894275;
-	setAttr ".wl[895].w[13]" 0.001327798574305903;
+	setAttr ".wl[895].w[11]" 0.62310171126644232;
+	setAttr ".wl[895].w[13]" 0.37689828872680664;
 	setAttr ".wl[895].w[14]" 6.7510638295035448e-012;
 	setAttr ".wl[895].w[15]" 6.4096452981352929e-033;
 	setAttr -s 4 ".wl[896].w";
@@ -27548,28 +27585,28 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[896].w[14]" 3.1506343726731393e-015;
 	setAttr ".wl[896].w[15]" 2.6828310596326959e-037;
 	setAttr -s 4 ".wl[897].w";
-	setAttr ".wl[897].w[11]" 0.099688712345865793;
-	setAttr ".wl[897].w[13]" 0.9003112490897428;
+	setAttr ".wl[897].w[11]" 0.31536456942558289;
+	setAttr ".wl[897].w[13]" 0.68463539201002499;
 	setAttr ".wl[897].w[14]" 3.8564392135459295e-008;
 	setAttr ".wl[897].w[15]" 3.759448947369934e-028;
 	setAttr -s 4 ".wl[898].w";
-	setAttr ".wl[898].w[11]" 0.14057034528061585;
-	setAttr ".wl[898].w[13]" 0.8594296328506279;
+	setAttr ".wl[898].w[11]" 0.30017364025115967;
+	setAttr ".wl[898].w[13]" 0.69982633788008397;
 	setAttr ".wl[898].w[14]" 2.1868756325577241e-008;
 	setAttr ".wl[898].w[15]" 2.9475584091039964e-028;
 	setAttr -s 4 ".wl[899].w";
-	setAttr ".wl[899].w[11]" 0.26462278847339471;
-	setAttr ".wl[899].w[13]" 0.73537719521618672;
+	setAttr ".wl[899].w[11]" 0.41693553328514099;
+	setAttr ".wl[899].w[13]" 0.58306445040443955;
 	setAttr ".wl[899].w[14]" 1.6310419439086239e-008;
 	setAttr ".wl[899].w[15]" 1.6566865428736568e-028;
 	setAttr -s 4 ".wl[900].w";
-	setAttr ".wl[900].w[11]" 0.099074343584587207;
-	setAttr ".wl[900].w[13]" 0.90092558989136395;
+	setAttr ".wl[900].w[11]" 0.33014017343521118;
+	setAttr ".wl[900].w[13]" 0.66985976004073966;
 	setAttr ".wl[900].w[14]" 6.6524049183665449e-008;
 	setAttr ".wl[900].w[15]" 3.4407909627136576e-028;
 	setAttr -s 4 ".wl[901].w";
-	setAttr ".wl[901].w[11]" 0.99880648042841491;
-	setAttr ".wl[901].w[13]" 0.0011935195647225193;
+	setAttr ".wl[901].w[11]" 0.77289927005081638;
+	setAttr ".wl[901].w[13]" 0.22710072994232178;
 	setAttr ".wl[901].w[14]" 6.8618110115541101e-012;
 	setAttr ".wl[901].w[15]" 7.5247047911519303e-033;
 	setAttr -s 4 ".wl[902].w";
@@ -27578,8 +27615,8 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[902].w[14]" 2.6253286715870843e-015;
 	setAttr ".wl[902].w[15]" 2.1340608648420556e-037;
 	setAttr -s 4 ".wl[903].w";
-	setAttr ".wl[903].w[11]" 0.99890038374932566;
-	setAttr ".wl[903].w[13]" 0.0010996162400175101;
+	setAttr ".wl[903].w[11]" 0.68166458605654279;
+	setAttr ".wl[903].w[13]" 0.31833541393280029;
 	setAttr ".wl[903].w[14]" 1.0656940281129462e-011;
 	setAttr ".wl[903].w[15]" 1.2243696491636021e-032;
 	setAttr -s 4 ".wl[904].w";
@@ -27587,39 +27624,35 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[904].w[13]" 1.0984418386372594e-006;
 	setAttr ".wl[904].w[14]" 2.7151140301876263e-015;
 	setAttr ".wl[904].w[15]" 2.9509991230063158e-037;
-	setAttr -s 5 ".wl[905].w";
-	setAttr ".wl[905].w[10]" 3.4951434385234429e-016;
-	setAttr ".wl[905].w[11]" 0.60948386369905494;
-	setAttr ".wl[905].w[13]" 0.39051613003481456;
+	setAttr -s 4 ".wl[905].w";
+	setAttr ".wl[905].w[10]" 0.25468042492866516;
+	setAttr ".wl[905].w[11]" 0.45426025333236125;
+	setAttr ".wl[905].w[13]" 0.29105931547283914;
 	setAttr ".wl[905].w[14]" 6.266134474917549e-009;
-	setAttr ".wl[905].w[15]" 4.4493918327930588e-029;
-	setAttr -s 5 ".wl[906].w";
-	setAttr ".wl[906].w[10]" 1.2790370862748761e-005;
-	setAttr ".wl[906].w[11]" 0.78522052925905872;
-	setAttr ".wl[906].w[13]" 0.21476668036801058;
+	setAttr -s 4 ".wl[906].w";
+	setAttr ".wl[906].w[10]" 0.20561328530311584;
+	setAttr ".wl[906].w[11]" 0.62377673488609275;
+	setAttr ".wl[906].w[13]" 0.17060997980872311;
 	setAttr ".wl[906].w[14]" 2.068225256492199e-012;
-	setAttr ".wl[906].w[15]" 1.5763244940099545e-033;
-	setAttr -s 5 ".wl[907].w";
-	setAttr ".wl[907].w[10]" 5.1400786392702946e-005;
-	setAttr ".wl[907].w[11]" 0.99961231861784072;
-	setAttr ".wl[907].w[13]" 0.00033628059576582556;
+	setAttr -s 4 ".wl[907].w";
+	setAttr ".wl[907].w[10]" 0.2064325362443924;
+	setAttr ".wl[907].w[11]" 0.79330058869852715;
+	setAttr ".wl[907].w[13]" 0.00026687505707991352;
 	setAttr ".wl[907].w[14]" 5.3985890411720889e-016;
-	setAttr ".wl[907].w[15]" 3.051261491928463e-038;
 	setAttr -s 4 ".wl[908].w";
-	setAttr ".wl[908].w[10]" 6.215532656285127e-008;
-	setAttr ".wl[908].w[11]" 0.99999952899027889;
-	setAttr ".wl[908].w[13]" 4.0885439464699496e-007;
+	setAttr ".wl[908].w[10]" 0.22294400632381439;
+	setAttr ".wl[908].w[11]" 0.77705567597340797;
+	setAttr ".wl[908].w[13]" 3.1770277764821569e-007;
 	setAttr ".wl[908].w[14]" 1.7206543077435578e-019;
 	setAttr -s 4 ".wl[909].w";
-	setAttr ".wl[909].w[10]" 3.2831273248144583e-011;
-	setAttr ".wl[909].w[11]" 0.99999999972593068;
-	setAttr ".wl[909].w[13]" 2.4123816745211812e-010;
+	setAttr ".wl[909].w[10]" 0.23000437021255493;
+	setAttr ".wl[909].w[11]" 0.76999562960169277;
+	setAttr ".wl[909].w[13]" 1.8575233468216137e-010;
 	setAttr ".wl[909].w[14]" 5.428276736977149e-023;
-	setAttr -s 4 ".wl[910].w";
-	setAttr ".wl[910].w[11]" 0.85978829497291909;
-	setAttr ".wl[910].w[13]" 0.14021170502429231;
-	setAttr ".wl[910].w[14]" 2.7883947995242212e-012;
-	setAttr ".wl[910].w[15]" 7.4400443931208416e-033;
+	setAttr -s 3 ".wl[910].w";
+	setAttr ".wl[910].w[11]" 0.85785549687607832;
+	setAttr ".wl[910].w[17]" 0.14214450307714122;
+	setAttr ".wl[910].w[18]" 4.4002628159558049e-011;
 	setAttr -s 4 ".wl[911].w";
 	setAttr ".wl[911].w[11]" 0.35499289537762496;
 	setAttr ".wl[911].w[13]" 0.64500709591548799;
@@ -27630,36 +27663,31 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[912].w[13]" 0.8967554061637496;
 	setAttr ".wl[912].w[14]" 2.1937349523200513e-005;
 	setAttr ".wl[912].w[15]" 6.4478606736532407e-024;
-	setAttr -s 5 ".wl[913].w";
-	setAttr ".wl[913].w[10]" 1.3826453154835062e-009;
-	setAttr ".wl[913].w[11]" 0.20877019210090175;
-	setAttr ".wl[913].w[13]" 0.79122954330200246;
+	setAttr -s 4 ".wl[913].w";
+	setAttr ".wl[913].w[10]" 0.12343256175518036;
+	setAttr ".wl[913].w[11]" 0.32961028497739925;
+	setAttr ".wl[913].w[13]" 0.54695689005296988;
 	setAttr ".wl[913].w[14]" 2.6321445045535547e-007;
-	setAttr ".wl[913].w[15]" 7.093677492056726e-025;
-	setAttr -s 5 ".wl[914].w";
-	setAttr ".wl[914].w[10]" 3.3563933021617175e-006;
-	setAttr ".wl[914].w[11]" 0.21446190701477003;
-	setAttr ".wl[914].w[13]" 0.78553473460030698;
+	setAttr -s 4 ".wl[914].w";
+	setAttr ".wl[914].w[10]" 0.18578806519508362;
+	setAttr ".wl[914].w[11]" 0.38649223186545401;
+	setAttr ".wl[914].w[13]" 0.42771970094784184;
 	setAttr ".wl[914].w[14]" 1.9916205717719806e-009;
-	setAttr ".wl[914].w[15]" 1.1775089112632534e-028;
-	setAttr -s 5 ".wl[915].w";
-	setAttr ".wl[915].w[10]" 3.4004062745953942e-005;
-	setAttr ".wl[915].w[11]" 0.2508789136021522;
-	setAttr ".wl[915].w[13]" 0.74908708136743807;
+	setAttr -s 4 ".wl[915].w";
+	setAttr ".wl[915].w[10]" 0.12163234502077103;
+	setAttr ".wl[915].w[11]" 0.38754536402211842;
+	setAttr ".wl[915].w[13]" 0.49082228998944649;
 	setAttr ".wl[915].w[14]" 9.6766405973075275e-010;
-	setAttr ".wl[915].w[15]" 5.7207475052811793e-029;
-	setAttr -s 5 ".wl[916].w";
-	setAttr ".wl[916].w[10]" 9.8990971134945676e-009;
-	setAttr ".wl[916].w[11]" 0.24512030055266379;
-	setAttr ".wl[916].w[13]" 0.75487977591573352;
+	setAttr -s 4 ".wl[916].w";
+	setAttr ".wl[916].w[10]" 0.19047351181507111;
+	setAttr ".wl[916].w[11]" 0.30631491375124265;
+	setAttr ".wl[916].w[13]" 0.5032116429878557;
 	setAttr ".wl[916].w[14]" -6.8554169551945909e-008;
-	setAttr ".wl[916].w[15]" -1.121092773459677e-025;
-	setAttr -s 5 ".wl[917].w";
-	setAttr ".wl[917].w[10]" 1.6789371253335255e-012;
-	setAttr ".wl[917].w[11]" 0.4026578284772937;
-	setAttr ".wl[917].w[13]" 0.59734079869332124;
+	setAttr -s 4 ".wl[917].w";
+	setAttr ".wl[917].w[10]" 0.22089076042175293;
+	setAttr ".wl[917].w[11]" 0.39510256999897336;
+	setAttr ".wl[917].w[13]" 0.38400529674186318;
 	setAttr ".wl[917].w[14]" 1.3728374105465323e-006;
-	setAttr ".wl[917].w[15]" 7.4676030568800946e-025;
 	setAttr -s 3 ".wl[918].w[13:15]"  0.5866774132946041 0.41332258670539485 
 		1.0621634395208069e-015;
 	setAttr -s 2 ".wl[919].w[13:14]"  0.33554729819297791 0.66445270180702209;
@@ -27711,7 +27739,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 3 ".wl[933].w";
 	setAttr ".wl[933].w[15]" 0.99999999999991329;
 	setAttr ".wl[933].w[21]" 8.674642644826912e-014;
-	setAttr ".wl[933].w[22]" 1.961945331906506e-027;
+	setAttr ".wl[933].w[22]" 1.9619453319065064e-027;
 	setAttr -s 2 ".wl[934].w";
 	setAttr ".wl[934].w[15]" 0.99999999999313793;
 	setAttr ".wl[934].w[21]" 6.862015478854415e-012;
@@ -27893,18 +27921,19 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 2 ".wl[1020].w";
 	setAttr ".wl[1020].w[15]" 1;
 	setAttr ".wl[1020].w[21]" 3.2392634512968237e-024;
-	setAttr -s 3 ".wl[1021].w[13:15]"  0.93175820359944761 0.068241796400552793 
-		4.9762820168216886e-019;
-	setAttr -s 5 ".wl[1022].w";
-	setAttr ".wl[1022].w[10]" 2.4922413985926106e-009;
-	setAttr ".wl[1022].w[11]" 0.16553965907773655;
-	setAttr ".wl[1022].w[13]" 0.83445320194372707;
+	setAttr -s 3 ".wl[1021].w";
+	setAttr ".wl[1021].w[10]" 0.02634083665907383;
+	setAttr ".wl[1021].w[13]" 0.90541736694037334;
+	setAttr ".wl[1021].w[14]" 0.068241796400552793;
+	setAttr -s 4 ".wl[1022].w";
+	setAttr ".wl[1022].w[10]" 0.12986567616462708;
+	setAttr ".wl[1022].w[11]" 0.4620607783370097;
+	setAttr ".wl[1022].w[13]" 0.40806640901206848;
 	setAttr ".wl[1022].w[14]" 7.1364862947860684e-006;
-	setAttr ".wl[1022].w[15]" 3.9178043559353815e-024;
 	setAttr -s 5 ".wl[1023].w";
 	setAttr ".wl[1023].w[10]" 0.73716129423257082;
-	setAttr ".wl[1023].w[11]" 4.7251569052000124e-006;
-	setAttr ".wl[1023].w[13]" 0.26283398052051632;
+	setAttr ".wl[1023].w[11]" 0.13234001398086548;
+	setAttr ".wl[1023].w[13]" 0.13049869169655548;
 	setAttr ".wl[1023].w[14]" 9.0008230392207475e-011;
 	setAttr ".wl[1023].w[15]" 5.3205133874666017e-030;
 	setAttr -s 5 ".wl[1024].w";
@@ -27929,28 +27958,25 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1027].w[13]" 0.95772288709843478;
 	setAttr ".wl[1027].w[14]" 1.935111871354847e-005;
 	setAttr ".wl[1027].w[15]" 2.2300402900536189e-023;
-	setAttr -s 5 ".wl[1028].w";
-	setAttr ".wl[1028].w[10]" 4.6763295785165814e-013;
-	setAttr ".wl[1028].w[11]" 0.25524404536176509;
-	setAttr ".wl[1028].w[13]" 0.7447559542869272;
+	setAttr -s 4 ".wl[1028].w";
+	setAttr ".wl[1028].w[10]" 0.11287824809551239;
+	setAttr ".wl[1028].w[11]" 0.25270429930691529;
+	setAttr ".wl[1028].w[13]" 0.63441745224673229;
 	setAttr ".wl[1028].w[14]" 3.5084006589203e-010;
-	setAttr ".wl[1028].w[15]" 7.1526809346742428e-029;
-	setAttr -s 5 ".wl[1029].w";
-	setAttr ".wl[1029].w[10]" 0.81370153493757069;
-	setAttr ".wl[1029].w[11]" 1.382389916274876e-005;
-	setAttr ".wl[1029].w[13]" 0.18628464116326149;
+	setAttr -s 4 ".wl[1029].w";
+	setAttr ".wl[1029].w[10]" 0.77145637472218709;
+	setAttr ".wl[1029].w[11]" 0.11433457583189011;
+	setAttr ".wl[1029].w[13]" 0.11420904944591802;
 	setAttr ".wl[1029].w[14]" 4.7935478162368435e-015;
-	setAttr ".wl[1029].w[15]" 1.6072342372942996e-034;
 	setAttr -s 4 ".wl[1030].w";
 	setAttr ".wl[1030].w[10]" 1.0000000000000115;
 	setAttr ".wl[1030].w[11]" 2.6468276452040714e-022;
 	setAttr ".wl[1030].w[13]" -1.1249920445599187e-014;
 	setAttr ".wl[1030].w[14]" 8.348118098187966e-028;
-	setAttr -s 5 ".wl[1031].w";
+	setAttr -s 4 ".wl[1031].w";
+	setAttr ".wl[1031].w[0]" 3.3339889893291286e-007;
 	setAttr ".wl[1031].w[9]" -3.3339889890501276e-007;
-	setAttr ".wl[1031].w[10]" 1.0000003333988992;
-	setAttr ".wl[1031].w[11]" 5.0301362157704038e-027;
-	setAttr ".wl[1031].w[13]" -2.0771413943087973e-019;
+	setAttr ".wl[1031].w[10]" 1;
 	setAttr ".wl[1031].w[14]" 1.0192556267258185e-032;
 	setAttr -s 5 ".wl[1032].w";
 	setAttr ".wl[1032].w[9]" 1.983773975365605e-005;
@@ -27993,7 +28019,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1038].w[9]" 2.2964032915721942e-005;
 	setAttr ".wl[1038].w[10]" 0.99997703579862196;
 	setAttr ".wl[1038].w[11]" 1.2101549562368188e-040;
-	setAttr ".wl[1038].w[13]" -1.177503578202818e-031;
+	setAttr ".wl[1038].w[13]" -1.1775035782028182e-031;
 	setAttr -s 6 ".wl[1039].w";
 	setAttr ".wl[1039].w[8]" 2.2377460706628698e-011;
 	setAttr ".wl[1039].w[9]" 2.490403893887894e-005;
@@ -28142,96 +28168,86 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1131].w[15]" 0.99999998375871169;
 	setAttr ".wl[1131].w[21]" 1.6241288634679804e-008;
 	setAttr -s 2 ".wl[1132].w";
-	setAttr ".wl[1132].w[6]" 0.43676455067518227;
-	setAttr ".wl[1132].w[56]" 0.56323544932481773;
+	setAttr ".wl[1132].w[6]" 0.44193887710571289;
+	setAttr ".wl[1132].w[56]" 0.55806112289428711;
 	setAttr -s 2 ".wl[1133].w";
-	setAttr ".wl[1133].w[6]" 0.46047784951432513;
-	setAttr ".wl[1133].w[56]" 0.53952215048567487;
+	setAttr ".wl[1133].w[6]" 0.46597541928689079;
+	setAttr ".wl[1133].w[56]" 0.53402458071310921;
 	setAttr -s 2 ".wl[1134].w";
-	setAttr ".wl[1134].w[6]" 0.80780466739123136;
-	setAttr ".wl[1134].w[56]" 0.19219533260876873;
+	setAttr ".wl[1134].w[6]" 0.80744217336177826;
+	setAttr ".wl[1134].w[56]" 0.19255782663822174;
 	setAttr -s 2 ".wl[1135].w";
-	setAttr ".wl[1135].w[6]" 0.77705683048415974;
-	setAttr ".wl[1135].w[56]" 0.22294316951584014;
-	setAttr -s 2 ".wl[1136].w[5:6]"  0.00018374121045133446 0.99981625878903224;
-	setAttr ".wl[1137].w[6]"  0.99999999999984857;
-	setAttr ".wl[1138].w[6]"  0.99999999999984879;
-	setAttr -s 2 ".wl[1139].w[5:6]"  0.00051265058999225028 0.99948734934107597;
-	setAttr -s 2 ".wl[1140].w[5:6]"  0.00059336067417193293 0.99940663932479223;
-	setAttr -s 2 ".wl[1141].w[5:6]"  3.4993520209225477e-008 0.99999996500647137;
+	setAttr ".wl[1135].w[6]" 0.79189876898492706;
+	setAttr ".wl[1135].w[56]" 0.20810123101507294;
+	setAttr -s 2 ".wl[1136].w[5:6]"  3.1475177659934361e-006 0.99999685248223402;
+	setAttr ".wl[1137].w[6]"  1;
+	setAttr ".wl[1138].w[6]"  1;
+	setAttr ".wl[1139].w[6]"  0.99999999993089361;
+	setAttr -s 2 ".wl[1140].w[5:6]"  8.1043951164930032e-006 0.99999189560488355;
+	setAttr ".wl[1141].w[6]"  1;
 	setAttr ".wl[1142].w[6]"  1;
-	setAttr -s 2 ".wl[1143].w[5:6]"  0.037096548593677912 0.96290345140632194;
-	setAttr -s 2 ".wl[1144].w[5:6]"  0.0015644268585548674 0.99843557314144504;
+	setAttr -s 2 ".wl[1143].w[5:6]"  0.037865726401380854 0.96213427359861903;
+	setAttr ".wl[1144].w[6]"  1;
 	setAttr ".wl[1145].w[6]"  1;
 	setAttr ".wl[1146].w[6]"  1;
 	setAttr ".wl[1147].w[6]"  1;
-	setAttr -s 2 ".wl[1148].w[5:6]"  1.6125301574440228e-006 0.9999983874698426;
+	setAttr ".wl[1148].w[6]"  1;
 	setAttr ".wl[1149].w[6]"  1;
 	setAttr ".wl[1150].w[6]"  1;
-	setAttr -s 2 ".wl[1151].w[5:6]"  3.3996195814777619e-005 0.99996600380418521;
+	setAttr -s 2 ".wl[1151].w[5:6]"  3.4834601958628938e-005 0.99996516539804137;
 	setAttr ".wl[1152].w[6]"  1;
 	setAttr ".wl[1153].w[6]"  1;
 	setAttr ".wl[1154].w[6]"  1;
 	setAttr ".wl[1155].w[6]"  1;
-	setAttr ".wl[1156].w[6]"  0.99999999999999989;
+	setAttr ".wl[1156].w[6]"  1;
 	setAttr ".wl[1157].w[6]"  1;
 	setAttr -s 2 ".wl[1158].w";
-	setAttr ".wl[1158].w[6]" 0.99999998359542175;
-	setAttr ".wl[1158].w[56]" 1.6404578246756042e-008;
+	setAttr ".wl[1158].w[6]" 0.99999999999189404;
+	setAttr ".wl[1158].w[56]" 8.1060332204665512e-012;
 	setAttr ".wl[1159].w[6]"  1;
 	setAttr ".wl[1160].w[6]"  1;
-	setAttr -s 2 ".wl[1161].w";
-	setAttr ".wl[1161].w[6]" 0.99999995765355543;
-	setAttr ".wl[1161].w[56]" 4.2346444592909693e-008;
-	setAttr -s 2 ".wl[1162].w";
-	setAttr ".wl[1162].w[6]" 0.99999997666831808;
-	setAttr ".wl[1162].w[56]" 2.333168175696637e-008;
+	setAttr ".wl[1161].w[6]"  1;
+	setAttr ".wl[1162].w[6]"  0.99999999999999989;
 	setAttr ".wl[1163].w[6]"  1;
 	setAttr ".wl[1164].w[6]"  1;
 	setAttr ".wl[1165].w[6]"  1;
-	setAttr ".wl[1166].w[6]"  1;
+	setAttr -s 2 ".wl[1166].w";
+	setAttr ".wl[1166].w[6]" 0.99999999994384614;
+	setAttr ".wl[1166].w[56]" 5.6153871651761706e-011;
 	setAttr ".wl[1167].w[6]"  1;
 	setAttr ".wl[1168].w[6]"  1;
 	setAttr ".wl[1169].w[6]"  1;
-	setAttr ".wl[1170].w[6]"  1;
+	setAttr -s 2 ".wl[1170].w[5:6]"  5.1583317897996865e-009 0.99999999484166824;
 	setAttr ".wl[1171].w[6]"  1;
 	setAttr ".wl[1172].w[6]"  1;
 	setAttr ".wl[1173].w[6]"  1;
 	setAttr ".wl[1174].w[6]"  1;
-	setAttr ".wl[1175].w[6]"  0.99999999999999989;
+	setAttr ".wl[1175].w[6]"  1;
 	setAttr -s 2 ".wl[1176].w";
-	setAttr ".wl[1176].w[6]" 0.99069780575057187;
-	setAttr ".wl[1176].w[56]" 0.0093021942494281185;
+	setAttr ".wl[1176].w[6]" 0.99841189384460449;
+	setAttr ".wl[1176].w[56]" 0.0015881061553955078;
 	setAttr -s 2 ".wl[1177].w";
-	setAttr ".wl[1177].w[6]" 0.7899529169497993;
-	setAttr ".wl[1177].w[56]" 0.21004708305020076;
-	setAttr -s 2 ".wl[1178].w";
-	setAttr ".wl[1178].w[6]" 0.99209560594930646;
-	setAttr ".wl[1178].w[56]" 0.0079043940506934654;
-	setAttr -s 2 ".wl[1179].w";
-	setAttr ".wl[1179].w[6]" 0.99952943091151802;
-	setAttr ".wl[1179].w[56]" 0.00047056908848192242;
+	setAttr ".wl[1177].w[6]" 0.78296875953674316;
+	setAttr ".wl[1177].w[56]" 0.21703124046325684;
+	setAttr ".wl[1178].w[6]"  1;
+	setAttr ".wl[1179].w[6]"  1;
 	setAttr -s 2 ".wl[1180].w";
-	setAttr ".wl[1180].w[6]" 0.9143692456040553;
-	setAttr ".wl[1180].w[56]" 0.085630754395944628;
-	setAttr -s 2 ".wl[1181].w";
-	setAttr ".wl[1181].w[6]" 0.98420518783738531;
-	setAttr ".wl[1181].w[56]" 0.01579481216261468;
+	setAttr ".wl[1180].w[6]" 0.90834212303161621;
+	setAttr ".wl[1180].w[56]" 0.091657876968383789;
+	setAttr ".wl[1181].w[6]"  1;
 	setAttr -s 2 ".wl[1182].w";
-	setAttr ".wl[1182].w[6]" 0.99122738676787847;
-	setAttr ".wl[1182].w[56]" 0.0087726132321215289;
+	setAttr ".wl[1182].w[6]" 0.99579447507858276;
+	setAttr ".wl[1182].w[56]" 0.0042055249214172363;
 	setAttr -s 2 ".wl[1183].w";
-	setAttr ".wl[1183].w[6]" 0.97319197837977134;
-	setAttr ".wl[1183].w[56]" 0.026808021620228734;
+	setAttr ".wl[1183].w[6]" 0.99999999924799354;
+	setAttr ".wl[1183].w[56]" 7.5200645710538083e-010;
 	setAttr -s 2 ".wl[1184].w";
-	setAttr ".wl[1184].w[6]" 0.99978554558479382;
-	setAttr ".wl[1184].w[56]" 0.00021445441520614693;
-	setAttr -s 2 ".wl[1185].w";
-	setAttr ".wl[1185].w[6]" 0.99999998169236071;
-	setAttr ".wl[1185].w[56]" 1.8307639363522965e-008;
+	setAttr ".wl[1184].w[6]" 0.99999999999997025;
+	setAttr ".wl[1184].w[56]" 2.9761045194518817e-014;
+	setAttr ".wl[1185].w[6]"  1;
 	setAttr ".wl[1186].w[6]"  1;
-	setAttr ".wl[1187].w[6]"  0.99999999999999989;
-	setAttr ".wl[1188].w[6]"  0.99999999999999989;
+	setAttr ".wl[1187].w[6]"  1;
+	setAttr ".wl[1188].w[6]"  1;
 	setAttr ".wl[1189].w[6]"  1;
 	setAttr ".wl[1190].w[6]"  1;
 	setAttr ".wl[1191].w[6]"  1;
@@ -28239,72 +28255,60 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1193].w[6]"  1;
 	setAttr ".wl[1194].w[6]"  1;
 	setAttr ".wl[1195].w[6]"  1;
-	setAttr -s 2 ".wl[1196].w";
-	setAttr ".wl[1196].w[1]" 0.00066826421885262418;
-	setAttr ".wl[1196].w[5]" 0.99933173578114742;
-	setAttr -s 2 ".wl[1197].w";
-	setAttr ".wl[1197].w[1]" 0.00074205297812361996;
-	setAttr ".wl[1197].w[5]" 0.99925794702187642;
-	setAttr -s 2 ".wl[1198].w";
-	setAttr ".wl[1198].w[1]" 0.00012719910710725485;
-	setAttr ".wl[1198].w[5]" 0.99987280089289277;
-	setAttr -s 2 ".wl[1199].w";
-	setAttr ".wl[1199].w[1]" 3.8628957411741253e-005;
-	setAttr ".wl[1199].w[5]" 0.99996137104258787;
-	setAttr ".wl[1200].w[5]"  0.99999999990885002;
-	setAttr -s 2 ".wl[1201].w";
-	setAttr ".wl[1201].w[1]" 0.00044754395722756946;
-	setAttr ".wl[1201].w[5]" 0.99955245604276965;
-	setAttr -s 2 ".wl[1202].w[5:6]"  0.4241773116157086 0.57582268838429151;
-	setAttr -s 2 ".wl[1203].w[5:6]"  0.40979879738760544 0.5902012026123945;
-	setAttr -s 2 ".wl[1204].w[5:6]"  0.662203055136526 0.33779694486347417;
-	setAttr -s 2 ".wl[1205].w[5:6]"  0.69214707344176296 0.30785292655823698;
-	setAttr -s 2 ".wl[1206].w[5:6]"  0.79620971376379168 0.2037902862362084;
-	setAttr -s 2 ".wl[1207].w[5:6]"  0.69781292529852046 0.30218707470147965;
-	setAttr -s 2 ".wl[1208].w[5:6]"  0.72808222367806796 0.27191777632193231;
-	setAttr -s 2 ".wl[1209].w[5:6]"  0.5942602789501743 0.40573972104982581;
-	setAttr ".wl[1210].w[5]"  0.9999999999804875;
+	setAttr ".wl[1196].w[5]"  1;
+	setAttr ".wl[1197].w[5]"  1;
+	setAttr ".wl[1198].w[5]"  1;
+	setAttr ".wl[1199].w[5]"  0.99999999999999956;
+	setAttr -s 2 ".wl[1200].w";
+	setAttr ".wl[1200].w[1]" 1.1477935617519645e-013;
+	setAttr ".wl[1200].w[5]" 0.99999999990820732;
+	setAttr ".wl[1201].w[5]"  0.99999999999999722;
+	setAttr -s 2 ".wl[1202].w[5:6]"  0.41783828999172312 0.58216171000827699;
+	setAttr -s 2 ".wl[1203].w[5:6]"  0.40328293165907442 0.59671706834092553;
+	setAttr -s 2 ".wl[1204].w[5:6]"  0.66200090952768553 0.33799909047231458;
+	setAttr -s 2 ".wl[1205].w[5:6]"  0.69430645660847068 0.30569354339152932;
+	setAttr -s 2 ".wl[1206].w[5:6]"  0.8001976047424042 0.19980239525759588;
+	setAttr -s 2 ".wl[1207].w[5:6]"  0.69789419304764311 0.30210580695235689;
+	setAttr -s 2 ".wl[1208].w[5:6]"  0.73584260575930716 0.26415739424069296;
+	setAttr -s 2 ".wl[1209].w[5:6]"  0.60283971995085828 0.39716028004914183;
+	setAttr ".wl[1210].w[5]"  0.99999999998036238;
 	setAttr -s 2 ".wl[1211].w";
-	setAttr ".wl[1211].w[1]" 9.5600624593792946e-007;
-	setAttr ".wl[1211].w[5]" 0.99999904399365469;
-	setAttr -s 2 ".wl[1212].w[5:6]"  0.63285595911169124 0.36714404088830876;
-	setAttr -s 2 ".wl[1213].w[5:6]"  0.41753100411290817 0.58246899588709178;
-	setAttr -s 2 ".wl[1214].w";
-	setAttr ".wl[1214].w[1]" 0.00013466169932732966;
-	setAttr ".wl[1214].w[5]" 0.9998653383006727;
-	setAttr -s 2 ".wl[1215].w[5:6]"  0.99950484791642924 0.00049515208309704086;
-	setAttr -s 2 ".wl[1216].w[5:6]"  0.99960872663730038 0.00039127336053849617;
-	setAttr -s 2 ".wl[1217].w[5:6]"  0.99995174892577443 4.8251074225641187e-005;
-	setAttr -s 2 ".wl[1218].w[5:6]"  0.99891623675594576 0.0010837632440543138;
-	setAttr -s 2 ".wl[1219].w[5:6]"  0.99954379374287172 0.00045620625712838625;
-	setAttr -s 2 ".wl[1220].w[5:6]"  0.99999983344789112 1.6655210883943881e-007;
-	setAttr -s 2 ".wl[1221].w[5:6]"  0.99999988264992223 1.1735007773289173e-007;
-	setAttr -s 2 ".wl[1222].w[5:6]"  0.99997990520344682 2.0094796552995768e-005;
-	setAttr -s 2 ".wl[1223].w[5:6]"  0.99937106565993428 0.00062893434006569212;
-	setAttr -s 2 ".wl[1224].w[5:6]"  0.99999890038717887 1.0995883717369869e-006;
-	setAttr -s 2 ".wl[1225].w[5:6]"  0.9999999997864949 2.1350045212743445e-010;
-	setAttr -s 2 ".wl[1226].w[5:6]"  0.99999999918128046 8.1871864025629921e-010;
+	setAttr ".wl[1211].w[1]" 0.00013976559090671795;
+	setAttr ".wl[1211].w[5]" 0.99986023440899996;
+	setAttr -s 2 ".wl[1212].w[5:6]"  0.62749702670818663 0.37250297329181337;
+	setAttr -s 2 ".wl[1213].w[5:6]"  0.4140922923156779 0.58590770768432199;
+	setAttr ".wl[1214].w[5]"  1;
+	setAttr -s 2 ".wl[1215].w[5:6]"  0.99999958286527768 4.1713472229221605e-007;
+	setAttr ".wl[1216].w[5]"  0.9999999999977971;
+	setAttr -s 2 ".wl[1217].w[5:6]"  0.99999999643844772 3.5615523401952689e-009;
+	setAttr -s 2 ".wl[1218].w[5:6]"  0.99998925450297182 1.0745497028247435e-005;
+	setAttr -s 2 ".wl[1219].w[5:6]"  0.99999669547937942 3.3045206206355213e-006;
+	setAttr -s 2 ".wl[1220].w[5:6]"  0.99999999980945908 1.9054088395154773e-010;
+	setAttr -s 2 ".wl[1221].w[5:6]"  0.99999999593656819 4.0634318875639012e-009;
+	setAttr -s 2 ".wl[1222].w[5:6]"  0.99997981490355903 2.0185096440952183e-005;
+	setAttr -s 2 ".wl[1223].w[5:6]"  0.99997042809052228 2.9571909477689382e-005;
+	setAttr ".wl[1224].w[5]"  0.99999999997453237;
+	setAttr ".wl[1225].w[5]"  1;
+	setAttr ".wl[1226].w[5]"  0.99999999999999967;
 	setAttr ".wl[1227].w[5]"  1;
 	setAttr ".wl[1228].w[5]"  1;
 	setAttr ".wl[1229].w[5]"  1;
-	setAttr -s 2 ".wl[1230].w[5:6]"  0.99999999973367704 2.6632215975092074e-010;
-	setAttr -s 2 ".wl[1231].w[5:6]"  0.99999999681725282 3.1827471435012041e-009;
+	setAttr -s 2 ".wl[1230].w[5:6]"  0.99999999972690168 2.7309826863205411e-010;
+	setAttr ".wl[1231].w[5]"  1;
 	setAttr ".wl[1232].w[5]"  1;
-	setAttr ".wl[1233].w[5]"  0.99999999999996692;
+	setAttr ".wl[1233].w[5]"  0.99999999999996625;
 	setAttr ".wl[1234].w[5]"  0.999999999999998;
 	setAttr ".wl[1235].w[5]"  1;
-	setAttr -s 2 ".wl[1236].w[5:6]"  0.99999999999820022 1.799723261984429e-012;
+	setAttr ".wl[1236].w[5]"  1;
 	setAttr ".wl[1237].w[5]"  1;
-	setAttr -s 2 ".wl[1238].w[5:6]"  0.99999999999803324 1.9426615025447688e-012;
-	setAttr -s 2 ".wl[1239].w[5:6]"  0.99999999962496511 3.7503482407890382e-010;
+	setAttr ".wl[1238].w[5]"  0.99999999999997569;
+	setAttr -s 2 ".wl[1239].w[5:6]"  0.99999999962332642 3.7667351350171767e-010;
 	setAttr ".wl[1240].w[5]"  0.99999999999999878;
 	setAttr ".wl[1241].w[5]"  1;
-	setAttr ".wl[1242].w[5]"  0.99999999999999956;
+	setAttr ".wl[1242].w[5]"  1;
 	setAttr ".wl[1243].w[5]"  1;
-	setAttr ".wl[1244].w[5]"  0.99999999999999922;
-	setAttr -s 2 ".wl[1245].w";
-	setAttr ".wl[1245].w[1]" 0.00029922179980120575;
-	setAttr ".wl[1245].w[5]" 0.99970077820019876;
+	setAttr ".wl[1244].w[5]"  1;
+	setAttr ".wl[1245].w[5]"  1;
 	setAttr ".wl[1246].w[6]"  1;
 	setAttr ".wl[1247].w[6]"  1;
 	setAttr ".wl[1248].w[6]"  1;
@@ -28316,207 +28320,182 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1254].w[6]"  1;
 	setAttr ".wl[1255].w[6]"  1;
 	setAttr -s 2 ".wl[1256].w";
-	setAttr ".wl[1256].w[1]" 0.21050840764861486;
-	setAttr ".wl[1256].w[5]" 0.789491592351385;
+	setAttr ".wl[1256].w[1]" 0.20977798148531493;
+	setAttr ".wl[1256].w[5]" 0.79022201851468499;
 	setAttr -s 2 ".wl[1257].w";
-	setAttr ".wl[1257].w[1]" 0.17852219369267636;
-	setAttr ".wl[1257].w[5]" 0.82147780630732359;
+	setAttr ".wl[1257].w[1]" 0.17739755621230349;
+	setAttr ".wl[1257].w[5]" 0.82260244378769642;
 	setAttr -s 2 ".wl[1258].w";
-	setAttr ".wl[1258].w[1]" 0.050275195232777695;
-	setAttr ".wl[1258].w[5]" 0.9497248047672221;
+	setAttr ".wl[1258].w[1]" 0.049812860809892084;
+	setAttr ".wl[1258].w[5]" 0.95018713919010755;
 	setAttr -s 2 ".wl[1259].w";
-	setAttr ".wl[1259].w[1]" 0.053782860614271975;
-	setAttr ".wl[1259].w[5]" 0.94621713938572793;
+	setAttr ".wl[1259].w[1]" 0.053894123637777624;
+	setAttr ".wl[1259].w[5]" 0.94610587636222232;
 	setAttr -s 2 ".wl[1260].w";
-	setAttr ".wl[1260].w[1]" 0.10626658096415323;
-	setAttr ".wl[1260].w[5]" 0.89373341903569958;
+	setAttr ".wl[1260].w[1]" 0.10625302046005052;
+	setAttr ".wl[1260].w[5]" 0.89374697953994953;
 	setAttr -s 2 ".wl[1261].w";
-	setAttr ".wl[1261].w[1]" 0.19153250269795419;
-	setAttr ".wl[1261].w[5]" 0.80846749730204603;
+	setAttr ".wl[1261].w[1]" 0.19136991725525138;
+	setAttr ".wl[1261].w[5]" 0.8086300827447489;
 	setAttr -s 2 ".wl[1262].w";
-	setAttr ".wl[1262].w[1]" 0.077111883049108959;
-	setAttr ".wl[1262].w[5]" 0.92288811695080464;
+	setAttr ".wl[1262].w[1]" 0.077554020495974194;
+	setAttr ".wl[1262].w[5]" 0.92244597950402574;
 	setAttr -s 2 ".wl[1263].w";
-	setAttr ".wl[1263].w[1]" 0.13370371365999228;
-	setAttr ".wl[1263].w[5]" 0.86629628634000699;
+	setAttr ".wl[1263].w[1]" 0.1342994967739585;
+	setAttr ".wl[1263].w[5]" 0.86570050322604153;
 	setAttr -s 2 ".wl[1264].w";
-	setAttr ".wl[1264].w[1]" 0.042151040516260375;
-	setAttr ".wl[1264].w[5]" 0.95784895948373971;
+	setAttr ".wl[1264].w[1]" 0.040469629544276617;
+	setAttr ".wl[1264].w[5]" 0.95953037045572342;
 	setAttr -s 2 ".wl[1265].w";
-	setAttr ".wl[1265].w[1]" 0.076731776379473676;
-	setAttr ".wl[1265].w[5]" 0.92326822362052596;
-	setAttr -s 2 ".wl[1266].w[56:57]"  0.58990799227993873 0.41009200772006116;
-	setAttr -s 2 ".wl[1267].w[56:57]"  0.63863576783572373 0.36136423216427627;
-	setAttr -s 2 ".wl[1268].w[56:57]"  0.48340286691881124 0.5165971330811886;
+	setAttr ".wl[1265].w[1]" 0.074452802666021251;
+	setAttr ".wl[1265].w[5]" 0.9255471973339785;
+	setAttr -s 2 ".wl[1266].w[56:57]"  0.60954594612121582 0.39045405387878418;
+	setAttr -s 2 ".wl[1267].w[56:57]"  0.64458594892831456 0.3554140510716855;
+	setAttr -s 2 ".wl[1268].w[56:57]"  0.49048675353334387 0.50951324646665619;
 	setAttr -s 2 ".wl[1269].w";
-	setAttr ".wl[1269].w[6]" 0.4417269905700289;
-	setAttr ".wl[1269].w[56]" 0.55827300942997105;
+	setAttr ".wl[1269].w[6]" 0.44734302106027002;
+	setAttr ".wl[1269].w[56]" 0.55265697893972998;
 	setAttr -s 2 ".wl[1270].w";
-	setAttr ".wl[1270].w[6]" 0.22602940107597605;
-	setAttr ".wl[1270].w[56]" 0.77397059892402398;
+	setAttr ".wl[1270].w[6]" 0.2267412543296814;
+	setAttr ".wl[1270].w[56]" 0.7732587456703186;
 	setAttr -s 2 ".wl[1271].w";
-	setAttr ".wl[1271].w[6]" 0.19618952593850145;
-	setAttr ".wl[1271].w[56]" 0.80381047406149853;
+	setAttr ".wl[1271].w[6]" 0.17611093819141388;
+	setAttr ".wl[1271].w[56]" 0.82388906180858612;
 	setAttr -s 2 ".wl[1272].w";
-	setAttr ".wl[1272].w[6]" 0.10368095995280323;
-	setAttr ".wl[1272].w[56]" 0.89631904004719665;
+	setAttr ".wl[1272].w[6]" 0.10642450352359724;
+	setAttr ".wl[1272].w[56]" 0.89357549647640266;
 	setAttr -s 2 ".wl[1273].w";
-	setAttr ".wl[1273].w[6]" 0.019566347431922353;
-	setAttr ".wl[1273].w[56]" 0.98043365256807768;
+	setAttr ".wl[1273].w[6]" 0.0037926146742015272;
+	setAttr ".wl[1273].w[56]" 0.99620738532579844;
 	setAttr -s 2 ".wl[1274].w";
-	setAttr ".wl[1274].w[6]" 0.2155633405024788;
-	setAttr ".wl[1274].w[56]" 0.78443665949752117;
+	setAttr ".wl[1274].w[6]" 0.21002331376075745;
+	setAttr ".wl[1274].w[56]" 0.78997668623924255;
 	setAttr -s 2 ".wl[1275].w";
-	setAttr ".wl[1275].w[6]" 0.10812749756716841;
-	setAttr ".wl[1275].w[56]" 0.89187250243283167;
+	setAttr ".wl[1275].w[6]" 0.10423112631406166;
+	setAttr ".wl[1275].w[56]" 0.89576887368593838;
 	setAttr -s 2 ".wl[1276].w";
-	setAttr ".wl[1276].w[6]" 0.25075379336496451;
-	setAttr ".wl[1276].w[56]" 0.74924620663503549;
+	setAttr ".wl[1276].w[6]" 0.25835579633712769;
+	setAttr ".wl[1276].w[56]" 0.74164420366287231;
 	setAttr -s 2 ".wl[1277].w";
-	setAttr ".wl[1277].w[6]" 0.043933596626177795;
-	setAttr ".wl[1277].w[56]" 0.95606640337382232;
+	setAttr ".wl[1277].w[6]" 0.046395198270026271;
+	setAttr ".wl[1277].w[56]" 0.95360480172997375;
 	setAttr -s 2 ".wl[1278].w";
-	setAttr ".wl[1278].w[6]" 0.00048912123037756481;
-	setAttr ".wl[1278].w[56]" 0.99951087876962241;
+	setAttr ".wl[1278].w[6]" 1.1404113775698778e-007;
+	setAttr ".wl[1278].w[56]" 0.99999988595886224;
 	setAttr -s 2 ".wl[1279].w";
-	setAttr ".wl[1279].w[6]" 0.28191770879918387;
-	setAttr ".wl[1279].w[56]" 0.71808229120081613;
-	setAttr -s 2 ".wl[1280].w";
-	setAttr ".wl[1280].w[6]" 0.00082043190118146056;
-	setAttr ".wl[1280].w[56]" 0.99917956809881858;
+	setAttr ".wl[1279].w[6]" 0.28706428405991424;
+	setAttr ".wl[1279].w[56]" 0.71293571594008576;
+	setAttr ".wl[1280].w[56]"  1;
 	setAttr -s 2 ".wl[1281].w";
-	setAttr ".wl[1281].w[6]" 0.030294971489066194;
-	setAttr ".wl[1281].w[56]" 0.96970502851093388;
+	setAttr ".wl[1281].w[6]" 0.030339672324253594;
+	setAttr ".wl[1281].w[56]" 0.9696603276757465;
 	setAttr -s 2 ".wl[1282].w";
-	setAttr ".wl[1282].w[6]" 0.045284936441543147;
-	setAttr ".wl[1282].w[56]" 0.95471506355845681;
+	setAttr ".wl[1282].w[6]" 0.044755389964070087;
+	setAttr ".wl[1282].w[56]" 0.95524461003592998;
 	setAttr -s 2 ".wl[1283].w";
-	setAttr ".wl[1283].w[6]" 0.00046967809334102681;
-	setAttr ".wl[1283].w[56]" 0.99953032190665891;
+	setAttr ".wl[1283].w[6]" 8.883697134913406e-007;
+	setAttr ".wl[1283].w[56]" 0.99999911163028654;
 	setAttr -s 2 ".wl[1284].w";
-	setAttr ".wl[1284].w[6]" 0.30801372394280058;
-	setAttr ".wl[1284].w[56]" 0.69198627605719931;
+	setAttr ".wl[1284].w[6]" 0.30016002407058145;
+	setAttr ".wl[1284].w[56]" 0.69983997592941849;
 	setAttr -s 2 ".wl[1285].w";
-	setAttr ".wl[1285].w[6]" 0.20661584148538703;
-	setAttr ".wl[1285].w[56]" 0.79338415851461286;
+	setAttr ".wl[1285].w[6]" 0.2143900257885015;
+	setAttr ".wl[1285].w[56]" 0.78560997421149859;
 	setAttr -s 2 ".wl[1286].w";
-	setAttr ".wl[1286].w[6]" 0.096298739740913825;
-	setAttr ".wl[1286].w[56]" 0.90370126025908615;
+	setAttr ".wl[1286].w[6]" 0.10416406393051147;
+	setAttr ".wl[1286].w[56]" 0.89583593606948853;
 	setAttr -s 2 ".wl[1287].w";
-	setAttr ".wl[1287].w[6]" 0.10023736502245693;
-	setAttr ".wl[1287].w[56]" 0.89976263497754316;
+	setAttr ".wl[1287].w[6]" 0.097540617383923944;
+	setAttr ".wl[1287].w[56]" 0.90245938261607606;
 	setAttr -s 2 ".wl[1288].w";
-	setAttr ".wl[1288].w[6]" 0.0032857225784944264;
-	setAttr ".wl[1288].w[56]" 0.99671427742150565;
-	setAttr -s 2 ".wl[1289].w";
-	setAttr ".wl[1289].w[6]" 0.00031723880682296121;
-	setAttr ".wl[1289].w[56]" 0.99968276119317701;
+	setAttr ".wl[1288].w[6]" 0.003500521183013916;
+	setAttr ".wl[1288].w[56]" 0.99649947881698608;
+	setAttr ".wl[1289].w[56]"  1;
 	setAttr -s 2 ".wl[1290].w";
-	setAttr ".wl[1290].w[6]" 0.35365787286302464;
-	setAttr ".wl[1290].w[56]" 0.64634212713697536;
+	setAttr ".wl[1290].w[6]" 0.35693842172622681;
+	setAttr ".wl[1290].w[56]" 0.64306157827377319;
 	setAttr -s 2 ".wl[1291].w";
-	setAttr ".wl[1291].w[6]" 0.015827192097237413;
-	setAttr ".wl[1291].w[56]" 0.98417280790276263;
+	setAttr ".wl[1291].w[6]" 0.015827190627689839;
+	setAttr ".wl[1291].w[56]" 0.98417280937231022;
 	setAttr -s 2 ".wl[1292].w";
-	setAttr ".wl[1292].w[6]" 0.09621570111578627;
-	setAttr ".wl[1292].w[56]" 0.90378429888421374;
+	setAttr ".wl[1292].w[6]" 0.09791670323535806;
+	setAttr ".wl[1292].w[56]" 0.90208329676464194;
 	setAttr -s 2 ".wl[1293].w";
-	setAttr ".wl[1293].w[6]" 0.10053614737228621;
-	setAttr ".wl[1293].w[56]" 0.89946385262771378;
+	setAttr ".wl[1293].w[6]" 0.096765503639687223;
+	setAttr ".wl[1293].w[56]" 0.90323449636031283;
 	setAttr -s 2 ".wl[1294].w";
-	setAttr ".wl[1294].w[6]" 0.34225996210424681;
-	setAttr ".wl[1294].w[56]" 0.65774003789575308;
+	setAttr ".wl[1294].w[6]" 0.33317989110946655;
+	setAttr ".wl[1294].w[56]" 0.66682010889053345;
 	setAttr -s 2 ".wl[1295].w";
-	setAttr ".wl[1295].w[6]" 0.089141520133604796;
-	setAttr ".wl[1295].w[56]" 0.91085847986639523;
+	setAttr ".wl[1295].w[6]" 0.093278544169340658;
+	setAttr ".wl[1295].w[56]" 0.90672145583065933;
 	setAttr -s 2 ".wl[1296].w";
-	setAttr ".wl[1296].w[6]" 0.31757690457591153;
-	setAttr ".wl[1296].w[56]" 0.68242309542408841;
-	setAttr -s 2 ".wl[1297].w";
-	setAttr ".wl[1297].w[6]" 7.9505200745597681e-005;
-	setAttr ".wl[1297].w[56]" 0.99992049479925427;
+	setAttr ".wl[1296].w[6]" 0.32347943238111332;
+	setAttr ".wl[1296].w[56]" 0.67652056761888679;
+	setAttr ".wl[1297].w[56]"  1;
 	setAttr -s 2 ".wl[1298].w";
-	setAttr ".wl[1298].w[6]" 0.0038764903462563337;
-	setAttr ".wl[1298].w[56]" 0.99612350965374363;
-	setAttr -s 3 ".wl[1299].w";
-	setAttr ".wl[1299].w[6]" 3.0446833865767082e-007;
-	setAttr ".wl[1299].w[56]" 0.99598738342831283;
-	setAttr ".wl[1299].w[57]" 0.0040123121033485273;
-	setAttr -s 3 ".wl[1300].w";
-	setAttr ".wl[1300].w[6]" 3.6026501124707738e-006;
-	setAttr ".wl[1300].w[56]" 0.9894493434705468;
-	setAttr ".wl[1300].w[57]" 0.010547053879340722;
+	setAttr ".wl[1298].w[6]" 0.0035073786544362021;
+	setAttr ".wl[1298].w[56]" 0.99649262134556382;
+	setAttr -s 2 ".wl[1299].w[56:57]"  0.99999953394488017 4.6605511982988901e-007;
+	setAttr -s 2 ".wl[1300].w";
+	setAttr ".wl[1300].w[6]" 3.2935945488399774e-006;
+	setAttr ".wl[1300].w[56]" 0.99999670640545113;
 	setAttr -s 3 ".wl[1301].w";
-	setAttr ".wl[1301].w[6]" 8.5261296392524421e-006;
-	setAttr ".wl[1301].w[56]" 0.97161463607133514;
-	setAttr ".wl[1301].w[57]" 0.028376837799025566;
+	setAttr ".wl[1301].w[6]" 9.0045099356750006e-006;
+	setAttr ".wl[1301].w[56]" 0.97847867012023926;
+	setAttr ".wl[1301].w[57]" 0.021512325369825058;
 	setAttr ".wl[1302].w[56]"  1;
-	setAttr -s 2 ".wl[1303].w";
-	setAttr ".wl[1303].w[6]" 6.7393351448315339e-005;
-	setAttr ".wl[1303].w[56]" 0.99993260664855166;
+	setAttr ".wl[1303].w[56]"  1;
 	setAttr -s 2 ".wl[1304].w";
-	setAttr ".wl[1304].w[6]" 0.0010916035141308462;
-	setAttr ".wl[1304].w[56]" 0.99890839648586915;
+	setAttr ".wl[1304].w[6]" 0.00047004222869873047;
+	setAttr ".wl[1304].w[56]" 0.99952995777130127;
 	setAttr -s 2 ".wl[1305].w";
-	setAttr ".wl[1305].w[6]" 0.0045572171179419424;
-	setAttr ".wl[1305].w[56]" 0.99544278288205812;
+	setAttr ".wl[1305].w[6]" 3.458491505513162e-007;
+	setAttr ".wl[1305].w[56]" 0.99999965415084946;
 	setAttr -s 2 ".wl[1306].w";
-	setAttr ".wl[1306].w[6]" 0.015585701921510885;
-	setAttr ".wl[1306].w[56]" 0.98441429807848913;
+	setAttr ".wl[1306].w[6]" 0.015404595665582457;
+	setAttr ".wl[1306].w[56]" 0.9845954043344175;
 	setAttr -s 2 ".wl[1307].w";
-	setAttr ".wl[1307].w[6]" 0.031802968455841719;
-	setAttr ".wl[1307].w[56]" 0.96819703154415837;
-	setAttr -s 2 ".wl[1308].w";
-	setAttr ".wl[1308].w[6]" 0.00020132792067707592;
-	setAttr ".wl[1308].w[56]" 0.99979867207932294;
+	setAttr ".wl[1307].w[6]" 0.0349135378272208;
+	setAttr ".wl[1307].w[56]" 0.96508646217277927;
+	setAttr ".wl[1308].w[56]"  1;
 	setAttr -s 2 ".wl[1309].w";
-	setAttr ".wl[1309].w[6]" 2.212251085268849e-006;
-	setAttr ".wl[1309].w[56]" 0.99999778774891457;
-	setAttr -s 2 ".wl[1310].w";
-	setAttr ".wl[1310].w[6]" 0.00033052906202775092;
-	setAttr ".wl[1310].w[56]" 0.9996694709379722;
-	setAttr -s 3 ".wl[1311].w";
-	setAttr ".wl[1311].w[6]" 1.9202863739760098e-008;
-	setAttr ".wl[1311].w[56]" 0.93295670700651967;
-	setAttr ".wl[1311].w[57]" 0.067043273790616573;
-	setAttr -s 2 ".wl[1312].w[56:57]"  0.99787109850435995 0.0021289014956399738;
-	setAttr -s 2 ".wl[1313].w[56:57]"  0.74453024519195354 0.25546975480804646;
-	setAttr -s 2 ".wl[1314].w[56:57]"  0.46312023514010647 0.53687976485989353;
-	setAttr -s 2 ".wl[1315].w[56:57]"  0.19069446626952447 0.80930553373047553;
-	setAttr -s 2 ".wl[1316].w[56:57]"  0.1935839033672819 0.80641609663271807;
-	setAttr -s 2 ".wl[1317].w[56:57]"  0.38843798907358007 0.61156201092641993;
-	setAttr -s 2 ".wl[1318].w[56:57]"  0.20427161667314445 0.79572838332685547;
-	setAttr -s 2 ".wl[1319].w[56:57]"  0.15715578809338557 0.8428442119066144;
+	setAttr ".wl[1309].w[6]" 2.2986640576899563e-006;
+	setAttr ".wl[1309].w[56]" 0.99999770133594224;
+	setAttr ".wl[1310].w[56]"  1;
+	setAttr -s 2 ".wl[1311].w[56:57]"  0.93160468339920044 0.068395316600799561;
+	setAttr ".wl[1312].w[56]"  1;
+	setAttr -s 2 ".wl[1313].w[56:57]"  0.75579941272735596 0.24420058727264404;
+	setAttr -s 2 ".wl[1314].w[56:57]"  0.46515071392059326 0.53484928607940674;
+	setAttr -s 2 ".wl[1315].w[56:57]"  0.19744044542312622 0.80255955457687378;
+	setAttr -s 2 ".wl[1316].w[56:57]"  0.19397628307342529 0.80602371692657471;
+	setAttr -s 2 ".wl[1317].w[56:57]"  0.3949776291847229 0.6050223708152771;
+	setAttr -s 2 ".wl[1318].w[56:57]"  0.18122255802154541 0.81877744197845459;
+	setAttr -s 2 ".wl[1319].w[56:57]"  0.1601833701133728 0.8398166298866272;
 	setAttr ".wl[1320].w[56]"  1;
 	setAttr ".wl[1321].w[56]"  1;
 	setAttr ".wl[1322].w[56]"  1;
-	setAttr -s 2 ".wl[1323].w";
-	setAttr ".wl[1323].w[6]" 1.1229121999065489e-008;
-	setAttr ".wl[1323].w[56]" 0.99999998877087792;
-	setAttr -s 2 ".wl[1324].w";
-	setAttr ".wl[1324].w[6]" 1.614913348677439e-008;
-	setAttr ".wl[1324].w[56]" 0.99999998385086641;
+	setAttr ".wl[1323].w[56]"  1;
+	setAttr ".wl[1324].w[56]"  1;
 	setAttr -s 2 ".wl[1325].w";
-	setAttr ".wl[1325].w[6]" 7.1588703426777059e-007;
-	setAttr ".wl[1325].w[56]" 0.99999928411296557;
+	setAttr ".wl[1325].w[6]" 7.6131707205853115e-007;
+	setAttr ".wl[1325].w[56]" 0.99999923868292795;
 	setAttr ".wl[1326].w[56]"  1;
-	setAttr -s 2 ".wl[1327].w";
-	setAttr ".wl[1327].w[6]" 1.3295101782325394e-008;
-	setAttr ".wl[1327].w[56]" 0.9999999867048982;
+	setAttr ".wl[1327].w[56]"  1;
 	setAttr ".wl[1328].w[56]"  1;
-	setAttr -s 2 ".wl[1329].w[56:57]"  0.99145922782638252 0.0085407721736174835;
-	setAttr -s 2 ".wl[1330].w[56:57]"  0.99665858294184007 0.00334141705815999;
-	setAttr -s 2 ".wl[1331].w[56:57]"  0.70886940775194496 0.29113059224805499;
-	setAttr -s 2 ".wl[1332].w[56:57]"  0.41114993405963673 0.58885006594036327;
-	setAttr -s 2 ".wl[1333].w[56:57]"  0.32981087979929102 0.67018912020070898;
+	setAttr ".wl[1329].w[56]"  1;
+	setAttr ".wl[1330].w[56]"  1;
+	setAttr -s 2 ".wl[1331].w[56:57]"  0.70431143045425415 0.29568856954574585;
+	setAttr -s 2 ".wl[1332].w[56:57]"  0.41351830959320068 0.58648169040679932;
+	setAttr -s 2 ".wl[1333].w[56:57]"  0.34126293659210205 0.65873706340789795;
 	setAttr -s 2 ".wl[1334].w[56:57]"  0.27934819459915161 0.72065180540084839;
-	setAttr -s 2 ".wl[1335].w[56:57]"  0.082471048745794806 0.91752895125420519;
-	setAttr -s 2 ".wl[1336].w[56:57]"  0.068129068996523809 0.93187093100347607;
+	setAttr -s 2 ".wl[1335].w[56:57]"  0.078278057277202606 0.92172194272279739;
+	setAttr -s 2 ".wl[1336].w[56:57]"  0.069917917251586914 0.93008208274841309;
 	setAttr ".wl[1337].w[56]"  1;
 	setAttr ".wl[1338].w[56]"  1;
 	setAttr ".wl[1339].w[56]"  1;
 	setAttr ".wl[1340].w[56]"  1;
-	setAttr -s 2 ".wl[1341].w[56:57]"  0.9999957232737321 4.2767262678146261e-006;
+	setAttr ".wl[1341].w[56]"  1;
 	setAttr ".wl[1342].w[56]"  1;
 	setAttr ".wl[1343].w[56]"  1;
 	setAttr ".wl[1344].w[56]"  1;
@@ -28524,23 +28503,23 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1346].w[56]"  1;
 	setAttr ".wl[1347].w[56]"  1;
 	setAttr ".wl[1348].w[56]"  1;
-	setAttr -s 2 ".wl[1349].w[56:57]"  0.99689307701139351 0.0031069229886065758;
-	setAttr -s 2 ".wl[1350].w[56:57]"  0.99331270796538718 0.006687292034612824;
-	setAttr -s 2 ".wl[1351].w[56:57]"  0.99909966098186942 0.00090033901813058037;
-	setAttr -s 2 ".wl[1352].w[56:57]"  0.84060649251595154 0.15939350748404857;
-	setAttr -s 2 ".wl[1353].w[56:57]"  0.81026573325689677 0.18973426674310326;
-	setAttr -s 2 ".wl[1354].w[56:57]"  0.092310660742760717 0.90768933925723927;
-	setAttr -s 2 ".wl[1355].w[56:57]"  0.092348121069379896 0.90765187893062016;
-	setAttr -s 2 ".wl[1356].w[56:57]"  0.11923760405781836 0.88076239594218164;
-	setAttr -s 2 ".wl[1357].w[56:57]"  0.082702520519044351 0.91729747948095564;
-	setAttr -s 2 ".wl[1358].w[56:57]"  0.1837934349039346 0.81620656509606526;
-	setAttr -s 2 ".wl[1359].w[56:57]"  0.38684222727956141 0.61315777272043848;
-	setAttr -s 2 ".wl[1360].w[56:57]"  0.22145084800954487 0.77854915199045516;
-	setAttr -s 2 ".wl[1361].w[56:57]"  0.1183230354589178 0.88167696454108213;
-	setAttr -s 2 ".wl[1362].w[56:57]"  0.19562857143902709 0.80437142856097288;
-	setAttr -s 2 ".wl[1363].w[56:57]"  0.40379228984758475 0.59620771015241525;
-	setAttr -s 2 ".wl[1364].w[56:57]"  0.80620782343917274 0.1937921765608272;
-	setAttr -s 2 ".wl[1365].w[56:57]"  0.99756138106409364 0.0024386189359063152;
+	setAttr ".wl[1349].w[56]"  1;
+	setAttr -s 2 ".wl[1350].w[56:57]"  0.99152034521102905 0.0084796547889709473;
+	setAttr ".wl[1351].w[56]"  1;
+	setAttr -s 2 ".wl[1352].w[56:57]"  0.83993899822235107 0.16006100177764893;
+	setAttr -s 2 ".wl[1353].w[56:57]"  0.85117615759372711 0.14882384240627289;
+	setAttr -s 2 ".wl[1354].w[56:57]"  0.091512575745582581 0.90848742425441742;
+	setAttr -s 2 ".wl[1355].w[56:57]"  0.094064235687255859 0.90593576431274414;
+	setAttr -s 2 ".wl[1356].w[56:57]"  0.12203434109687805 0.87796565890312195;
+	setAttr -s 2 ".wl[1357].w[56:57]"  0.084830425679683685 0.91516957432031631;
+	setAttr -s 2 ".wl[1358].w[56:57]"  0.17907831072807312 0.82092168927192688;
+	setAttr -s 2 ".wl[1359].w[56:57]"  0.39534801244735718 0.60465198755264282;
+	setAttr -s 2 ".wl[1360].w[56:57]"  0.23422187566757202 0.76577812433242798;
+	setAttr -s 2 ".wl[1361].w[56:57]"  0.12945556640625 0.87054443359375;
+	setAttr -s 2 ".wl[1362].w[56:57]"  0.19932125508785248 0.80067874491214752;
+	setAttr -s 2 ".wl[1363].w[56:57]"  0.40886497497558594 0.59113502502441406;
+	setAttr -s 2 ".wl[1364].w[56:57]"  0.80676412582397461 0.19323587417602539;
+	setAttr -s 2 ".wl[1365].w[56:57]"  0.99753487110137939 0.0024651288986206055;
 	setAttr ".wl[1366].w[56]"  1;
 	setAttr ".wl[1367].w[56]"  1;
 	setAttr ".wl[1368].w[56]"  1;
@@ -28550,18 +28529,18 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1372].w[56]"  1;
 	setAttr ".wl[1373].w[56]"  1;
 	setAttr ".wl[1374].w[56]"  1;
-	setAttr -s 2 ".wl[1375].w[56:57]"  0.98833955461905276 0.011660445380947237;
-	setAttr -s 2 ".wl[1376].w[56:57]"  0.59687143150908284 0.40312856849091716;
-	setAttr -s 2 ".wl[1377].w[56:57]"  0.35469006591295749 0.64530993408704251;
-	setAttr -s 2 ".wl[1378].w[56:57]"  0.048677146990543867 0.95132285300945618;
-	setAttr -s 2 ".wl[1379].w[56:57]"  0.03800423278236701 0.96199576721763291;
-	setAttr -s 2 ".wl[1380].w[56:57]"  0.034189134822721741 0.96581086517727832;
-	setAttr -s 2 ".wl[1381].w[56:57]"  0.00017394693235782646 0.99982605306764227;
+	setAttr -s 2 ".wl[1375].w[56:57]"  0.99999999884376689 1.1562330856672567e-009;
+	setAttr -s 2 ".wl[1376].w[56:57]"  0.61034137010574341 0.38965862989425659;
+	setAttr -s 2 ".wl[1377].w[56:57]"  0.35804891586303711 0.64195108413696289;
+	setAttr -s 2 ".wl[1378].w[56:57]"  0.045150816440582275 0.95484918355941772;
+	setAttr -s 2 ".wl[1379].w[56:57]"  0.038709394633769989 0.96129060536623001;
+	setAttr -s 2 ".wl[1380].w[56:57]"  0.036634523421525955 0.96336547657847404;
+	setAttr ".wl[1381].w[57]"  1;
 	setAttr ".wl[1382].w[57]"  1;
 	setAttr ".wl[1383].w[57]"  1;
 	setAttr ".wl[1384].w[57]"  1;
-	setAttr -s 2 ".wl[1385].w[56:57]"  0.00010487413643548238 0.99989512586356444;
-	setAttr -s 2 ".wl[1386].w[56:57]"  0.00017826466626125613 0.99982173533373875;
+	setAttr ".wl[1385].w[57]"  1;
+	setAttr ".wl[1386].w[57]"  1;
 	setAttr ".wl[1387].w[57]"  1;
 	setAttr ".wl[1388].w[57]"  1;
 	setAttr ".wl[1389].w[57]"  1;
@@ -28572,75 +28551,75 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1394].w[57]"  1;
 	setAttr ".wl[1395].w[57]"  1;
 	setAttr ".wl[1396].w[57]"  1;
-	setAttr -s 2 ".wl[1397].w[56:57]"  0.022814035598005447 0.97718596440199457;
-	setAttr -s 2 ".wl[1398].w[56:57]"  0.020865991943391754 0.97913400805660822;
-	setAttr -s 2 ".wl[1399].w[56:57]"  0.0035698761966726574 0.99643012380332741;
-	setAttr -s 2 ".wl[1400].w[56:57]"  0.011546373936395645 0.98845362606360421;
-	setAttr -s 2 ".wl[1401].w[56:57]"  0.055142441490345952 0.94485755850965403;
-	setAttr -s 2 ".wl[1402].w[56:57]"  0.0035033308410602772 0.99649666915893964;
-	setAttr -s 2 ".wl[1403].w[56:57]"  0.0014333674902057031 0.99856663250979427;
-	setAttr -s 2 ".wl[1404].w[56:57]"  0.11200376979612936 0.88799623020387064;
-	setAttr -s 2 ".wl[1405].w[56:57]"  0.99998063538644422 1.9364613555747939e-005;
-	setAttr -s 2 ".wl[1406].w[56:57]"  0.99999391667361071 6.0833263892945411e-006;
-	setAttr -s 2 ".wl[1407].w[56:57]"  0.85901816282245536 0.14098183717754464;
-	setAttr -s 2 ".wl[1408].w[56:57]"  0.059234941801589683 0.94076505819841039;
-	setAttr ".wl[1409].w[56]"  1;
-	setAttr -s 2 ".wl[1410].w[56:57]"  0.87271322231607329 0.12728677768392674;
-	setAttr -s 2 ".wl[1411].w[56:57]"  0.12552820129973477 0.87447179870026526;
-	setAttr -s 2 ".wl[1412].w[56:57]"  0.14122033242333115 0.8587796675766689;
-	setAttr -s 2 ".wl[1413].w[56:57]"  0.1438386672851113 0.8561613327148887;
-	setAttr -s 2 ".wl[1414].w[56:57]"  0.73312789619462626 0.26687210380537374;
-	setAttr -s 2 ".wl[1415].w[56:57]"  0.0016234228041815848 0.9983765771958184;
-	setAttr -s 2 ".wl[1416].w[56:57]"  0.0022625769705451049 0.9977374230294549;
-	setAttr -s 2 ".wl[1417].w[56:57]"  0.31424106976764615 0.68575893023235379;
-	setAttr -s 2 ".wl[1418].w[56:57]"  0.10577763838564348 0.89422236161435653;
-	setAttr -s 2 ".wl[1419].w[56:57]"  0.00070213478314496954 0.99929786521685504;
+	setAttr -s 2 ".wl[1397].w[56:57]"  0.02301025390625 0.97698974609375;
+	setAttr -s 2 ".wl[1398].w[56:57]"  0.022149264812469482 0.97785073518753052;
+	setAttr ".wl[1399].w[57]"  1;
+	setAttr -s 2 ".wl[1400].w[56:57]"  0.013469758753601013 0.98653024124639899;
+	setAttr -s 2 ".wl[1401].w[56:57]"  0.056713759899139404 0.9432862401008606;
+	setAttr ".wl[1402].w[57]"  1;
+	setAttr ".wl[1403].w[57]"  1;
+	setAttr -s 2 ".wl[1404].w[56:57]"  0.11482379585504532 0.88517620414495468;
+	setAttr -s 2 ".wl[1405].w[56:57]"  0.99999999966215047 3.3784953851791945e-010;
+	setAttr ".wl[1406].w[56]"  1;
+	setAttr -s 2 ".wl[1407].w[56:57]"  0.85493579506874084 0.14506420493125916;
+	setAttr -s 2 ".wl[1408].w[56:57]"  0.058846354484558105 0.94115364551544189;
+	setAttr -s 2 ".wl[1409].w[56:57]"  0.99999999444030507 5.5596949266600859e-009;
+	setAttr -s 2 ".wl[1410].w[56:57]"  0.87744810432195663 0.12255189567804337;
+	setAttr -s 2 ".wl[1411].w[56:57]"  0.11273777484893799 0.88726222515106201;
+	setAttr -s 2 ".wl[1412].w[56:57]"  0.14401918649673462 0.85598081350326538;
+	setAttr -s 2 ".wl[1413].w[56:57]"  0.14780299365520477 0.85219700634479523;
+	setAttr -s 2 ".wl[1414].w[56:57]"  0.74721664190292358 0.25278335809707642;
+	setAttr ".wl[1415].w[57]"  1;
+	setAttr ".wl[1416].w[57]"  1;
+	setAttr -s 2 ".wl[1417].w[56:57]"  0.31125140190124512 0.68874859809875488;
+	setAttr -s 2 ".wl[1418].w[56:57]"  0.10575266927480698 0.89424733072519302;
+	setAttr ".wl[1419].w[57]"  1;
 	setAttr ".wl[1420].w[56]"  1;
 	setAttr ".wl[1421].w[56]"  1;
 	setAttr ".wl[1422].w[56]"  1;
 	setAttr -s 2 ".wl[1423].w";
-	setAttr ".wl[1423].w[1]" 0.38190167025351596;
-	setAttr ".wl[1423].w[5]" 0.61809832974648382;
+	setAttr ".wl[1423].w[1]" 0.86035185664876668;
+	setAttr ".wl[1423].w[5]" 0.13964814335123332;
 	setAttr -s 2 ".wl[1424].w";
-	setAttr ".wl[1424].w[1]" 0.45406417431678447;
-	setAttr ".wl[1424].w[5]" 0.54593582568321519;
+	setAttr ".wl[1424].w[1]" 0.61365705728530884;
+	setAttr ".wl[1424].w[5]" 0.38634294271469116;
 	setAttr -s 2 ".wl[1425].w";
-	setAttr ".wl[1425].w[1]" 0.29136622317327582;
-	setAttr ".wl[1425].w[5]" 0.70863377682672435;
+	setAttr ".wl[1425].w[1]" 0.29151270884399955;
+	setAttr ".wl[1425].w[5]" 0.70848729115600062;
 	setAttr -s 2 ".wl[1426].w";
-	setAttr ".wl[1426].w[1]" 0.43905891684437937;
-	setAttr ".wl[1426].w[5]" 0.56094108315562063;
+	setAttr ".wl[1426].w[1]" 0.43957667874864642;
+	setAttr ".wl[1426].w[5]" 0.56042332125135363;
 	setAttr -s 2 ".wl[1427].w";
-	setAttr ".wl[1427].w[1]" 0.38668521022453439;
-	setAttr ".wl[1427].w[5]" 0.6133147897754655;
+	setAttr ".wl[1427].w[1]" 0.47259443998336792;
+	setAttr ".wl[1427].w[5]" 0.52740556001663208;
 	setAttr -s 2 ".wl[1428].w";
-	setAttr ".wl[1428].w[1]" 0.20517336304598674;
-	setAttr ".wl[1428].w[5]" 0.79482663695401334;
+	setAttr ".wl[1428].w[1]" 0.2055123233729543;
+	setAttr ".wl[1428].w[5]" 0.79448767662704567;
 	setAttr -s 2 ".wl[1429].w";
-	setAttr ".wl[1429].w[1]" 0.21982833360724416;
-	setAttr ".wl[1429].w[5]" 0.78017166639275581;
+	setAttr ".wl[1429].w[1]" 0.22011651623316422;
+	setAttr ".wl[1429].w[5]" 0.77988348376683569;
 	setAttr -s 2 ".wl[1430].w";
-	setAttr ".wl[1430].w[1]" 0.46871294966181237;
-	setAttr ".wl[1430].w[5]" 0.53128705033818735;
+	setAttr ".wl[1430].w[1]" 0.46176848395561115;
+	setAttr ".wl[1430].w[5]" 0.53823151604438857;
 	setAttr -s 2 ".wl[1431].w";
 	setAttr ".wl[1431].w[1]" 0.87090521651550035;
 	setAttr ".wl[1431].w[8]" 0.12909478348449249;
 	setAttr -s 3 ".wl[1432].w";
-	setAttr ".wl[1432].w[1]" 0.84665101871759818;
-	setAttr ".wl[1432].w[5]" 2.4632179956617365e-015;
+	setAttr ".wl[1432].w[1]" 0.84665080181171282;
+	setAttr ".wl[1432].w[5]" 2.1690588791756227e-007;
 	setAttr ".wl[1432].w[8]" 0.1533489812823956;
 	setAttr -s 3 ".wl[1433].w";
 	setAttr ".wl[1433].w[1]" 0.99783287810328536;
 	setAttr ".wl[1433].w[5]" 1.0604302718232941e-005;
 	setAttr ".wl[1433].w[8]" 0.0021565175939971962;
 	setAttr -s 3 ".wl[1434].w";
-	setAttr ".wl[1434].w[1]" 0.94622325087499282;
-	setAttr ".wl[1434].w[5]" 2.634074310627554e-007;
+	setAttr ".wl[1434].w[1]" 0.94622321671607035;
+	setAttr ".wl[1434].w[5]" 2.975663535718908e-007;
 	setAttr ".wl[1434].w[8]" 0.053776485717576192;
 	setAttr -s 3 ".wl[1435].w";
-	setAttr ".wl[1435].w[1]" 0.89240479022104524;
-	setAttr ".wl[1435].w[5]" 0.0068129413643225438;
-	setAttr ".wl[1435].w[8]" 0.10078226841463227;
+	setAttr ".wl[1435].w[1]" 0.89240867387342138;
+	setAttr ".wl[1435].w[5]" 0.0068133260956062328;
+	setAttr ".wl[1435].w[8]" 0.10077800003097244;
 	setAttr -s 3 ".wl[1436].w";
 	setAttr ".wl[1436].w[1]" 0.39478575753723277;
 	setAttr ".wl[1436].w[5]" 1.7975702933043169e-010;
@@ -28789,8 +28768,8 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1476].w[8]" 0.40659281518723628;
 	setAttr ".wl[1476].w[9]" 0.59339568819078092;
 	setAttr -s 3 ".wl[1477].w";
-	setAttr ".wl[1477].w[1]" 0.91145628348150298;
-	setAttr ".wl[1477].w[5]" 1.8299423209408218e-005;
+	setAttr ".wl[1477].w[1]" 0.91145610988044312;
+	setAttr ".wl[1477].w[5]" 1.8473024269249009e-005;
 	setAttr ".wl[1477].w[8]" 0.088525417095287662;
 	setAttr -s 2 ".wl[1478].w";
 	setAttr ".wl[1478].w[1]" 0.67528127268506966;
@@ -28808,49 +28787,42 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1481].w[5]" 3.0706543246209377e-005;
 	setAttr ".wl[1481].w[8]" 6.2492115054673047e-008;
 	setAttr -s 2 ".wl[1482].w[9:10]"  0.1538499636804968 0.84615003631950336;
-	setAttr -s 3 ".wl[1483].w";
-	setAttr ".wl[1483].w[1]" 0.96152894529233379;
-	setAttr ".wl[1483].w[5]" 0.038465971467019737;
-	setAttr ".wl[1483].w[8]" 5.0832406464415127e-006;
-	setAttr -s 3 ".wl[1484].w";
-	setAttr ".wl[1484].w[1]" 0.80452633063101542;
-	setAttr ".wl[1484].w[5]" 0.19547135214488526;
-	setAttr ".wl[1484].w[8]" 2.3172240994170302e-006;
+	setAttr -s 2 ".wl[1483].w";
+	setAttr ".wl[1483].w[1]" 0.96152930141764748;
+	setAttr ".wl[1483].w[5]" 0.038470698582352567;
+	setAttr -s 2 ".wl[1484].w";
+	setAttr ".wl[1484].w[1]" 0.80448956144504313;
+	setAttr ".wl[1484].w[5]" 0.19551043855495701;
 	setAttr -s 2 ".wl[1485].w";
-	setAttr ".wl[1485].w[1]" 0.78780197616127512;
-	setAttr ".wl[1485].w[5]" 0.21219802383872527;
+	setAttr ".wl[1485].w[1]" 0.78814925858130302;
+	setAttr ".wl[1485].w[5]" 0.21185074141869734;
 	setAttr -s 2 ".wl[1486].w";
-	setAttr ".wl[1486].w[1]" 0.84724842874370354;
-	setAttr ".wl[1486].w[5]" 0.15275157125629657;
+	setAttr ".wl[1486].w[1]" 0.83128710091114044;
+	setAttr ".wl[1486].w[5]" 0.16871289908885956;
 	setAttr -s 2 ".wl[1487].w";
-	setAttr ".wl[1487].w[1]" 0.99998652488952;
-	setAttr ".wl[1487].w[5]" 1.3475110480156489e-005;
+	setAttr ".wl[1487].w[1]" 0.90128158032894135;
+	setAttr ".wl[1487].w[5]" 0.098718419671058655;
 	setAttr -s 3 ".wl[1488].w";
-	setAttr ".wl[1488].w[1]" 0.99999007791448624;
-	setAttr ".wl[1488].w[5]" 1.1169173072514599e-009;
+	setAttr ".wl[1488].w[1]" 0.90163664840262692;
+	setAttr ".wl[1488].w[5]" 0.09835343062877655;
 	setAttr ".wl[1488].w[8]" 9.9209685965243248e-006;
 	setAttr -s 3 ".wl[1489].w";
-	setAttr ".wl[1489].w[1]" 0.92216306429327799;
-	setAttr ".wl[1489].w[5]" 0.077836929020161622;
-	setAttr ".wl[1489].w[8]" 6.6865603872137864e-009;
-	setAttr -s 3 ".wl[1490].w";
-	setAttr ".wl[1490].w[1]" 0.87626159879625143;
-	setAttr ".wl[1490].w[5]" 0.12373295202665396;
-	setAttr ".wl[1490].w[8]" 5.4491770948893943e-006;
-	setAttr -s 3 ".wl[1491].w";
-	setAttr ".wl[1491].w[1]" 0.80694972793529796;
-	setAttr ".wl[1491].w[5]" 0.19305022542554412;
-	setAttr ".wl[1491].w[8]" 4.6639157925206662e-008;
-	setAttr -s 3 ".wl[1492].w";
-	setAttr ".wl[1492].w[1]" 0.90456415023751091;
-	setAttr ".wl[1492].w[5]" 0.09543584974554431;
-	setAttr ".wl[1492].w[8]" 1.69408338319163e-011;
+	setAttr ".wl[1489].w[1]" 0.87119191439770771;
+	setAttr ".wl[1489].w[5]" 0.12880808115005493;
+	setAttr ".wl[1489].w[8]" 4.4522373436646166e-009;
+	setAttr -s 2 ".wl[1490].w";
+	setAttr ".wl[1490].w[1]" 0.79534925520420074;
+	setAttr ".wl[1490].w[5]" 0.20465074479579926;
+	setAttr -s 2 ".wl[1491].w";
+	setAttr ".wl[1491].w[1]" 0.87438404560089111;
+	setAttr ".wl[1491].w[5]" 0.12561595439910889;
+	setAttr ".wl[1492].w[1]"  1;
 	setAttr -s 2 ".wl[1493].w";
-	setAttr ".wl[1493].w[1]" 0.43712818992777663;
-	setAttr ".wl[1493].w[5]" 0.56287181007222353;
+	setAttr ".wl[1493].w[1]" 0.43675197468474231;
+	setAttr ".wl[1493].w[5]" 0.56324802531525786;
 	setAttr -s 2 ".wl[1494].w";
-	setAttr ".wl[1494].w[1]" 0.4657641429203398;
-	setAttr ".wl[1494].w[5]" 0.53423585707966004;
+	setAttr ".wl[1494].w[1]" 0.46351663832601392;
+	setAttr ".wl[1494].w[5]" 0.53648336167398591;
 	setAttr -s 3 ".wl[1495].w[8:10]"  4.155484227460209e-006 0.25176708034436468 
 		0.74822876417140816;
 	setAttr -s 2 ".wl[1496].w[9:10]"  0.23248684858810112 0.76751315141189869;
@@ -28861,24 +28833,23 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 3 ".wl[1501].w[8:10]"  5.3049622787592071e-007 0.2623923301565052 
 		0.73760713934726652;
 	setAttr -s 2 ".wl[1502].w";
-	setAttr ".wl[1502].w[1]" 0.89712760636788658;
-	setAttr ".wl[1502].w[5]" 0.10287239363211344;
+	setAttr ".wl[1502].w[1]" 0.8970825902549141;
+	setAttr ".wl[1502].w[5]" 0.10291740974508584;
 	setAttr -s 2 ".wl[1503].w[9:10]"  0.12147407211602618 0.87852592788397377;
-	setAttr -s 3 ".wl[1504].w";
-	setAttr ".wl[1504].w[1]" 0.90640136872494559;
-	setAttr ".wl[1504].w[5]" 0.093598629360884159;
-	setAttr ".wl[1504].w[8]" 1.91417004172074e-009;
+	setAttr -s 2 ".wl[1504].w";
+	setAttr ".wl[1504].w[1]" 0.90631369392854588;
+	setAttr ".wl[1504].w[5]" 0.093686306071453895;
 	setAttr -s 3 ".wl[1505].w";
-	setAttr ".wl[1505].w[1]" 0.99997783361135739;
-	setAttr ".wl[1505].w[5]" 1.7649512847305889e-005;
-	setAttr ".wl[1505].w[8]" 4.5168757954518602e-006;
+	setAttr ".wl[1505].w[1]" 0.99997785474079481;
+	setAttr ".wl[1505].w[5]" 1.7637154204795642e-005;
+	setAttr ".wl[1505].w[8]" 4.5081050004540973e-006;
 	setAttr -s 3 ".wl[1506].w";
-	setAttr ".wl[1506].w[1]" 0.81007806523262704;
-	setAttr ".wl[1506].w[5]" 0.024643951654220089;
-	setAttr ".wl[1506].w[8]" 0.16527798311315281;
+	setAttr ".wl[1506].w[1]" 0.81011761595686493;
+	setAttr ".wl[1506].w[5]" 0.024647632772447196;
+	setAttr ".wl[1506].w[8]" 0.16523475127068787;
 	setAttr -s 2 ".wl[1507].w";
-	setAttr ".wl[1507].w[1]" 0.3772121969809149;
-	setAttr ".wl[1507].w[8]" 0.62278780301908498;
+	setAttr ".wl[1507].w[1]" 0.37721218050324823;
+	setAttr ".wl[1507].w[8]" 0.62278781949675177;
 	setAttr -s 3 ".wl[1508].w";
 	setAttr ".wl[1508].w[1]" 0.056289943126041998;
 	setAttr ".wl[1508].w[8]" 0.79376030242785656;
@@ -29083,7 +29054,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1583].w[44]" 7.4720507856465264e-008;
 	setAttr -s 2 ".wl[1584].w";
 	setAttr ".wl[1584].w[40]" 0.99999989477263285;
-	setAttr ".wl[1584].w[44]" 1.052273670409453e-007;
+	setAttr ".wl[1584].w[44]" 1.0522736704094531e-007;
 	setAttr -s 2 ".wl[1585].w";
 	setAttr ".wl[1585].w[40]" 0.99902379589220902;
 	setAttr ".wl[1585].w[44]" 0.00097620407554964731;
@@ -29540,13 +29511,13 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1902].w[40]" 0.93929489291285351;
 	setAttr ".wl[1903].w[40]"  1;
 	setAttr -s 3 ".wl[1904].w";
-	setAttr ".wl[1904].w[10]" 0.99988044138017107;
-	setAttr ".wl[1904].w[11]" 7.2829559874431854e-005;
-	setAttr ".wl[1904].w[17]" 4.6729059760326136e-005;
+	setAttr ".wl[1904].w[10]" 0.80194008350372314;
+	setAttr ".wl[1904].w[11]" 0.1980241675410368;
+	setAttr ".wl[1904].w[17]" 3.5748955046205969e-005;
 	setAttr -s 3 ".wl[1905].w";
-	setAttr ".wl[1905].w[10]" 0.99986887003760716;
-	setAttr ".wl[1905].w[11]" 0.00010297126468180137;
-	setAttr ".wl[1905].w[17]" 2.8158697711325364e-005;
+	setAttr ".wl[1905].w[10]" 0.86068570613861084;
+	setAttr ".wl[1905].w[11]" 0.13930258907748605;
+	setAttr ".wl[1905].w[17]" 1.170478390299182e-005;
 	setAttr -s 2 ".wl[1906].w";
 	setAttr ".wl[1906].w[10]" 0.9999999507335332;
 	setAttr ".wl[1906].w[17]" 4.9266466563729314e-008;
@@ -29554,9 +29525,10 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1907].w[10]" 0.99999998827217151;
 	setAttr ".wl[1907].w[11]" 7.1368887566751e-009;
 	setAttr ".wl[1907].w[17]" 4.5909396927766207e-009;
-	setAttr -s 2 ".wl[1908].w";
-	setAttr ".wl[1908].w[10]" 0.99983041236151449;
-	setAttr ".wl[1908].w[17]" 0.00016958763743999317;
+	setAttr -s 3 ".wl[1908].w";
+	setAttr ".wl[1908].w[10]" 0.87061420088935748;
+	setAttr ".wl[1908].w[11]" 0.12923812866210938;
+	setAttr ".wl[1908].w[17]" 0.00014767044853317458;
 	setAttr -s 2 ".wl[1909].w";
 	setAttr ".wl[1909].w[10]" 0.99992193194604406;
 	setAttr ".wl[1909].w[17]" 7.8068053475108373e-005;
@@ -29572,15 +29544,15 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1912].w[17]" 0.87150313741263996;
 	setAttr ".wl[1912].w[18]" 2.2690718117873632e-007;
 	setAttr -s 3 ".wl[1913].w";
-	setAttr ".wl[1913].w[10]" 0.87144061085842861;
-	setAttr ".wl[1913].w[11]" 3.0542592586686799e-009;
-	setAttr ".wl[1913].w[17]" 0.12855938608731179;
+	setAttr ".wl[1913].w[10]" 0.80559215811932516;
+	setAttr ".wl[1913].w[11]" 0.18630624918101937;
+	setAttr ".wl[1913].w[17]" 0.0081015926996555118;
 	setAttr ".wl[1914].w[10]"  0.99999999999825306;
 	setAttr ".wl[1915].w[10]"  0.9999999999932474;
 	setAttr -s 3 ".wl[1916].w";
-	setAttr ".wl[1916].w[10]" 0.99983238461497626;
-	setAttr ".wl[1916].w[11]" 0.000167550610349291;
-	setAttr ".wl[1916].w[17]" 6.4774674681061147e-008;
+	setAttr ".wl[1916].w[10]" 0.88538867986294112;
+	setAttr ".wl[1916].w[11]" 0.11461130210537146;
+	setAttr ".wl[1916].w[17]" 1.8031687386433426e-008;
 	setAttr -s 2 ".wl[1917].w";
 	setAttr ".wl[1917].w[11]" 0.99999910345108101;
 	setAttr ".wl[1917].w[17]" 8.9654645179960065e-007;
@@ -29589,15 +29561,15 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1919].w[11]" 0.99999919289632178;
 	setAttr ".wl[1919].w[17]" 8.0710367840739169e-007;
 	setAttr -s 2 ".wl[1920].w";
-	setAttr ".wl[1920].w[11]" 0.99971856723548158;
-	setAttr ".wl[1920].w[17]" 0.00028143276451547;
+	setAttr ".wl[1920].w[11]" 0.68630805611610168;
+	setAttr ".wl[1920].w[17]" 0.31369194388389587;
 	setAttr -s 2 ".wl[1921].w";
 	setAttr ".wl[1921].w[11]" 0.99999879520988777;
 	setAttr ".wl[1921].w[17]" 1.2047901095066315e-006;
 	setAttr -s 3 ".wl[1922].w";
-	setAttr ".wl[1922].w[11]" 0.91535500279837867;
+	setAttr ".wl[1922].w[11]" 0.91535498920223024;
 	setAttr ".wl[1922].w[12]" 0.084644663891362104;
-	setAttr ".wl[1922].w[17]" 3.3331025868940525e-007;
+	setAttr ".wl[1922].w[17]" 3.469064070982921e-007;
 	setAttr -s 2 ".wl[1923].w";
 	setAttr ".wl[1923].w[11]" 0.99945940120316124;
 	setAttr ".wl[1923].w[17]" 0.00054059879683846217;
@@ -29613,9 +29585,10 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1926].w[11]" 0.1475502832798733;
 	setAttr ".wl[1926].w[17]" 0.85244970458447711;
 	setAttr ".wl[1926].w[18]" 1.213565015327685e-008;
-	setAttr -s 2 ".wl[1927].w";
-	setAttr ".wl[1927].w[11]" 0.37774776761776258;
-	setAttr ".wl[1927].w[17]" 0.62225223238185823;
+	setAttr -s 3 ".wl[1927].w";
+	setAttr ".wl[1927].w[10]" 0.17067974805831909;
+	setAttr ".wl[1927].w[11]" 0.3132738738111463;
+	setAttr ".wl[1927].w[17]" 0.51604637813015553;
 	setAttr -s 3 ".wl[1928].w";
 	setAttr ".wl[1928].w[11]" 0.11211361782321902;
 	setAttr ".wl[1928].w[17]" 0.88766473309096694;
@@ -29625,7 +29598,10 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 2 ".wl[1931].w[17:18]"  0.71233085394224338 0.2876691460577564;
 	setAttr -s 2 ".wl[1932].w[17:18]"  0.83141876192783015 0.16858123807217004;
 	setAttr -s 2 ".wl[1933].w[17:18]"  0.40322549048159395 0.59677450951840527;
-	setAttr -s 2 ".wl[1934].w[17:18]"  0.46306837363754605 0.53693162636245295;
+	setAttr -s 3 ".wl[1934].w";
+	setAttr ".wl[1934].w[10]" 0.0021142540499567986;
+	setAttr ".wl[1934].w[17]" 0.46095411958759025;
+	setAttr ".wl[1934].w[18]" 0.53693162636245295;
 	setAttr -s 2 ".wl[1935].w[17:18]"  0.35356965357060954 0.6464303464293899;
 	setAttr -s 3 ".wl[1936].w";
 	setAttr ".wl[1936].w[11]" 5.6669713602814153e-009;
@@ -29665,7 +29641,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 3 ".wl[1947].w";
 	setAttr ".wl[1947].w[11]" 0.071606497439790404;
 	setAttr ".wl[1947].w[17]" 0.92836423120421219;
-	setAttr ".wl[1947].w[18]" 2.927135599724169e-005;
+	setAttr ".wl[1947].w[18]" 2.9271355997241687e-005;
 	setAttr -s 2 ".wl[1948].w[17:18]"  0.99370870703700831 0.0062912929629919522;
 	setAttr -s 2 ".wl[1949].w[17:18]"  0.94962754594067789 0.050372454059321441;
 	setAttr -s 3 ".wl[1950].w";
@@ -29684,22 +29660,22 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1956].w[10]" 0.99999999503867198;
 	setAttr ".wl[1956].w[17]" 4.9612794509400654e-009;
 	setAttr -s 4 ".wl[1957].w";
-	setAttr ".wl[1957].w[10]" 0.75821568588358812;
-	setAttr ".wl[1957].w[11]" 1.0670207806569232e-005;
-	setAttr ".wl[1957].w[17]" 0.24177364370533649;
+	setAttr ".wl[1957].w[10]" 0.72931668460380228;
+	setAttr ".wl[1957].w[11]" 0.11381222307682037;
+	setAttr ".wl[1957].w[17]" 0.15687109211610842;
 	setAttr ".wl[1957].w[18]" 2.0326891734639357e-010;
 	setAttr -s 3 ".wl[1958].w";
 	setAttr ".wl[1958].w[10]" 0.75705076565048157;
-	setAttr ".wl[1958].w[11]" 1.45405714043513e-009;
-	setAttr ".wl[1958].w[17]" 0.24294923289544534;
+	setAttr ".wl[1958].w[11]" 0.12905047833919525;
+	setAttr ".wl[1958].w[17]" 0.11389875601030708;
 	setAttr -s 3 ".wl[1959].w";
 	setAttr ".wl[1959].w[10]" 0.99994421049053495;
 	setAttr ".wl[1959].w[11]" 4.4577277195408349e-010;
 	setAttr ".wl[1959].w[17]" 5.5789063686822137e-005;
 	setAttr -s 3 ".wl[1960].w";
-	setAttr ".wl[1960].w[10]" 0.75897750485603355;
-	setAttr ".wl[1960].w[11]" 9.0761087228616115e-006;
-	setAttr ".wl[1960].w[17]" 0.24101341903520826;
+	setAttr ".wl[1960].w[10]" 0.7047754369197855;
+	setAttr ".wl[1960].w[11]" 0.16789811788113593;
+	setAttr ".wl[1960].w[17]" 0.12732644519904363;
 	setAttr ".wl[1961].w[10]"  0.99999999999973399;
 	setAttr ".wl[1962].w[10]"  1.0000000000423999;
 	setAttr -s 2 ".wl[1963].w";
@@ -29709,25 +29685,25 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1964].w[10]" 0.99998896308745766;
 	setAttr ".wl[1964].w[17]" 1.1036912452801236e-005;
 	setAttr -s 3 ".wl[1965].w";
-	setAttr ".wl[1965].w[10]" 0.72051682820227769;
-	setAttr ".wl[1965].w[11]" 0.01216090617143698;
-	setAttr ".wl[1965].w[17]" 0.26732226560986977;
+	setAttr ".wl[1965].w[10]" 0.72051679677893465;
+	setAttr ".wl[1965].w[11]" 0.16900790143749311;
+	setAttr ".wl[1965].w[17]" 0.11047530176715679;
 	setAttr -s 3 ".wl[1966].w";
-	setAttr ".wl[1966].w[10]" 0.84389241361974443;
-	setAttr ".wl[1966].w[11]" 6.7650895593468135e-009;
-	setAttr ".wl[1966].w[17]" 0.15610757961516611;
+	setAttr ".wl[1966].w[10]" 0.81923532589227865;
+	setAttr ".wl[1966].w[11]" 0.066846283003830109;
+	setAttr ".wl[1966].w[17]" 0.11391839110389125;
 	setAttr -s 2 ".wl[1967].w";
-	setAttr ".wl[1967].w[1]" 0.90755773236423765;
-	setAttr ".wl[1967].w[5]" 0.092442267635762326;
+	setAttr ".wl[1967].w[1]" 0.90743970057680878;
+	setAttr ".wl[1967].w[5]" 0.092560299423191189;
 	setAttr -s 3 ".wl[1968].w";
-	setAttr ".wl[1968].w[10]" 2.8148521320161634e-006;
-	setAttr ".wl[1968].w[11]" 0.52148775047292939;
-	setAttr ".wl[1968].w[17]" 0.47850943467445517;
+	setAttr ".wl[1968].w[10]" 0.19213940927672951;
+	setAttr ".wl[1968].w[11]" 0.42129087521762665;
+	setAttr ".wl[1968].w[17]" 0.38656971550516017;
 	setAttr -s 2 ".wl[1969].w[17:18]"  0.64724706834720558 0.35275293165279453;
 	setAttr -s 2 ".wl[1970].w[17:18]"  0.51247538166338513 0.48752461833661437;
 	setAttr -s 2 ".wl[1971].w";
-	setAttr ".wl[1971].w[11]" 0.99913635309806226;
-	setAttr ".wl[1971].w[17]" 0.00086364688540180442;
+	setAttr ".wl[1971].w[11]" 0.69751018284097743;
+	setAttr ".wl[1971].w[17]" 0.30248981714248657;
 	setAttr ".wl[1972].w[10]"  0.999999999999999;
 	setAttr -s 2 ".wl[1973].w[9:10]"  1.9988527813687441e-007 0.99999980011472189;
 	setAttr ".wl[1974].w[10]"  0.99999999999895162;
@@ -29736,22 +29712,20 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1976].w[10]" 0.9999999925168841;
 	setAttr ".wl[1976].w[17]" 7.4830426803390603e-009;
 	setAttr -s 2 ".wl[1977].w";
-	setAttr ".wl[1977].w[11]" 0.99949815698205247;
-	setAttr ".wl[1977].w[17]" 0.00050184301359720125;
+	setAttr ".wl[1977].w[11]" 0.76852668821376657;
+	setAttr ".wl[1977].w[17]" 0.23147331178188324;
 	setAttr -s 2 ".wl[1978].w";
 	setAttr ".wl[1978].w[11]" 0.99999933635678917;
 	setAttr ".wl[1978].w[17]" 6.6364320721285897e-007;
 	setAttr ".wl[1979].w[10]"  1;
-	setAttr -s 2 ".wl[1980].w";
-	setAttr ".wl[1980].w[10]" 0.9744941050390471;
-	setAttr ".wl[1980].w[17]" 0.025505894958928601;
+	setAttr -s 2 ".wl[1980].w[10:11]"  0.80575777590274811 0.19424222409725189;
 	setAttr ".wl[1981].w[10]"  0.99999999999872102;
 	setAttr -s 2 ".wl[1982].w";
 	setAttr ".wl[1982].w[10]" 0.99999999512190418;
 	setAttr ".wl[1982].w[17]" 4.8780959071972934e-009;
 	setAttr -s 2 ".wl[1983].w";
-	setAttr ".wl[1983].w[11]" 0.99883880342872855;
-	setAttr ".wl[1983].w[17]" 0.0011611965636145853;
+	setAttr ".wl[1983].w[11]" 0.74155384301373584;
+	setAttr ".wl[1983].w[17]" 0.25844615697860718;
 	setAttr -s 2 ".wl[1984].w";
 	setAttr ".wl[1984].w[11]" 0.99907028526561847;
 	setAttr ".wl[1984].w[17]" 0.00092971473437621663;
@@ -29759,82 +29733,83 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[1985].w[11]" 0.99999895035713038;
 	setAttr ".wl[1985].w[17]" 1.0496426739465263e-006;
 	setAttr -s 2 ".wl[1986].w";
-	setAttr ".wl[1986].w[11]" 0.49759992038349932;
-	setAttr ".wl[1986].w[17]" 0.50240007960409205;
+	setAttr ".wl[1986].w[11]" 0.53628265857696533;
+	setAttr ".wl[1986].w[17]" 0.46371734141062571;
 	setAttr -s 3 ".wl[1987].w";
-	setAttr ".wl[1987].w[11]" 0.11998952281935921;
-	setAttr ".wl[1987].w[17]" 0.88001044605652212;
+	setAttr ".wl[1987].w[11]" 0.36897486448287964;
+	setAttr ".wl[1987].w[17]" 0.63102510439300219;
 	setAttr ".wl[1987].w[18]" 3.1124118116423645e-008;
 	setAttr -s 2 ".wl[1988].w";
 	setAttr ".wl[1988].w[11]" 0.3945300281047821;
 	setAttr ".wl[1988].w[17]" 0.6054699718952179;
 	setAttr -s 3 ".wl[1989].w";
-	setAttr ".wl[1989].w[11]" 0.11421742578032183;
-	setAttr ".wl[1989].w[17]" 0.88578256096272567;
+	setAttr ".wl[1989].w[11]" 0.22802411019802094;
+	setAttr ".wl[1989].w[17]" 0.77197587654502631;
 	setAttr ".wl[1989].w[18]" 1.3256952777625589e-008;
 	setAttr -s 3 ".wl[1990].w";
-	setAttr ".wl[1990].w[11]" 0.14350277158748737;
-	setAttr ".wl[1990].w[17]" 0.85649476426844606;
+	setAttr ".wl[1990].w[11]" 0.35305288434028625;
+	setAttr ".wl[1990].w[17]" 0.64694465151564751;
 	setAttr ".wl[1990].w[18]" 2.4641440662150589e-006;
 	setAttr -s 2 ".wl[1991].w";
-	setAttr ".wl[1991].w[11]" 0.99898592658416641;
-	setAttr ".wl[1991].w[17]" 0.0010140734023173193;
+	setAttr ".wl[1991].w[11]" 0.6371618807180669;
+	setAttr ".wl[1991].w[17]" 0.36283811926841736;
 	setAttr -s 2 ".wl[1992].w";
-	setAttr ".wl[1992].w[11]" 0.99923957308075195;
-	setAttr ".wl[1992].w[17]" 0.0007604269162998752;
+	setAttr ".wl[1992].w[11]" 0.88518681376877639;
+	setAttr ".wl[1992].w[17]" 0.1148131862282753;
 	setAttr -s 2 ".wl[1993].w";
 	setAttr ".wl[1993].w[11]" 0.99999886603057886;
 	setAttr ".wl[1993].w[17]" 1.1339694190230272e-006;
 	setAttr -s 2 ".wl[1994].w";
-	setAttr ".wl[1994].w[11]" 0.99867220141894275;
-	setAttr ".wl[1994].w[17]" 0.001327798574305903;
+	setAttr ".wl[1994].w[11]" 0.62310171126644232;
+	setAttr ".wl[1994].w[17]" 0.37689828872680664;
 	setAttr -s 2 ".wl[1995].w";
 	setAttr ".wl[1995].w[11]" 0.99999913277135455;
 	setAttr ".wl[1995].w[17]" 8.6722864282859459e-007;
 	setAttr -s 3 ".wl[1996].w";
-	setAttr ".wl[1996].w[11]" 0.099688712345865793;
-	setAttr ".wl[1996].w[17]" 0.9003112490897428;
+	setAttr ".wl[1996].w[11]" 0.31536456942558289;
+	setAttr ".wl[1996].w[17]" 0.68463539201002499;
 	setAttr ".wl[1996].w[18]" 3.8564392135459295e-008;
 	setAttr -s 3 ".wl[1997].w";
-	setAttr ".wl[1997].w[11]" 0.14057034528061585;
-	setAttr ".wl[1997].w[17]" 0.8594296328506279;
+	setAttr ".wl[1997].w[11]" 0.30017364025115967;
+	setAttr ".wl[1997].w[17]" 0.69982633788008397;
 	setAttr ".wl[1997].w[18]" 2.1868756325577241e-008;
 	setAttr -s 3 ".wl[1998].w";
-	setAttr ".wl[1998].w[11]" 0.26462278847339471;
-	setAttr ".wl[1998].w[17]" 0.73537719521618672;
+	setAttr ".wl[1998].w[11]" 0.41693553328514099;
+	setAttr ".wl[1998].w[17]" 0.58306445040443955;
 	setAttr ".wl[1998].w[18]" 1.6310419439086239e-008;
 	setAttr -s 3 ".wl[1999].w";
-	setAttr ".wl[1999].w[11]" 0.099074343584587207;
-	setAttr ".wl[1999].w[17]" 0.90092558989136395;
+	setAttr ".wl[1999].w[11]" 0.33014017343521118;
+	setAttr ".wl[1999].w[17]" 0.66985976004073966;
 	setAttr ".wl[1999].w[18]" 6.6524049183665449e-008;
 	setAttr -s 2 ".wl[2000].w";
-	setAttr ".wl[2000].w[11]" 0.99880648040104369;
-	setAttr ".wl[2000].w[17]" 0.0011935195920937797;
+	setAttr ".wl[2000].w[11]" 0.77289926395252817;
+	setAttr ".wl[2000].w[17]" 0.22710073604060996;
 	setAttr -s 2 ".wl[2001].w";
 	setAttr ".wl[2001].w[11]" 0.99999878189641511;
 	setAttr ".wl[2001].w[17]" 1.218103582255439e-006;
 	setAttr -s 2 ".wl[2002].w";
-	setAttr ".wl[2002].w[11]" 0.99890038374932566;
-	setAttr ".wl[2002].w[17]" 0.0010996162400175101;
+	setAttr ".wl[2002].w[11]" 0.68166458605654279;
+	setAttr ".wl[2002].w[17]" 0.31833541393280029;
 	setAttr -s 2 ".wl[2003].w";
-	setAttr ".wl[2003].w[11]" 0.99999890153000592;
-	setAttr ".wl[2003].w[17]" 1.0984699912575396e-006;
-	setAttr -s 3 ".wl[2004].w";
-	setAttr ".wl[2004].w[11]" 0.60948386369905494;
-	setAttr ".wl[2004].w[17]" 0.39051613003481456;
+	setAttr ".wl[2003].w[11]" 0.99999889338971659;
+	setAttr ".wl[2003].w[17]" 1.1066102805326327e-006;
+	setAttr -s 4 ".wl[2004].w";
+	setAttr ".wl[2004].w[10]" 0.25468042492866516;
+	setAttr ".wl[2004].w[11]" 0.45426025333236125;
+	setAttr ".wl[2004].w[17]" 0.29105931547283914;
 	setAttr ".wl[2004].w[18]" 6.266134474917549e-009;
 	setAttr -s 3 ".wl[2005].w";
-	setAttr ".wl[2005].w[10]" 1.2790370862748761e-005;
-	setAttr ".wl[2005].w[11]" 0.78522052925905872;
-	setAttr ".wl[2005].w[17]" 0.21476668036801058;
+	setAttr ".wl[2005].w[10]" 0.20561328530311584;
+	setAttr ".wl[2005].w[11]" 0.62377673488609275;
+	setAttr ".wl[2005].w[17]" 0.17060997980872311;
 	setAttr -s 3 ".wl[2006].w";
-	setAttr ".wl[2006].w[10]" 5.1400786392702946e-005;
-	setAttr ".wl[2006].w[11]" 0.99961231861784072;
-	setAttr ".wl[2006].w[17]" 0.00033628059576582556;
+	setAttr ".wl[2006].w[10]" 0.2064325362443924;
+	setAttr ".wl[2006].w[11]" 0.79330058869852715;
+	setAttr ".wl[2006].w[17]" 0.00026687505707991352;
 	setAttr -s 3 ".wl[2007].w";
-	setAttr ".wl[2007].w[10]" 6.215532656285127e-008;
-	setAttr ".wl[2007].w[11]" 0.99999952899027889;
-	setAttr ".wl[2007].w[17]" 4.0885439464699496e-007;
+	setAttr ".wl[2007].w[10]" 0.22294400632381439;
+	setAttr ".wl[2007].w[11]" 0.77705567597340797;
+	setAttr ".wl[2007].w[17]" 3.1770277764821569e-007;
 	setAttr -s 3 ".wl[2008].w";
 	setAttr ".wl[2008].w[11]" 0.35499289537762496;
 	setAttr ".wl[2008].w[17]" 0.64500709591548799;
@@ -29844,27 +29819,28 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[2009].w[17]" 0.8967554061637496;
 	setAttr ".wl[2009].w[18]" 2.1937349523200513e-005;
 	setAttr -s 4 ".wl[2010].w";
-	setAttr ".wl[2010].w[10]" 1.3826453154835062e-009;
-	setAttr ".wl[2010].w[11]" 0.20877019210090175;
-	setAttr ".wl[2010].w[17]" 0.79122954330200246;
+	setAttr ".wl[2010].w[10]" 0.12343256175518036;
+	setAttr ".wl[2010].w[11]" 0.32961028497739925;
+	setAttr ".wl[2010].w[17]" 0.54695689005296988;
 	setAttr ".wl[2010].w[18]" 2.6321445045535547e-007;
 	setAttr -s 4 ".wl[2011].w";
-	setAttr ".wl[2011].w[10]" 3.3563933021617175e-006;
-	setAttr ".wl[2011].w[11]" 0.21446190701477003;
-	setAttr ".wl[2011].w[17]" 0.78553473460030698;
+	setAttr ".wl[2011].w[10]" 0.18578806519508362;
+	setAttr ".wl[2011].w[11]" 0.38649223186545401;
+	setAttr ".wl[2011].w[17]" 0.42771970094784184;
 	setAttr ".wl[2011].w[18]" 1.9916205717719806e-009;
 	setAttr -s 4 ".wl[2012].w";
-	setAttr ".wl[2012].w[10]" 3.4004062745953942e-005;
-	setAttr ".wl[2012].w[11]" 0.2508789136021522;
-	setAttr ".wl[2012].w[17]" 0.74908708136743807;
+	setAttr ".wl[2012].w[10]" 0.12163234502077103;
+	setAttr ".wl[2012].w[11]" 0.38754536402211842;
+	setAttr ".wl[2012].w[17]" 0.49082228998944649;
 	setAttr ".wl[2012].w[18]" 9.6766405973075275e-010;
 	setAttr -s 3 ".wl[2013].w";
-	setAttr ".wl[2013].w[10]" 9.899096258534426e-009;
-	setAttr ".wl[2013].w[11]" 0.2451202793822394;
-	setAttr ".wl[2013].w[17]" 0.75487971071866422;
-	setAttr -s 3 ".wl[2014].w";
-	setAttr ".wl[2014].w[11]" 0.4026578284772937;
-	setAttr ".wl[2014].w[17]" 0.59734079869332124;
+	setAttr ".wl[2013].w[10]" 0.19047349875731859;
+	setAttr ".wl[2013].w[11]" 0.30631489275207957;
+	setAttr ".wl[2013].w[17]" 0.50321160849060176;
+	setAttr -s 4 ".wl[2014].w";
+	setAttr ".wl[2014].w[10]" 0.22089076042175293;
+	setAttr ".wl[2014].w[11]" 0.39510256999897336;
+	setAttr ".wl[2014].w[17]" 0.38400529674186318;
 	setAttr ".wl[2014].w[18]" 1.3728374105465323e-006;
 	setAttr -s 2 ".wl[2015].w[17:18]"  0.5866774132946041 0.41332258670539485;
 	setAttr -s 2 ".wl[2016].w[17:18]"  0.33554720322827658 0.66445279677172342;
@@ -29994,16 +29970,19 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 2 ".wl[2115].w[18:19]"  0.45257533749729822 0.54742466250270205;
 	setAttr -s 2 ".wl[2116].w[18:19]"  0.036498578937330002 0.96350142106266989;
 	setAttr ".wl[2117].w[19]"  1;
-	setAttr -s 2 ".wl[2118].w[17:18]"  0.93175822861501445 0.068241771384985966;
+	setAttr -s 3 ".wl[2118].w";
+	setAttr ".wl[2118].w[10]" 0.02634083665907383;
+	setAttr ".wl[2118].w[17]" 0.90541739195594018;
+	setAttr ".wl[2118].w[18]" 0.068241771384985966;
 	setAttr -s 4 ".wl[2119].w";
-	setAttr ".wl[2119].w[10]" 2.4922413985926106e-009;
-	setAttr ".wl[2119].w[11]" 0.16553965907773655;
-	setAttr ".wl[2119].w[17]" 0.83445320194372707;
+	setAttr ".wl[2119].w[10]" 0.12986567616462708;
+	setAttr ".wl[2119].w[11]" 0.4620607783370097;
+	setAttr ".wl[2119].w[17]" 0.40806640901206848;
 	setAttr ".wl[2119].w[18]" 7.1364862947860684e-006;
 	setAttr -s 3 ".wl[2120].w";
 	setAttr ".wl[2120].w[10]" 0.73716129423257082;
-	setAttr ".wl[2120].w[11]" 4.7251569052000124e-006;
-	setAttr ".wl[2120].w[17]" 0.26283398052051632;
+	setAttr ".wl[2120].w[11]" 0.13234001398086548;
+	setAttr ".wl[2120].w[17]" 0.13049869169655548;
 	setAttr -s 3 ".wl[2121].w";
 	setAttr ".wl[2121].w[10]" 0.99995287417156464;
 	setAttr ".wl[2121].w[11]" 3.7654254881263167e-010;
@@ -30017,16 +29996,19 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[2124].w[17]" 0.95772288709843478;
 	setAttr ".wl[2124].w[18]" 1.935111871354847e-005;
 	setAttr -s 4 ".wl[2125].w";
-	setAttr ".wl[2125].w[10]" 1.2883822931789785e-006;
-	setAttr ".wl[2125].w[11]" 0.25524361069534651;
-	setAttr ".wl[2125].w[17]" 0.74475510057105321;
+	setAttr ".wl[2125].w[10]" 0.11287933463576916;
+	setAttr ".wl[2125].w[11]" 0.25270414964741839;
+	setAttr ".wl[2125].w[17]" 0.6344165153659731;
 	setAttr ".wl[2125].w[18]" 3.50839438541105e-010;
 	setAttr -s 3 ".wl[2126].w";
-	setAttr ".wl[2126].w[10]" 0.81370236775660809;
-	setAttr ".wl[2126].w[11]" 1.3823837365103834e-005;
-	setAttr ".wl[2126].w[17]" 0.18628380840602171;
+	setAttr ".wl[2126].w[10]" 0.7714573963918071;
+	setAttr ".wl[2126].w[11]" 0.11433406471650676;
+	setAttr ".wl[2126].w[17]" 0.11420853889168134;
 	setAttr ".wl[2127].w[10]"  1.0000000000000115;
-	setAttr -s 2 ".wl[2128].w[9:10]"  8.5322755298537358e-007 0.99999914677244695;
+	setAttr -s 3 ".wl[2128].w";
+	setAttr ".wl[2128].w[0]" 3.3339755570732337e-007;
+	setAttr ".wl[2128].w[9]" 8.5322755298537379e-007;
+	setAttr ".wl[2128].w[10]" 0.99999881337489127;
 	setAttr -s 2 ".wl[2129].w[9:10]"  1.9837738571294262e-005 0.99998016226142861;
 	setAttr -s 2 ".wl[2130].w[9:10]"  1.3087974410300624e-009 0.99999999869120215;
 	setAttr -s 2 ".wl[2131].w[9:10]"  9.6990664070162756e-010 0.9999999990300934;
@@ -30057,21 +30039,21 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[2155].w[56]"  1;
 	setAttr ".wl[2156].w[56]"  1;
 	setAttr ".wl[2157].w[56]"  1;
-	setAttr -s 2 ".wl[2158].w[56:57]"  0.99760445069846071 0.0023955493015392904;
-	setAttr -s 2 ".wl[2159].w[56:57]"  0.82932005890495741 0.17067994109504259;
-	setAttr -s 2 ".wl[2160].w[56:57]"  0.80860494827943796 0.19139505172056204;
-	setAttr -s 2 ".wl[2161].w[56:57]"  0.40417007446769493 0.59582992553230507;
-	setAttr -s 2 ".wl[2162].w[56:57]"  0.40655692626734652 0.59344307373265348;
-	setAttr -s 2 ".wl[2163].w[56:57]"  0.18527503602975554 0.81472496397024452;
-	setAttr -s 2 ".wl[2164].w[56:57]"  0.19746520014268343 0.80253479985731657;
-	setAttr ".wl[2165].w[56]"  1;
+	setAttr -s 2 ".wl[2158].w[56:57]"  0.98379933834075928 0.016200661659240723;
+	setAttr -s 2 ".wl[2159].w[56:57]"  0.81827980279922485 0.18172019720077515;
+	setAttr -s 2 ".wl[2160].w[56:57]"  0.78803688287734985 0.21196311712265015;
+	setAttr -s 2 ".wl[2161].w[56:57]"  0.41369807720184326 0.58630192279815674;
+	setAttr -s 2 ".wl[2162].w[56:57]"  0.39300614595413208 0.60699385404586792;
+	setAttr -s 2 ".wl[2163].w[56:57]"  0.19247201085090637 0.80752798914909363;
+	setAttr -s 2 ".wl[2164].w[56:57]"  0.19727762043476105 0.80272237956523895;
+	setAttr ".wl[2165].w[56]"  0.99999999999999989;
 	setAttr ".wl[2166].w[56]"  1;
 	setAttr ".wl[2167].w[56]"  1;
 	setAttr ".wl[2168].w[56]"  1;
 	setAttr ".wl[2169].w[56]"  1;
 	setAttr ".wl[2170].w[56]"  1;
 	setAttr ".wl[2171].w[56]"  1;
-	setAttr ".wl[2172].w[56]"  0.99999999999999989;
+	setAttr ".wl[2172].w[56]"  1;
 	setAttr ".wl[2173].w[56]"  1;
 	setAttr ".wl[2174].w[56]"  1;
 	setAttr ".wl[2175].w[56]"  1;
@@ -30080,20 +30062,20 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[2178].w[56]"  1;
 	setAttr ".wl[2179].w[56]"  1;
 	setAttr ".wl[2180].w[56]"  1;
-	setAttr -s 2 ".wl[2181].w[56:57]"  0.97888745850799808 0.021112541492001924;
-	setAttr -s 2 ".wl[2182].w[56:57]"  0.98519761565922281 0.014802384340777219;
-	setAttr -s 2 ".wl[2183].w[56:57]"  0.59875631344153746 0.40124368655846254;
-	setAttr -s 2 ".wl[2184].w[56:57]"  0.71794056928615002 0.28205943071385003;
-	setAttr -s 2 ".wl[2185].w[56:57]"  0.35643520092506353 0.64356479907493647;
-	setAttr -s 2 ".wl[2186].w[56:57]"  0.31988602786162135 0.68011397213837865;
-	setAttr -s 2 ".wl[2187].w[56:57]"  0.055660038765864707 0.94433996123413533;
-	setAttr -s 2 ".wl[2188].w[56:57]"  0.020351295158431853 0.97964870484156819;
+	setAttr ".wl[2181].w[56]"  1;
+	setAttr ".wl[2182].w[56]"  1;
+	setAttr -s 2 ".wl[2183].w[56:57]"  0.60440385341644287 0.39559614658355713;
+	setAttr -s 2 ".wl[2184].w[56:57]"  0.72845768928527832 0.27154231071472168;
+	setAttr -s 2 ".wl[2185].w[56:57]"  0.35758000612258911 0.64241999387741089;
+	setAttr -s 2 ".wl[2186].w[56:57]"  0.32060307264328003 0.67939692735671997;
+	setAttr -s 2 ".wl[2187].w[56:57]"  0.055655989795923233 0.94434401020407677;
+	setAttr -s 2 ".wl[2188].w[56:57]"  0.038863677531480789 0.96113632246851921;
 	setAttr ".wl[2189].w[57]"  1;
 	setAttr ".wl[2190].w[57]"  1;
 	setAttr -s 2 ".wl[2191].w[56:57]"  0.14338986575603485 0.85661013424396515;
-	setAttr -s 2 ".wl[2192].w[56:57]"  0.10578411896767648 0.89421588103232352;
-	setAttr -s 2 ".wl[2193].w[56:57]"  0.0013765061860722128 0.99862349381392779;
-	setAttr -s 2 ".wl[2194].w[56:57]"  0.0010220443060087211 0.99897795569399128;
+	setAttr -s 2 ".wl[2192].w[56:57]"  0.10531918704509735 0.89468081295490265;
+	setAttr ".wl[2193].w[57]"  1;
+	setAttr ".wl[2194].w[57]"  1;
 	setAttr ".wl[2195].w[57]"  1;
 	setAttr ".wl[2196].w[57]"  1;
 	setAttr ".wl[2197].w[57]"  1;
@@ -30102,7 +30084,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[2200].w[57]"  1;
 	setAttr ".wl[2201].w[57]"  1;
 	setAttr ".wl[2202].w[57]"  1;
-	setAttr ".wl[2203].w[57]"  0.99999999999999989;
+	setAttr ".wl[2203].w[57]"  1;
 	setAttr ".wl[2204].w[57]"  1;
 	setAttr ".wl[2205].w[57]"  1;
 	setAttr ".wl[2206].w[57]"  1;
@@ -30158,14 +30140,15 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 2 ".wl[2226].w";
 	setAttr ".wl[2226].w[19]" 0.99999998375871169;
 	setAttr ".wl[2226].w[40]" 1.6241288634679804e-008;
-	setAttr -s 3 ".wl[2227].w";
-	setAttr ".wl[2227].w[11]" 0.98788966963241609;
-	setAttr ".wl[2227].w[12]" 0.012110260464861165;
-	setAttr ".wl[2227].w[17]" 6.9902722888475038e-008;
+	setAttr -s 4 ".wl[2227].w";
+	setAttr ".wl[2227].w[11]" 0.98788694948130973;
+	setAttr ".wl[2227].w[12]" 0.012111524481847399;
+	setAttr ".wl[2227].w[13]" 1.456719123700827e-006;
+	setAttr ".wl[2227].w[17]" 6.931771929169292e-008;
 	setAttr -s 3 ".wl[2228].w";
-	setAttr ".wl[2228].w[11]" 0.92957698328761651;
+	setAttr ".wl[2228].w[11]" 0.92698148988440765;
 	setAttr ".wl[2228].w[12]" 0.070417083470288841;
-	setAttr ".wl[2228].w[17]" 5.9332420389840215e-006;
+	setAttr ".wl[2228].w[17]" 0.0026014266452479393;
 	setAttr -s 4 ".wl[2229].w[11:14]"  0.98691523430889161 0.013084690783960014 
 		7.490714847090543e-008 2.6425957676074415e-019;
 	setAttr -s 5 ".wl[2230].w[11:15]"  0.92494507574432872 0.075054772798031785 
@@ -30265,7 +30248,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 4 ".wl[2277].w";
 	setAttr ".wl[2277].w[15]" 0.99912009774169075;
 	setAttr ".wl[2277].w[21]" 0.00087990225829828674;
-	setAttr ".wl[2277].w[22]" 1.086983272197855e-014;
+	setAttr ".wl[2277].w[22]" 1.0869832721978549e-014;
 	setAttr ".wl[2277].w[23]" 9.6146439390877341e-020;
 	setAttr -s 3 ".wl[2278].w";
 	setAttr ".wl[2278].w[15]" 0.99931070612038664;
@@ -30800,7 +30783,7 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 3 ".wl[2573].w[28:30]"  0.10097460534859083 0.89902539464145759 
 		9.9514780101188653e-012;
 	setAttr -s 3 ".wl[2574].w[28:30]"  0.090217464094035749 0.90978253589480162 
-		1.116262291626721e-011;
+		1.1162622916267212e-011;
 	setAttr -s 2 ".wl[2575].w[29:30]"  0.86674237475523519 0.13325762524476475;
 	setAttr -s 2 ".wl[2576].w[29:30]"  0.86229990664439171 0.1377000933556084;
 	setAttr -s 2 ".wl[2577].w[29:30]"  0.86446114761895665 0.13553885238104346;
@@ -30894,26 +30877,26 @@ createNode skinCluster -n "skinCluster1";
 	setAttr -s 2 ".wl[2638].w[2:3]"  0.25099077391717661 0.74900922608282339;
 	setAttr -s 2 ".wl[2639].w[2:3]"  0.27017970642238648 0.72982029357761358;
 	setAttr -s 2 ".wl[2640].w[2:3]"  0.41157605001126157 0.58842394998873848;
-	setAttr -s 2 ".wl[2641].w[5:6]"  0.2737709417717295 0.72622905822827055;
-	setAttr -s 2 ".wl[2642].w[5:6]"  0.39953168346058004 0.60046831653942001;
-	setAttr -s 2 ".wl[2643].w[5:6]"  0.27224722319816369 0.72775277680183637;
-	setAttr -s 2 ".wl[2644].w[5:6]"  0.25002812128383006 0.74997187871616999;
-	setAttr -s 2 ".wl[2645].w[5:6]"  0.35807395041511059 0.64192604958488941;
-	setAttr -s 2 ".wl[2646].w[5:6]"  0.45264863996579796 0.54735136003420204;
-	setAttr -s 2 ".wl[2647].w[5:6]"  0.40321880547492245 0.59678119452507761;
-	setAttr -s 2 ".wl[2648].w[5:6]"  0.24069755482951019 0.75930244517048973;
-	setAttr -s 2 ".wl[2649].w[5:6]"  0.20233118843015704 0.79766881156968417;
-	setAttr -s 2 ".wl[2650].w[5:6]"  0.16732872674253391 0.83267127325746615;
-	setAttr -s 2 ".wl[2651].w[5:6]"  0.85148703796820113 0.14851296203179884;
-	setAttr -s 2 ".wl[2652].w[5:6]"  0.88651457555247948 0.11348542444713287;
-	setAttr -s 2 ".wl[2653].w[5:6]"  0.91561739626481908 0.084382603735172965;
-	setAttr -s 2 ".wl[2654].w[5:6]"  0.91783246583939471 0.082167534160580952;
-	setAttr -s 2 ".wl[2655].w[5:6]"  0.86137782674519681 0.13862217325480325;
-	setAttr -s 2 ".wl[2656].w[5:6]"  0.89301613314416528 0.10698386685583476;
-	setAttr -s 2 ".wl[2657].w[5:6]"  0.88480892808152045 0.11519107191847962;
-	setAttr -s 2 ".wl[2658].w[5:6]"  0.87247592764324278 0.12752407235675708;
-	setAttr -s 2 ".wl[2659].w[5:6]"  0.79303409731670882 0.20696590268329121;
-	setAttr -s 2 ".wl[2660].w[5:6]"  0.9043723108776266 0.095627689122373447;
+	setAttr -s 2 ".wl[2641].w[5:6]"  0.27761626475269546 0.72238373524730448;
+	setAttr -s 2 ".wl[2642].w[5:6]"  0.40959203710681658 0.59040796289318342;
+	setAttr -s 2 ".wl[2643].w[5:6]"  0.26887731432245737 0.73112268567754268;
+	setAttr -s 2 ".wl[2644].w[5:6]"  0.2497817640675021 0.75021823593249792;
+	setAttr -s 2 ".wl[2645].w[5:6]"  0.35782613874086866 0.64217386125913123;
+	setAttr -s 2 ".wl[2646].w[5:6]"  0.45542889974195444 0.54457110025804556;
+	setAttr -s 2 ".wl[2647].w[5:6]"  0.40932332311812741 0.59067667688187253;
+	setAttr -s 2 ".wl[2648].w[5:6]"  0.23996194100242924 0.76003805899757071;
+	setAttr -s 2 ".wl[2649].w[5:6]"  0.20181935980239438 0.79818064019727242;
+	setAttr -s 2 ".wl[2650].w[5:6]"  0.16642907349301184 0.83357092650698827;
+	setAttr -s 2 ".wl[2651].w[5:6]"  0.85092921092297513 0.14907078907702492;
+	setAttr -s 2 ".wl[2652].w[5:6]"  0.88801034463465922 0.11198965536490622;
+	setAttr -s 2 ".wl[2653].w[5:6]"  0.9163360297004276 0.083663970299572496;
+	setAttr -s 2 ".wl[2654].w[5:6]"  0.91917808059027306 0.080821919409689261;
+	setAttr -s 2 ".wl[2655].w[5:6]"  0.8616419942647715 0.13835800573522852;
+	setAttr -s 2 ".wl[2656].w[5:6]"  0.89320372391951031 0.10679627608048976;
+	setAttr -s 2 ".wl[2657].w[5:6]"  0.88549540742474142 0.11450459257525869;
+	setAttr -s 2 ".wl[2658].w[5:6]"  0.87268942783475079 0.12731057216524913;
+	setAttr -s 2 ".wl[2659].w[5:6]"  0.79126401599189289 0.20873598400810725;
+	setAttr -s 2 ".wl[2660].w[5:6]"  0.90427171119455252 0.095728288805447551;
 	setAttr -s 2 ".wl[2661].w[2:3]"  0.84834213678366799 0.15165786321633204;
 	setAttr -s 2 ".wl[2662].w[2:3]"  0.90260984811432277 0.097390151885677276;
 	setAttr -s 2 ".wl[2663].w[2:3]"  0.78764006360769334 0.21235993639230671;
@@ -30945,33 +30928,31 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[2680].w[3]" 0.99999090216960584;
 	setAttr ".wl[2680].w[37]" 9.0978303941767752e-006;
 	setAttr -s 2 ".wl[2681].w";
-	setAttr ".wl[2681].w[6]" 0.99967099255628067;
-	setAttr ".wl[2681].w[56]" 0.00032900744371925576;
+	setAttr ".wl[2681].w[6]" 0.99996225899876734;
+	setAttr ".wl[2681].w[56]" 3.7741001232582684e-005;
 	setAttr -s 2 ".wl[2682].w";
-	setAttr ".wl[2682].w[6]" 0.99997553042620746;
-	setAttr ".wl[2682].w[56]" 2.4469573792463734e-005;
+	setAttr ".wl[2682].w[6]" 0.9999740136036066;
+	setAttr ".wl[2682].w[56]" 2.5986396393389346e-005;
 	setAttr -s 2 ".wl[2683].w";
-	setAttr ".wl[2683].w[6]" 0.99998997037026538;
-	setAttr ".wl[2683].w[56]" 1.0029629734704207e-005;
+	setAttr ".wl[2683].w[6]" 0.99999090516294065;
+	setAttr ".wl[2683].w[56]" 9.0948370594258335e-006;
 	setAttr -s 2 ".wl[2684].w";
-	setAttr ".wl[2684].w[6]" 0.99785623924143718;
-	setAttr ".wl[2684].w[56]" 0.0021437607585628126;
+	setAttr ".wl[2684].w[6]" 0.99993676995969472;
+	setAttr ".wl[2684].w[56]" 6.3230040305312096e-005;
 	setAttr -s 2 ".wl[2685].w";
-	setAttr ".wl[2685].w[6]" 0.99998268974371962;
-	setAttr ".wl[2685].w[56]" 1.7310256280274782e-005;
-	setAttr -s 2 ".wl[2686].w";
-	setAttr ".wl[2686].w[6]" 0.99999618989461603;
-	setAttr ".wl[2686].w[56]" 3.8101053839801928e-006;
+	setAttr ".wl[2685].w[6]" 0.99999954924944368;
+	setAttr ".wl[2685].w[56]" 4.5075055626984245e-007;
+	setAttr ".wl[2686].w[6]"  1;
 	setAttr -s 2 ".wl[2687].w";
-	setAttr ".wl[2687].w[6]" 0.99995126225663711;
-	setAttr ".wl[2687].w[56]" 4.8737743362877788e-005;
+	setAttr ".wl[2687].w[6]" 0.99995024364521479;
+	setAttr ".wl[2687].w[56]" 4.9756354785222884e-005;
 	setAttr -s 2 ".wl[2688].w";
-	setAttr ".wl[2688].w[6]" 0.99996829691905287;
-	setAttr ".wl[2688].w[56]" 3.1703080947008155e-005;
+	setAttr ".wl[2688].w[6]" 0.9999670449715552;
+	setAttr ".wl[2688].w[56]" 3.2955028444726106e-005;
 	setAttr -s 2 ".wl[2689].w";
-	setAttr ".wl[2689].w[6]" 0.99999937106756231;
-	setAttr ".wl[2689].w[56]" 6.2893243766598586e-007;
-	setAttr ".wl[2690].w[6]"  0.99999999999999989;
+	setAttr ".wl[2689].w[6]" 0.99999992114005465;
+	setAttr ".wl[2689].w[56]" 7.8859945360290618e-008;
+	setAttr ".wl[2690].w[6]"  1;
 	setAttr -s 2 ".wl[2691].w";
 	setAttr ".wl[2691].w[3]" 0.33427110314369202;
 	setAttr ".wl[2691].w[37]" 0.66572889685630798;
@@ -30991,23 +30972,23 @@ createNode skinCluster -n "skinCluster1";
 	setAttr ".wl[2696].w[3]" 0.60177946090698242;
 	setAttr ".wl[2696].w[37]" 0.39822053909301758;
 	setAttr -s 2 ".wl[2697].w";
-	setAttr ".wl[2697].w[6]" 0.43814403398550084;
-	setAttr ".wl[2697].w[56]" 0.56185596601449916;
+	setAttr ".wl[2697].w[6]" 0.48862336707124426;
+	setAttr ".wl[2697].w[56]" 0.51137663292875568;
 	setAttr -s 2 ".wl[2698].w";
-	setAttr ".wl[2698].w[6]" 0.44451779155824056;
-	setAttr ".wl[2698].w[56]" 0.55548220844175944;
+	setAttr ".wl[2698].w[6]" 0.50730853106167939;
+	setAttr ".wl[2698].w[56]" 0.49269146893832061;
 	setAttr -s 2 ".wl[2699].w";
-	setAttr ".wl[2699].w[6]" 0.80246841960916748;
-	setAttr ".wl[2699].w[56]" 0.19753158039083257;
+	setAttr ".wl[2699].w[6]" 0.81360879941901931;
+	setAttr ".wl[2699].w[56]" 0.18639120058098069;
 	setAttr -s 2 ".wl[2700].w";
-	setAttr ".wl[2700].w[6]" 0.60247618152942461;
-	setAttr ".wl[2700].w[56]" 0.39752381847057539;
+	setAttr ".wl[2700].w[6]" 0.5105050605735425;
+	setAttr ".wl[2700].w[56]" 0.48949493942645744;
 	setAttr -s 2 ".wl[2701].w";
-	setAttr ".wl[2701].w[6]" 0.43461519708077012;
-	setAttr ".wl[2701].w[56]" 0.56538480291922977;
+	setAttr ".wl[2701].w[6]" 0.34411934336624961;
+	setAttr ".wl[2701].w[56]" 0.65588065663375039;
 	setAttr -s 2 ".wl[2702].w";
-	setAttr ".wl[2702].w[6]" 0.56361948032448406;
-	setAttr ".wl[2702].w[56]" 0.43638051967551594;
+	setAttr ".wl[2702].w[6]" 0.60602463876621271;
+	setAttr ".wl[2702].w[56]" 0.39397536123378718;
 	setAttr -s 59 ".pm";
 	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 0
 		 0.99999999999999978 2.2204460492503121e-016 0 0 0 0 1 0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
@@ -31230,144 +31211,146 @@ createNode dagPose -n "bindPose1";
 		 1 1 yes;
 	setAttr ".xm[7]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 5.8565102702383829 0 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[8]" -type "matrix" "xform" 1 1 1 0 0 0 0 -7.8886090522101181e-031
-		 -3.5527136788005017e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[9]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.92138891488956531 2.0458943758895722e-016
+	setAttr ".xm[8]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[9]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.92138891488956531 2.0458943758895762e-016
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654746 0 0 0.70710678118654757 1
 		 1 1 yes;
 	setAttr ".xm[10]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5190868737227277 0
-		 3.373050447225628e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0.030031684444900737 0.99954894724040499 1
+		 3.3730504472256241e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0.030031684444900737 0.99954894724040499 1
 		 1 1 yes;
 	setAttr ".xm[11]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.933153866148924 -1.1102230246251565e-015
-		 6.5011619000596684e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -4.2351647362715017e-022 -0.00084714954252969831 -0.0039475050219800276 0.99999184973766353 1
+		 6.5011619000596645e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -4.2351647362715017e-022 -0.00084714954252969831 -0.0039475050219800276 0.99999184973766353 1
 		 1 1 yes;
 	setAttr ".xm[12]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.1585089718419113 -0.11908147415154535
 		 -6.9388939039072284e-018 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[13]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.61176699065237594 -0.070504587415549436
 		 -0.76213417113845439 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.12637219929953936 0.69633029703710247 0.089732038683164594 0.70078694758548499 1
 		 1 1 yes;
-	setAttr ".xm[14]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.1274453855916566 8.0491169285323849e-016
+	setAttr ".xm[14]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.1274453855916562 8.0491169285323849e-016
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.057833686164724049 0.37383269623654491 -0.14152523506952161 0.91480871651271012 1
 		 1 1 yes;
-	setAttr ".xm[15]" -type "matrix" "xform" 1 1 1 0 0 0 0 3.5429995338391933 0
-		 7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.016186470068319445 0.026923324182529788 -0.015632450565763789 0.99938419003454282 1
+	setAttr ".xm[15]" -type "matrix" "xform" 1 1 1 0 0 0 0 3.5429995338391898 0
+		 3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.016186470068319445 0.026923324182529788 -0.015632450565763789 0.99938419003454282 1
 		 1 1 yes;
-	setAttr ".xm[16]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.3334984978110533 1.1102230246251565e-015
+	setAttr ".xm[16]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.3334984978110462 8.8817841970012523e-016
 		 3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[17]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.61434821686048835 -0.070494521241918573
 		 0.76005768127662576 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.1262246278336463 -0.69514137267226417 0.089950631782961088 0.70196488457003592 1
 		 1 1 yes;
-	setAttr ".xm[18]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.1274473676227572 3.3306690738754696e-016
+	setAttr ".xm[18]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.1274473676227572 4.163336342344337e-016
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.057833624063736315 -0.37383245659339537 -0.14152519064624924 0.91480882524030371 1
 		 1 1 yes;
-	setAttr ".xm[19]" -type "matrix" "xform" 1 1 1 0 0 0 0 3.5429919348482777 3.3306690738754696e-016
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.016186491427061744 -0.026925820032875462 -0.015632409714631559 0.99938412308649016 1
+	setAttr ".xm[19]" -type "matrix" "xform" 1 1 1 0 0 0 0 3.5429919348482741 0
+		 -7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.016186491427061744 -0.026925820032875462 -0.015632409714631559 0.99938412308649016 1
 		 1 1 yes;
-	setAttr ".xm[20]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.333523897185291 0 -7.1054273576010019e-015 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[21]" -type "matrix" "xform" 1 1 1 0 0 0 0 8.2405492917373184 25.878422927376906
-		 -0.5112397197117432 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 -0.40477844564421395 0.91441479096843903 1
+	setAttr ".xm[20]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.3335238971852981 -2.2204460492503131e-016
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[21]" -type "matrix" "xform" 1 1 1 0 0 0 0 -7.1054273576010019e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 -0.40477844564421395 0.91441479096843903 1
 		 1 1 yes;
-	setAttr ".xm[22]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49527795969331956 0.0071892763905934427
+	setAttr ".xm[22]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49527795969331834 0.0071892763905943013
 		 0.41992895134020575 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.42125278020117501 -0.29743421573704548 0.215516427905416 0.82923558280175058 1
 		 1 1 yes;
-	setAttr ".xm[23]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49145373816897248 0
-		 2.2758362172392123e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.056430430705938658 -0.098793518199152122 0.10163179380362164 0.9882947059154138 1
+	setAttr ".xm[23]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49145373816897386 0
+		 1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.056430430705938658 -0.098793518199152122 0.10163179380362164 0.9882947059154138 1
 		 1 1 yes;
-	setAttr ".xm[24]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.51359183657910434 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[24]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.51359183657910279 3.5527136788005009e-015
+		 1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[25]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.4974230294560282 0.16512514819766366
 		 -0.58301107851365974 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.01054417982999638 0.1451560540605325 0.071678012417318374 0.98675265531803424 1
 		 1 1 yes;
-	setAttr ".xm[26]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.37694356045656169 0
-		 1.7347234759768071e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0082971564450840356 -0.023382954960908132 0.030130014768561808 0.9992379980876771 1
+	setAttr ".xm[26]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.37694356045656008 0
+		 8.8817841970012523e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0082971564450840356 -0.023382954960908132 0.030130014768561808 0.9992379980876771 1
 		 1 1 yes;
-	setAttr ".xm[27]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.35604117504183691 1.4240182383967737e-015
-		 4.3021142204224816e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[27]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.35604117504183641 -3.5527136788005009e-015
+		 -4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[28]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5772962704432896 0.27233304936337888
 		 -0.28106437889436653 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0062207051892404592 0.058427120002473437 0.10568819445750725 0.99266186590776073 1
 		 1 1 yes;
-	setAttr ".xm[29]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.48267343033259213 1.3670569667598165e-015
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.00045227718958652021 -0.0019008991456381807 -0.0038922205111757095 0.99999051627866664 1
+	setAttr ".xm[29]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.48267343033259102 3.5527136788005009e-015
+		 -2.2204460492503131e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.00045227718958652021 -0.0019008991456381807 -0.0038922205111757095 0.99999051627866664 1
 		 1 1 yes;
-	setAttr ".xm[30]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44402124409737215 0
-		 1.1631320906424492e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[30]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44402124409736921 -3.5527136788005009e-015
+		 1.1102230246251565e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[31]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.6224039800499508 0.34902880133720871
 		 0.07884494694372246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.00014772053227063138 0.0012719892628148869 0.11535806820592465 0.99332314798445964 1
 		 1 1 yes;
-	setAttr ".xm[32]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.66402210341412415 0
+	setAttr ".xm[32]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.66402210341412449 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 4.6243078880646898e-005 -0.00069640565384897918 -0.02480240874115017 0.99969212930850859 1
 		 1 1 yes;
-	setAttr ".xm[33]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44324390661143609 0
+	setAttr ".xm[33]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44324390661143909 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[34]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.6179387238278178 0.325719810738196
 		 0.43013191702266762 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0062115392474024252 -0.063993960984020451 0.096410527294532949 0.993262905762892 1
 		 1 1 yes;
-	setAttr ".xm[35]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.47009741167687624 1.0396465453940337e-015
-		 1.5785983631388945e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.00059098110452740656 0.0085464500302802303 0.0048957624771549593 0.99995131903657253 1
+	setAttr ".xm[35]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.47009741167687835 0
+		 -1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.00059098110452740656 0.0085464500302802303 0.0048957624771549593 0.99995131903657253 1
 		 1 1 yes;
-	setAttr ".xm[36]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44394174988716567 8.2201633737691293e-015
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[37]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.7393044773176345 12.368196610584292
-		 -0.39830244810568033 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.21652876896140047 -0.66938649922230953 -0.21386784340160786 0.67771494924467079 1
+	setAttr ".xm[36]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44394174988716273 7.1054273576010019e-015
+		 1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[37]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0.022993571911613442
+		 0.013071043556458051 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.21652876896140047 -0.66938649922230953 -0.21386784340160786 0.67771494924467079 1
 		 1 1 yes;
-	setAttr ".xm[38]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5852111702512688 6.6613381477509392e-016
-		 1.8908485888147197e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0057919003717863699 0.016142445681589724 0.20074690259497752 0.97949300989645804 1
+	setAttr ".xm[38]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5852111702512701 1.7763568394002505e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0057919003717863699 0.016142445681589724 0.20074690259497752 0.97949300989645804 1
 		 1 1 yes;
-	setAttr ".xm[39]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.4988213815305957 9.3263134121935126e-016
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[40]" -type "matrix" "xform" 1 1 1 0 0 0 0 -8.2405500000000007 25.878399999999999
-		 -0.51124000000000003 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.91441479096843914 0.40477844564421389 3.0158344579552976e-009 6.8129211551213672e-009 1
+	setAttr ".xm[39]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.4988213815305955 1.7763568394002505e-015
+		 4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[40]" -type "matrix" "xform" 1 1 1 0 0 0 0 -5.3290705182007514e-015
+		 -3.1086244689504383e-015 -7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+		0 0 0 1 0.91441479096843914 0.40477844564421389 3.0158344579552976e-009 6.8129211551213672e-009 1
 		 1 1 yes;
 	setAttr ".xm[41]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.49527204758744325
-		 -0.007192272834600999 -0.41992920010717333 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+		 -0.007192272834600999 -0.41992920010717327 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 		0.29743421734276698 0.42125278637945912 -0.82923557966317363 0.2155164256893608 1
 		 1 1 yes;
-	setAttr ".xm[42]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49143210715951019 0
+	setAttr ".xm[42]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49143210715950936 0
 		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.056429059970888783 0.098790295646139711 0.10162853435856456 0.98829544149564919 1
 		 1 1 yes;
-	setAttr ".xm[43]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.51359439882070068 4.9527430748805313e-015
-		 1.5452972628175916e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[43]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.51359439882070124 7.1054273576010019e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[44]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.4974366069198641 -0.16511548087689576
 		 0.58300999753958738 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.14516592273272944 -0.010550465375482777 -0.9867484084250806 0.071715556388319918 1
 		 1 1 yes;
-	setAttr ".xm[45]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.37691266229725612 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0083025702052146894 0.023388315510669801 0.030147883077102779 0.99923728872151774 1
+	setAttr ".xm[45]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.37691266229725784 3.5527136788005009e-015
+		 8.8817841970012523e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0083025702052146894 0.023388315510669801 0.030147883077102779 0.99923728872151774 1
 		 1 1 yes;
-	setAttr ".xm[46]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.35602241362025899 1.1592631437467943e-015
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[46]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.35602241362025921 0
+		 -4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[47]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.5772704981517709 -0.27235592308853995
 		 0.28106399594158027 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.058429419840373586 -0.006222517311318964 -0.99265891737289824 0.10571450674100183 1
 		 1 1 yes;
-	setAttr ".xm[48]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.48265124741266474 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.00046587680914809276 0.0019098362421194072 -0.0040093322085727216 0.99999003032008682 1
+	setAttr ".xm[48]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.48265124741266785 -7.1054273576010019e-015
+		 4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.00046587680914809276 0.0019098362421194072 -0.0040093322085727216 0.99999003032008682 1
 		 1 1 yes;
-	setAttr ".xm[49]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44407088245459064 1.0760889638391488e-014
-		 1.4040435074346228e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[49]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44407088245458937 1.4210854715202004e-014
+		 1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[50]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.6223556678850972 -0.34906952453754769
 		 -0.078845005201541474 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.001271456032241512 -0.00014764033770708169 -0.99332478401329705 0.1153439858285876 1
 		 1 1 yes;
-	setAttr ".xm[51]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.66406254103058693 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -4.6304319768952937e-005 0.00069539499991197646 -0.024832220980595912 0.9996913899213471 1
+	setAttr ".xm[51]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.66406254103058693 -3.5527136788005009e-015
+		 5.5511151231257827e-017 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -4.6304319768952937e-005 0.00069539499991197646 -0.024832220980595912 0.9996913899213471 1
 		 1 1 yes;
-	setAttr ".xm[52]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.4431960833807066 2.3569848142240983e-018
-		 9.2621993991073674e-018 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[52]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44319608338070449 3.5527136788005009e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr ".xm[53]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.617914049058756 -0.32573500361907648
 		 -0.43013220485382997 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.063993958811853921 0.0062115813540021391 -0.99326284248188768 0.096411177969518064 1
 		 1 1 yes;
-	setAttr ".xm[54]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.47009752913650249 2.5193355654973697e-015
-		 3.5890356470615456e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.00058202044604589286 -0.0085457537042356885 0.0048214418536834149 0.99995169135527662 1
+	setAttr ".xm[54]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.4700975291365026 7.1054273576010019e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.00058202044604589286 -0.0085457537042356885 0.0048214418536834149 0.99995169135527662 1
 		 1 1 yes;
-	setAttr ".xm[55]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44393577948095381 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
-	setAttr ".xm[56]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.7393000000000001 12.3682
-		 -0.39830199999999999 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.21387638948929288 -0.67771204884108693 -0.21653732316396204 0.66938393807412688 1
+	setAttr ".xm[55]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44393577948095331 3.5527136788005009e-015
+		 -3.3306690738754696e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[56]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.022993328821173664
+		 -1.1814852740599235e-006 -0.013070566396649497 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+		0.21387638948929288 -0.67771204884108693 -0.21653732316396204 0.66938393807412688 1
 		 1 1 yes;
-	setAttr ".xm[57]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5852389107374327 0
-		 1.9742898044487409e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0057924135904048471 -0.01614354815549681 0.20075970299112117 0.979490365165817 1
+	setAttr ".xm[57]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5852389107374316 0
+		 4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0057924135904048471 -0.01614354815549681 0.20075970299112117 0.979490365165817 1
 		 1 1 yes;
-	setAttr ".xm[58]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.4988179127912773 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[58]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.498817912791278 -1.7763568394002505e-015
+		 -2.2204460492503131e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
 	setAttr -s 59 ".m";
 	setAttr -s 59 ".p";
 	setAttr ".bp" yes;
@@ -33639,24 +33622,3610 @@ createNode groupParts -n "groupParts36";
 	rename -uid "E66DE68F-48E3-1C79-B304-3FAA53C973BD";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 1 "vtx[*]";
-createNode groupId -n "groupId94";
-	rename -uid "FE8C5F5F-4042-7A2B-6F2F-F2ACB95C9238";
+createNode skinCluster -n "skinCluster4";
+	rename -uid "F6F7FA6F-4649-919E-9C6D-74826A0E5264";
+	setAttr -s 84 ".wl";
+	setAttr -s 2 ".wl[0].w[19:20]"  0.94617969170212746 0.053820308297872543;
+	setAttr -s 2 ".wl[1].w[19:20]"  0.15391999483108521 0.84608000516891479;
+	setAttr -s 2 ".wl[2].w[19:20]"  0.87835362553596497 0.12164637446403503;
+	setAttr -s 2 ".wl[3].w[19:20]"  0.61424469947814941 0.38575530052185059;
+	setAttr -s 2 ".wl[4].w[19:20]"  0.91427944600582123 0.085720553994178772;
+	setAttr -s 2 ".wl[5].w[19:20]"  0.57197076082229614 0.42802923917770386;
+	setAttr -s 2 ".wl[6].w[19:20]"  0.94839589297771454 0.051604107022285461;
+	setAttr -s 2 ".wl[7].w[19:20]"  0.61735385656356812 0.38264614343643188;
+	setAttr -s 2 ".wl[8].w[19:20]"  0.93888010457158089 0.061119895428419113;
+	setAttr -s 2 ".wl[9].w[19:20]"  0.6126057505607605 0.3873942494392395;
+	setAttr ".wl[10].w[19]"  1;
+	setAttr -s 2 ".wl[11].w[19:20]"  0.58332234621047974 0.41667765378952026;
+	setAttr ".wl[12].w[19]"  1;
+	setAttr -s 2 ".wl[13].w[19:20]"  0.47694069147109985 0.52305930852890015;
+	setAttr ".wl[14].w[19]"  1;
+	setAttr -s 2 ".wl[15].w[19:20]"  0.081246137619018555 0.91875386238098145;
+	setAttr -s 2 ".wl[16].w[19:20]"  0.10175508260726929 0.89824491739273071;
+	setAttr -s 2 ".wl[17].w[19:20]"  0.21735630929470062 0.78264369070529938;
+	setAttr -s 2 ".wl[18].w[19:20]"  0.24908125400543213 0.75091874599456787;
+	setAttr -s 2 ".wl[19].w[19:20]"  0.342425137758255 0.657574862241745;
+	setAttr -s 2 ".wl[20].w[19:20]"  0.32226410508155823 0.67773589491844177;
+	setAttr -s 2 ".wl[21].w[19:20]"  0.28222763538360596 0.71777236461639404;
+	setAttr -s 2 ".wl[22].w[19:20]"  0.24144729971885681 0.75855270028114319;
+	setAttr ".wl[23].w[20]"  1;
+	setAttr -s 2 ".wl[24].w[19:20]"  0.027777493000030518 0.97222250699996948;
+	setAttr -s 2 ".wl[25].w[19:20]"  0.11872027069330215 0.88127972930669785;
+	setAttr -s 2 ".wl[26].w[19:20]"  0.1558784544467926 0.8441215455532074;
+	setAttr -s 2 ".wl[27].w[19:20]"  0.14978840947151184 0.85021159052848816;
+	setAttr -s 2 ".wl[28].w[19:20]"  0.13148657977581024 0.86851342022418976;
+	setAttr -s 2 ".wl[29].w[19:20]"  0.114776611328125 0.885223388671875;
+	setAttr -s 2 ".wl[30].w[19:20]"  0.15243282914161682 0.84756717085838318;
+	setAttr ".wl[31].w[20]"  1;
+	setAttr ".wl[32].w[20]"  1;
+	setAttr ".wl[33].w[20]"  1;
+	setAttr ".wl[34].w[20]"  1;
+	setAttr ".wl[35].w[20]"  1;
+	setAttr ".wl[36].w[20]"  1;
+	setAttr ".wl[37].w[20]"  1;
+	setAttr ".wl[38].w[20]"  1;
+	setAttr ".wl[39].w[20]"  1;
+	setAttr ".wl[40].w[20]"  1;
+	setAttr ".wl[41].w[20]"  1;
+	setAttr ".wl[42].w[20]"  1;
+	setAttr ".wl[43].w[20]"  1;
+	setAttr ".wl[44].w[20]"  1;
+	setAttr ".wl[45].w[20]"  1;
+	setAttr ".wl[46].w[20]"  1;
+	setAttr ".wl[47].w[20]"  1;
+	setAttr ".wl[48].w[20]"  1;
+	setAttr ".wl[49].w[20]"  1;
+	setAttr ".wl[50].w[20]"  1;
+	setAttr ".wl[51].w[20]"  1;
+	setAttr ".wl[52].w[20]"  1;
+	setAttr ".wl[53].w[20]"  1;
+	setAttr ".wl[54].w[20]"  1;
+	setAttr ".wl[55].w[20]"  1;
+	setAttr ".wl[56].w[20]"  1;
+	setAttr ".wl[57].w[20]"  1;
+	setAttr ".wl[58].w[20]"  1;
+	setAttr ".wl[59].w[20]"  1;
+	setAttr -s 2 ".wl[60].w[19:20]"  0.9235689640045166 0.076431035995483398;
+	setAttr -s 2 ".wl[61].w[19:20]"  0.043638825416564941 0.95636117458343506;
+	setAttr ".wl[62].w[19]"  1;
+	setAttr ".wl[63].w[19]"  1;
+	setAttr ".wl[64].w[19]"  1;
+	setAttr ".wl[65].w[19]"  1;
+	setAttr ".wl[66].w[19]"  1;
+	setAttr ".wl[67].w[19]"  1;
+	setAttr -s 2 ".wl[68].w[19:20]"  0.81873820722103119 0.18126179277896881;
+	setAttr -s 2 ".wl[69].w[19:20]"  0.06701195240020752 0.93298804759979248;
+	setAttr ".wl[70].w[20]"  1;
+	setAttr -s 2 ".wl[71].w[19:20]"  0.22350817918777466 0.77649182081222534;
+	setAttr ".wl[72].w[20]"  1;
+	setAttr ".wl[73].w[20]"  1;
+	setAttr ".wl[74].w[20]"  1;
+	setAttr -s 2 ".wl[75].w[19:20]"  0.017116604372859001 0.982883395627141;
+	setAttr ".wl[76].w[20]"  1;
+	setAttr ".wl[77].w[20]"  1;
+	setAttr ".wl[78].w[20]"  1;
+	setAttr ".wl[79].w[20]"  1;
+	setAttr ".wl[80].w[20]"  1;
+	setAttr ".wl[81].w[20]"  1;
+	setAttr ".wl[82].w[20]"  1;
+	setAttr ".wl[83].w[20]"  1;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.054519205614935916 -5.2487305422526782e-005 -0.99851272073228914 -0
+		 -0.99802146201298458 -0.031367519622828959 -0.054490733837741293 0 -0.031318007289424799 0.99950791690601126 -0.0017625157092422308 -0
+		 24.11281526844596 0.76017186189075814 2.6283282463581101 1;
+	setAttr ".pm[3]" -type "matrix" 0.02563020205813963 -2.7134634530307012e-005 -0.99967149204434624 -0
+		 -0.9988822699933162 -0.039729025810948976 -0.025608889103432179 0 -0.039715279622053193 0.99921049022306807 -0.0010453672644425082 -0
+		 18.150895336193912 0.91242706367349125 2.1041132457995713 1;
+	setAttr ".pm[4]" -type "matrix" 0.02563020205813963 -2.7134634530307012e-005 -0.99967149204434624 -0
+		 -0.9988822699933162 -0.039729025810948976 -0.025608889103432179 0 -0.039715279622053193 0.99921049022306807 -0.0010453672644425082 -0
+		 12.294408274944676 0.91242706367349113 2.1041132457995717 1;
+	setAttr ".pm[5]" -type "matrix" 0.013999141730848428 -0.0025516170250339692 -0.99989875151505048 -0
+		 -0.57972810954237952 0.81474619836937889 -0.010195648535648914 0 0.81468972194156086 0.57981214327849451 0.0099265033914440297 -0
+		 7.4705908191905017 -9.8425941919481943 1.9051605296436227 1;
+	setAttr ".pm[6]" -type "matrix" 0.045805361811375823 -0.0029890470987587727 -0.99894591166227309 -0
+		 -0.21209951392834811 0.97716620298388968 -0.012649424390267793 0 0.97617399321057874 0.21245535376518065 0.044125476040769968 -0
+		 1.4744202021602866 -11.373490180943088 1.9009989097011946 1;
+	setAttr ".pm[7]" -type "matrix" 0.045805361811375823 -0.0029890470987587727 -0.99894591166227309 -0
+		 -0.21209951392834811 0.97716620298388968 -0.012649424390267793 0 0.97617399321057874 0.21245535376518065 0.044125476040769968 -0
+		 -0.024401179370309369 -11.373490180943088 1.9009989097011946 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 0.96495884694945688 -0.16200008533026139 -0.20642285737524962 0
+		 0.26240126465772717 0.59574185265421142 0.75910290560776605 0 -1.8041124150158791e-016 -0.78666868334077944 0.61737539848206147 0
+		 3.3583375218213605 31.999666903754832 4.5396983451675883e-015 1;
+	setAttr -s 6 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 6 ".lw";
+	setAttr -s 6 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 6 ".ifcl";
+	setAttr -s 6 ".ifcl";
+createNode tweak -n "tweak18";
+	rename -uid "3012ADE1-471F-F760-FD54-93A11971D144";
+createNode objectSet -n "skinCluster4Set";
+	rename -uid "7D450CF6-418C-D397-4614-B48BAB58C3A1";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId95";
-	rename -uid "F8EBC79B-45C9-81D1-98E1-67A7174A452F";
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster4GroupId";
+	rename -uid "CBADE6C5-4BE6-4F67-0E57-F6BCB0102163";
 	setAttr ".ihi" 0;
-createNode polySoftEdge -n "polySoftEdge1";
-	rename -uid "3760A884-404B-0016-24C5-2D9806E6103B";
-	setAttr ".uopa" yes;
-	setAttr ".ics" -type "componentList" 7 "e[2158]" "e[2509]" "e[2557]" "e[5361]" "e[5363:5364]" "e[5379]" "e[5387:5388]";
-	setAttr ".ix" -type "matrix" 0.73655540258308561 0 0 0 0 0.73655540258308461 0 0
-		 0 0 0.73655540258308561 0 0 11.006066002081514 0.005925975328031699 1;
-	setAttr ".a" 180;
-createNode polyTweak -n "polyTweak1";
-	rename -uid "AE27D011-465B-1DBD-ED7E-859D01A6B815";
-	setAttr ".uopa" yes;
-	setAttr -s 6 ".tk[2691:2696]" -type "float3"  0 0.072986916 0 0 0.063858598
-		 0 0 -0.0089590251 0 0 -0.12792569 0 0 -0.064360976 0 0 -0.044907391 0;
+createNode groupParts -n "skinCluster4GroupParts";
+	rename -uid "2283C6B5-4203-0C1F-F84F-4DB94733BA14";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet18";
+	rename -uid "2DBB196E-4060-AC4A-3806-45AFB6D93EC0";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId97";
+	rename -uid "E9A74318-456A-062E-51A5-0799E6F0A6D4";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts38";
+	rename -uid "E194F97A-4F69-1ABA-D072-9AABDCAC022E";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode dagPose -n "bindPose2";
+	rename -uid "EC629179-485D-C9B7-6C4F-6481A1C22F2A";
+	setAttr -s 59 ".wm";
+	setAttr ".wm[0]" -type "matrix" 2.2204460492503131e-016 1.0000000000000002 0 0 -1.0000000000000002 2.2204460492503131e-016 0 0
+		 0 0 1 0 0 25.572559115480782 0.13766529806602679 1;
+	setAttr ".wm[1]" -type "matrix" 2.2204460492503131e-016 1.0000000000000002 0 0 -1.0000000000000002 2.2204460492503131e-016 0 0
+		 0 0 1 0 3.5527136788005025e-015 25.572559115480782 0.13766529806602679 1;
+	setAttr ".wm[2]" -type "matrix" 0.054519205614935944 -0.99802146201298525 -0.031318007289424799 0
+		 -5.2487305422295501e-005 -0.031367519622828972 0.9995079169060116 0 -0.9985127207322898 -0.054490733837741327 -0.0017625157092424626 0
+		 1.3098475540458814 24.232171388168567 0 1;
+	setAttr ".wm[3]" -type "matrix" 0.025630202058139644 -0.99888226999331697 -0.039715279622053207 0
+		 -2.7134634530075891e-005 -0.039729025810949004 0.99921049022306851 0 -0.99967149204434724 -0.025608889103432207 -0.0010453672644427402 0
+		 1.6382356712308457 18.220741376964526 -0.18863923881058214 1;
+	setAttr ".wm[4]" -type "matrix" 0.025630202058139644 -0.99888226999331697 -0.039715279622053207 0
+		 -2.7134634530075891e-005 -0.039729025810949004 0.99921049022306851 0 -0.99967149204434724 -0.025608889103432207 -0.0010453672644427402 0
+		 1.7883386179615441 12.370800287037397 -0.42123126005103217 1;
+	setAttr ".wm[5]" -type "matrix" 0.013999141730848624 -0.57972810954238008 0.8146897219415612 0
+		 -0.0025516170250338317 0.81474619836937967 0.57981214327849473 0 -0.99989875151505103 -0.010195648535648926 0.009926503391443799 0
+		 1.7752712444247132 12.369552039920533 -0.39826950583029569 1;
+	setAttr ".wm[6]" -type "matrix" 0.04580536181137608 -0.2120995139283483 0.97617399321057907 0
+		 -0.0029890470987587224 0.97716620298389067 0.21245535376518074 0 -0.99894591166227353 -0.012649424390267804 0.044125476040769746 0
+		 1.7974628402703849 11.450560564965302 0.89318574168036791 1;
+	setAttr ".wm[7]" -type "matrix" 0.04580536181137608 -0.2120995139283483 0.97617399321057907 0
+		 -0.0029890470987587224 0.97716620298389067 0.21245535376518074 0 -0.99894591166227353 -0.012649424390267804 0.044125476040769746 0
+		 1.8661168959420205 11.132661278477249 2.3562961947984866 1;
+	setAttr ".wm[8]" -type "matrix" -1.0405793807382981e-016 0.031364708865757936 -0.9995080064900761 0
+		 -0.051492937043006073 -0.99818201791778316 -0.031323099148517768 0 -0.99867335872881147 0.051467602852173888 0.0016150609789968851 0
+		 -1.3098499999999997 24.232199999999995 0 1;
+	setAttr ".wm[9]" -type "matrix" 2.9084720742922343e-013 0.039725861091304882 -0.99921061641705655 0
+		 -0.022600020933470147 -0.9989554049449374 -0.039715714586336645 0 -0.99974458690897994 0.022582180847982535 0.00089780529197316862 0
+		 -1.6200100000000002 18.219799999999999 -0.18866999999999995 1;
+	setAttr ".wm[10]" -type "matrix" 2.9084720742922343e-013 0.039725861091304882 -0.99921061641705655 0
+		 -0.022600020933470147 -0.9989554049449374 -0.039715714586336645 0 -0.99974458690897994 0.022582180847982535 0.00089780529197316862 0
+		 -1.7523672547044704 12.369407411429833 -0.42126549036473676 1;
+	setAttr ".wm[11]" -type "matrix" -0.01236406693479588 -0.57978642447809126 0.81467467853109454 0
+		 -4.8572257327350599e-017 0.81473695539202073 0.5798307455788636 0 -0.99992356200303234 0.0071690661491895201 -0.010073462250718678 0
+		 -1.7393000000000003 12.368200000000003 -0.39830199999999988 1;
+	setAttr ".wm[12]" -type "matrix" -0.045309039490681075 -0.21223391933419833 0.97616794375992311 0
+		 1.0745744571938332e-014 0.97717148116049746 0.21245210379424376 0 -0.99897301812432959 0.0096260007607020422 -0.044274701229065905 0
+		 -1.758900000000001 11.449100000000003 0.89315200000000061 1;
+	setAttr ".wm[13]" -type "matrix" -0.045309039490681075 -0.21223391933419833 0.97616794375992311 0
+		 1.0745744571938332e-014 0.97717148116049746 0.21245210379424376 0 -0.99897301812432959 0.0096260007607020422 -0.044274701229065905 0
+		 -1.8268100000000012 11.131000000000007 2.3562500000000015 1;
+	setAttr ".wm[14]" -type "matrix" 2.2204460492503131e-016 1.0000000000000002 0 0 -1.0000000000000002 2.2204460492503131e-016 0 0
+		 0 0 1 0 0 25.572559115480782 0.13766529806602679 1;
+	setAttr ".wm[15]" -type "matrix" 2.2204460492503131e-016 1.0000000000000002 0 0 -2.2204460492503136e-016 4.9303806576313238e-032 -1 0
+		 -1.0000000000000002 2.2204460492503131e-016 2.2204460492503131e-016 0 0 26.493948030370348 0.13766529806602679 1;
+	setAttr ".wm[16]" -type "matrix" 2.0831334850808029e-016 0.99819619585880404 -0.060036277141513154 0
+		 -2.3497481138619429e-016 -0.060036277141513168 -0.99819619585880381 0 -1.0000000000000002 2.2204460492503131e-016 2.2204460492503131e-016 0
+		 7.8886090522101181e-031 28.013034904093079 0.13766529806602679 1;
+	setAttr ".wm[17]" -type "matrix" -0.0016942852760771677 0.99863763689589602 -0.052153615142042302 0
+		 -6.6882541472414592e-006 -0.052153701313593481 -0.99863906963154592 0 -0.99999856467530546 -0.0016916306551593623 9.5042390545108205e-005 0
+		 -3.9101086459062326e-017 30.940897935151476 -0.038430340340789737 1;
+	setAttr ".wm[18]" -type "matrix" -0.0016942852760771677 0.99863763689589602 -0.052153615142042302 0
+		 -6.6882541472414592e-006 -0.052153701313593481 -0.99863906963154592 0 -0.99999856467530546 -0.0016916306551593623 9.5042390545108205e-005 0
+		 -0.0036563335221089059 33.102676773645157 -0.032084973981826234 1;
+	setAttr ".wm[19]" -type "matrix" 0.95325174516623379 -4.4174733315749393e-015 -0.30217728296073132 0
+		 -0.30217728296073143 -1.7227972520794665e-016 -0.95325174516623368 0 4.1722268001587182e-015 1.0000000000000002 -1.5145022418196387e-015 0
+		 0.76109704097640485 31.556797801748029 2.7755575615628914e-017 1;
+	setAttr ".wm[20]" -type "matrix" 0.7138087599382279 -0.7003406701280811 1.0051563637151844e-015 0
+		 -1.6653345369377348e-016 -1.4990860375980388e-015 -0.99999999999999989 0 0.70034067012808099 0.7138087599382279 -1.1365761183882045e-015 0
+		 2.7890880675375027 31.556797801748022 -0.64286566626543307 1;
+	setAttr ".wm[21]" -type "matrix" 0.67438286224502553 -0.73775685123546508 0.030374060731802436 0
+		 0.04499417331143786 1.9428902930940239e-016 -0.99898724935207261 0 0.73700968750636331 0.67506653631707469 0.033194759626189362 0
+		 5.3181121712489805 29.075491133955605 -0.64286566626542951 1;
+	setAttr ".wm[22]" -type "matrix" 0.67438286224502553 -0.73775685123546508 0.030374060731802436 0
+		 0.04499417331143786 1.9428902930940239e-016 -0.99898724935207261 0 0.73700968750636331 0.67506653631707469 0.033194759626189362 0
+		 8.2405492917373149 25.878422927376906 -0.51123971971174309 1;
+	setAttr ".wm[23]" -type "matrix" 0.67230881988370839 -0.74027079552456732 -5.4210108624275222e-018 0
+		 0.74027079552456709 0.67230881988370861 5.134781488891349e-016 0 -3.4694469519536142e-016 -4.1286418728248009e-016 1 0
+		 8.2405492917373095 25.87842292737691 -0.51123971971174342 1;
+	setAttr ".wm[24]" -type "matrix" 0.56998938322195192 -0.46869635509192398 0.67485985933214621 0
+		 -5.3097514925471034e-016 0.8213450614062392 0.57043166996896477 0 -0.82165205714722023 -0.32513999573587865 0.46815796496333806 0
+		 8.578851043686047 25.516616532074931 -0.091310768371537676 1;
+	setAttr ".wm[25]" -type "matrix" 0.39606523347684142 -0.33547364225153825 0.85474543940603875 0
+		 -1.2073675392798577e-015 0.93086975686018225 0.36535119510282965 0 -0.91822237547934704 -0.14470290638944622 0.3686851475873581 0
+		 8.8589744567871005 25.286273956298832 0.24035163223743355 1;
+	setAttr ".wm[26]" -type "matrix" 0.39606523347684142 -0.33547364225153825 0.85474543940603875 0
+		 -1.2073675392798577e-015 0.93086975686018225 0.36535119510282965 0 -0.91822237547934704 -0.14470290638944622 0.3686851475873581 0
+		 9.0623903274536026 25.113977432250984 0.67934191226959451 1;
+	setAttr ".wm[27]" -type "matrix" 0.7395194521940579 -0.60842399504111788 -0.28797781526500693 0
+		 0.63533880155780731 0.77223351859077549 5.0540172724130389e-016 0 0.2223861215581803 -0.18296348002570564 0.9576370804825769 0
+		 9.3695173263549769 24.880939483642582 -1.0942507982254031 1;
+	setAttr ".wm[28]" -type "matrix" 0.78615193357349222 -0.56831344587258936 -0.24286820413360605 0
+		 0.58585433789576857 0.8104163712368545 1.7451318168326679e-015 0 0.19682436868276765 -0.14228539092862966 0.9700592947964144 0
+		 9.648274421691891 24.651597976684577 -1.2028021812438965 1;
+	setAttr ".wm[29]" -type "matrix" 0.78615193357349222 -0.56831344587258936 -0.24286820413360605 0
+		 0.58585433789576857 0.8104163712368545 1.7451318168326679e-015 0 0.19682436868276765 -0.14228539092862966 0.9700592947964144 0
+		 9.9281768798828107 24.449254989624027 -1.2892732620239258 1;
+	setAttr ".wm[30]" -type "matrix" 0.80748870184596644 -0.57810031245433091 -0.11731165812195032 0
+		 0.58211976270890475 0.81310305734496469 5.0310871818318928e-016 0 0.095386467881164783 -0.06828943458893838 0.99309514895033024 0
+		 9.5025796890258718 24.893888473510749 -0.79230409860610984 1;
+	setAttr ".wm[31]" -type "matrix" 0.80328826627194128 -0.58466888953156249 -0.11353524071295648 0
+		 0.58847398006756424 0.80851615616723493 -1.3776198064252565e-014 0 0.09179507641076938 -0.066812534980271482 0.99353396978475328 0
+		 9.8923330307006765 24.614854812622074 -0.84892731904983587 1;
+	setAttr ".wm[32]" -type "matrix" 0.80328826627194128 -0.58466888953156249 -0.11353524071295648 0
+		 0.58847398006756424 0.80851615616723493 -1.3776198064252565e-014 0 0.09179507641076938 -0.066812534980271482 0.99353396978475328 0
+		 10.249010086059565 24.355249404907241 -0.89933937788009621 1;
+	setAttr ".wm[33]" -type "matrix" 0.82406495070794117 -0.56648953910316169 -0.0025610742679575012 0
+		 0.56649139694346717 0.82406765328402476 5.0105428796264754e-016 0 0.0021104984618815843 -0.0014508265397316891 0.9999967204439193 0
+		 9.5896816253662056 24.912059783935554 -0.4323947727680208 1;
+	setAttr ".wm[34]" -type "matrix" 0.79496113498982612 -0.60665923714465786 -0.0011678367820308277 0
+		 0.60665965083898066 0.794961677091372 -1.4507791669393644e-012 0 0.00092838548769237552 -0.00070847945327049159 0.99999931807839282 0
+		 10.136878967285149 24.535898208618175 -0.43409538269042974 1;
+	setAttr ".wm[35]" -type "matrix" 0.79496113498982612 -0.60665923714465786 -0.0011678367820308277 0
+		 0.60665965083898066 0.794961677091372 -1.4507791669393644e-012 0 0.00092838548769237552 -0.00070847945327049159 0.99999931807839282 0
+		 10.489240646362301 24.267000198364261 -0.43461301922798162 1;
+	setAttr ".wm[36]" -type "matrix" 0.79549372541078045 -0.59221857901642161 0.12832337082483619 0
+		 0.59715563520233683 0.80212539377960979 5.0493552988531865e-016 0 -0.10293143435399889 0.076629024016209649 0.9917323794755073 0
+		 9.5694246292114187 24.899694442749031 -0.081107802689075637 1;
+	setAttr ".wm[37]" -type "matrix" 0.80295091057015699 -0.58555123027618261 0.11135345498279413 0
+		 0.58921564177099883 0.80797582110629429 -3.2320500442661881e-014 0 -0.089970899222726899 0.065611197441130989 0.99378086521294773 0
+		 9.943384170532223 24.621294021606452 -0.020783318206668011 1;
+	setAttr ".wm[38]" -type "matrix" 0.80295091057015699 -0.58555123027618261 0.11135345498279413 0
+		 0.58921564177099883 0.80797582110629429 -3.2320500442661881e-014 0 -0.089970899222726899 0.065611197441130989 0.99378086521294773 0
+		 10.299847602844237 24.36134338378907 0.02865112945437534 1;
+	setAttr ".wm[39]" -type "matrix" -0.9532517846803944 -3.9343528435153985e-015 -0.30217715830890263 0
+		 0.30217715830890274 3.4163210455018245e-016 -0.95325178468039407 0 3.9326181200394217e-015 -1.0000000000000004 8.6841483816985706e-016 0
+		 -0.76109700000000347 31.556799999999999 -6.9388939039072284e-017 1;
+	setAttr ".wm[40]" -type "matrix" -0.71380913265000068 -0.70034029024857236 -2.7999251988008326e-016 0
+		 1.2212453270876722e-015 -8.4933236086363408e-016 -1 0 0.70034029024857236 -0.71380913265000079 1.4803052864989149e-015 0
+		 -2.7890900000000034 31.556799999999992 -0.64286600000000027 1;
+	setAttr ".wm[41]" -type "matrix" -0.67437957406861848 -0.73775986376274139 0.030373895038513881 0
+		 -0.044994147300684857 -8.3266726846886741e-016 -0.99898725052359105 0 0.73701269784700019 -0.6750632440155383 -0.033194875982673372 0
+		 -5.3181100000000008 29.075499999999998 -0.64286600000000138 1;
+	setAttr ".wm[42]" -type "matrix" -0.67437957406861848 -0.73775986376274139 0.030373895038513881 0
+		 -0.044994147300684857 -8.3266726846886741e-016 -0.99898725052359105 0 0.73701269784700019 -0.6750632440155383 -0.033194875982673372 0
+		 -8.2405499999999989 25.878399999999992 -0.51124000000000358 1;
+	setAttr ".wm[43]" -type "matrix" 0.67230881988370872 0.74027079552456732 8.9636414610239079e-017 0
+		 0.7402707955245672 -0.67230881988370883 1.4901161339564428e-008 0 1.1030894458280427e-008 -1.0018181985371744e-008 -0.99999999999999989 0
+		 -8.2405499999999989 25.878400000000003 -0.51124000000000025 1;
+	setAttr ".wm[44]" -type "matrix" -0.56998938322195691 -0.4686963550919187 0.67485985933214609 0
+		 2.6345168978318835e-016 0.82134506140624242 0.57043166996896011 0 -0.82165205714721756 0.32513999573587893 -0.46815796496334372 0
+		 -8.5788499999999956 25.516600000000004 -0.091310800000000247 1;
+	setAttr ".wm[45]" -type "matrix" -0.39607129763698734 -0.33547873651978621 0.85474062997569111 0
+		 4.8572257327350599e-016 0.93086717085249304 0.36535778386271806 0 -0.91821975974608294 0.14470773155628142 -0.36868976828721756 0
+		 -8.858961083655311 25.2862675625992 0.24033700270896696 1;
+	setAttr ".wm[46]" -type "matrix" -0.39607129763698734 -0.33547873651978621 0.85474062997569111 0
+		 4.8572257327350599e-016 0.93086717085249304 0.36535778386271806 0 -0.91821975974608294 0.14470773155628142 -0.36868976828721756 0
+		 -9.062381083655314 25.113967562599196 0.67932700270896085 1;
+	setAttr ".wm[47]" -type "matrix" -0.73956125087717295 -0.60836374825520334 -0.28799775348059831 0
+		 -0.6352798638495657 0.77228200457299145 -1.4744567008478687e-008 0 0.22241549134057453 0.18295916271562504 -0.9576310844945084 0
+		 -9.3695199999999979 24.880900000000004 -1.0942500000000002 1;
+	setAttr ".wm[48]" -type "matrix" -0.7862145451846736 -0.56822265189113264 -0.24287796692550356 0
+		 -0.58576221754863522 0.81048295755833522 2.400857290751901e-015 0 0.1968484529595361 0.14226873649998911 -0.97005685048977108 0
+		 -9.6482700000000019 24.651599999999998 -1.2028000000000014 1;
+	setAttr ".wm[49]" -type "matrix" -0.7862145451846736 -0.56822265189113264 -0.24287796692550356 0
+		 -0.58576221754863522 0.81048295755833522 2.400857290751901e-015 0 0.1968484529595361 0.14226873649998911 -0.97005685048977108 0
+		 -9.9281800000000047 24.449300000000015 -1.2892700000000006 1;
+	setAttr ".wm[50]" -type "matrix" -0.80751889089548967 -0.5780571406282089 -0.1173165930960245 0
+		 -0.58207663100704654 0.81313393462300376 -1.4566949830870969e-008 0 0.095394111361265535 0.068287235507471469 -0.99309456598268708 0
+		 -9.50258 24.893900000000006 -0.79230400000000012 1;
+	setAttr ".wm[51]" -type "matrix" -0.80318258659183239 -0.58481654677406281 -0.11352241723516593 0
+		 -0.5886217301544151 0.80840859643501062 -6.1565986683720375e-014 0 0.091772497981025991 0.066821761644225458 -0.99353543509282294 0
+		 -9.8923299999999994 24.614900000000002 -0.84892700000000032 1;
+	setAttr ".wm[52]" -type "matrix" -0.80318258659183239 -0.58481654677406281 -0.11352241723516593 0
+		 -0.5886217301544151 0.80840859643501062 -6.1565986683720375e-014 0 0.091772497981025991 0.066821761644225458 -0.99353543509282294 0
+		 -10.249000000000001 24.355200000000007 -0.89933900000000011 1;
+	setAttr ".wm[53]" -type "matrix" -0.8240488902607721 -0.56651290617319672 -0.0025599998418248319 0
+		 -0.56651476250098398 0.82405159053815036 -1.4504663562888491e-008 0 0.0021095801585121121 0.001450265749842181 -0.99999672319503607 0
+		 -9.5896799999999978 24.912100000000002 -0.43239500000000025 1;
+	setAttr ".wm[54]" -type "matrix" -0.79490774673062792 -0.60672918846400414 -0.0011687828918720104 0
+		 -0.60672960287667799 0.79490828967441929 -8.387445469063004e-013 0 0.00092907521008743087 0.00070913517916797847 -0.99999931697304256 0
+		 -10.136900000000001 24.535900000000005 -0.43409500000000034 1;
+	setAttr ".wm[55]" -type "matrix" -0.79490774673062792 -0.60672918846400414 -0.0011687828918720104 0
+		 -0.60672960287667799 0.79490828967441929 -8.387445469063004e-013 0 0.00092907521008743087 0.00070913517916797847 -0.99999931697304256 0
+		 -10.489199999999997 24.267000000000003 -0.43461300000000042 1;
+	setAttr ".wm[56]" -type "matrix" -0.79549450235763008 -0.59221753518121723 0.12832337177097455 0
+		 -0.59715458425658485 0.80212617617264337 -1.4622995413522345e-008 0 -0.10293152685223816 -0.076628901352811793 -0.99173237935308334 0
+		 -9.5694199999999991 24.899700000000003 -0.081107800000000341 1;
+	setAttr ".wm[57]" -type "matrix" -0.80286387454262687 -0.58567029734757203 0.11135484614155371 0
+		 -0.5893355464115817 0.80788836712491641 -4.2154647827974401e-014 0 -0.08996228482072155 -0.065625369096443842 -0.99378070933219009 0
+		 -9.9433799999999941 24.621300000000005 -0.02078330000000074 1;
+	setAttr ".wm[58]" -type "matrix" -0.80286387454262687 -0.58567029734757203 0.11135484614155371 0
+		 -0.5893355464115817 0.80788836712491641 -4.2154647827974401e-014 0 -0.08996228482072155 -0.065625369096443842 -0.99378070933219009 0
+		 -10.299799999962174 24.361300000028169 0.028651100420831584 1;
+	setAttr -s 59 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 25.572559115480782 0.13766529806602679 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0.70710678118654746 0.70710678118654768 1
+		 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 -3.5527136788005009e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 5.256548493035223e-005 0.0030299510173734355
+		 0 0 -1.3403877273122156 -1.309847554045878 -0.13766529806602679 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 0 1 0.029296273491021638 -0.70707090630127467 -0.70649963082760314 0.0071227426103946563 1
+		 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 6.0233474329090342 1.2212453270876722e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0001549998846630079 -0.014456157064078981 -0.0041805439618139151 0.99988675286262174 1
+		 1 1 yes;
+	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 0 0 0 0 5.8564870612492363 1.1102230246251565e-016
+		 -4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[5]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.7763568394002505e-015
+		 0.02299357191161322 0.013071043556457607 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0083205938938708049 -0.0045020119493957445 0.47585510558315341 0.87947280691111007 1
+		 1 1 yes;
+	setAttr ".xm[6]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5852111702512683 1.7763568394002505e-015
+		 2.2204460492503131e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0057919003717863699 0.016142445681589724 0.20074690259497752 0.97949300989645804 1
+		 1 1 yes;
+	setAttr ".xm[7]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.4988213815305955 1.7763568394002505e-015
+		 -4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[8]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.340359115480787 1.3098500000000028
+		 -0.13766529806602679 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.49453430387682801 0.50460706673565603 0.47925917181370492 0.52069009662364441 1
+		 1 1 yes;
+	setAttr ".xm[9]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 6.02335034299848 1.0658141036401503e-014 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.014456257318173866 -0.00015498975591531679 -0.0041803474764827977 0.99988675223622314 1
+		 1 1 yes;
+	setAttr ".xm[10]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 5.8565102702383829
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[11]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.022993328821173664
+		 -1.1814852740599235e-006 -0.013070566396649497 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+		0.0026998770951023616 0.0090665250093562647 0.95835789215834621 0.28541313796974682 1
+		 1 1 yes;
+	setAttr ".xm[12]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5852389107374316 0
+		 4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0057924135904048471 -0.01614354815549681 0.20075970299112117 0.979490365165817 1
+		 1 1 yes;
+	setAttr ".xm[13]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.498817912791278 -1.7763568394002505e-015
+		 -2.2204460492503131e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[14]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[15]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.92138891488956531 2.0458943758895762e-016
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.70710678118654746 0 0 0.70710678118654757 1
+		 1 1 yes;
+	setAttr ".xm[16]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5190868737227277 0
+		 3.3730504472256241e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0.030031684444900737 0.99954894724040499 1
+		 1 1 yes;
+	setAttr ".xm[17]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.933153866148924 -1.1102230246251565e-015
+		 6.5011619000596645e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -4.2351647362715017e-022 -0.00084714954252969831 -0.0039475050219800276 0.99999184973766353 1
+		 1 1 yes;
+	setAttr ".xm[18]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.1585089718419113 -0.11908147415154535
+		 -6.9388939039072284e-018 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[19]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.61176699065237594 -0.070504587415549436
+		 -0.76213417113845439 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.12637219929953936 0.69633029703710247 0.089732038683164594 0.70078694758548499 1
+		 1 1 yes;
+	setAttr ".xm[20]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.1274453855916562 8.0491169285323849e-016
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.057833686164724049 0.37383269623654491 -0.14152523506952161 0.91480871651271012 1
+		 1 1 yes;
+	setAttr ".xm[21]" -type "matrix" "xform" 1 1 1 0 0 0 0 3.5429995338391898 0
+		 3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.016186470068319445 0.026923324182529788 -0.015632450565763789 0.99938419003454282 1
+		 1 1 yes;
+	setAttr ".xm[22]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.3334984978110462 8.8817841970012523e-016
+		 3.5527136788005009e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[23]" -type "matrix" "xform" 1 1 1 0 0 0 0 -7.1054273576010019e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.69516738368110131 0.012038639992866714 0.0094006611660174006 0.7186856109473293 1
+		 1 1 yes;
+	setAttr ".xm[24]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49527795969331834 0.0071892763905943013
+		 0.41992895134020575 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.42125278020117501 -0.29743421573704548 0.215516427905416 0.82923558280175058 1
+		 1 1 yes;
+	setAttr ".xm[25]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49145373816897386 0
+		 1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.056430430705938658 -0.098793518199152122 0.10163179380362164 0.9882947059154138 1
+		 1 1 yes;
+	setAttr ".xm[26]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.51359183657910279 3.5527136788005009e-015
+		 1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[27]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.4974230294560282 0.16512514819766366
+		 -0.58301107851365974 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.01054417982999638 0.1451560540605325 0.071678012417318374 0.98675265531803424 1
+		 1 1 yes;
+	setAttr ".xm[28]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.37694356045656008 0
+		 8.8817841970012523e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0082971564450840356 -0.023382954960908132 0.030130014768561808 0.9992379980876771 1
+		 1 1 yes;
+	setAttr ".xm[29]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.35604117504183641 -3.5527136788005009e-015
+		 -4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[30]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.5772962704432896 0.27233304936337888
+		 -0.28106437889436653 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.0062207051892404592 0.058427120002473437 0.10568819445750725 0.99266186590776073 1
+		 1 1 yes;
+	setAttr ".xm[31]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.48267343033259102 3.5527136788005009e-015
+		 -2.2204460492503131e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.00045227718958652021 -0.0019008991456381807 -0.0038922205111757095 0.99999051627866664 1
+		 1 1 yes;
+	setAttr ".xm[32]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44402124409736921 -3.5527136788005009e-015
+		 1.1102230246251565e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[33]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.6224039800499508 0.34902880133720871
+		 0.07884494694372246 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.00014772053227063138 0.0012719892628148869 0.11535806820592465 0.99332314798445964 1
+		 1 1 yes;
+	setAttr ".xm[34]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.66402210341412449 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 4.6243078880646898e-005 -0.00069640565384897918 -0.02480240874115017 0.99969212930850859 1
+		 1 1 yes;
+	setAttr ".xm[35]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44324390661143909 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[36]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.6179387238278178 0.325719810738196
+		 0.43013191702266762 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0062115392474024252 -0.063993960984020451 0.096410527294532949 0.993262905762892 1
+		 1 1 yes;
+	setAttr ".xm[37]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.47009741167687835 0
+		 -1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.00059098110452740656 0.0085464500302802303 0.0048957624771549593 0.99995131903657253 1
+		 1 1 yes;
+	setAttr ".xm[38]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44394174988716273 7.1054273576010019e-015
+		 1.1102230246251565e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[39]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.61434821686048835 -0.070494521241918573
+		 0.76005768127662576 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.1262246278336463 -0.69514137267226417 0.089950631782961088 0.70196488457003592 1
+		 1 1 yes;
+	setAttr ".xm[40]" -type "matrix" "xform" 1 1 1 0 0 0 0 2.1274473676227572 4.163336342344337e-016
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.057833624063736315 -0.37383245659339537 -0.14152519064624924 0.91480882524030371 1
+		 1 1 yes;
+	setAttr ".xm[41]" -type "matrix" "xform" 1 1 1 0 0 0 0 3.5429919348482741 0
+		 -7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.016186491427061744 -0.026925820032875462 -0.015632409714631559 0.99938412308649016 1
+		 1 1 yes;
+	setAttr ".xm[42]" -type "matrix" "xform" 1 1 1 0 0 0 0 4.3335238971852981 -2.2204460492503131e-016
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[43]" -type "matrix" "xform" 1 1 1 0 0 0 0 -5.3290705182007514e-015
+		 -3.1086244689504383e-015 -7.1054273576010019e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+		0 0 0 1 0.012037030129111947 -0.69516736435762461 -0.71868563639244909 0.0094022061732996522 1
+		 1 1 yes;
+	setAttr ".xm[44]" -type "matrix" "xform" 1 1 1 0 0 0 0 -0.49527204758744325
+		 -0.007192272834600999 -0.41992920010717327 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+		0.29743421734276698 0.42125278637945912 -0.82923557966317363 0.2155164256893608 1
+		 1 1 yes;
+	setAttr ".xm[45]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.49143210715950936 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.056429059970888783 0.098790295646139711 0.10162853435856456 0.98829544149564919 1
+		 1 1 yes;
+	setAttr ".xm[46]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.51359439882070124 7.1054273576010019e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[47]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.4974366069198641 -0.16511548087689576
+		 0.58300999753958738 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.14516592273272944 -0.010550465375482777 -0.9867484084250806 0.071715556388319918 1
+		 1 1 yes;
+	setAttr ".xm[48]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.37691266229725784 3.5527136788005009e-015
+		 8.8817841970012523e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.0083025702052146894 0.023388315510669801 0.030147883077102779 0.99923728872151774 1
+		 1 1 yes;
+	setAttr ".xm[49]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.35602241362025921 0
+		 -4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[50]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.5772704981517709 -0.27235592308853995
+		 0.28106399594158027 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.058429419840373586 -0.006222517311318964 -0.99265891737289824 0.10571450674100183 1
+		 1 1 yes;
+	setAttr ".xm[51]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.48265124741266785 -7.1054273576010019e-015
+		 4.4408920985006262e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.00046587680914809276 0.0019098362421194072 -0.0040093322085727216 0.99999003032008682 1
+		 1 1 yes;
+	setAttr ".xm[52]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44407088245458937 1.4210854715202004e-014
+		 1.7763568394002505e-015 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[53]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.6223556678850972 -0.34906952453754769
+		 -0.078845005201541474 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.001271456032241512 -0.00014764033770708169 -0.99332478401329705 0.1153439858285876 1
+		 1 1 yes;
+	setAttr ".xm[54]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.66406254103058693 -3.5527136788005009e-015
+		 5.5511151231257827e-017 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -4.6304319768952937e-005 0.00069539499991197646 -0.024832220980595912 0.9996913899213471 1
+		 1 1 yes;
+	setAttr ".xm[55]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44319608338070449 3.5527136788005009e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[56]" -type "matrix" "xform" 1 1 1 0 0 0 0 -1.617914049058756 -0.32573500361907648
+		 -0.43013220485382997 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0.063993958811853921 0.0062115813540021391 -0.99326284248188768 0.096411177969518064 1
+		 1 1 yes;
+	setAttr ".xm[57]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.4700975291365026 7.1054273576010019e-015
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -0.00058202044604589286 -0.0085457537042356885 0.0048214418536834149 0.99995169135527662 1
+		 1 1 yes;
+	setAttr ".xm[58]" -type "matrix" "xform" 1 1 1 0 0 0 0 0.44393577948095331 3.5527136788005009e-015
+		 -3.3306690738754696e-016 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr -s 59 ".m";
+	setAttr -s 59 ".p";
+	setAttr ".bp" yes;
+createNode skinCluster -n "skinCluster5";
+	rename -uid "C5D5E47E-42AD-4DE6-F5BD-0AA421959722";
+	setAttr -s 84 ".wl";
+	setAttr ".wl[0].w[39]"  1;
+	setAttr -s 2 ".wl[1].w[39:40]"  0.24581387639045715 0.75418612360954285;
+	setAttr ".wl[2].w[39]"  1;
+	setAttr -s 2 ".wl[3].w[39:40]"  0.33465850353240967 0.66534149646759033;
+	setAttr ".wl[4].w[39]"  1;
+	setAttr -s 2 ".wl[5].w[39:40]"  0.53873163461685181 0.46126836538314819;
+	setAttr ".wl[6].w[39]"  1;
+	setAttr -s 2 ".wl[7].w[39:40]"  0.59480410814285278 0.40519589185714722;
+	setAttr ".wl[8].w[39]"  1;
+	setAttr -s 2 ".wl[9].w[39:40]"  0.54561585187911987 0.45438414812088013;
+	setAttr ".wl[10].w[39]"  1;
+	setAttr -s 2 ".wl[11].w[39:40]"  0.55493032932281494 0.44506967067718506;
+	setAttr ".wl[12].w[39]"  1;
+	setAttr -s 2 ".wl[13].w[39:40]"  0.37303712964057922 0.62696287035942078;
+	setAttr ".wl[14].w[39]"  1;
+	setAttr -s 2 ".wl[15].w[39:40]"  0.34309855103492737 0.65690144896507263;
+	setAttr -s 2 ".wl[16].w[39:40]"  0.24337637424468994 0.75662362575531006;
+	setAttr -s 2 ".wl[17].w[39:40]"  0.31265667080879211 0.68734332919120789;
+	setAttr -s 2 ".wl[18].w[39:40]"  0.32456931471824646 0.67543068528175354;
+	setAttr -s 2 ".wl[19].w[39:40]"  0.29695543646812439 0.70304456353187561;
+	setAttr -s 2 ".wl[20].w[39:40]"  0.31435695290565491 0.68564304709434509;
+	setAttr -s 2 ".wl[21].w[39:40]"  0.30823758244514465 0.69176241755485535;
+	setAttr -s 2 ".wl[22].w[39:40]"  0.27735400199890137 0.72264599800109863;
+	setAttr -s 2 ".wl[23].w[39:40]"  0.11515305936336517 0.88484694063663483;
+	setAttr -s 2 ".wl[24].w[39:40]"  0.096649348735809326 0.90335065126419067;
+	setAttr -s 2 ".wl[25].w[39:40]"  0.10199134051799774 0.89800865948200226;
+	setAttr -s 2 ".wl[26].w[39:40]"  0.19021840393543243 0.80978159606456757;
+	setAttr -s 2 ".wl[27].w[39:40]"  0.14607506990432739 0.85392493009567261;
+	setAttr -s 2 ".wl[28].w[39:40]"  0.15702793002128601 0.84297206997871399;
+	setAttr -s 2 ".wl[29].w[39:40]"  0.15939238667488098 0.84060761332511902;
+	setAttr -s 2 ".wl[30].w[39:40]"  0.14649638533592224 0.85350361466407776;
+	setAttr -s 2 ".wl[31].w[39:40]"  0.0041721388697624207 0.99582786113023758;
+	setAttr -s 2 ".wl[32].w[39:40]"  0.0023501303512603045 0.9976498696487397;
+	setAttr ".wl[33].w[40]"  1;
+	setAttr -s 2 ".wl[34].w[39:40]"  0.039597362279891968 0.96040263772010803;
+	setAttr -s 2 ".wl[35].w[39:40]"  0.024059740826487541 0.97594025917351246;
+	setAttr ".wl[36].w[40]"  1;
+	setAttr ".wl[37].w[40]"  1;
+	setAttr ".wl[38].w[40]"  1;
+	setAttr ".wl[39].w[40]"  1;
+	setAttr ".wl[40].w[40]"  1;
+	setAttr ".wl[41].w[40]"  1;
+	setAttr -s 2 ".wl[42].w[39:40]"  0.10495253652334213 0.89504746347665787;
+	setAttr -s 2 ".wl[43].w[39:40]"  0.061241637915372849 0.93875836208462715;
+	setAttr ".wl[44].w[40]"  1;
+	setAttr ".wl[45].w[40]"  1;
+	setAttr ".wl[46].w[40]"  1;
+	setAttr ".wl[47].w[40]"  1;
+	setAttr ".wl[48].w[40]"  1;
+	setAttr ".wl[49].w[40]"  1;
+	setAttr -s 2 ".wl[50].w[39:40]"  0.11704947799444199 0.88295052200555801;
+	setAttr -s 2 ".wl[51].w[39:40]"  0.036360986530780792 0.96363901346921921;
+	setAttr ".wl[52].w[40]"  1;
+	setAttr ".wl[53].w[40]"  1;
+	setAttr ".wl[54].w[40]"  1;
+	setAttr ".wl[55].w[40]"  1;
+	setAttr ".wl[56].w[40]"  1;
+	setAttr ".wl[57].w[40]"  1;
+	setAttr ".wl[58].w[40]"  1;
+	setAttr ".wl[59].w[40]"  1;
+	setAttr ".wl[60].w[39]"  1;
+	setAttr -s 2 ".wl[61].w[39:40]"  0.49647283554077148 0.50352716445922852;
+	setAttr ".wl[62].w[39]"  1;
+	setAttr ".wl[63].w[39]"  1;
+	setAttr ".wl[64].w[39]"  1;
+	setAttr ".wl[65].w[39]"  1;
+	setAttr ".wl[66].w[39]"  1;
+	setAttr ".wl[67].w[39]"  1;
+	setAttr ".wl[68].w[39]"  1;
+	setAttr -s 2 ".wl[69].w[39:40]"  0.18562637269496918 0.81437362730503082;
+	setAttr -s 2 ".wl[70].w[39:40]"  0.39155614376068115 0.60844385623931885;
+	setAttr -s 2 ".wl[71].w[39:40]"  0.10273860394954681 0.89726139605045319;
+	setAttr -s 2 ".wl[72].w[39:40]"  0.1808268278837204 0.8191731721162796;
+	setAttr -s 2 ".wl[73].w[39:40]"  0.042251486331224442 0.95774851366877556;
+	setAttr -s 2 ".wl[74].w[39:40]"  0.030913654714822769 0.96908634528517723;
+	setAttr -s 2 ".wl[75].w[39:40]"  0.057544205337762833 0.94245579466223717;
+	setAttr ".wl[76].w[40]"  1;
+	setAttr -s 2 ".wl[77].w[39:40]"  0.033133301883935928 0.96686669811606407;
+	setAttr ".wl[78].w[40]"  1;
+	setAttr -s 2 ".wl[79].w[39:40]"  0.029097341001033783 0.97090265899896622;
+	setAttr ".wl[80].w[40]"  1;
+	setAttr ".wl[81].w[40]"  1;
+	setAttr ".wl[82].w[40]"  1;
+	setAttr ".wl[83].w[40]"  1;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.054519205614935916 -5.2487305422526782e-005 -0.99851272073228914 -0
+		 -0.99802146201298458 -0.031367519622828959 -0.054490733837741293 0 -0.031318007289424799 0.99950791690601126 -0.0017625157092422308 -0
+		 24.11281526844596 0.76017186189075814 2.6283282463581101 1;
+	setAttr ".pm[3]" -type "matrix" 0.02563020205813963 -2.7134634530307012e-005 -0.99967149204434624 -0
+		 -0.9988822699933162 -0.039729025810948976 -0.025608889103432179 0 -0.039715279622053193 0.99921049022306807 -0.0010453672644425082 -0
+		 18.150895336193912 0.91242706367349125 2.1041132457995713 1;
+	setAttr ".pm[4]" -type "matrix" 0.02563020205813963 -2.7134634530307012e-005 -0.99967149204434624 -0
+		 -0.9988822699933162 -0.039729025810948976 -0.025608889103432179 0 -0.039715279622053193 0.99921049022306807 -0.0010453672644425082 -0
+		 12.294408274944676 0.91242706367349113 2.1041132457995717 1;
+	setAttr ".pm[5]" -type "matrix" 0.013999141730848428 -0.0025516170250339692 -0.99989875151505048 -0
+		 -0.57972810954237952 0.81474619836937889 -0.010195648535648914 0 0.81468972194156086 0.57981214327849451 0.0099265033914440297 -0
+		 7.4705908191905017 -9.8425941919481943 1.9051605296436227 1;
+	setAttr ".pm[6]" -type "matrix" 0.045805361811375823 -0.0029890470987587727 -0.99894591166227309 -0
+		 -0.21209951392834811 0.97716620298388968 -0.012649424390267793 0 0.97617399321057874 0.21245535376518065 0.044125476040769968 -0
+		 1.4744202021602866 -11.373490180943088 1.9009989097011946 1;
+	setAttr ".pm[7]" -type "matrix" 0.045805361811375823 -0.0029890470987587727 -0.99894591166227309 -0
+		 -0.21209951392834811 0.97716620298388968 -0.012649424390267793 0 0.97617399321057874 0.21245535376518065 0.044125476040769968 -0
+		 -0.024401179370309369 -11.373490180943088 1.9009989097011946 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 0.96495884694945688 -0.16200008533026139 -0.20642285737524962 0
+		 0.26240126465772717 0.59574185265421142 0.75910290560776605 0 -1.8041124150158791e-016 -0.78666868334077944 0.61737539848206147 0
+		 3.3583375218213605 31.999666903754832 4.5396983451675883e-015 1;
+	setAttr -s 6 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 6 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 6 ".ifcl";
+createNode tweak -n "tweak19";
+	rename -uid "E8B1B408-4690-DF5F-3942-8B987CBB05E8";
+createNode objectSet -n "skinCluster5Set";
+	rename -uid "CD1BFB14-467B-80B0-6665-C797688F3058";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster5GroupId";
+	rename -uid "CC96AB95-4DF0-6772-2E3F-EFB7A38416DF";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster5GroupParts";
+	rename -uid "F1033393-4B3A-EB4F-948A-C492EB0687BB";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet19";
+	rename -uid "343EBF88-4032-B0E6-197F-8697BDA14C3A";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId99";
+	rename -uid "A61B3CC9-41DF-760A-7823-D1B2B53BA1E9";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts40";
+	rename -uid "F35808AF-4DB8-65E6-1BA5-5996B2B8E412";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster6";
+	rename -uid "2943B113-4C99-8057-C0AA-B282DB9474FF";
+	setAttr -s 191 ".wl";
+	setAttr ".wl[0].w[16]"  1;
+	setAttr ".wl[1].w[16]"  1;
+	setAttr -s 2 ".wl[2].w[16:17]"  0.89144348768747805 0.10855651231252191;
+	setAttr -s 2 ".wl[3].w[16:17]"  0.88031819462776184 0.11968180537223816;
+	setAttr -s 2 ".wl[4].w[16:17]"  0.79374396800994873 0.20625603199005127;
+	setAttr -s 2 ".wl[5].w[16:17]"  0.77354955673217773 0.22645044326782227;
+	setAttr -s 2 ".wl[6].w[16:17]"  0.46101359071663756 0.53898640928336239;
+	setAttr -s 2 ".wl[7].w[16:17]"  0.48452514410018921 0.51547485589981079;
+	setAttr -s 2 ".wl[8].w[16:17]"  0.21093311207683196 0.78906688792316804;
+	setAttr -s 2 ".wl[9].w[16:17]"  0.23068583011627197 0.76931416988372803;
+	setAttr ".wl[10].w[17]"  1;
+	setAttr ".wl[11].w[17]"  1;
+	setAttr ".wl[12].w[17]"  1;
+	setAttr ".wl[13].w[17]"  1;
+	setAttr -s 3 ".wl[14].w";
+	setAttr ".wl[14].w[16]" 0.9765343489125371;
+	setAttr ".wl[14].w[17]" 0.021006383001804352;
+	setAttr ".wl[14].w[19]" 0.0024592680856585503;
+	setAttr -s 3 ".wl[15].w";
+	setAttr ".wl[15].w[16]" 0.7661383849754051;
+	setAttr ".wl[15].w[17]" 0.17741708185532534;
+	setAttr ".wl[15].w[19]" 0.056444533169269562;
+	setAttr -s 3 ".wl[16].w";
+	setAttr ".wl[16].w[16]" 0.8199017196893692;
+	setAttr ".wl[16].w[17]" 0.078542768955230713;
+	setAttr ".wl[16].w[19]" 0.10155551135540009;
+	setAttr -s 3 ".wl[17].w";
+	setAttr ".wl[17].w[16]" 0.64453646023631384;
+	setAttr ".wl[17].w[17]" 0.12755929450630854;
+	setAttr ".wl[17].w[19]" 0.22790424525737762;
+	setAttr -s 2 ".wl[18].w";
+	setAttr ".wl[18].w[16]" 0.76197682321071625;
+	setAttr ".wl[18].w[19]" 0.23802317678928375;
+	setAttr -s 3 ".wl[19].w";
+	setAttr ".wl[19].w[16]" 0.53536698222160339;
+	setAttr ".wl[19].w[17]" 0.025174327194690704;
+	setAttr ".wl[19].w[19]" 0.4394586905837059;
+	setAttr -s 3 ".wl[20].w";
+	setAttr ".wl[20].w[16]" 0.34515195570091106;
+	setAttr ".wl[20].w[17]" 0.34167793908020161;
+	setAttr ".wl[20].w[19]" 0.31317010521888733;
+	setAttr -s 3 ".wl[21].w";
+	setAttr ".wl[21].w[16]" 0.18628641469224883;
+	setAttr ".wl[21].w[17]" 0.1353575736284256;
+	setAttr ".wl[21].w[19]" 0.67835601167932558;
+	setAttr -s 3 ".wl[22].w";
+	setAttr ".wl[22].w[16]" 0.067924724236892997;
+	setAttr ".wl[22].w[17]" 0.56027366100175446;
+	setAttr ".wl[22].w[19]" 0.37180161476135254;
+	setAttr -s 3 ".wl[23].w";
+	setAttr ".wl[23].w[16]" 0.080629073083400726;
+	setAttr ".wl[23].w[17]" 0.14647841453552246;
+	setAttr ".wl[23].w[19]" 0.77289251238107681;
+	setAttr -s 2 ".wl[24].w";
+	setAttr ".wl[24].w[17]" 0.54725784063339233;
+	setAttr ".wl[24].w[19]" 0.45274215936660767;
+	setAttr -s 2 ".wl[25].w";
+	setAttr ".wl[25].w[17]" 0.11020398139953613;
+	setAttr ".wl[25].w[19]" 0.88979601860046387;
+	setAttr -s 2 ".wl[26].w";
+	setAttr ".wl[26].w[17]" 0.49256616830825806;
+	setAttr ".wl[26].w[19]" 0.50743383169174194;
+	setAttr -s 2 ".wl[27].w";
+	setAttr ".wl[27].w[17]" 0.10517846047878265;
+	setAttr ".wl[27].w[19]" 0.89482153952121735;
+	setAttr -s 3 ".wl[28].w";
+	setAttr ".wl[28].w[16]" 0.47802206873893738;
+	setAttr ".wl[28].w[17]" 0.25946211814880371;
+	setAttr ".wl[28].w[19]" 0.26251581311225891;
+	setAttr -s 3 ".wl[29].w";
+	setAttr ".wl[29].w[16]" 0.3676774017287725;
+	setAttr ".wl[29].w[17]" 0.061139911413192749;
+	setAttr ".wl[29].w[19]" 0.57118268685803475;
+	setAttr -s 2 ".wl[30].w";
+	setAttr ".wl[30].w[17]" 0.43808490037918091;
+	setAttr ".wl[30].w[19]" 0.56191509962081909;
+	setAttr -s 2 ".wl[31].w";
+	setAttr ".wl[31].w[17]" 0.13961805403232574;
+	setAttr ".wl[31].w[19]" 0.86038194596767426;
+	setAttr -s 2 ".wl[32].w";
+	setAttr ".wl[32].w[17]" 0.33507120609283447;
+	setAttr ".wl[32].w[19]" 0.66492879390716553;
+	setAttr -s 2 ".wl[33].w";
+	setAttr ".wl[33].w[17]" 0.12184903025627136;
+	setAttr ".wl[33].w[19]" 0.87815096974372864;
+	setAttr -s 2 ".wl[34].w";
+	setAttr ".wl[34].w[17]" 0.19932861626148224;
+	setAttr ".wl[34].w[19]" 0.80067138373851776;
+	setAttr -s 2 ".wl[35].w";
+	setAttr ".wl[35].w[17]" 0.080997705459594727;
+	setAttr ".wl[35].w[19]" 0.91900229454040527;
+	setAttr -s 3 ".wl[36].w";
+	setAttr ".wl[36].w[16]" 0.65451551088330684;
+	setAttr ".wl[36].w[17]" 0.2334151207542664;
+	setAttr ".wl[36].w[19]" 0.11206936836242676;
+	setAttr -s 3 ".wl[37].w";
+	setAttr ".wl[37].w[16]" 0.14517146348953247;
+	setAttr ".wl[37].w[17]" 0.71486079692840576;
+	setAttr ".wl[37].w[19]" 0.13996773958206177;
+	setAttr -s 3 ".wl[38].w";
+	setAttr ".wl[38].w[16]" 0.015076892450451851;
+	setAttr ".wl[38].w[17]" 0.76432026736438274;
+	setAttr ".wl[38].w[19]" 0.22060284018516541;
+	setAttr -s 2 ".wl[39].w";
+	setAttr ".wl[39].w[17]" 0.73360690474510193;
+	setAttr ".wl[39].w[19]" 0.26639309525489807;
+	setAttr -s 2 ".wl[40].w";
+	setAttr ".wl[40].w[17]" 0.68762004375457764;
+	setAttr ".wl[40].w[19]" 0.31237995624542236;
+	setAttr ".wl[41].w[17]"  1;
+	setAttr ".wl[42].w[17]"  1;
+	setAttr -s 2 ".wl[43].w";
+	setAttr ".wl[43].w[17]" 0.62858614325523376;
+	setAttr ".wl[43].w[19]" 0.37141385674476624;
+	setAttr -s 2 ".wl[44].w";
+	setAttr ".wl[44].w[17]" 0.59335887432098389;
+	setAttr ".wl[44].w[19]" 0.40664112567901611;
+	setAttr -s 2 ".wl[45].w";
+	setAttr ".wl[45].w[17]" 0.23277370631694794;
+	setAttr ".wl[45].w[19]" 0.76722629368305206;
+	setAttr ".wl[46].w[16]"  1;
+	setAttr -s 2 ".wl[47].w[16:17]"  0.87514109909534454 0.12485890090465546;
+	setAttr ".wl[48].w[16]"  1;
+	setAttr -s 3 ".wl[49].w";
+	setAttr ".wl[49].w[16]" 0.80080978572368622;
+	setAttr ".wl[49].w[17]" 0.1403844952583313;
+	setAttr ".wl[49].w[19]" 0.058805719017982483;
+	setAttr -s 3 ".wl[50].w";
+	setAttr ".wl[50].w[16]" 0.96117739751935005;
+	setAttr ".wl[50].w[17]" 0.021854925900697708;
+	setAttr ".wl[50].w[19]" 0.01696767657995224;
+	setAttr -s 3 ".wl[51].w";
+	setAttr ".wl[51].w[16]" 0.75047046447720112;
+	setAttr ".wl[51].w[17]" 0.18437887971673428;
+	setAttr ".wl[51].w[19]" 0.065150655806064606;
+	setAttr -s 3 ".wl[52].w";
+	setAttr ".wl[52].w[16]" 0.69612226729798399;
+	setAttr ".wl[52].w[17]" 0.24784968698811449;
+	setAttr ".wl[52].w[19]" 0.05602804571390152;
+	setAttr -s 2 ".wl[53].w[16:17]"  0.77133679389953613 0.22866320610046387;
+	setAttr -s 3 ".wl[54].w";
+	setAttr ".wl[54].w[16]" 0.66045498383152468;
+	setAttr ".wl[54].w[17]" 0.23950901347291487;
+	setAttr ".wl[54].w[19]" 0.10003600269556046;
+	setAttr -s 3 ".wl[55].w";
+	setAttr ".wl[55].w[16]" 0.44271852345298696;
+	setAttr ".wl[55].w[17]" 0.47884705393482285;
+	setAttr ".wl[55].w[19]" 0.078434422612190247;
+	setAttr -s 2 ".wl[56].w[16:17]"  0.48949289321899414 0.51050710678100586;
+	setAttr -s 3 ".wl[57].w";
+	setAttr ".wl[57].w[16]" 0.013407031074166298;
+	setAttr ".wl[57].w[17]" 0.84747487306594849;
+	setAttr ".wl[57].w[19]" 0.13911809585988522;
+	setAttr -s 3 ".wl[58].w";
+	setAttr ".wl[58].w[16]" 0.24099048950311905;
+	setAttr ".wl[58].w[17]" 0.66614852867486707;
+	setAttr ".wl[58].w[19]" 0.092860981822013855;
+	setAttr -s 2 ".wl[59].w[16:17]"  0.23194575309753418 0.76805424690246582;
+	setAttr -s 3 ".wl[60].w";
+	setAttr ".wl[60].w[16]" 0.013183515518903732;
+	setAttr ".wl[60].w[17]" 0.77530320361256599;
+	setAttr ".wl[60].w[19]" 0.21151328086853027;
+	setAttr -s 2 ".wl[61].w";
+	setAttr ".wl[61].w[17]" 0.92521893233060837;
+	setAttr ".wl[61].w[19]" 0.074781067669391632;
+	setAttr ".wl[62].w[17]"  1;
+	setAttr -s 2 ".wl[63].w";
+	setAttr ".wl[63].w[17]" 0.70551767945289612;
+	setAttr ".wl[63].w[19]" 0.29448232054710388;
+	setAttr -s 2 ".wl[64].w";
+	setAttr ".wl[64].w[17]" 0.85344059765338898;
+	setAttr ".wl[64].w[19]" 0.14655940234661102;
+	setAttr ".wl[65].w[17]"  1;
+	setAttr -s 2 ".wl[66].w";
+	setAttr ".wl[66].w[17]" 0.68581044673919678;
+	setAttr ".wl[66].w[19]" 0.31418955326080322;
+	setAttr -s 2 ".wl[67].w";
+	setAttr ".wl[67].w[17]" 0.94785835593938828;
+	setAttr ".wl[67].w[19]" 0.052141644060611725;
+	setAttr ".wl[68].w[17]"  1;
+	setAttr -s 2 ".wl[69].w";
+	setAttr ".wl[69].w[17]" 0.60621523857116699;
+	setAttr ".wl[69].w[19]" 0.39378476142883301;
+	setAttr ".wl[70].w[17]"  1;
+	setAttr ".wl[71].w[17]"  1;
+	setAttr -s 2 ".wl[72].w";
+	setAttr ".wl[72].w[17]" 0.67982429265975952;
+	setAttr ".wl[72].w[19]" 0.32017570734024048;
+	setAttr -s 2 ".wl[73].w";
+	setAttr ".wl[73].w[17]" 0.25002521276473999;
+	setAttr ".wl[73].w[19]" 0.74997478723526001;
+	setAttr ".wl[74].w[17]"  1;
+	setAttr ".wl[75].w[16]"  1;
+	setAttr -s 2 ".wl[76].w";
+	setAttr ".wl[76].w[16]" 0.95810317248106003;
+	setAttr ".wl[76].w[19]" 0.041896827518939972;
+	setAttr -s 2 ".wl[77].w";
+	setAttr ".wl[77].w[16]" 0.72853764891624451;
+	setAttr ".wl[77].w[19]" 0.27146235108375549;
+	setAttr -s 3 ".wl[78].w";
+	setAttr ".wl[78].w[16]" 0.38694316893815994;
+	setAttr ".wl[78].w[17]" 0.078351311385631561;
+	setAttr ".wl[78].w[19]" 0.5347055196762085;
+	setAttr -s 3 ".wl[79].w";
+	setAttr ".wl[79].w[16]" 0.22776860371232033;
+	setAttr ".wl[79].w[17]" 0.020644839853048325;
+	setAttr ".wl[79].w[19]" 0.75158655643463135;
+	setAttr -s 3 ".wl[80].w";
+	setAttr ".wl[80].w[16]" 0.068402111530303955;
+	setAttr ".wl[80].w[17]" 0.048626679927110672;
+	setAttr ".wl[80].w[19]" 0.88297120854258537;
+	setAttr -s 3 ".wl[81].w";
+	setAttr ".wl[81].w[16]" 0.046826139092445374;
+	setAttr ".wl[81].w[17]" 0.092291302978992462;
+	setAttr ".wl[81].w[19]" 0.86088255792856216;
+	setAttr -s 2 ".wl[82].w";
+	setAttr ".wl[82].w[17]" 0.013318929821252823;
+	setAttr ".wl[82].w[19]" 0.98668107017874718;
+	setAttr -s 2 ".wl[83].w";
+	setAttr ".wl[83].w[17]" 0.019571516662836075;
+	setAttr ".wl[83].w[19]" 0.98042848333716393;
+	setAttr -s 2 ".wl[84].w";
+	setAttr ".wl[84].w[17]" 0.038250323385000229;
+	setAttr ".wl[84].w[19]" 0.96174967661499977;
+	setAttr -s 2 ".wl[85].w";
+	setAttr ".wl[85].w[17]" 0.025418803095817566;
+	setAttr ".wl[85].w[19]" 0.97458119690418243;
+	setAttr -s 2 ".wl[86].w";
+	setAttr ".wl[86].w[17]" 0.22063618898391724;
+	setAttr ".wl[86].w[19]" 0.77936381101608276;
+	setAttr -s 2 ".wl[87].w";
+	setAttr ".wl[87].w[17]" 0.19578635692596436;
+	setAttr ".wl[87].w[19]" 0.80421364307403564;
+	setAttr ".wl[88].w[17]"  1;
+	setAttr ".wl[89].w[17]"  1;
+	setAttr -s 2 ".wl[90].w";
+	setAttr ".wl[90].w[17]" 0.19231180846691132;
+	setAttr ".wl[90].w[19]" 0.80768819153308868;
+	setAttr ".wl[91].w[16]"  1;
+	setAttr -s 2 ".wl[92].w[16:17]"  0.98980567790567875 0.010194322094321251;
+	setAttr ".wl[93].w[16]"  1;
+	setAttr ".wl[94].w[17]"  1;
+	setAttr ".wl[95].w[17]"  1;
+	setAttr ".wl[96].w[17]"  1;
+	setAttr -s 2 ".wl[97].w";
+	setAttr ".wl[97].w[17]" 0.19560737907886505;
+	setAttr ".wl[97].w[19]" 0.80439262092113495;
+	setAttr ".wl[98].w[17]"  1;
+	setAttr ".wl[99].w[16]"  1;
+	setAttr -s 2 ".wl[100].w[16:17]"  0.8803181943191829 0.1196818056808171;
+	setAttr -s 2 ".wl[101].w[16:17]"  0.77354955673217773 0.22645044326782227;
+	setAttr -s 2 ".wl[102].w[16:17]"  0.48452514410018921 0.51547485589981079;
+	setAttr -s 2 ".wl[103].w[16:17]"  0.23068583011627197 0.76931416988372803;
+	setAttr ".wl[104].w[17]"  1;
+	setAttr ".wl[105].w[17]"  1;
+	setAttr -s 3 ".wl[106].w";
+	setAttr ".wl[106].w[16]" 0.9765343489125371;
+	setAttr ".wl[106].w[17]" 0.021006383001804352;
+	setAttr ".wl[106].w[39]" 0.0024592680856585503;
+	setAttr -s 3 ".wl[107].w";
+	setAttr ".wl[107].w[16]" 0.7661383849754051;
+	setAttr ".wl[107].w[17]" 0.17741708185532534;
+	setAttr ".wl[107].w[39]" 0.056444533169269562;
+	setAttr -s 3 ".wl[108].w";
+	setAttr ".wl[108].w[16]" 0.8199017196893692;
+	setAttr ".wl[108].w[17]" 0.078542768955230713;
+	setAttr ".wl[108].w[39]" 0.10155551135540009;
+	setAttr -s 3 ".wl[109].w";
+	setAttr ".wl[109].w[16]" 0.64453646023631384;
+	setAttr ".wl[109].w[17]" 0.12755929450630854;
+	setAttr ".wl[109].w[39]" 0.22790424525737762;
+	setAttr -s 2 ".wl[110].w";
+	setAttr ".wl[110].w[16]" 0.76197682321071625;
+	setAttr ".wl[110].w[39]" 0.23802317678928375;
+	setAttr -s 3 ".wl[111].w";
+	setAttr ".wl[111].w[16]" 0.53536698222160339;
+	setAttr ".wl[111].w[17]" 0.025174327194690704;
+	setAttr ".wl[111].w[39]" 0.4394586905837059;
+	setAttr -s 3 ".wl[112].w";
+	setAttr ".wl[112].w[16]" 0.34515195570091106;
+	setAttr ".wl[112].w[17]" 0.34167793908020161;
+	setAttr ".wl[112].w[39]" 0.31317010521888733;
+	setAttr -s 3 ".wl[113].w";
+	setAttr ".wl[113].w[16]" 0.18628641469224883;
+	setAttr ".wl[113].w[17]" 0.1353575736284256;
+	setAttr ".wl[113].w[39]" 0.67835601167932558;
+	setAttr -s 3 ".wl[114].w";
+	setAttr ".wl[114].w[16]" 0.067924724236892997;
+	setAttr ".wl[114].w[17]" 0.56027366100175446;
+	setAttr ".wl[114].w[39]" 0.37180161476135254;
+	setAttr -s 3 ".wl[115].w";
+	setAttr ".wl[115].w[16]" 0.080629073083400726;
+	setAttr ".wl[115].w[17]" 0.14647841453552246;
+	setAttr ".wl[115].w[39]" 0.77289251238107681;
+	setAttr -s 2 ".wl[116].w";
+	setAttr ".wl[116].w[17]" 0.54725784063339233;
+	setAttr ".wl[116].w[39]" 0.45274215936660767;
+	setAttr -s 2 ".wl[117].w";
+	setAttr ".wl[117].w[17]" 0.11020398139953613;
+	setAttr ".wl[117].w[39]" 0.88979601860046387;
+	setAttr -s 2 ".wl[118].w";
+	setAttr ".wl[118].w[17]" 0.49256616830825806;
+	setAttr ".wl[118].w[39]" 0.50743383169174194;
+	setAttr -s 2 ".wl[119].w";
+	setAttr ".wl[119].w[17]" 0.10517846047878265;
+	setAttr ".wl[119].w[39]" 0.89482153952121735;
+	setAttr -s 3 ".wl[120].w";
+	setAttr ".wl[120].w[16]" 0.47802206873893738;
+	setAttr ".wl[120].w[17]" 0.25946211814880371;
+	setAttr ".wl[120].w[39]" 0.26251581311225891;
+	setAttr -s 3 ".wl[121].w";
+	setAttr ".wl[121].w[16]" 0.3676774017287725;
+	setAttr ".wl[121].w[17]" 0.061139911413192749;
+	setAttr ".wl[121].w[39]" 0.57118268685803475;
+	setAttr -s 2 ".wl[122].w";
+	setAttr ".wl[122].w[17]" 0.43808490037918091;
+	setAttr ".wl[122].w[39]" 0.56191509962081909;
+	setAttr -s 2 ".wl[123].w";
+	setAttr ".wl[123].w[17]" 0.13961805403232574;
+	setAttr ".wl[123].w[39]" 0.86038194596767426;
+	setAttr -s 2 ".wl[124].w";
+	setAttr ".wl[124].w[17]" 0.33507120609283447;
+	setAttr ".wl[124].w[39]" 0.66492879390716553;
+	setAttr -s 2 ".wl[125].w";
+	setAttr ".wl[125].w[17]" 0.12184903025627136;
+	setAttr ".wl[125].w[39]" 0.87815096974372864;
+	setAttr -s 2 ".wl[126].w";
+	setAttr ".wl[126].w[17]" 0.19932861626148224;
+	setAttr ".wl[126].w[39]" 0.80067138373851776;
+	setAttr -s 2 ".wl[127].w";
+	setAttr ".wl[127].w[17]" 0.080997760195089086;
+	setAttr ".wl[127].w[39]" 0.91900223980491091;
+	setAttr -s 3 ".wl[128].w";
+	setAttr ".wl[128].w[16]" 0.65451551088330684;
+	setAttr ".wl[128].w[17]" 0.2334151207542664;
+	setAttr ".wl[128].w[39]" 0.11206936836242676;
+	setAttr -s 3 ".wl[129].w";
+	setAttr ".wl[129].w[16]" 0.14517146348953247;
+	setAttr ".wl[129].w[17]" 0.71486079692840576;
+	setAttr ".wl[129].w[39]" 0.13996773958206177;
+	setAttr -s 3 ".wl[130].w";
+	setAttr ".wl[130].w[16]" 0.015076892450451851;
+	setAttr ".wl[130].w[17]" 0.76432026736438274;
+	setAttr ".wl[130].w[39]" 0.22060284018516541;
+	setAttr -s 2 ".wl[131].w";
+	setAttr ".wl[131].w[17]" 0.73360690474510193;
+	setAttr ".wl[131].w[39]" 0.26639309525489807;
+	setAttr -s 2 ".wl[132].w";
+	setAttr ".wl[132].w[17]" 0.68762004375457764;
+	setAttr ".wl[132].w[39]" 0.31237995624542236;
+	setAttr ".wl[133].w[17]"  1;
+	setAttr -s 2 ".wl[134].w";
+	setAttr ".wl[134].w[17]" 0.62858614325523376;
+	setAttr ".wl[134].w[39]" 0.37141385674476624;
+	setAttr -s 2 ".wl[135].w";
+	setAttr ".wl[135].w[17]" 0.59335889493594607;
+	setAttr ".wl[135].w[39]" 0.40664110506405393;
+	setAttr -s 2 ".wl[136].w";
+	setAttr ".wl[136].w[17]" 0.23277370631694794;
+	setAttr ".wl[136].w[39]" 0.76722629368305206;
+	setAttr ".wl[137].w[16]"  1;
+	setAttr -s 2 ".wl[138].w[16:17]"  0.87514109939725793 0.12485890060274205;
+	setAttr -s 3 ".wl[139].w";
+	setAttr ".wl[139].w[16]" 1.0000000004069518;
+	setAttr ".wl[139].w[17]" -1.6575580234486302e-010;
+	setAttr ".wl[139].w[39]" -2.4119598711519115e-010;
+	setAttr -s 3 ".wl[140].w";
+	setAttr ".wl[140].w[16]" 0.80080978572368622;
+	setAttr ".wl[140].w[17]" 0.1403844952583313;
+	setAttr ".wl[140].w[39]" 0.058805719017982483;
+	setAttr -s 3 ".wl[141].w";
+	setAttr ".wl[141].w[16]" 0.96117739751935005;
+	setAttr ".wl[141].w[17]" 0.021854925900697708;
+	setAttr ".wl[141].w[39]" 0.01696767657995224;
+	setAttr -s 3 ".wl[142].w";
+	setAttr ".wl[142].w[16]" 0.75047046447720112;
+	setAttr ".wl[142].w[17]" 0.18437887971673428;
+	setAttr ".wl[142].w[39]" 0.065150655806064606;
+	setAttr -s 3 ".wl[143].w";
+	setAttr ".wl[143].w[16]" 0.69612226729798399;
+	setAttr ".wl[143].w[17]" 0.24784968698811449;
+	setAttr ".wl[143].w[39]" 0.05602804571390152;
+	setAttr -s 2 ".wl[144].w[16:17]"  0.77133679389953613 0.22866320610046387;
+	setAttr -s 3 ".wl[145].w";
+	setAttr ".wl[145].w[16]" 0.66045498383152468;
+	setAttr ".wl[145].w[17]" 0.23950901347291487;
+	setAttr ".wl[145].w[39]" 0.10003600269556046;
+	setAttr -s 3 ".wl[146].w";
+	setAttr ".wl[146].w[16]" 0.44271852345298696;
+	setAttr ".wl[146].w[17]" 0.47884705393482285;
+	setAttr ".wl[146].w[39]" 0.078434422612190247;
+	setAttr -s 2 ".wl[147].w[16:17]"  0.4894929080750634 0.51050709192493671;
+	setAttr -s 3 ".wl[148].w";
+	setAttr ".wl[148].w[16]" 0.013407031074166298;
+	setAttr ".wl[148].w[17]" 0.84747487306594849;
+	setAttr ".wl[148].w[39]" 0.13911809585988522;
+	setAttr -s 3 ".wl[149].w";
+	setAttr ".wl[149].w[16]" 0.24099048950311905;
+	setAttr ".wl[149].w[17]" 0.66614852867486707;
+	setAttr ".wl[149].w[39]" 0.092860981822013855;
+	setAttr -s 2 ".wl[150].w[16:17]"  0.23194573916578737 0.76805426083421269;
+	setAttr -s 3 ".wl[151].w";
+	setAttr ".wl[151].w[16]" 0.013183515518903732;
+	setAttr ".wl[151].w[17]" 0.77530320361256599;
+	setAttr ".wl[151].w[39]" 0.21151328086853027;
+	setAttr -s 2 ".wl[152].w";
+	setAttr ".wl[152].w[17]" 0.92521893233060837;
+	setAttr ".wl[152].w[39]" 0.074781067669391632;
+	setAttr ".wl[153].w[17]"  1;
+	setAttr -s 2 ".wl[154].w";
+	setAttr ".wl[154].w[17]" 0.70551770791511714;
+	setAttr ".wl[154].w[39]" 0.29448229208488286;
+	setAttr -s 2 ".wl[155].w";
+	setAttr ".wl[155].w[17]" 0.85344059765338898;
+	setAttr ".wl[155].w[39]" 0.14655940234661102;
+	setAttr ".wl[156].w[17]"  1;
+	setAttr -s 2 ".wl[157].w";
+	setAttr ".wl[157].w[17]" 0.68581044673919678;
+	setAttr ".wl[157].w[39]" 0.31418955326080322;
+	setAttr -s 2 ".wl[158].w";
+	setAttr ".wl[158].w[17]" 0.94785835593938828;
+	setAttr ".wl[158].w[39]" 0.052141644060611725;
+	setAttr ".wl[159].w[17]"  1;
+	setAttr -s 2 ".wl[160].w";
+	setAttr ".wl[160].w[17]" 0.60621524923844561;
+	setAttr ".wl[160].w[39]" 0.39378475076155439;
+	setAttr ".wl[161].w[17]"  1;
+	setAttr ".wl[162].w[17]"  1;
+	setAttr -s 2 ".wl[163].w";
+	setAttr ".wl[163].w[17]" 0.67982429265975952;
+	setAttr ".wl[163].w[39]" 0.32017570734024048;
+	setAttr -s 2 ".wl[164].w";
+	setAttr ".wl[164].w[17]" 0.25002521276473999;
+	setAttr ".wl[164].w[39]" 0.74997478723526001;
+	setAttr ".wl[165].w[17]"  1;
+	setAttr ".wl[166].w[16]"  1;
+	setAttr -s 2 ".wl[167].w";
+	setAttr ".wl[167].w[16]" 0.95810317248106003;
+	setAttr ".wl[167].w[39]" 0.041896827518939972;
+	setAttr -s 2 ".wl[168].w";
+	setAttr ".wl[168].w[16]" 0.72853764891624451;
+	setAttr ".wl[168].w[39]" 0.27146235108375549;
+	setAttr -s 3 ".wl[169].w";
+	setAttr ".wl[169].w[16]" 0.38694316664150152;
+	setAttr ".wl[169].w[17]" 0.078351309333872798;
+	setAttr ".wl[169].w[39]" 0.53470552402462568;
+	setAttr -s 3 ".wl[170].w";
+	setAttr ".wl[170].w[16]" 0.22776859876725805;
+	setAttr ".wl[170].w[17]" 0.02064485352787182;
+	setAttr ".wl[170].w[39]" 0.7515865477048701;
+	setAttr -s 3 ".wl[171].w";
+	setAttr ".wl[171].w[16]" 0.068402146815519441;
+	setAttr ".wl[171].w[17]" 0.048626699344794529;
+	setAttr ".wl[171].w[39]" 0.88297115383968605;
+	setAttr -s 3 ".wl[172].w";
+	setAttr ".wl[172].w[16]" 0.046826139092445374;
+	setAttr ".wl[172].w[17]" 0.092291302978992462;
+	setAttr ".wl[172].w[39]" 0.86088255792856216;
+	setAttr -s 2 ".wl[173].w";
+	setAttr ".wl[173].w[17]" 0.013318929821252823;
+	setAttr ".wl[173].w[39]" 0.98668107017874718;
+	setAttr -s 2 ".wl[174].w";
+	setAttr ".wl[174].w[17]" 0.019571516662836075;
+	setAttr ".wl[174].w[39]" 0.98042848333716393;
+	setAttr -s 2 ".wl[175].w";
+	setAttr ".wl[175].w[17]" 0.038250323385000229;
+	setAttr ".wl[175].w[39]" 0.96174967661499977;
+	setAttr -s 2 ".wl[176].w";
+	setAttr ".wl[176].w[17]" 0.025418803095817566;
+	setAttr ".wl[176].w[39]" 0.97458119690418243;
+	setAttr -s 2 ".wl[177].w";
+	setAttr ".wl[177].w[17]" 0.22063617861575935;
+	setAttr ".wl[177].w[39]" 0.77936382138424065;
+	setAttr -s 2 ".wl[178].w";
+	setAttr ".wl[178].w[17]" 0.19578635718886681;
+	setAttr ".wl[178].w[39]" 0.80421364281113317;
+	setAttr ".wl[179].w[17]"  1;
+	setAttr -s 2 ".wl[180].w";
+	setAttr ".wl[180].w[17]" 0.1923118187868722;
+	setAttr ".wl[180].w[39]" 0.8076881812131278;
+	setAttr -s 3 ".wl[181].w";
+	setAttr ".wl[181].w[16]" 0.9898056778646005;
+	setAttr ".wl[181].w[17]" 0.010194321851877722;
+	setAttr ".wl[181].w[39]" 2.8352180634628933e-010;
+	setAttr ".wl[182].w[16]"  1;
+	setAttr ".wl[183].w[17]"  1;
+	setAttr ".wl[184].w[17]"  1;
+	setAttr ".wl[185].w[17]"  1;
+	setAttr -s 2 ".wl[186].w";
+	setAttr ".wl[186].w[17]" 0.19560738880953199;
+	setAttr ".wl[186].w[39]" 0.80439261119046801;
+	setAttr ".wl[187].w[17]"  1;
+	setAttr ".wl[188].w[16]"  1;
+	setAttr ".wl[189].w[16]"  1;
+	setAttr ".wl[190].w[16]"  1;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.054519205614935916 -5.2487305422526782e-005 -0.99851272073228914 -0
+		 -0.99802146201298458 -0.031367519622828959 -0.054490733837741293 0 -0.031318007289424799 0.99950791690601126 -0.0017625157092422308 -0
+		 24.11281526844596 0.76017186189075814 2.6283282463581101 1;
+	setAttr ".pm[3]" -type "matrix" 0.02563020205813963 -2.7134634530307012e-005 -0.99967149204434624 -0
+		 -0.9988822699933162 -0.039729025810948976 -0.025608889103432179 0 -0.039715279622053193 0.99921049022306807 -0.0010453672644425082 -0
+		 18.150895336193912 0.91242706367349125 2.1041132457995713 1;
+	setAttr ".pm[4]" -type "matrix" 0.02563020205813963 -2.7134634530307012e-005 -0.99967149204434624 -0
+		 -0.9988822699933162 -0.039729025810948976 -0.025608889103432179 0 -0.039715279622053193 0.99921049022306807 -0.0010453672644425082 -0
+		 12.294408274944676 0.91242706367349113 2.1041132457995717 1;
+	setAttr ".pm[5]" -type "matrix" 0.013999141730848428 -0.0025516170250339692 -0.99989875151505048 -0
+		 -0.57972810954237952 0.81474619836937889 -0.010195648535648914 0 0.81468972194156086 0.57981214327849451 0.0099265033914440297 -0
+		 7.4705908191905017 -9.8425941919481943 1.9051605296436227 1;
+	setAttr ".pm[6]" -type "matrix" 0.045805361811375823 -0.0029890470987587727 -0.99894591166227309 -0
+		 -0.21209951392834811 0.97716620298388968 -0.012649424390267793 0 0.97617399321057874 0.21245535376518065 0.044125476040769968 -0
+		 1.4744202021602866 -11.373490180943088 1.9009989097011946 1;
+	setAttr ".pm[7]" -type "matrix" 0.045805361811375823 -0.0029890470987587727 -0.99894591166227309 -0
+		 -0.21209951392834811 0.97716620298388968 -0.012649424390267793 0 0.97617399321057874 0.21245535376518065 0.044125476040769968 -0
+		 -0.024401179370309369 -11.373490180943088 1.9009989097011946 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 2.2204460492503131e-016 1 0 0 -1 2.2204460492503131e-016 0
+		 0.49074207152947258 30.505111044845499 1.7619845073905211 1;
+	setAttr -s 8 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 8 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 8 ".ifcl";
+createNode tweak -n "tweak20";
+	rename -uid "5D2D1708-40FA-6619-95FD-50806B155587";
+createNode objectSet -n "skinCluster6Set";
+	rename -uid "14E3BDD4-4367-BC8B-F15E-34B50DE58D4C";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster6GroupId";
+	rename -uid "7233D7F3-4AFA-4F60-6A28-C1B1C2A61DD5";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster6GroupParts";
+	rename -uid "B1206189-44DB-8EE0-9F41-869CBAD1DD6F";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet20";
+	rename -uid "85A63E2F-4892-1FC7-07E2-ACA0D14B71E0";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId101";
+	rename -uid "691EA8F8-4925-DE17-D023-7CA9371E4405";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts42";
+	rename -uid "BA28F354-42F9-3D1A-D3B0-CD84416866A8";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster7";
+	rename -uid "E409E439-4AF7-77D0-0698-C1A448DB20D1";
+	setAttr -s 196 ".wl";
+	setAttr ".wl[0].w[1]"  1;
+	setAttr ".wl[1].w[1]"  1;
+	setAttr ".wl[2].w[1]"  1;
+	setAttr ".wl[3].w[1]"  1;
+	setAttr ".wl[4].w[1]"  1;
+	setAttr ".wl[5].w[1]"  1;
+	setAttr ".wl[6].w[1]"  1;
+	setAttr ".wl[7].w[1]"  1;
+	setAttr -s 2 ".wl[8].w";
+	setAttr ".wl[8].w[1]" 0.92010790109634399;
+	setAttr ".wl[8].w[14]" 0.079892098903656006;
+	setAttr -s 2 ".wl[9].w";
+	setAttr ".wl[9].w[1]" 0.62667465209960938;
+	setAttr ".wl[9].w[14]" 0.37332534790039063;
+	setAttr -s 2 ".wl[10].w";
+	setAttr ".wl[10].w[1]" 0.6221802830696106;
+	setAttr ".wl[10].w[14]" 0.3778197169303894;
+	setAttr -s 2 ".wl[11].w";
+	setAttr ".wl[11].w[1]" 0.36353325843811035;
+	setAttr ".wl[11].w[14]" 0.63646674156188965;
+	setAttr -s 2 ".wl[12].w";
+	setAttr ".wl[12].w[1]" 0.3629036545753479;
+	setAttr ".wl[12].w[14]" 0.6370963454246521;
+	setAttr ".wl[13].w[1]"  1;
+	setAttr ".wl[14].w[1]"  1;
+	setAttr -s 2 ".wl[15].w";
+	setAttr ".wl[15].w[1]" 0.63432580232620239;
+	setAttr ".wl[15].w[14]" 0.36567419767379761;
+	setAttr -s 2 ".wl[16].w";
+	setAttr ".wl[16].w[1]" 0.35425692796707153;
+	setAttr ".wl[16].w[14]" 0.64574307203292847;
+	setAttr ".wl[17].w[1]"  1;
+	setAttr ".wl[18].w[1]"  1;
+	setAttr -s 2 ".wl[19].w";
+	setAttr ".wl[19].w[1]" 0.65203672647476196;
+	setAttr ".wl[19].w[14]" 0.34796327352523804;
+	setAttr -s 2 ".wl[20].w";
+	setAttr ".wl[20].w[1]" 0.34512436389923096;
+	setAttr ".wl[20].w[14]" 0.65487563610076904;
+	setAttr ".wl[21].w[1]"  1;
+	setAttr ".wl[22].w[1]"  1;
+	setAttr ".wl[23].w[1]"  1;
+	setAttr ".wl[24].w[1]"  1;
+	setAttr ".wl[25].w[1]"  1;
+	setAttr ".wl[26].w[1]"  1;
+	setAttr ".wl[27].w[1]"  1;
+	setAttr ".wl[28].w[1]"  1;
+	setAttr ".wl[29].w[1]"  1;
+	setAttr ".wl[30].w[1]"  1;
+	setAttr ".wl[31].w[1]"  1;
+	setAttr -s 2 ".wl[32].w";
+	setAttr ".wl[32].w[1]" 0.85384823381900787;
+	setAttr ".wl[32].w[14]" 0.14615176618099213;
+	setAttr ".wl[33].w[1]"  1;
+	setAttr -s 2 ".wl[34].w";
+	setAttr ".wl[34].w[1]" 0.89585797488689423;
+	setAttr ".wl[34].w[14]" 0.10414202511310577;
+	setAttr -s 2 ".wl[35].w";
+	setAttr ".wl[35].w[1]" 0.56708785891532898;
+	setAttr ".wl[35].w[14]" 0.43291214108467102;
+	setAttr -s 2 ".wl[36].w";
+	setAttr ".wl[36].w[1]" 0.71559381484985352;
+	setAttr ".wl[36].w[14]" 0.28440618515014648;
+	setAttr -s 2 ".wl[37].w";
+	setAttr ".wl[37].w[1]" 0.81052567064762115;
+	setAttr ".wl[37].w[14]" 0.18947432935237885;
+	setAttr -s 2 ".wl[38].w";
+	setAttr ".wl[38].w[1]" 0.38673895597457886;
+	setAttr ".wl[38].w[14]" 0.61326104402542114;
+	setAttr -s 2 ".wl[39].w";
+	setAttr ".wl[39].w[1]" 0.7179006040096283;
+	setAttr ".wl[39].w[14]" 0.2820993959903717;
+	setAttr -s 2 ".wl[40].w";
+	setAttr ".wl[40].w[1]" 0.38357150554656982;
+	setAttr ".wl[40].w[14]" 0.61642849445343018;
+	setAttr -s 2 ".wl[41].w";
+	setAttr ".wl[41].w[1]" 0.67401501536369324;
+	setAttr ".wl[41].w[14]" 0.32598498463630676;
+	setAttr -s 2 ".wl[42].w";
+	setAttr ".wl[42].w[1]" 0.34962087869644165;
+	setAttr ".wl[42].w[14]" 0.65037912130355835;
+	setAttr -s 2 ".wl[43].w";
+	setAttr ".wl[43].w[1]" 0.85580989718437195;
+	setAttr ".wl[43].w[14]" 0.14419010281562805;
+	setAttr -s 2 ".wl[44].w";
+	setAttr ".wl[44].w[1]" 0.78917601704597473;
+	setAttr ".wl[44].w[14]" 0.21082398295402527;
+	setAttr -s 2 ".wl[45].w";
+	setAttr ".wl[45].w[1]" 0.85489946603775024;
+	setAttr ".wl[45].w[14]" 0.14510053396224976;
+	setAttr -s 2 ".wl[46].w";
+	setAttr ".wl[46].w[1]" 0.80199474096298218;
+	setAttr ".wl[46].w[14]" 0.19800525903701782;
+	setAttr -s 2 ".wl[47].w";
+	setAttr ".wl[47].w[1]" 0.76160991191864014;
+	setAttr ".wl[47].w[14]" 0.23839008808135986;
+	setAttr ".wl[48].w[1]"  1;
+	setAttr ".wl[49].w[1]"  1;
+	setAttr ".wl[50].w[1]"  1;
+	setAttr ".wl[51].w[1]"  1;
+	setAttr ".wl[52].w[1]"  1;
+	setAttr -s 2 ".wl[53].w";
+	setAttr ".wl[53].w[1]" 0.81763732433319092;
+	setAttr ".wl[53].w[14]" 0.18236267566680908;
+	setAttr -s 2 ".wl[54].w";
+	setAttr ".wl[54].w[1]" 0.63836890459060669;
+	setAttr ".wl[54].w[14]" 0.36163109540939331;
+	setAttr -s 2 ".wl[55].w";
+	setAttr ".wl[55].w[1]" 0.34903198480606079;
+	setAttr ".wl[55].w[14]" 0.65096801519393921;
+	setAttr ".wl[56].w[1]"  1;
+	setAttr -s 2 ".wl[57].w";
+	setAttr ".wl[57].w[1]" 0.77098868787288666;
+	setAttr ".wl[57].w[14]" 0.22901131212711334;
+	setAttr -s 2 ".wl[58].w";
+	setAttr ".wl[58].w[1]" 0.65140518546104431;
+	setAttr ".wl[58].w[14]" 0.34859481453895569;
+	setAttr -s 2 ".wl[59].w";
+	setAttr ".wl[59].w[1]" 0.34261727333068848;
+	setAttr ".wl[59].w[14]" 0.65738272666931152;
+	setAttr ".wl[60].w[1]"  1;
+	setAttr ".wl[61].w[1]"  1;
+	setAttr ".wl[62].w[1]"  1;
+	setAttr ".wl[63].w[1]"  1;
+	setAttr ".wl[64].w[1]"  1;
+	setAttr ".wl[65].w[1]"  1;
+	setAttr ".wl[66].w[1]"  1;
+	setAttr ".wl[67].w[1]"  1;
+	setAttr ".wl[68].w[1]"  1;
+	setAttr ".wl[69].w[1]"  1;
+	setAttr ".wl[70].w[1]"  1;
+	setAttr -s 2 ".wl[71].w";
+	setAttr ".wl[71].w[1]" 0.42892128229141235;
+	setAttr ".wl[71].w[14]" 0.57107871770858765;
+	setAttr ".wl[72].w[1]"  1;
+	setAttr -s 2 ".wl[73].w";
+	setAttr ".wl[73].w[1]" 0.30634397268295288;
+	setAttr ".wl[73].w[14]" 0.69365602731704712;
+	setAttr ".wl[74].w[1]"  1;
+	setAttr -s 2 ".wl[75].w";
+	setAttr ".wl[75].w[1]" 0.3034675121307373;
+	setAttr ".wl[75].w[14]" 0.6965324878692627;
+	setAttr ".wl[76].w[1]"  1;
+	setAttr ".wl[77].w[1]"  1;
+	setAttr ".wl[78].w[1]"  1;
+	setAttr ".wl[79].w[1]"  1;
+	setAttr ".wl[80].w[1]"  1;
+	setAttr ".wl[81].w[1]"  1;
+	setAttr ".wl[82].w[1]"  1;
+	setAttr ".wl[83].w[1]"  1;
+	setAttr -s 2 ".wl[84].w";
+	setAttr ".wl[84].w[1]" 0.49002283811569214;
+	setAttr ".wl[84].w[14]" 0.50997716188430786;
+	setAttr -s 2 ".wl[85].w";
+	setAttr ".wl[85].w[1]" 0.55914106965065002;
+	setAttr ".wl[85].w[14]" 0.44085893034934998;
+	setAttr -s 2 ".wl[86].w";
+	setAttr ".wl[86].w[1]" 0.36735332012176514;
+	setAttr ".wl[86].w[14]" 0.63264667987823486;
+	setAttr -s 2 ".wl[87].w";
+	setAttr ".wl[87].w[1]" 0.37201181054115295;
+	setAttr ".wl[87].w[14]" 0.62798818945884705;
+	setAttr -s 2 ".wl[88].w";
+	setAttr ".wl[88].w[1]" 0.33000278472900391;
+	setAttr ".wl[88].w[14]" 0.66999721527099609;
+	setAttr -s 2 ".wl[89].w";
+	setAttr ".wl[89].w[1]" 0.30191099643707275;
+	setAttr ".wl[89].w[14]" 0.69808900356292725;
+	setAttr -s 2 ".wl[90].w";
+	setAttr ".wl[90].w[1]" 0.30602884292602539;
+	setAttr ".wl[90].w[14]" 0.69397115707397461;
+	setAttr ".wl[91].w[1]"  1;
+	setAttr ".wl[92].w[1]"  1;
+	setAttr ".wl[93].w[1]"  1;
+	setAttr ".wl[94].w[1]"  1;
+	setAttr ".wl[95].w[1]"  1;
+	setAttr ".wl[96].w[1]"  1;
+	setAttr ".wl[97].w[1]"  1;
+	setAttr ".wl[98].w[1]"  1;
+	setAttr -s 2 ".wl[99].w";
+	setAttr ".wl[99].w[1]" 0.91382341831922531;
+	setAttr ".wl[99].w[14]" 0.086176581680774689;
+	setAttr -s 2 ".wl[100].w";
+	setAttr ".wl[100].w[1]" 0.91828665882349014;
+	setAttr ".wl[100].w[14]" 0.081713341176509857;
+	setAttr -s 2 ".wl[101].w";
+	setAttr ".wl[101].w[1]" 0.60686594247817993;
+	setAttr ".wl[101].w[14]" 0.39313405752182007;
+	setAttr -s 2 ".wl[102].w";
+	setAttr ".wl[102].w[1]" 0.61096590757369995;
+	setAttr ".wl[102].w[14]" 0.38903409242630005;
+	setAttr ".wl[103].w[1]"  1;
+	setAttr ".wl[104].w[1]"  1;
+	setAttr ".wl[105].w[1]"  1;
+	setAttr ".wl[106].w[1]"  1;
+	setAttr ".wl[107].w[1]"  1;
+	setAttr -s 2 ".wl[108].w";
+	setAttr ".wl[108].w[1]" 0.92017967632902975;
+	setAttr ".wl[108].w[14]" 0.079820323670970278;
+	setAttr -s 2 ".wl[109].w";
+	setAttr ".wl[109].w[1]" 0.62164268584870075;
+	setAttr ".wl[109].w[14]" 0.37835731415129925;
+	setAttr -s 2 ".wl[110].w";
+	setAttr ".wl[110].w[1]" 0.36292602665883561;
+	setAttr ".wl[110].w[14]" 0.63707397334116445;
+	setAttr ".wl[111].w[1]"  1;
+	setAttr ".wl[112].w[1]"  1;
+	setAttr -s 2 ".wl[113].w";
+	setAttr ".wl[113].w[1]" 0.62371818643866483;
+	setAttr ".wl[113].w[14]" 0.37628181356133528;
+	setAttr -s 2 ".wl[114].w";
+	setAttr ".wl[114].w[1]" 0.35428829473328194;
+	setAttr ".wl[114].w[14]" 0.64571170526671806;
+	setAttr ".wl[115].w[1]"  1;
+	setAttr ".wl[116].w[1]"  1;
+	setAttr -s 2 ".wl[117].w";
+	setAttr ".wl[117].w[1]" 0.64327102899551392;
+	setAttr ".wl[117].w[14]" 0.35672897100448608;
+	setAttr -s 2 ".wl[118].w";
+	setAttr ".wl[118].w[1]" 0.34510381662606776;
+	setAttr ".wl[118].w[14]" 0.65489618337393218;
+	setAttr ".wl[119].w[1]"  1;
+	setAttr ".wl[120].w[1]"  1;
+	setAttr ".wl[121].w[1]"  1;
+	setAttr ".wl[122].w[1]"  1;
+	setAttr ".wl[123].w[1]"  1;
+	setAttr ".wl[124].w[1]"  1;
+	setAttr ".wl[125].w[1]"  1;
+	setAttr ".wl[126].w[1]"  1;
+	setAttr ".wl[127].w[1]"  1;
+	setAttr ".wl[128].w[1]"  1;
+	setAttr ".wl[129].w[1]"  1;
+	setAttr -s 2 ".wl[130].w";
+	setAttr ".wl[130].w[1]" 0.85386662090246146;
+	setAttr ".wl[130].w[14]" 0.14613337909753857;
+	setAttr ".wl[131].w[1]"  1;
+	setAttr -s 2 ".wl[132].w";
+	setAttr ".wl[132].w[1]" 0.8958581132015706;
+	setAttr ".wl[132].w[14]" 0.10414188679842942;
+	setAttr -s 2 ".wl[133].w";
+	setAttr ".wl[133].w[1]" 0.5670842900374069;
+	setAttr ".wl[133].w[14]" 0.4329157099625931;
+	setAttr -s 2 ".wl[134].w";
+	setAttr ".wl[134].w[1]" 0.7155673130254705;
+	setAttr ".wl[134].w[14]" 0.2844326869745295;
+	setAttr -s 2 ".wl[135].w";
+	setAttr ".wl[135].w[1]" 0.81208809504224411;
+	setAttr ".wl[135].w[14]" 0.18791190495775589;
+	setAttr -s 2 ".wl[136].w";
+	setAttr ".wl[136].w[1]" 0.38674938916435753;
+	setAttr ".wl[136].w[14]" 0.61325061083564258;
+	setAttr -s 2 ".wl[137].w";
+	setAttr ".wl[137].w[1]" 0.7295343949314399;
+	setAttr ".wl[137].w[14]" 0.27046560506856004;
+	setAttr -s 2 ".wl[138].w";
+	setAttr ".wl[138].w[1]" 0.38357122628769247;
+	setAttr ".wl[138].w[14]" 0.61642877371230753;
+	setAttr -s 2 ".wl[139].w";
+	setAttr ".wl[139].w[1]" 0.68049749732017517;
+	setAttr ".wl[139].w[14]" 0.31950250267982483;
+	setAttr -s 2 ".wl[140].w";
+	setAttr ".wl[140].w[1]" 0.34961221194414416;
+	setAttr ".wl[140].w[14]" 0.65038778805585584;
+	setAttr -s 2 ".wl[141].w";
+	setAttr ".wl[141].w[1]" 0.85837179899469618;
+	setAttr ".wl[141].w[14]" 0.14162820100530382;
+	setAttr -s 2 ".wl[142].w";
+	setAttr ".wl[142].w[1]" 0.80726846826436938;
+	setAttr ".wl[142].w[14]" 0.1927315317356306;
+	setAttr -s 2 ".wl[143].w";
+	setAttr ".wl[143].w[1]" 0.85575359962186681;
+	setAttr ".wl[143].w[14]" 0.14424640037813319;
+	setAttr -s 2 ".wl[144].w";
+	setAttr ".wl[144].w[1]" 0.80131734434176682;
+	setAttr ".wl[144].w[14]" 0.19868265565823315;
+	setAttr -s 2 ".wl[145].w";
+	setAttr ".wl[145].w[1]" 0.79793071746826172;
+	setAttr ".wl[145].w[14]" 0.20206928253173828;
+	setAttr ".wl[146].w[1]"  1;
+	setAttr ".wl[147].w[1]"  1;
+	setAttr ".wl[148].w[1]"  1;
+	setAttr ".wl[149].w[1]"  1;
+	setAttr ".wl[150].w[1]"  1;
+	setAttr -s 2 ".wl[151].w";
+	setAttr ".wl[151].w[1]" 0.81881675880244842;
+	setAttr ".wl[151].w[14]" 0.18118324119755158;
+	setAttr -s 2 ".wl[152].w";
+	setAttr ".wl[152].w[1]" 0.62157657742500305;
+	setAttr ".wl[152].w[14]" 0.37842342257499695;
+	setAttr -s 2 ".wl[153].w";
+	setAttr ".wl[153].w[1]" 0.34902601223934132;
+	setAttr ".wl[153].w[14]" 0.65097398776065862;
+	setAttr -s 2 ".wl[154].w";
+	setAttr ".wl[154].w[1]" 0.99999998476108698;
+	setAttr ".wl[154].w[14]" 1.5238913033040317e-008;
+	setAttr -s 2 ".wl[155].w";
+	setAttr ".wl[155].w[1]" 0.80601630976341188;
+	setAttr ".wl[155].w[14]" 0.19398369023658812;
+	setAttr -s 2 ".wl[156].w";
+	setAttr ".wl[156].w[1]" 0.65513771772384644;
+	setAttr ".wl[156].w[14]" 0.34486228227615356;
+	setAttr -s 2 ".wl[157].w";
+	setAttr ".wl[157].w[1]" 0.34259259344098308;
+	setAttr ".wl[157].w[14]" 0.65740740655901697;
+	setAttr ".wl[158].w[1]"  1;
+	setAttr ".wl[159].w[1]"  1;
+	setAttr ".wl[160].w[1]"  1;
+	setAttr ".wl[161].w[1]"  1;
+	setAttr ".wl[162].w[1]"  1;
+	setAttr ".wl[163].w[1]"  1;
+	setAttr ".wl[164].w[1]"  1;
+	setAttr ".wl[165].w[1]"  1;
+	setAttr ".wl[166].w[1]"  1;
+	setAttr ".wl[167].w[1]"  1;
+	setAttr -s 2 ".wl[168].w";
+	setAttr ".wl[168].w[1]" 0.30634397268295288;
+	setAttr ".wl[168].w[14]" 0.69365602731704712;
+	setAttr ".wl[169].w[1]"  1;
+	setAttr -s 2 ".wl[170].w";
+	setAttr ".wl[170].w[1]" 0.3034675084197147;
+	setAttr ".wl[170].w[14]" 0.6965324915802853;
+	setAttr ".wl[171].w[1]"  1;
+	setAttr ".wl[172].w[1]"  1;
+	setAttr ".wl[173].w[1]"  1;
+	setAttr ".wl[174].w[1]"  1;
+	setAttr ".wl[175].w[1]"  1;
+	setAttr ".wl[176].w[1]"  1;
+	setAttr ".wl[177].w[1]"  1;
+	setAttr ".wl[178].w[1]"  1;
+	setAttr -s 2 ".wl[179].w";
+	setAttr ".wl[179].w[1]" 0.49188525278312273;
+	setAttr ".wl[179].w[14]" 0.50811474721687722;
+	setAttr -s 2 ".wl[180].w";
+	setAttr ".wl[180].w[1]" 0.55912256330981358;
+	setAttr ".wl[180].w[14]" 0.44087743669018636;
+	setAttr -s 2 ".wl[181].w";
+	setAttr ".wl[181].w[1]" 0.36736376845854934;
+	setAttr ".wl[181].w[14]" 0.63263623154145066;
+	setAttr -s 2 ".wl[182].w";
+	setAttr ".wl[182].w[1]" 0.37201181054115295;
+	setAttr ".wl[182].w[14]" 0.62798818945884705;
+	setAttr -s 2 ".wl[183].w";
+	setAttr ".wl[183].w[1]" 0.33000278472900391;
+	setAttr ".wl[183].w[14]" 0.66999721527099609;
+	setAttr -s 2 ".wl[184].w";
+	setAttr ".wl[184].w[1]" 0.30191099643707275;
+	setAttr ".wl[184].w[14]" 0.69808900356292725;
+	setAttr -s 2 ".wl[185].w";
+	setAttr ".wl[185].w[1]" 0.30602963171099873;
+	setAttr ".wl[185].w[14]" 0.69397036828900127;
+	setAttr ".wl[186].w[1]"  1;
+	setAttr ".wl[187].w[1]"  1;
+	setAttr ".wl[188].w[1]"  1;
+	setAttr ".wl[189].w[1]"  1;
+	setAttr -s 2 ".wl[190].w";
+	setAttr ".wl[190].w[1]" 0.91381956526847086;
+	setAttr ".wl[190].w[14]" 0.086180434731529143;
+	setAttr -s 2 ".wl[191].w";
+	setAttr ".wl[191].w[1]" 0.59981593489646912;
+	setAttr ".wl[191].w[14]" 0.40018406510353088;
+	setAttr ".wl[192].w[1]"  1;
+	setAttr ".wl[193].w[1]"  1;
+	setAttr -s 2 ".wl[194].w";
+	setAttr ".wl[194].w[1]" 0.34285998344421387;
+	setAttr ".wl[194].w[14]" 0.65714001655578613;
+	setAttr -s 2 ".wl[195].w";
+	setAttr ".wl[195].w[1]" 0.34100147764924238;
+	setAttr ".wl[195].w[14]" 0.65899852235075762;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.054519205614935916 -5.2487305422526782e-005 -0.99851272073228914 -0
+		 -0.99802146201298458 -0.031367519622828959 -0.054490733837741293 0 -0.031318007289424799 0.99950791690601126 -0.0017625157092422308 -0
+		 24.11281526844596 0.76017186189075814 2.6283282463581101 1;
+	setAttr ".pm[3]" -type "matrix" 0.02563020205813963 -2.7134634530307012e-005 -0.99967149204434624 -0
+		 -0.9988822699933162 -0.039729025810948976 -0.025608889103432179 0 -0.039715279622053193 0.99921049022306807 -0.0010453672644425082 -0
+		 18.150895336193912 0.91242706367349125 2.1041132457995713 1;
+	setAttr ".pm[4]" -type "matrix" 0.02563020205813963 -2.7134634530307012e-005 -0.99967149204434624 -0
+		 -0.9988822699933162 -0.039729025810948976 -0.025608889103432179 0 -0.039715279622053193 0.99921049022306807 -0.0010453672644425082 -0
+		 12.294408274944676 0.91242706367349113 2.1041132457995717 1;
+	setAttr ".pm[5]" -type "matrix" 0.013999141730848428 -0.0025516170250339692 -0.99989875151505048 -0
+		 -0.57972810954237952 0.81474619836937889 -0.010195648535648914 0 0.81468972194156086 0.57981214327849451 0.0099265033914440297 -0
+		 7.4705908191905017 -9.8425941919481943 1.9051605296436227 1;
+	setAttr ".pm[6]" -type "matrix" 0.045805361811375823 -0.0029890470987587727 -0.99894591166227309 -0
+		 -0.21209951392834811 0.97716620298388968 -0.012649424390267793 0 0.97617399321057874 0.21245535376518065 0.044125476040769968 -0
+		 1.4744202021602866 -11.373490180943088 1.9009989097011946 1;
+	setAttr ".pm[7]" -type "matrix" 0.045805361811375823 -0.0029890470987587727 -0.99894591166227309 -0
+		 -0.21209951392834811 0.97716620298388968 -0.012649424390267793 0 0.97617399321057874 0.21245535376518065 0.044125476040769968 -0
+		 -0.024401179370309369 -11.373490180943088 1.9009989097011946 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 0.83392248060396357 0.55188159630787847 0
+		 0 -0.55188159630787847 0.83392248060396357 0 0 3.8417420786326075 -11.731890102592081 1;
+	setAttr -s 7 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 7 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 7 ".ifcl";
+createNode tweak -n "tweak21";
+	rename -uid "1C261125-48C3-8A3B-926B-9C9080153321";
+	setAttr -s 44 ".vl[0].vt";
+	setAttr ".vl[0].vt[73]" -type "float3" 0 -0.021422338 -0.032370303 ;
+	setAttr ".vl[0].vt[75]" -type "float3" 0 -0.021422345 -0.032370303 ;
+	setAttr ".vl[0].vt[88]" -type "float3" 0 -0.0105549 -0.015949016 ;
+	setAttr ".vl[0].vt[89]" -type "float3" 0 -0.021422345 -0.032370303 ;
+	setAttr ".vl[0].vt[90]" -type "float3" 0 -0.021422345 -0.032370303 ;
+	setAttr ".vl[0].vt[168]" -type "float3" 0 -0.021422338 -0.032370303 ;
+	setAttr ".vl[0].vt[170]" -type "float3" 0 -0.021422345 -0.032370303 ;
+	setAttr ".vl[0].vt[183]" -type "float3" 0 -0.0105549 -0.015949016 ;
+	setAttr ".vl[0].vt[184]" -type "float3" 0 -0.021422345 -0.032370303 ;
+	setAttr ".vl[0].vt[185]" -type "float3" 0 -0.021422345 -0.032370303 ;
+	setAttr ".vl[0].vt[194]" -type "float3" 0 7.4505806e-009 0 ;
+createNode objectSet -n "skinCluster7Set";
+	rename -uid "6F85C6B7-482E-D55D-6B42-B493BBB8C9A8";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster7GroupId";
+	rename -uid "E959A46F-4972-27A6-0F81-67ADDD72A767";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster7GroupParts";
+	rename -uid "DAD3E44C-4861-5F96-1AE8-458D3F5C9169";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet21";
+	rename -uid "83BD9BB1-4559-C95E-EC42-DFA341A5397C";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId103";
+	rename -uid "72F30260-4C6B-90E5-8175-F89584F06623";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts44";
+	rename -uid "9D6EE7FA-497D-1563-FCDB-ABB8C91CE47D";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster8";
+	rename -uid "81D19A6E-4B27-9F66-2DA4-81A83A06BDB3";
+	setAttr -s 18 ".wl";
+	setAttr ".wl[0].w[16]"  1;
+	setAttr ".wl[1].w[16]"  1;
+	setAttr ".wl[2].w[16]"  1;
+	setAttr ".wl[3].w[16]"  1;
+	setAttr ".wl[4].w[16]"  1;
+	setAttr ".wl[5].w[16]"  1;
+	setAttr ".wl[6].w[16]"  1;
+	setAttr ".wl[7].w[16]"  1;
+	setAttr ".wl[8].w[16]"  1;
+	setAttr ".wl[9].w[16]"  1;
+	setAttr ".wl[10].w[16]"  1;
+	setAttr ".wl[11].w[16]"  1;
+	setAttr ".wl[12].w[16]"  1;
+	setAttr ".wl[13].w[16]"  1;
+	setAttr ".wl[14].w[16]"  1;
+	setAttr ".wl[15].w[16]"  1;
+	setAttr ".wl[16].w[16]"  1;
+	setAttr ".wl[17].w[16]"  1;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.051493515346540834 2.0383000842727461e-016 -0.99867332891053762 -0
+		 -0.99818198979449013 -0.031364655247645618 -0.051468180957827223 0 -0.031323044666297643 0.99950800817261898 -0.0016150763563331663 -0
+		 24.120668398157317 0.76003370149176896 2.5552955991716688 1;
+	setAttr ".pm[3]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 18.156634855702855 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[4]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 12.300147794453618 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[5]" -type "matrix" 0.012364520435292669 -9.2200552748167179e-016 -0.99992355639538988 -0
+		 -0.57976573854395153 0.81475167554161088 -0.0071690733517187077 0 0.81468939298667131 0.57981006131502766 0.010074013741922901 -0
+		 7.4736437563115317 -9.8460691450435451 1.8318525316792889 1;
+	setAttr ".pm[6]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 1.4783482514010038 -11.377529339347678 1.8277615290942684 1;
+	setAttr ".pm[7]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 -0.020473130129591927 -11.37752933934768 1.8277615290942681 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 1.7111111604947564 0 0 0 0 1.7355555794226334 0 0 0 0 1 0
+		 0 28.732697029823456 1.3559832188632988 1;
+	setAttr -s 8 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 8 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 8 ".ifcl";
+createNode tweak -n "tweak22";
+	rename -uid "26E7F698-420E-BD99-7656-A98DBBD56F2E";
+createNode objectSet -n "skinCluster8Set";
+	rename -uid "D9F6DAB4-400E-52E5-DA3E-5F95858099A3";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster8GroupId";
+	rename -uid "6BAFEA73-4082-0EBB-925C-3592B298A2E2";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster8GroupParts";
+	rename -uid "9373CFE0-4700-54D9-22A7-FF9CA9E4AB98";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet22";
+	rename -uid "BAD0E883-4C33-7386-6E7F-80B47181F98F";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId105";
+	rename -uid "B30645B8-4313-D868-BF63-4F8D55E0ED3D";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts46";
+	rename -uid "19309C9F-4149-1F50-B5D5-2A952F3F3036";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster9";
+	rename -uid "719B82C7-4F3E-486C-2D61-A08A0417484C";
+	setAttr -s 101 ".wl";
+	setAttr ".wl[0].w[14]"  1;
+	setAttr ".wl[1].w[14]"  1;
+	setAttr ".wl[2].w[14]"  1;
+	setAttr ".wl[3].w[14]"  1;
+	setAttr ".wl[4].w[14]"  1;
+	setAttr ".wl[5].w[14]"  1;
+	setAttr -s 2 ".wl[6].w[14:15]"  0.99800139549188316 0.0019986045081168413;
+	setAttr ".wl[7].w[14]"  1;
+	setAttr ".wl[8].w[14]"  1;
+	setAttr ".wl[9].w[14]"  1;
+	setAttr ".wl[10].w[14]"  1;
+	setAttr -s 2 ".wl[11].w[14:15]"  0.77038992941379547 0.22961007058620453;
+	setAttr -s 2 ".wl[12].w[14:15]"  0.78767383098602295 0.21232616901397705;
+	setAttr -s 2 ".wl[13].w[14:15]"  0.73968642950057983 0.26031357049942017;
+	setAttr -s 2 ".wl[14].w[14:15]"  0.54547154903411865 0.45452845096588135;
+	setAttr -s 2 ".wl[15].w[14:15]"  0.5754733681678772 0.4245266318321228;
+	setAttr -s 2 ".wl[16].w[14:15]"  0.75573651492595673 0.24426348507404327;
+	setAttr -s 2 ".wl[17].w[14:15]"  0.66927513480186462 0.33072486519813538;
+	setAttr -s 2 ".wl[18].w[14:15]"  0.63685965538024902 0.36314034461975098;
+	setAttr -s 2 ".wl[19].w[14:15]"  0.71673846244812012 0.28326153755187988;
+	setAttr -s 2 ".wl[20].w[14:15]"  0.74570906162261963 0.25429093837738037;
+	setAttr -s 2 ".wl[21].w[14:15]"  0.76669776439666748 0.23330223560333252;
+	setAttr ".wl[22].w[14]"  1;
+	setAttr -s 2 ".wl[23].w[14:15]"  0.83276982605457306 0.16723017394542694;
+	setAttr -s 2 ".wl[24].w";
+	setAttr ".wl[24].w[14]" 0.92829155921936035;
+	setAttr ".wl[24].w[16]" 0.071708440780639648;
+	setAttr -s 2 ".wl[25].w[14:15]"  0.76888379454612732 0.23111620545387268;
+	setAttr ".wl[26].w[14]"  1;
+	setAttr ".wl[27].w[14]"  1;
+	setAttr ".wl[28].w[14]"  1;
+	setAttr ".wl[29].w[14]"  1;
+	setAttr ".wl[30].w[14]"  1;
+	setAttr ".wl[31].w[14]"  1;
+	setAttr ".wl[32].w[14]"  1;
+	setAttr ".wl[33].w[14]"  1;
+	setAttr -s 2 ".wl[34].w[14:15]"  0.98221336491405964 0.017786635085940361;
+	setAttr ".wl[35].w[14]"  1;
+	setAttr ".wl[36].w[14]"  1;
+	setAttr ".wl[37].w[14]"  1;
+	setAttr ".wl[38].w[14]"  1;
+	setAttr ".wl[39].w[14]"  1;
+	setAttr -s 2 ".wl[40].w[14:15]"  0.96483070403337479 0.035169295966625214;
+	setAttr -s 2 ".wl[41].w[14:15]"  0.98058376833796501 0.019416231662034988;
+	setAttr -s 2 ".wl[42].w[14:15]"  0.99674107623286545 0.0032589237671345472;
+	setAttr ".wl[43].w[14]"  1;
+	setAttr -s 2 ".wl[44].w[14:15]"  0.98656221758574247 0.013437782414257526;
+	setAttr -s 2 ".wl[45].w[14:15]"  0.95887177437543869 0.04112822562456131;
+	setAttr -s 2 ".wl[46].w[14:15]"  0.5612311065196991 0.4387688934803009;
+	setAttr -s 2 ".wl[47].w[14:15]"  0.68136414885520935 0.31863585114479065;
+	setAttr -s 2 ".wl[48].w[14:15]"  0.53326860070228577 0.46673139929771423;
+	setAttr -s 2 ".wl[49].w[14:15]"  0.56812751293182373 0.43187248706817627;
+	setAttr -s 2 ".wl[50].w[14:15]"  0.4417186975479126 0.5582813024520874;
+	setAttr -s 3 ".wl[51].w[14:16]"  0.69410883570080084 0.26644032141203594 
+		0.039450842887163162;
+	setAttr -s 3 ".wl[52].w[14:16]"  0.64676602017808826 0.33869453034620617 
+		0.014539449475705624;
+	setAttr ".wl[53].w[14]"  1;
+	setAttr -s 2 ".wl[54].w[14:15]"  0.98639230150729418 0.013607698492705822;
+	setAttr ".wl[55].w[14]"  1;
+	setAttr ".wl[56].w[14]"  1;
+	setAttr ".wl[57].w[14]"  1;
+	setAttr ".wl[58].w[14]"  1;
+	setAttr ".wl[59].w[14]"  1;
+	setAttr ".wl[60].w[14]"  1;
+	setAttr ".wl[61].w[14]"  1;
+	setAttr ".wl[62].w[14]"  1;
+	setAttr -s 2 ".wl[63].w[14:15]"  0.98375280760228634 0.016247192397713661;
+	setAttr ".wl[64].w[14]"  1;
+	setAttr ".wl[65].w[14]"  1;
+	setAttr -s 2 ".wl[66].w[14:15]"  0.90298601984977722 0.097013980150222778;
+	setAttr -s 2 ".wl[67].w[14:15]"  0.80359306931495667 0.19640693068504333;
+	setAttr -s 2 ".wl[68].w[14:15]"  0.74972790479660034 0.25027209520339966;
+	setAttr -s 2 ".wl[69].w[14:15]"  0.55889829993247986 0.44110170006752014;
+	setAttr -s 2 ".wl[70].w[14:15]"  0.73869961500167847 0.26130038499832153;
+	setAttr -s 2 ".wl[71].w[14:15]"  0.66930913925170898 0.33069086074829102;
+	setAttr -s 2 ".wl[72].w[14:15]"  0.8327241986989975 0.1672758013010025;
+	setAttr -s 2 ".wl[73].w[14:15]"  0.6841166615486145 0.3158833384513855;
+	setAttr -s 2 ".wl[74].w[14:15]"  0.84309394657611847 0.15690605342388153;
+	setAttr -s 2 ".wl[75].w[14:15]"  0.80655345320701599 0.19344654679298401;
+	setAttr -s 2 ".wl[76].w[14:15]"  0.87519584596157074 0.12480415403842926;
+	setAttr ".wl[77].w[14]"  1;
+	setAttr -s 2 ".wl[78].w[14:15]"  0.85867045819759369 0.14132954180240631;
+	setAttr ".wl[79].w[14]"  1;
+	setAttr ".wl[80].w[14]"  1;
+	setAttr ".wl[81].w[14]"  1;
+	setAttr ".wl[82].w[14]"  1;
+	setAttr ".wl[83].w[14]"  1;
+	setAttr ".wl[84].w[14]"  1;
+	setAttr ".wl[85].w[14]"  1;
+	setAttr -s 2 ".wl[86].w[14:15]"  0.89080476015806198 0.10919523984193802;
+	setAttr ".wl[87].w[14]"  1;
+	setAttr -s 2 ".wl[88].w[14:15]"  0.96597681194543839 0.034023188054561615;
+	setAttr ".wl[89].w[14]"  1;
+	setAttr ".wl[90].w[14]"  1;
+	setAttr -s 2 ".wl[91].w[14:15]"  0.99699990474618971 0.0030000952538102865;
+	setAttr ".wl[92].w[14]"  1;
+	setAttr -s 2 ".wl[93].w[14:15]"  0.66392996907234192 0.33607003092765808;
+	setAttr -s 2 ".wl[94].w[14:15]"  0.56356614828109741 0.43643385171890259;
+	setAttr -s 2 ".wl[95].w[14:15]"  0.65771543979644775 0.34228456020355225;
+	setAttr -s 2 ".wl[96].w[14:15]"  0.43098592758178711 0.56901407241821289;
+	setAttr -s 2 ".wl[97].w[14:15]"  0.68422415852546692 0.31577584147453308;
+	setAttr -s 2 ".wl[98].w[14:15]"  0.87951373308897018 0.12048626691102982;
+	setAttr ".wl[99].w[14]"  1;
+	setAttr ".wl[100].w[14]"  1;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.051493515346540834 2.0383000842727461e-016 -0.99867332891053762 -0
+		 -0.99818198979449013 -0.031364655247645618 -0.051468180957827223 0 -0.031323044666297643 0.99950800817261898 -0.0016150763563331663 -0
+		 24.120668398157317 0.76003370149176896 2.5552955991716688 1;
+	setAttr ".pm[3]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 18.156634855702855 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[4]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 12.300147794453618 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[5]" -type "matrix" 0.012364520435292669 -9.2200552748167179e-016 -0.99992355639538988 -0
+		 -0.57976573854395153 0.81475167554161088 -0.0071690733517187077 0 0.81468939298667131 0.57981006131502766 0.010074013741922901 -0
+		 7.4736437563115317 -9.8460691450435451 1.8318525316792889 1;
+	setAttr ".pm[6]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 1.4783482514010038 -11.377529339347678 1.8277615290942684 1;
+	setAttr ".pm[7]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 -0.020473130129591927 -11.37752933934768 1.8277615290942681 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 2.2444444693589833 0 0 0 0 0.99888345840554138 0.047242317087385868 0
+		 0 -0.0663619476220626 1.4031456506385618 0 0.0032412057613915302 25.924443273843185 0.09023579151345984 1;
+	setAttr -s 7 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 7 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 7 ".ifcl";
+createNode tweak -n "tweak23";
+	rename -uid "D6A94428-4BBC-8723-0B28-58B443255C18";
+createNode objectSet -n "skinCluster9Set";
+	rename -uid "5DAB62C3-435F-F722-EA5D-9480BCE978F5";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster9GroupId";
+	rename -uid "0C31F49A-4FB0-3064-65D5-19ADC741D61D";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster9GroupParts";
+	rename -uid "B815995C-4D96-1179-EC20-2C9CD4E0E046";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet23";
+	rename -uid "16798219-4BE8-C8DD-1DF2-0996C287B452";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId107";
+	rename -uid "E6F98781-4AEA-87FA-8E3A-2B97F8688A7F";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts48";
+	rename -uid "E9E47984-4217-5F00-5048-948CC95F6C9D";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster10";
+	rename -uid "4180B0F1-4D93-D583-D620-858C56605642";
+	setAttr -s 8 ".wl";
+	setAttr -s 5 ".wl[0].w";
+	setAttr ".wl[0].w[0]" 0.19401836335269801;
+	setAttr ".wl[0].w[1]" 0.22486785637769288;
+	setAttr ".wl[0].w[2]" 0.1139870346299489;
+	setAttr ".wl[0].w[14]" 0.23735615804780819;
+	setAttr ".wl[0].w[15]" 0.22977058759185207;
+	setAttr -s 5 ".wl[1].w";
+	setAttr ".wl[1].w[0]" 0.16478787896431282;
+	setAttr ".wl[1].w[1]" 0.2511454604634582;
+	setAttr ".wl[1].w[2]" 0.19784321744569308;
+	setAttr ".wl[1].w[14]" 0.19472336828380174;
+	setAttr ".wl[1].w[15]" 0.1915000748427341;
+	setAttr -s 5 ".wl[2].w";
+	setAttr ".wl[2].w[0]" 0.13928879339438743;
+	setAttr ".wl[2].w[1]" 0.13955010218112709;
+	setAttr ".wl[2].w[14]" 0.26241890988904809;
+	setAttr ".wl[2].w[15]" 0.28556998029449276;
+	setAttr ".wl[2].w[16]" 0.17317221424094445;
+	setAttr -s 5 ".wl[3].w";
+	setAttr ".wl[3].w[0]" 0.14690770051239649;
+	setAttr ".wl[3].w[1]" 0.16120715229792823;
+	setAttr ".wl[3].w[14]" 0.2440732609585379;
+	setAttr ".wl[3].w[15]" 0.26316374986787472;
+	setAttr ".wl[3].w[16]" 0.18464813636326269;
+	setAttr -s 5 ".wl[4].w";
+	setAttr ".wl[4].w[0]" 0.10491994887107595;
+	setAttr ".wl[4].w[1]" 0.10491994887107595;
+	setAttr ".wl[4].w[14]" 0.2925107719383554;
+	setAttr ".wl[4].w[15]" 0.34505760083569575;
+	setAttr ".wl[4].w[16]" 0.15259172948379685;
+	setAttr -s 5 ".wl[5].w";
+	setAttr ".wl[5].w[0]" 0.12779208904391742;
+	setAttr ".wl[5].w[1]" 0.1329273192967548;
+	setAttr ".wl[5].w[14]" 0.26256025499285585;
+	setAttr ".wl[5].w[15]" 0.2963187794736889;
+	setAttr ".wl[5].w[16]" 0.18040155719278311;
+	setAttr -s 5 ".wl[6].w";
+	setAttr ".wl[6].w[0]" 0.19219115061581676;
+	setAttr ".wl[6].w[1]" 0.20729659558122332;
+	setAttr ".wl[6].w[2]" 0.055157224770920131;
+	setAttr ".wl[6].w[14]" 0.27969433149032102;
+	setAttr ".wl[6].w[15]" 0.26566069754171878;
+	setAttr -s 5 ".wl[7].w";
+	setAttr ".wl[7].w[0]" 0.17213073922030267;
+	setAttr ".wl[7].w[1]" 0.24380202407117582;
+	setAttr ".wl[7].w[2]" 0.14345444564286505;
+	setAttr ".wl[7].w[14]" 0.22261570469941958;
+	setAttr ".wl[7].w[15]" 0.2179970863662368;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.051493515346540834 2.0383000842727461e-016 -0.99867332891053762 -0
+		 -0.99818198979449013 -0.031364655247645618 -0.051468180957827223 0 -0.031323044666297643 0.99950800817261898 -0.0016150763563331663 -0
+		 24.120668398157317 0.76003370149176896 2.5552955991716688 1;
+	setAttr ".pm[3]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 18.156634855702855 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[4]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 12.300147794453618 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[5]" -type "matrix" 0.012364520435292669 -9.2200552748167179e-016 -0.99992355639538988 -0
+		 -0.57976573854395153 0.81475167554161088 -0.0071690733517187077 0 0.81468939298667131 0.57981006131502766 0.010074013741922901 -0
+		 7.4736437563115317 -9.8460691450435451 1.8318525316792889 1;
+	setAttr ".pm[6]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 1.4783482514010038 -11.377529339347678 1.8277615290942684 1;
+	setAttr ".pm[7]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 -0.020473130129591927 -11.37752933934768 1.8277615290942681 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 0.70483179467603163 0.041702533547013594 -0.70814761166689288 0
+		 -0.0037642563282766425 0.68597313423881789 0.036650056671620773 0 0.38439654925744743 -0.018274447727299224 0.3815204831024504 0
+		 1.7809693006214893 26.607022559660756 0.8329175596517473 1;
+	setAttr -s 6 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 6 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 6 ".ifcl";
+createNode groupId -n "groupId108";
+	rename -uid "7548081E-4305-084D-93EA-15AEEB5DD860";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts49";
+	rename -uid "6B8029EE-4A39-B4EF-DECA-84B197D1652F";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode tweak -n "tweak24";
+	rename -uid "D46F1A73-4C37-2350-48F8-9F95D21FBC6B";
+createNode objectSet -n "skinCluster10Set";
+	rename -uid "115A92FE-4FE9-99B4-1974-2EAA7284A123";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster10GroupId";
+	rename -uid "30D0E379-4E8C-0DC4-B7FE-C3ACEBFFEDBF";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster10GroupParts";
+	rename -uid "B2792B21-4235-BA3E-3235-65A36A59C212";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet24";
+	rename -uid "8A6EDA47-432F-D3AB-27DC-48A6266A7B52";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId110";
+	rename -uid "929A47AF-40F2-3D13-3C11-50A538B6F45F";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts51";
+	rename -uid "0CD9F120-41EE-3E7A-CD42-00A77FB2C25F";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster11";
+	rename -uid "8DE70602-4778-F8B4-D362-98AB46203972";
+	setAttr -s 12 ".wl";
+	setAttr -s 5 ".wl[0].w";
+	setAttr ".wl[0].w[0]" 0.20184785606224379;
+	setAttr ".wl[0].w[1]" 0.20184785606224379;
+	setAttr ".wl[0].w[14]" 0.28597235423422412;
+	setAttr ".wl[0].w[15]" 0.26546955335147598;
+	setAttr ".wl[0].w[16]" 0.044862380289812348;
+	setAttr -s 5 ".wl[1].w";
+	setAttr ".wl[1].w[0]" 0.20528601521065362;
+	setAttr ".wl[1].w[1]" 0.20528601521065432;
+	setAttr ".wl[1].w[14]" 0.27686335979556326;
+	setAttr ".wl[1].w[15]" 0.25989412332584894;
+	setAttr ".wl[1].w[16]" 0.052670486457279724;
+	setAttr -s 5 ".wl[2].w";
+	setAttr ".wl[2].w[0]" 0.10998649041534193;
+	setAttr ".wl[2].w[1]" 0.10998649041534193;
+	setAttr ".wl[2].w[14]" 0.29657509942315002;
+	setAttr ".wl[2].w[15]" 0.33969346713444382;
+	setAttr ".wl[2].w[16]" 0.14375845261172226;
+	setAttr -s 5 ".wl[3].w";
+	setAttr ".wl[3].w[0]" 0.11876790406488229;
+	setAttr ".wl[3].w[1]" 0.11876790406488257;
+	setAttr ".wl[3].w[14]" 0.28763285289768231;
+	setAttr ".wl[3].w[15]" 0.32334837477234285;
+	setAttr ".wl[3].w[16]" 0.15148296420020996;
+	setAttr -s 5 ".wl[4].w";
+	setAttr ".wl[4].w[0]" 0.070124954705495693;
+	setAttr ".wl[4].w[1]" 0.070124954705495693;
+	setAttr ".wl[4].w[14]" 0.31993882088850151;
+	setAttr ".wl[4].w[15]" 0.42470583497395958;
+	setAttr ".wl[4].w[16]" 0.11510543472654745;
+	setAttr -s 5 ".wl[5].w";
+	setAttr ".wl[5].w[0]" 0.085785665377853204;
+	setAttr ".wl[5].w[1]" 0.085785665377853468;
+	setAttr ".wl[5].w[14]" 0.30965426137572272;
+	setAttr ".wl[5].w[15]" 0.38624101538350519;
+	setAttr ".wl[5].w[16]" 0.13253339248506538;
+	setAttr -s 5 ".wl[6].w";
+	setAttr ".wl[6].w[0]" 0.17064326621961906;
+	setAttr ".wl[6].w[1]" 0.17064326621961906;
+	setAttr ".wl[6].w[14]" 0.3344212571515649;
+	setAttr ".wl[6].w[15]" 0.30065872869824589;
+	setAttr ".wl[6].w[16]" 0.023633481710951233;
+	setAttr -s 5 ".wl[7].w";
+	setAttr ".wl[7].w[0]" 0.18437310132246748;
+	setAttr ".wl[7].w[1]" 0.18437310132246831;
+	setAttr ".wl[7].w[14]" 0.31101978504129379;
+	setAttr ".wl[7].w[15]" 0.28709339993404098;
+	setAttr ".wl[7].w[16]" 0.033140612379729407;
+	setAttr -s 5 ".wl[8].w";
+	setAttr ".wl[8].w[0]" 0.20528601538071359;
+	setAttr ".wl[8].w[1]" 0.20528601538071289;
+	setAttr ".wl[8].w[14]" 0.27686335930231903;
+	setAttr ".wl[8].w[15]" 0.2598941230148436;
+	setAttr ".wl[8].w[16]" 0.052670486921410756;
+	setAttr -s 5 ".wl[9].w";
+	setAttr ".wl[9].w[0]" 0.11876790455602608;
+	setAttr ".wl[9].w[1]" 0.1187679045560258;
+	setAttr ".wl[9].w[14]" 0.28763285238970165;
+	setAttr ".wl[9].w[15]" 0.32334837387951537;
+	setAttr ".wl[9].w[16]" 0.15148296461873112;
+	setAttr -s 5 ".wl[10].w";
+	setAttr ".wl[10].w[0]" 0.085785666239928046;
+	setAttr ".wl[10].w[1]" 0.08578566623992781;
+	setAttr ".wl[10].w[14]" 0.30965426072455599;
+	setAttr ".wl[10].w[15]" 0.38624101341348765;
+	setAttr ".wl[10].w[16]" 0.13253339338210046;
+	setAttr -s 5 ".wl[11].w";
+	setAttr ".wl[11].w[0]" 0.18437310196492421;
+	setAttr ".wl[11].w[1]" 0.18437310196492343;
+	setAttr ".wl[11].w[14]" 0.31101978389172069;
+	setAttr ".wl[11].w[15]" 0.28709339922446719;
+	setAttr ".wl[11].w[16]" 0.03314061295396456;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.051493515346540834 2.0383000842727461e-016 -0.99867332891053762 -0
+		 -0.99818198979449013 -0.031364655247645618 -0.051468180957827223 0 -0.031323044666297643 0.99950800817261898 -0.0016150763563331663 -0
+		 24.120668398157317 0.76003370149176896 2.5552955991716688 1;
+	setAttr ".pm[3]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 18.156634855702855 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[4]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 12.300147794453618 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[5]" -type "matrix" 0.012364520435292669 -9.2200552748167179e-016 -0.99992355639538988 -0
+		 -0.57976573854395153 0.81475167554161088 -0.0071690733517187077 0 0.81468939298667131 0.57981006131502766 0.010074013741922901 -0
+		 7.4736437563115317 -9.8460691450435451 1.8318525316792889 1;
+	setAttr ".pm[6]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 1.4783482514010038 -11.377529339347678 1.8277615290942684 1;
+	setAttr ".pm[7]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 -0.020473130129591927 -11.37752933934768 1.8277615290942681 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 0.94963150148757647 0 0 0 0 0.99599127404174026 0.089450444564077011 0
+		 0 -0.089450444564077011 0.99599127404174026 0 0.14396344992656279 26.639111252859465 1.1346884166778279 1;
+	setAttr -s 5 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 5 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 5 ".ifcl";
+createNode tweak -n "tweak25";
+	rename -uid "38A6ADB0-46D2-ACDA-C042-12AC2D76CE8E";
+createNode objectSet -n "skinCluster11Set";
+	rename -uid "A32E1C3A-423B-6475-2988-93A711A1DDB8";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster11GroupId";
+	rename -uid "91A1AE30-4982-C136-B594-D8AD210E8E41";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster11GroupParts";
+	rename -uid "FD036888-4485-F369-FCC4-04AADBD99D00";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet25";
+	rename -uid "7E36132A-43AA-5FE3-5A4C-B18BCC01C245";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId112";
+	rename -uid "C6F94633-43B9-F82B-0DFE-9A80801B42CD";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts53";
+	rename -uid "A7E14F6E-4E83-E047-D6E3-3C80BE212ABE";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode skinCluster -n "skinCluster12";
+	rename -uid "0D327ABF-484D-3A79-E69D-4A89AA5CE96D";
+	setAttr -s 8 ".wl";
+	setAttr -s 5 ".wl[0].w";
+	setAttr ".wl[0].w[0]" 0.19401707385440364;
+	setAttr ".wl[0].w[1]" 0.22486847637034335;
+	setAttr ".wl[0].w[8]" 0.11399067072035905;
+	setAttr ".wl[0].w[14]" 0.23735463977505969;
+	setAttr ".wl[0].w[15]" 0.22976913927983433;
+	setAttr -s 5 ".wl[1].w";
+	setAttr ".wl[1].w[0]" 0.16478563686641218;
+	setAttr ".wl[1].w[1]" 0.25114710193697209;
+	setAttr ".wl[1].w[8]" 0.19784877715810339;
+	setAttr ".wl[1].w[14]" 0.19472084738346146;
+	setAttr ".wl[1].w[15]" 0.19149763665505093;
+	setAttr -s 5 ".wl[2].w";
+	setAttr ".wl[2].w[0]" 0.13928879983954184;
+	setAttr ".wl[2].w[1]" 0.13955027282389065;
+	setAttr ".wl[2].w[14]" 0.2624188792008022;
+	setAttr ".wl[2].w[15]" 0.28556991358480582;
+	setAttr ".wl[2].w[16]" 0.17317213455095964;
+	setAttr -s 5 ".wl[3].w";
+	setAttr ".wl[3].w[0]" 0.14690741608810026;
+	setAttr ".wl[3].w[1]" 0.16120837058948173;
+	setAttr ".wl[3].w[14]" 0.24407286531624964;
+	setAttr ".wl[3].w[15]" 0.26316338508857767;
+	setAttr ".wl[3].w[16]" 0.18464796291759075;
+	setAttr -s 5 ".wl[4].w";
+	setAttr ".wl[4].w[0]" 0.1049201109963817;
+	setAttr ".wl[4].w[1]" 0.10492011099638124;
+	setAttr ".wl[4].w[14]" 0.29251095163033825;
+	setAttr ".wl[4].w[15]" 0.34505744380733855;
+	setAttr ".wl[4].w[16]" 0.15259138256956017;
+	setAttr -s 5 ".wl[5].w";
+	setAttr ".wl[5].w[0]" 0.12779202053853175;
+	setAttr ".wl[5].w[1]" 0.13292812033854673;
+	setAttr ".wl[5].w[14]" 0.26256005457274112;
+	setAttr ".wl[5].w[15]" 0.29631848972975805;
+	setAttr ".wl[5].w[16]" 0.18040131482042238;
+	setAttr -s 5 ".wl[6].w";
+	setAttr ".wl[6].w[0]" 0.19219045378869443;
+	setAttr ".wl[6].w[1]" 0.2072974335845191;
+	setAttr ".wl[6].w[8]" 0.055159565354911899;
+	setAttr ".wl[6].w[14]" 0.27969310532619318;
+	setAttr ".wl[6].w[15]" 0.26565944194568142;
+	setAttr -s 5 ".wl[7].w";
+	setAttr ".wl[7].w[0]" 0.17212863180341414;
+	setAttr ".wl[7].w[1]" 0.24380387035120998;
+	setAttr ".wl[7].w[8]" 0.1434600309590589;
+	setAttr ".wl[7].w[14]" 0.22261300885444246;
+	setAttr ".wl[7].w[15]" 0.21799445803187451;
+	setAttr -s 59 ".pm";
+	setAttr ".pm[0]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[1]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -2.1255351069184343e-015 -0.13766529806602679 1;
+	setAttr ".pm[2]" -type "matrix" 0.051493515346540834 2.0383000842727461e-016 -0.99867332891053762 -0
+		 -0.99818198979449013 -0.031364655247645618 -0.051468180957827223 0 -0.031323044666297643 0.99950800817261898 -0.0016150763563331663 -0
+		 24.120668398157317 0.76003370149176896 2.5552955991716688 1;
+	setAttr ".pm[3]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 18.156634855702855 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[4]" -type "matrix" 0.022600800313215229 2.0675334274494727e-013 -0.99974456929017697 -0
+		 -0.99895537384417432 -0.03972620063339747 -0.022582959307399456 0 -0.039716053341775803 0.99921060291774078 -0.00089784392751137007 -0
+		 12.300147794453618 0.91232306125192075 2.0308841164252485 1;
+	setAttr ".pm[5]" -type "matrix" 0.012364520435292669 -9.2200552748167179e-016 -0.99992355639538988 -0
+		 -0.57976573854395153 0.81475167554161088 -0.0071690733517187077 0 0.81468939298667131 0.57981006131502766 0.010074013741922901 -0
+		 7.4736437563115317 -9.8460691450435451 1.8318525316792889 1;
+	setAttr ".pm[6]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 1.4783482514010038 -11.377529339347678 1.8277615290942684 1;
+	setAttr ".pm[7]" -type "matrix" 0.045307155482847174 4.0627223807376767e-015 -0.99897310357289004 -0
+		 -0.21223468443566329 0.97717131859533712 -0.0096256343761251407 0 0.9761678648595985 0.21245285150980764 0.044272852864978882 -0
+		 -0.020473130129591927 -11.37752933934768 1.8277615290942681 1;
+	setAttr ".pm[8]" -type "matrix" -2.0274580625478923e-016 -0.051492937043005942 -0.99867335872881102 0
+		 0.031364708865757901 -0.99818201791778249 0.051467602852173971 0 -0.99950800649007621 -0.031323099148517788 0.0016150609789967909 -0
+		 -0.76003589817681871 24.120698271001505 -2.5552855447653817 1;
+	setAttr ".pm[9]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029103 18.156662263232327 -2.0308696579280539 1;
+	setAttr ".pm[10]" -type "matrix" 2.9074756924957196e-013 -0.022600020933470039 -0.99974458690897983 -0
+		 0.03972586109130484 -0.99895540494493695 0.022582180847982632 0 -0.99921061641705677 -0.03971571458633668 0.00089780529197307387 0
+		 -0.91231831091029092 12.300151992993943 -2.0308696579280539 1;
+	setAttr ".pm[11]" -type "matrix" -0.012364066934795737 -8.4134088584875119e-017 -0.99992356200303212 0
+		 -0.57978642447809114 0.81473695539202018 0.0071690661491896276 0 0.81467467853109476 0.5798307455788636 -0.010073462250718776 -0
+		 7.4738961874185312 -9.8458818660540341 -1.8318477754996669 1;
+	setAttr ".pm[12]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 1.47832694498395 -11.377486026362666 -1.827758648936096 1;
+	setAttr ".pm[13]" -type "matrix" -0.045309039490680957 1.066334520682943e-014 -0.99897301812432937 0
+		 -0.2122339193341985 0.97717148116049679 0.0096260007607021532 0 0.97616794375992355 0.21245210379424351 -0.044274701229066009 -0
+		 -0.020490967807327284 -11.377486026362664 -1.8277586489360962 1;
+	setAttr ".pm[14]" -type "matrix" 2.2204460492503121e-016 -0.99999999999999978 0 -0
+		 0.99999999999999978 2.2204460492503121e-016 -0 0 0 -0 1 -0 -25.572559115480779 -5.678248785718936e-015 -0.13766529806602679 1;
+	setAttr ".pm[15]" -type "matrix" 2.2204460492503121e-016 -2.2204460492503126e-016 -0.99999999999999978 -0
+		 0.99999999999999978 4.9303806576313216e-032 2.2204460492503121e-016 -0 0 -1 2.2204460492503131e-016 -0
+		 -26.493948030370344 0.13766529806602679 -5.9134060600288501e-015 1;
+	setAttr ".pm[16]" -type "matrix" 2.0831334850808019e-016 -2.3497481138619419e-016 -0.99999999999999978 -0
+		 0.99819619585880359 -0.06003627714151314 2.2204460492503121e-016 0 -0.060036277141513154 -0.99819619585880381 2.2204460492503131e-016 0
+		 -27.954239963738139 1.8192153039082892 -6.2507111047514141e-015 1;
+	setAttr ".pm[17]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -30.900749478576675 1.5753043099607207 0.052344223956674638 1;
+	setAttr ".pm[18]" -type "matrix" -0.0016942852760771668 -6.688254147241444e-006 -0.9999985646753049 -0
+		 0.99863763689589558 -0.05215370131359346 -0.0016916306551593616 0 -0.052153615142042309 -0.99863906963154603 9.5042390545108218e-005 0
+		 -33.059258450418589 1.6943857841122663 0.052344223956674638 1;
+	setAttr ".pm[19]" -type "matrix" 0.95325174516623346 -0.30217728296073126 4.1589051432765468e-015 -0
+		 -4.434830650951622e-015 -1.8294974670483641e-016 0.99999999999999956 0 -0.30217728296073137 -0.95325174516623357 -1.499086037598039e-015 0
+		 -0.72551708255147429 0.22998623591170814 -31.556797801748022 1;
+	setAttr ".pm[20]" -type "matrix" 0.71380875993822768 -7.8501062876014186e-017 0.70034067012808088 -0
+		 -0.70034067012808077 -1.5152498709898857e-015 0.71380875993822768 0 9.3099788208167725e-016 -1.0000000000000002 -1.1866908960972085e-015 -0
+		 20.1096334247251 -0.64286566626538522 -24.478830512752591 1;
+	setAttr ".pm[21]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 17.883725520114297 -0.88149866436823843 -23.526051509709607 1;
+	setAttr ".pm[22]" -type "matrix" 0.67438286224502542 0.044994173311437943 0.73700968750636342 -0
+		 -0.73775685123546475 1.8041124150158789e-016 0.67506653631707447 0 0.03037406073180237 -0.99898724935207284 0.03319475962618932 -0
+		 13.550227022303247 -0.88149866436823943 -23.526051509709607 1;
+	setAttr ".pm[23]" -type "matrix" 0.67230881988370828 0.74027079552456698 -3.7646828434714655e-016 -0
+		 -0.74027079552456676 0.67230881988370805 -3.4922890433940177e-016 0 -7.2377321771498892e-017 5.3440526003942905e-016 1 -0
+		 13.616846757849054 -23.498529958510051 0.51123971971175552 1;
+	setAttr ".pm[24]" -type "matrix" 0.56998938322195203 -4.7184478546569133e-016 -0.82165205714722045 -0
+		 -0.46869635509192364 0.82134506140623842 -0.32513999573587843 0 0.67485985933214621 0.57043166996896466 0.46815796496333806 -0
+		 7.1313131200169568 -20.905860418328192 15.388051061937166 1;
+	setAttr ".pm[25]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.7687071749882781 -23.626040445682687 11.704891826253791 1;
+	setAttr ".pm[26]" -type "matrix" 0.39606523347684131 -1.1518563880485993e-015 -0.91822237547934715 -0
+		 -0.33547364225153803 0.93086975686018136 -0.14470290638944625 0 0.85474543940603864 0.36535119510282948 0.36868514758735815 -0
+		 4.2551153384091744 -23.626040445682683 11.704891826253792 1;
+	setAttr ".pm[27]" -type "matrix" 0.73951945219405801 0.63533880155780731 0.22238612155818027 -0
+		 -0.60842399504111766 0.77223351859077494 -0.18296348002570548 0 -0.28797781526500704 5.5511151231257817e-016 0.95763708048257701 -0
+		 7.8941003262803928 -25.166713352598933 3.5165477948842763 1;
+	setAttr ".pm[28]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 6.1327025944479194 -25.630542000611463 2.7753361689174185 1;
+	setAttr ".pm[29]" -type "matrix" 0.78615193357349222 0.58585433789576857 0.19682436868276759 -0
+		 -0.56831344587258914 0.81041637123685373 -0.14228539092862946 0 -0.24286820413360621 1.7902346272080645e-015 0.97005929479641462 -0
+		 5.7766614194060812 -25.630542000611467 2.7753361689174185 1;
+	setAttr ".pm[30]" -type "matrix" 0.80748870184596633 0.58211976270890486 0.095386467881164727 -0
+		 -0.57810031245433047 0.81310305734496413 -0.068289434588938255 0 -0.11731165812195038 5.2735593669694916e-016 0.99309514895033024 -0
+		 6.6249924599161707 -25.772936260714353 1.5804054130998535 1;
+	setAttr ".pm[31]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 6.3487616121440364 -25.722888388446012 1.579951511122978 1;
+	setAttr ".pm[32]" -type "matrix" 0.80328826627194105 0.58847398006756413 0.091795076410769325 -0
+		 -0.5846688895315616 0.80851615616723416 -0.066812534980271357 0 -0.11353524071295652 -1.374594882364021e-014 0.99353396978475317 -0
+		 5.9047403680466664 -25.722888388446012 1.5799515111229772 1;
+	setAttr ".pm[33]" -type "matrix" 0.82406495070794128 0.56649139694346717 0.0021104984618815557 -0
+		 -0.56648953910316158 0.8240676532840242 -0.0014508265397316252 0 -0.0025610742679575619 5.368969158148217e-016 0.9999967204439193 -0
+		 6.2087933540736691 -25.961694784815887 0.44829742387875993 1;
+	setAttr ".pm[34]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.8259975282569609 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[35]" -type "matrix" 0.79496113498982612 0.60665965083898044 0.00092838548769234592 -0
+		 -0.60665923714465764 0.79496167709137133 -0.0007084794532704273 0 -0.0011678367820308901 -1.4507462071933202e-012 0.99999931807839282 -0
+		 6.3827536216455218 -25.654734243757122 0.44206733509602808 1;
+	setAttr ".pm[36]" -type "matrix" 0.79549372541078045 0.59715563520233672 -0.1029314343539989 -0
+		 -0.59221857901642139 0.80212539377960934 0.076629024016209663 0 0.12832337082483616 5.2735593669694926e-016 0.99173237947550741 -0
+		 7.1440524391401077 -25.687113052859651 -0.84260744626761519 1;
+	setAttr ".pm[37]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 6.4352939257538582 -25.752207739222694 -0.70016330421852813 1;
+	setAttr ".pm[38]" -type "matrix" 0.80295091057015677 0.58921564177099872 -0.089970899222726886 -0
+		 -0.58555123027618239 0.80797582110629396 0.065611197441130989 0 0.11135345498279407 -3.2307490016592043e-014 0.99378086521294773 -0
+		 5.9913521758666937 -25.752207739222701 -0.70016330421852813 1;
+	setAttr ".pm[39]" -type "matrix" -0.95325178468039384 0.30217715830890252 3.8536622881834986e-015 -0
+		 -4.0111903694254856e-015 3.6052937389925892e-016 -0.99999999999999956 0 -0.30217715830890263 -0.95325178468039418 8.6321014867145317e-016 -0
+		 -0.72551707356477058 0.22998612865742041 31.556799999999988 1;
+	setAttr ".pm[40]" -type "matrix" -0.71380913265000012 1.2365786517672353e-015 0.7003402902485717 -0
+		 -0.7003402902485717 -8.6056538997275367e-016 -0.71380913265000001 0 -2.7691439555657484e-016 -1 1.4615485026769399e-015 -0
+		 20.109620557533333 -0.64286599999996974 24.478844137338911 1;
+	setAttr ".pm[41]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 17.883838506591339 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[42]" -type "matrix" -0.67437957406861815 -0.044994147300684822 0.73701269784699974 0
+		 -0.73775986376274083 -8.4654505627668127e-016 -0.67506324401553752 0 0.030373895038513888 -0.99898725052359127 -0.033194875982673393 -0
+		 13.550314609406042 -0.88149876249632064 23.525976092777395 1;
+	setAttr ".pm[43]" -type "matrix" 0.67230881988370828 0.74027079552456654 1.1030894619342628e-008 -0
+		 0.74027079552456654 -0.67230881988370805 -1.0018182128744077e-008 0 8.7487228979620053e-017 1.4901161123944287e-008 -1 -0
+		 -13.616829309210255 23.498515076156586 -0.51123964984483716 1;
+	setAttr ".pm[44]" -type "matrix" -0.56998938322195625 4.7184478546569094e-016 -0.82165205714721634 0
+		 -0.46869635509191804 0.82134506140624142 0.32513999573587815 0 0.67485985933214598 0.57043166996896033 -0.46815796496334372 -0
+		 7.1313059877282656 -20.905846821748295 -15.388044843958678 1;
+	setAttr ".pm[45]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.7687990799811608 -23.625965342105804 -11.704981742503152 1;
+	setAttr ".pm[46]" -type "matrix" -0.39607129763698695 6.9388939039072195e-016 -0.91821975974608183 0
+		 -0.33547873651978566 0.93086717085249193 0.14470773155628092 0 0.85474062997569111 0.36535778386271828 -0.36868976828721745 -0
+		 4.2552046811604605 -23.625965342105808 -11.704981742503152 1;
+	setAttr ".pm[47]" -type "matrix" -0.73956125087717239 -0.63527986384956525 0.22241549134057456 -0
+		 -0.60836374825520279 0.77228200457299068 0.18295916271562468 0 -0.28799775348059825 -1.4744566789737221e-008 -0.95763108449450829 0
+		 7.8921621108980498 -25.167338733650144 -3.5161500513939634 1;
+	setAttr ".pm[48]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 6.1298536968725115 -25.631293707253 -2.7746893412363183 1;
+	setAttr ".pm[49]" -type "matrix" -0.78621454518467326 -0.58576221754863478 0.19684845295953615 -0
+		 -0.56822265189113241 0.81048295755833444 0.14226873649998886 0 -0.24287796692550356 2.6367796834847452e-015 -0.97005685048977097 0
+		 5.7738312832522523 -25.631293707253004 -2.7746893412363178 1;
+	setAttr ".pm[50]" -type "matrix" -0.80751889089548912 -0.5820766310070461 0.095394111361265618 -0
+		 -0.57805714062820823 0.81313393462300276 0.068287235507471247 0 -0.11731659309602448 -1.456694963264392e-008 -0.99309456598268708 0
+		 6.6236333848625488 -25.773304618927966 -1.5802782342664508 1;
+	setAttr ".pm[51]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 6.3534813752726897 -25.721737160246594 -1.5804062020508418 1;
+	setAttr ".pm[52]" -type "matrix" -0.80318258659183162 -0.58862173015441466 0.091772497981026047 -0
+		 -0.58481654677406203 0.80840859643500973 0.06682176164422525 0 -0.11352241723516586 -6.1367577686155465e-014 -0.99353543509282272 0
+		 5.9094104928180977 -25.721737160246605 -1.5804062020508431 1;
+	setAttr ".pm[53]" -type "matrix" -0.82404889026077088 -0.56651476250098287 0.0021095801585122704 -0
+		 -0.56651290617319583 0.82405159053814858 0.001450265749842036 0 -0.0025599998418247795 -1.4504663353861651e-008 -0.99999672319503596 0
+		 6.2095540767897592 -25.961550922577583 -0.44829254985807571 1;
+	setAttr ".pm[54]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.8282389945907997 -25.654147616023508 -0.44207603084682057 1;
+	setAttr ".pm[55]" -type "matrix" -0.79490774673062692 -0.6067296028766771 0.0009290752100875909 -0
+		 -0.60672918846400326 0.79490828967441785 0.0007091351791678346 0 -0.0011687828918719692 -8.3853323590288167e-013 -0.99999931697304278 0
+		 6.3850429112100935 -25.654147616023504 -0.44207603084682051 1;
+	setAttr ".pm[56]" -type "matrix" -0.79549450235762897 -0.59715458425658419 -0.10293152685223787 0
+		 -0.59221753518121611 0.80212617617264204 -0.076628901352811821 0 0.12832337177097455 -1.4622995182789177e-008 -0.99173237935308323 -0
+		 7.1440259863735118 -25.687124171708621 0.8426044118461723 1;
+	setAttr ".pm[57]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 6.4390978204079135 -25.75124913897066 0.70059867387734731 1;
+	setAttr ".pm[58]" -type "matrix" -0.80286387454262587 -0.58933554641158126 -0.089962284820721314 0
+		 -0.58567029734757092 0.80788836712491519 -0.065625369096443925 0 0.11135484614155371 -4.191785807350351e-014 -0.9937807093321902 -0
+		 5.995162040926961 -25.751249138970664 0.70059867387734753 1;
+	setAttr ".gm" -type "matrix" 0.70483179467603163 0.041702533547013594 -0.70814761166689288 0
+		 -0.0037642563282766425 0.68597313423881789 0.036650056671620773 0 0.38439654925744743 -0.018274447727299224 0.3815204831024504 0
+		 1.7809693006214893 26.607022559660756 0.8329175596517473 1;
+	setAttr -s 6 ".ma";
+	setAttr -s 59 ".dpf[0:58]"  4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+		4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4;
+	setAttr -s 6 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 6 ".ifcl";
+createNode groupId -n "groupId113";
+	rename -uid "1CAF267C-455C-C5A1-1DF7-FB8255B6ECAE";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts54";
+	rename -uid "FB76AE4E-4E0B-F421-7D2F-D4B4572F99FF";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:4]";
+createNode tweak -n "tweak26";
+	rename -uid "260C7B8A-4E66-8967-9AE0-41B658844FD1";
+createNode objectSet -n "skinCluster12Set";
+	rename -uid "2EA70AB2-49FD-8609-9C33-0E8BBCD60A24";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "skinCluster12GroupId";
+	rename -uid "296AACCC-459A-165B-9C4A-3192E3EE2C28";
+	setAttr ".ihi" 0;
+createNode groupParts -n "skinCluster12GroupParts";
+	rename -uid "5A7ACD91-463F-A614-BB71-FF9D08584910";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
+createNode objectSet -n "tweakSet26";
+	rename -uid "802DB97E-4388-8E70-31A9-8DB82D0BB095";
+	setAttr ".ihi" 0;
+	setAttr ".vo" yes;
+createNode groupId -n "groupId115";
+	rename -uid "23495406-4161-1720-71EC-AA81CA95E8C4";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts56";
+	rename -uid "6A19418A-4975-A741-2CAC-44A4AD992854";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "vtx[*]";
 select -ne :time1;
 	setAttr ".o" 52;
 	setAttr ".unw" 52;
@@ -33688,6 +37257,8 @@ select -ne :defaultResolution;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
+select -ne :ikSystem;
+	setAttr -s 4 ".sol";
 connectAttr "GenericMesh2_1:GenericMesh_V10_1:cameraView1.msg" ":perspShape.b" -na
 		;
 connectAttr ":sideShape.msg" "SideShape.ltc";
@@ -33698,21 +37269,75 @@ connectAttr ":defaultColorMgtGlobals.wsn" "FrontShape.ws";
 connectAttr ":frontShape.msg" "FrontShape.ltc";
 connectAttr ":frontShape.msg" "Front1Shape.ltc";
 connectAttr ":sideShape.msg" "Side1Shape.ltc";
-connectAttr "groupId95.id" "R_BeltBoxShape.iog.og[0].gid";
+connectAttr "groupId113.id" "R_BeltBoxShape.iog.og[0].gid";
 connectAttr "lambert4SG.mwc" "R_BeltBoxShape.iog.og[0].gco";
+connectAttr "skinCluster12GroupId.id" "R_BeltBoxShape.iog.og[1].gid";
+connectAttr "skinCluster12Set.mwc" "R_BeltBoxShape.iog.og[1].gco";
+connectAttr "groupId115.id" "R_BeltBoxShape.iog.og[2].gid";
+connectAttr "tweakSet26.mwc" "R_BeltBoxShape.iog.og[2].gco";
+connectAttr "skinCluster12.og[0]" "R_BeltBoxShape.i";
+connectAttr "tweak26.vl[0].vt[0]" "R_BeltBoxShape.twl";
+connectAttr "skinCluster5GroupId.id" "R_ShoulderPlateShape.iog.og[0].gid";
+connectAttr "skinCluster5Set.mwc" "R_ShoulderPlateShape.iog.og[0].gco";
+connectAttr "groupId99.id" "R_ShoulderPlateShape.iog.og[1].gid";
+connectAttr "tweakSet19.mwc" "R_ShoulderPlateShape.iog.og[1].gco";
+connectAttr "skinCluster5.og[0]" "R_ShoulderPlateShape.i";
+connectAttr "tweak19.vl[0].vt[0]" "R_ShoulderPlateShape.twl";
 connectAttr "groupId65.id" "ClothShape.iog.og[1].gid";
 connectAttr "tweakSet4.mwc" "ClothShape.iog.og[1].gco";
 connectAttr "blendShape1GroupId.id" "ClothShape.iog.og[2].gid";
 connectAttr "blendShape1Set.mwc" "ClothShape.iog.og[2].gco";
 connectAttr "blendShape1.og[0]" "ClothShape.i";
 connectAttr "tweak4.vl[0].vt[0]" "ClothShape.twl";
-connectAttr "groupId94.id" "L_BeltBoxShape.iog.og[0].gid";
+connectAttr "skinCluster8GroupId.id" "ChestControlBoxShape.iog.og[0].gid";
+connectAttr "skinCluster8Set.mwc" "ChestControlBoxShape.iog.og[0].gco";
+connectAttr "groupId105.id" "ChestControlBoxShape.iog.og[1].gid";
+connectAttr "tweakSet22.mwc" "ChestControlBoxShape.iog.og[1].gco";
+connectAttr "skinCluster8.og[0]" "ChestControlBoxShape.i";
+connectAttr "tweak22.vl[0].vt[0]" "ChestControlBoxShape.twl";
+connectAttr "skinCluster11GroupId.id" "BeltClipShape.iog.og[0].gid";
+connectAttr "skinCluster11Set.mwc" "BeltClipShape.iog.og[0].gco";
+connectAttr "groupId112.id" "BeltClipShape.iog.og[1].gid";
+connectAttr "tweakSet25.mwc" "BeltClipShape.iog.og[1].gco";
+connectAttr "skinCluster11.og[0]" "BeltClipShape.i";
+connectAttr "tweak25.vl[0].vt[0]" "BeltClipShape.twl";
+connectAttr "groupId108.id" "L_BeltBoxShape.iog.og[0].gid";
 connectAttr "lambert4SG.mwc" "L_BeltBoxShape.iog.og[0].gco";
+connectAttr "skinCluster10GroupId.id" "L_BeltBoxShape.iog.og[1].gid";
+connectAttr "skinCluster10Set.mwc" "L_BeltBoxShape.iog.og[1].gco";
+connectAttr "groupId110.id" "L_BeltBoxShape.iog.og[2].gid";
+connectAttr "tweakSet24.mwc" "L_BeltBoxShape.iog.og[2].gco";
+connectAttr "skinCluster10.og[0]" "L_BeltBoxShape.i";
+connectAttr "tweak24.vl[0].vt[0]" "L_BeltBoxShape.twl";
+connectAttr "skinCluster9GroupId.id" "BeltShape.iog.og[0].gid";
+connectAttr "skinCluster9Set.mwc" "BeltShape.iog.og[0].gco";
+connectAttr "groupId107.id" "BeltShape.iog.og[1].gid";
+connectAttr "tweakSet23.mwc" "BeltShape.iog.og[1].gco";
+connectAttr "skinCluster9.og[0]" "BeltShape.i";
+connectAttr "tweak23.vl[0].vt[0]" "BeltShape.twl";
+connectAttr "skinCluster4GroupId.id" "L_ShoulderPlateShape.iog.og[0].gid";
+connectAttr "skinCluster4Set.mwc" "L_ShoulderPlateShape.iog.og[0].gco";
+connectAttr "groupId97.id" "L_ShoulderPlateShape.iog.og[1].gid";
+connectAttr "tweakSet18.mwc" "L_ShoulderPlateShape.iog.og[1].gco";
+connectAttr "skinCluster4.og[0]" "L_ShoulderPlateShape.i";
+connectAttr "tweak18.vl[0].vt[0]" "L_ShoulderPlateShape.twl";
+connectAttr "skinCluster7GroupId.id" "CodPieceShape.iog.og[0].gid";
+connectAttr "skinCluster7Set.mwc" "CodPieceShape.iog.og[0].gco";
+connectAttr "groupId103.id" "CodPieceShape.iog.og[1].gid";
+connectAttr "tweakSet21.mwc" "CodPieceShape.iog.og[1].gco";
+connectAttr "skinCluster7.og[0]" "CodPieceShape.i";
+connectAttr "tweak21.vl[0].vt[0]" "CodPieceShape.twl";
+connectAttr "skinCluster6GroupId.id" "ChestPlateShape.iog.og[0].gid";
+connectAttr "skinCluster6Set.mwc" "ChestPlateShape.iog.og[0].gco";
+connectAttr "groupId101.id" "ChestPlateShape.iog.og[1].gid";
+connectAttr "tweakSet20.mwc" "ChestPlateShape.iog.og[1].gco";
+connectAttr "skinCluster6.og[0]" "ChestPlateShape.i";
+connectAttr "tweak20.vl[0].vt[0]" "ChestPlateShape.twl";
 connectAttr "groupId89.id" "BodyShape.iog.og[1].gid";
 connectAttr "tweakSet15.mwc" "BodyShape.iog.og[1].gco";
 connectAttr "skinCluster1GroupId.id" "BodyShape.iog.og[2].gid";
 connectAttr "skinCluster1Set.mwc" "BodyShape.iog.og[2].gco";
-connectAttr "polySoftEdge1.out" "BodyShape.i";
+connectAttr "skinCluster1.og[0]" "BodyShape.i";
 connectAttr "tweak15.vl[0].vt[9]" "BodyShape.twl";
 connectAttr "skinCluster3.og[0]" "MaskShape.i";
 connectAttr "skinCluster3GroupId.id" "MaskShape.iog.og[0].gid";
@@ -33925,8 +37550,8 @@ connectAttr "BeltShape.iog" "lambert4SG.dsm" -na;
 connectAttr "ChestControlBoxShape.iog" "lambert4SG.dsm" -na;
 connectAttr "L_BeltBoxShape.iog.og[0]" "lambert4SG.dsm" -na;
 connectAttr "R_BeltBoxShape.iog.og[0]" "lambert4SG.dsm" -na;
-connectAttr "groupId94.msg" "lambert4SG.gn" -na;
-connectAttr "groupId95.msg" "lambert4SG.gn" -na;
+connectAttr "groupId108.msg" "lambert4SG.gn" -na;
+connectAttr "groupId113.msg" "lambert4SG.gn" -na;
 connectAttr "lambert4SG.msg" "materialInfo3.sg";
 connectAttr "UV3.msg" "materialInfo3.m";
 connectAttr "file3.msg" "materialInfo3.t" -na;
@@ -34331,7 +37956,7 @@ connectAttr "R_PFinger_03_Jnt.obcc" "skinCluster1.ifcl[55]";
 connectAttr "R_Foot_01_Jnt.obcc" "skinCluster1.ifcl[56]";
 connectAttr "R_Foot_02_Jnt.obcc" "skinCluster1.ifcl[57]";
 connectAttr "R_Foot_03_Jnt.obcc" "skinCluster1.ifcl[58]";
-connectAttr "R_Thumb_03_Jnt.msg" "skinCluster1.ptt";
+connectAttr "Hips_Jnt.msg" "skinCluster1.ptt";
 connectAttr "skinCluster1GroupId.msg" "skinCluster1Set.gn" -na;
 connectAttr "BodyShape.iog.og[2]" "skinCluster1Set.dsm" -na;
 connectAttr "skinCluster1.msg" "skinCluster1Set.ub[0]";
@@ -34588,9 +38213,448 @@ connectAttr "MaskShape.iog.og[1]" "tweakSet17.dsm" -na;
 connectAttr "tweak17.msg" "tweakSet17.ub[0]";
 connectAttr "MaskShapeOrig1.w" "groupParts36.ig";
 connectAttr "groupId93.id" "groupParts36.gi";
-connectAttr "polyTweak1.out" "polySoftEdge1.ip";
-connectAttr "BodyShape.wm" "polySoftEdge1.mp";
-connectAttr "skinCluster1.og[0]" "polyTweak1.ip";
+connectAttr "skinCluster4GroupParts.og" "skinCluster4.ip[0].ig";
+connectAttr "skinCluster4GroupId.id" "skinCluster4.ip[0].gi";
+connectAttr "bindPose2.msg" "skinCluster4.bp";
+connectAttr "Spine_03_Jnt.wm" "skinCluster4.ma[16]";
+connectAttr "Spine_04_Jnt.wm" "skinCluster4.ma[17]";
+connectAttr "Neck_Jnt.wm" "skinCluster4.ma[18]";
+connectAttr "L_Clavical_Jnt.wm" "skinCluster4.ma[19]";
+connectAttr "L_Shoulder_Jnt.wm" "skinCluster4.ma[20]";
+connectAttr "L_Elbow_Jnt.wm" "skinCluster4.ma[21]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster4.lw[16]";
+connectAttr "Spine_04_Jnt.liw" "skinCluster4.lw[17]";
+connectAttr "Neck_Jnt.liw" "skinCluster4.lw[18]";
+connectAttr "L_Clavical_Jnt.liw" "skinCluster4.lw[19]";
+connectAttr "L_Shoulder_Jnt.liw" "skinCluster4.lw[20]";
+connectAttr "L_Elbow_Jnt.liw" "skinCluster4.lw[21]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster4.ifcl[16]";
+connectAttr "Spine_04_Jnt.obcc" "skinCluster4.ifcl[17]";
+connectAttr "Neck_Jnt.obcc" "skinCluster4.ifcl[18]";
+connectAttr "L_Clavical_Jnt.obcc" "skinCluster4.ifcl[19]";
+connectAttr "L_Shoulder_Jnt.obcc" "skinCluster4.ifcl[20]";
+connectAttr "L_Elbow_Jnt.obcc" "skinCluster4.ifcl[21]";
+connectAttr "L_Shoulder_Jnt.msg" "skinCluster4.ptt";
+connectAttr "groupParts38.og" "tweak18.ip[0].ig";
+connectAttr "groupId97.id" "tweak18.ip[0].gi";
+connectAttr "skinCluster4GroupId.msg" "skinCluster4Set.gn" -na;
+connectAttr "L_ShoulderPlateShape.iog.og[0]" "skinCluster4Set.dsm" -na;
+connectAttr "skinCluster4.msg" "skinCluster4Set.ub[0]";
+connectAttr "tweak18.og[0]" "skinCluster4GroupParts.ig";
+connectAttr "skinCluster4GroupId.id" "skinCluster4GroupParts.gi";
+connectAttr "groupId97.msg" "tweakSet18.gn" -na;
+connectAttr "L_ShoulderPlateShape.iog.og[1]" "tweakSet18.dsm" -na;
+connectAttr "tweak18.msg" "tweakSet18.ub[0]";
+connectAttr "L_ShoulderPlateShapeOrig.w" "groupParts38.ig";
+connectAttr "groupId97.id" "groupParts38.gi";
+connectAttr "COG_Jnt.msg" "bindPose2.m[0]";
+connectAttr "Hips_Jnt.msg" "bindPose2.m[1]";
+connectAttr "L_Leg_01_Jnt.msg" "bindPose2.m[2]";
+connectAttr "L_Leg_02_Jnt.msg" "bindPose2.m[3]";
+connectAttr "L_Leg_03_Jnt.msg" "bindPose2.m[4]";
+connectAttr "L_Foot_01_Jnt.msg" "bindPose2.m[5]";
+connectAttr "L_Foot_02_Jnt.msg" "bindPose2.m[6]";
+connectAttr "L_Foot_03_Jnt.msg" "bindPose2.m[7]";
+connectAttr "R_Leg_01_Jnt.msg" "bindPose2.m[8]";
+connectAttr "R_Leg_02_Jnt.msg" "bindPose2.m[9]";
+connectAttr "R_Leg_03_Jnt.msg" "bindPose2.m[10]";
+connectAttr "R_Foot_01_Jnt.msg" "bindPose2.m[11]";
+connectAttr "R_Foot_02_Jnt.msg" "bindPose2.m[12]";
+connectAttr "R_Foot_03_Jnt.msg" "bindPose2.m[13]";
+connectAttr "Spine_01_Jnt.msg" "bindPose2.m[14]";
+connectAttr "Spine_02_Jnt.msg" "bindPose2.m[15]";
+connectAttr "Spine_03_Jnt.msg" "bindPose2.m[16]";
+connectAttr "Spine_04_Jnt.msg" "bindPose2.m[17]";
+connectAttr "Neck_Jnt.msg" "bindPose2.m[18]";
+connectAttr "L_Clavical_Jnt.msg" "bindPose2.m[19]";
+connectAttr "L_Shoulder_Jnt.msg" "bindPose2.m[20]";
+connectAttr "L_Elbow_Jnt.msg" "bindPose2.m[21]";
+connectAttr "L_Wrist_Jnt.msg" "bindPose2.m[22]";
+connectAttr "L_Hand_Jnt.msg" "bindPose2.m[23]";
+connectAttr "L_Thumb_01_Jnt.msg" "bindPose2.m[24]";
+connectAttr "L_Thumb_02_Jnt.msg" "bindPose2.m[25]";
+connectAttr "L_Thumb_03_Jnt.msg" "bindPose2.m[26]";
+connectAttr "L_Pinky_01_Jnt.msg" "bindPose2.m[27]";
+connectAttr "L_Pinky_02_Jnt.msg" "bindPose2.m[28]";
+connectAttr "L_Pinky_03_Jnt.msg" "bindPose2.m[29]";
+connectAttr "L_RFinger_01_Jnt.msg" "bindPose2.m[30]";
+connectAttr "L_RFinger_02_Jnt.msg" "bindPose2.m[31]";
+connectAttr "L_RFinger_03_Jnt.msg" "bindPose2.m[32]";
+connectAttr "L_MFinger_01_Jnt.msg" "bindPose2.m[33]";
+connectAttr "L_MFinger_02_Jnt.msg" "bindPose2.m[34]";
+connectAttr "L_MFinger_03_Jnt.msg" "bindPose2.m[35]";
+connectAttr "L_PFinger_01_Jnt.msg" "bindPose2.m[36]";
+connectAttr "L_PFinger_02_Jnt.msg" "bindPose2.m[37]";
+connectAttr "L_PFinger_03_Jnt.msg" "bindPose2.m[38]";
+connectAttr "R_Clavical_Jnt.msg" "bindPose2.m[39]";
+connectAttr "R_Shoulder_Jnt.msg" "bindPose2.m[40]";
+connectAttr "R_Elbow_Jnt.msg" "bindPose2.m[41]";
+connectAttr "R_Wrist_Jnt.msg" "bindPose2.m[42]";
+connectAttr "R_Hand_Jnt.msg" "bindPose2.m[43]";
+connectAttr "R_Thumb_01_Jnt.msg" "bindPose2.m[44]";
+connectAttr "R_Thumb_02_Jnt.msg" "bindPose2.m[45]";
+connectAttr "R_Thumb_03_Jnt.msg" "bindPose2.m[46]";
+connectAttr "R_Pinky_01_Jnt.msg" "bindPose2.m[47]";
+connectAttr "R_Pinky_02_Jnt.msg" "bindPose2.m[48]";
+connectAttr "R_Pinky_03_Jnt.msg" "bindPose2.m[49]";
+connectAttr "R_RFinger_01_Jnt.msg" "bindPose2.m[50]";
+connectAttr "R_RFinger_02_Jnt.msg" "bindPose2.m[51]";
+connectAttr "R_RFinger_03_Jnt.msg" "bindPose2.m[52]";
+connectAttr "R_MFinger_01_Jnt.msg" "bindPose2.m[53]";
+connectAttr "R_MFinger_02_Jnt.msg" "bindPose2.m[54]";
+connectAttr "R_MFinger_03_Jnt.msg" "bindPose2.m[55]";
+connectAttr "R_PFinger_01_Jnt.msg" "bindPose2.m[56]";
+connectAttr "R_PFinger_02_Jnt.msg" "bindPose2.m[57]";
+connectAttr "R_PFinger_03_Jnt.msg" "bindPose2.m[58]";
+connectAttr "bindPose2.w" "bindPose2.p[0]";
+connectAttr "bindPose2.m[0]" "bindPose2.p[1]";
+connectAttr "bindPose2.m[1]" "bindPose2.p[2]";
+connectAttr "bindPose2.m[2]" "bindPose2.p[3]";
+connectAttr "bindPose2.m[3]" "bindPose2.p[4]";
+connectAttr "bindPose2.m[4]" "bindPose2.p[5]";
+connectAttr "bindPose2.m[5]" "bindPose2.p[6]";
+connectAttr "bindPose2.m[6]" "bindPose2.p[7]";
+connectAttr "bindPose2.m[1]" "bindPose2.p[8]";
+connectAttr "bindPose2.m[8]" "bindPose2.p[9]";
+connectAttr "bindPose2.m[9]" "bindPose2.p[10]";
+connectAttr "bindPose2.m[10]" "bindPose2.p[11]";
+connectAttr "bindPose2.m[11]" "bindPose2.p[12]";
+connectAttr "bindPose2.m[12]" "bindPose2.p[13]";
+connectAttr "bindPose2.m[0]" "bindPose2.p[14]";
+connectAttr "bindPose2.m[14]" "bindPose2.p[15]";
+connectAttr "bindPose2.m[15]" "bindPose2.p[16]";
+connectAttr "bindPose2.m[16]" "bindPose2.p[17]";
+connectAttr "bindPose2.m[17]" "bindPose2.p[18]";
+connectAttr "bindPose2.m[17]" "bindPose2.p[19]";
+connectAttr "bindPose2.m[19]" "bindPose2.p[20]";
+connectAttr "bindPose2.m[20]" "bindPose2.p[21]";
+connectAttr "bindPose2.m[21]" "bindPose2.p[22]";
+connectAttr "bindPose2.m[22]" "bindPose2.p[23]";
+connectAttr "bindPose2.m[23]" "bindPose2.p[24]";
+connectAttr "bindPose2.m[24]" "bindPose2.p[25]";
+connectAttr "bindPose2.m[25]" "bindPose2.p[26]";
+connectAttr "bindPose2.m[23]" "bindPose2.p[27]";
+connectAttr "bindPose2.m[27]" "bindPose2.p[28]";
+connectAttr "bindPose2.m[28]" "bindPose2.p[29]";
+connectAttr "bindPose2.m[23]" "bindPose2.p[30]";
+connectAttr "bindPose2.m[30]" "bindPose2.p[31]";
+connectAttr "bindPose2.m[31]" "bindPose2.p[32]";
+connectAttr "bindPose2.m[23]" "bindPose2.p[33]";
+connectAttr "bindPose2.m[33]" "bindPose2.p[34]";
+connectAttr "bindPose2.m[34]" "bindPose2.p[35]";
+connectAttr "bindPose2.m[23]" "bindPose2.p[36]";
+connectAttr "bindPose2.m[36]" "bindPose2.p[37]";
+connectAttr "bindPose2.m[37]" "bindPose2.p[38]";
+connectAttr "bindPose2.m[17]" "bindPose2.p[39]";
+connectAttr "bindPose2.m[39]" "bindPose2.p[40]";
+connectAttr "bindPose2.m[40]" "bindPose2.p[41]";
+connectAttr "bindPose2.m[41]" "bindPose2.p[42]";
+connectAttr "bindPose2.m[42]" "bindPose2.p[43]";
+connectAttr "bindPose2.m[43]" "bindPose2.p[44]";
+connectAttr "bindPose2.m[44]" "bindPose2.p[45]";
+connectAttr "bindPose2.m[45]" "bindPose2.p[46]";
+connectAttr "bindPose2.m[43]" "bindPose2.p[47]";
+connectAttr "bindPose2.m[47]" "bindPose2.p[48]";
+connectAttr "bindPose2.m[48]" "bindPose2.p[49]";
+connectAttr "bindPose2.m[43]" "bindPose2.p[50]";
+connectAttr "bindPose2.m[50]" "bindPose2.p[51]";
+connectAttr "bindPose2.m[51]" "bindPose2.p[52]";
+connectAttr "bindPose2.m[43]" "bindPose2.p[53]";
+connectAttr "bindPose2.m[53]" "bindPose2.p[54]";
+connectAttr "bindPose2.m[54]" "bindPose2.p[55]";
+connectAttr "bindPose2.m[43]" "bindPose2.p[56]";
+connectAttr "bindPose2.m[56]" "bindPose2.p[57]";
+connectAttr "bindPose2.m[57]" "bindPose2.p[58]";
+connectAttr "skinCluster5GroupParts.og" "skinCluster5.ip[0].ig";
+connectAttr "skinCluster5GroupId.id" "skinCluster5.ip[0].gi";
+connectAttr "Spine_03_Jnt.wm" "skinCluster5.ma[16]";
+connectAttr "Spine_04_Jnt.wm" "skinCluster5.ma[17]";
+connectAttr "Neck_Jnt.wm" "skinCluster5.ma[18]";
+connectAttr "R_Clavical_Jnt.wm" "skinCluster5.ma[39]";
+connectAttr "R_Shoulder_Jnt.wm" "skinCluster5.ma[40]";
+connectAttr "R_Elbow_Jnt.wm" "skinCluster5.ma[41]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster5.lw[16]";
+connectAttr "Spine_04_Jnt.liw" "skinCluster5.lw[17]";
+connectAttr "Neck_Jnt.liw" "skinCluster5.lw[18]";
+connectAttr "R_Clavical_Jnt.liw" "skinCluster5.lw[39]";
+connectAttr "R_Shoulder_Jnt.liw" "skinCluster5.lw[40]";
+connectAttr "R_Elbow_Jnt.liw" "skinCluster5.lw[41]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster5.ifcl[16]";
+connectAttr "Spine_04_Jnt.obcc" "skinCluster5.ifcl[17]";
+connectAttr "Neck_Jnt.obcc" "skinCluster5.ifcl[18]";
+connectAttr "R_Clavical_Jnt.obcc" "skinCluster5.ifcl[39]";
+connectAttr "R_Shoulder_Jnt.obcc" "skinCluster5.ifcl[40]";
+connectAttr "R_Elbow_Jnt.obcc" "skinCluster5.ifcl[41]";
+connectAttr "bindPose2.msg" "skinCluster5.bp";
+connectAttr "R_Clavical_Jnt.msg" "skinCluster5.ptt";
+connectAttr "groupParts40.og" "tweak19.ip[0].ig";
+connectAttr "groupId99.id" "tweak19.ip[0].gi";
+connectAttr "skinCluster5GroupId.msg" "skinCluster5Set.gn" -na;
+connectAttr "R_ShoulderPlateShape.iog.og[0]" "skinCluster5Set.dsm" -na;
+connectAttr "skinCluster5.msg" "skinCluster5Set.ub[0]";
+connectAttr "tweak19.og[0]" "skinCluster5GroupParts.ig";
+connectAttr "skinCluster5GroupId.id" "skinCluster5GroupParts.gi";
+connectAttr "groupId99.msg" "tweakSet19.gn" -na;
+connectAttr "R_ShoulderPlateShape.iog.og[1]" "tweakSet19.dsm" -na;
+connectAttr "tweak19.msg" "tweakSet19.ub[0]";
+connectAttr "R_ShoulderPlateShapeOrig.w" "groupParts40.ig";
+connectAttr "groupId99.id" "groupParts40.gi";
+connectAttr "skinCluster6GroupParts.og" "skinCluster6.ip[0].ig";
+connectAttr "skinCluster6GroupId.id" "skinCluster6.ip[0].gi";
+connectAttr "Spine_02_Jnt.wm" "skinCluster6.ma[15]";
+connectAttr "Spine_03_Jnt.wm" "skinCluster6.ma[16]";
+connectAttr "Spine_04_Jnt.wm" "skinCluster6.ma[17]";
+connectAttr "Neck_Jnt.wm" "skinCluster6.ma[18]";
+connectAttr "L_Clavical_Jnt.wm" "skinCluster6.ma[19]";
+connectAttr "L_Shoulder_Jnt.wm" "skinCluster6.ma[20]";
+connectAttr "R_Clavical_Jnt.wm" "skinCluster6.ma[39]";
+connectAttr "R_Shoulder_Jnt.wm" "skinCluster6.ma[40]";
+connectAttr "Spine_02_Jnt.liw" "skinCluster6.lw[15]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster6.lw[16]";
+connectAttr "Spine_04_Jnt.liw" "skinCluster6.lw[17]";
+connectAttr "Neck_Jnt.liw" "skinCluster6.lw[18]";
+connectAttr "L_Clavical_Jnt.liw" "skinCluster6.lw[19]";
+connectAttr "L_Shoulder_Jnt.liw" "skinCluster6.lw[20]";
+connectAttr "R_Clavical_Jnt.liw" "skinCluster6.lw[39]";
+connectAttr "R_Shoulder_Jnt.liw" "skinCluster6.lw[40]";
+connectAttr "Spine_02_Jnt.obcc" "skinCluster6.ifcl[15]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster6.ifcl[16]";
+connectAttr "Spine_04_Jnt.obcc" "skinCluster6.ifcl[17]";
+connectAttr "Neck_Jnt.obcc" "skinCluster6.ifcl[18]";
+connectAttr "L_Clavical_Jnt.obcc" "skinCluster6.ifcl[19]";
+connectAttr "L_Shoulder_Jnt.obcc" "skinCluster6.ifcl[20]";
+connectAttr "R_Clavical_Jnt.obcc" "skinCluster6.ifcl[39]";
+connectAttr "R_Shoulder_Jnt.obcc" "skinCluster6.ifcl[40]";
+connectAttr "bindPose2.msg" "skinCluster6.bp";
+connectAttr "Spine_04_Jnt.msg" "skinCluster6.ptt";
+connectAttr "groupParts42.og" "tweak20.ip[0].ig";
+connectAttr "groupId101.id" "tweak20.ip[0].gi";
+connectAttr "skinCluster6GroupId.msg" "skinCluster6Set.gn" -na;
+connectAttr "ChestPlateShape.iog.og[0]" "skinCluster6Set.dsm" -na;
+connectAttr "skinCluster6.msg" "skinCluster6Set.ub[0]";
+connectAttr "tweak20.og[0]" "skinCluster6GroupParts.ig";
+connectAttr "skinCluster6GroupId.id" "skinCluster6GroupParts.gi";
+connectAttr "groupId101.msg" "tweakSet20.gn" -na;
+connectAttr "ChestPlateShape.iog.og[1]" "tweakSet20.dsm" -na;
+connectAttr "tweak20.msg" "tweakSet20.ub[0]";
+connectAttr "ChestPlateShapeOrig.w" "groupParts42.ig";
+connectAttr "groupId101.id" "groupParts42.gi";
+connectAttr "skinCluster7GroupParts.og" "skinCluster7.ip[0].ig";
+connectAttr "skinCluster7GroupId.id" "skinCluster7.ip[0].gi";
+connectAttr "COG_Jnt.wm" "skinCluster7.ma[0]";
+connectAttr "Hips_Jnt.wm" "skinCluster7.ma[1]";
+connectAttr "L_Leg_01_Jnt.wm" "skinCluster7.ma[2]";
+connectAttr "R_Leg_01_Jnt.wm" "skinCluster7.ma[8]";
+connectAttr "Spine_01_Jnt.wm" "skinCluster7.ma[14]";
+connectAttr "Spine_02_Jnt.wm" "skinCluster7.ma[15]";
+connectAttr "Spine_03_Jnt.wm" "skinCluster7.ma[16]";
+connectAttr "COG_Jnt.liw" "skinCluster7.lw[0]";
+connectAttr "Hips_Jnt.liw" "skinCluster7.lw[1]";
+connectAttr "L_Leg_01_Jnt.liw" "skinCluster7.lw[2]";
+connectAttr "R_Leg_01_Jnt.liw" "skinCluster7.lw[8]";
+connectAttr "Spine_01_Jnt.liw" "skinCluster7.lw[14]";
+connectAttr "Spine_02_Jnt.liw" "skinCluster7.lw[15]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster7.lw[16]";
+connectAttr "COG_Jnt.obcc" "skinCluster7.ifcl[0]";
+connectAttr "Hips_Jnt.obcc" "skinCluster7.ifcl[1]";
+connectAttr "L_Leg_01_Jnt.obcc" "skinCluster7.ifcl[2]";
+connectAttr "R_Leg_01_Jnt.obcc" "skinCluster7.ifcl[8]";
+connectAttr "Spine_01_Jnt.obcc" "skinCluster7.ifcl[14]";
+connectAttr "Spine_02_Jnt.obcc" "skinCluster7.ifcl[15]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster7.ifcl[16]";
+connectAttr "bindPose2.msg" "skinCluster7.bp";
+connectAttr "L_Leg_01_Jnt.msg" "skinCluster7.ptt";
+connectAttr "groupParts44.og" "tweak21.ip[0].ig";
+connectAttr "groupId103.id" "tweak21.ip[0].gi";
+connectAttr "skinCluster7GroupId.msg" "skinCluster7Set.gn" -na;
+connectAttr "CodPieceShape.iog.og[0]" "skinCluster7Set.dsm" -na;
+connectAttr "skinCluster7.msg" "skinCluster7Set.ub[0]";
+connectAttr "tweak21.og[0]" "skinCluster7GroupParts.ig";
+connectAttr "skinCluster7GroupId.id" "skinCluster7GroupParts.gi";
+connectAttr "groupId103.msg" "tweakSet21.gn" -na;
+connectAttr "CodPieceShape.iog.og[1]" "tweakSet21.dsm" -na;
+connectAttr "tweak21.msg" "tweakSet21.ub[0]";
+connectAttr "CodPieceShapeOrig.w" "groupParts44.ig";
+connectAttr "groupId103.id" "groupParts44.gi";
+connectAttr "skinCluster8GroupParts.og" "skinCluster8.ip[0].ig";
+connectAttr "skinCluster8GroupId.id" "skinCluster8.ip[0].gi";
+connectAttr "COG_Jnt.wm" "skinCluster8.ma[0]";
+connectAttr "Hips_Jnt.wm" "skinCluster8.ma[1]";
+connectAttr "Spine_01_Jnt.wm" "skinCluster8.ma[14]";
+connectAttr "Spine_02_Jnt.wm" "skinCluster8.ma[15]";
+connectAttr "Spine_03_Jnt.wm" "skinCluster8.ma[16]";
+connectAttr "Spine_04_Jnt.wm" "skinCluster8.ma[17]";
+connectAttr "L_Clavical_Jnt.wm" "skinCluster8.ma[19]";
+connectAttr "R_Clavical_Jnt.wm" "skinCluster8.ma[39]";
+connectAttr "COG_Jnt.liw" "skinCluster8.lw[0]";
+connectAttr "Hips_Jnt.liw" "skinCluster8.lw[1]";
+connectAttr "Spine_01_Jnt.liw" "skinCluster8.lw[14]";
+connectAttr "Spine_02_Jnt.liw" "skinCluster8.lw[15]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster8.lw[16]";
+connectAttr "Spine_04_Jnt.liw" "skinCluster8.lw[17]";
+connectAttr "L_Clavical_Jnt.liw" "skinCluster8.lw[19]";
+connectAttr "R_Clavical_Jnt.liw" "skinCluster8.lw[39]";
+connectAttr "COG_Jnt.obcc" "skinCluster8.ifcl[0]";
+connectAttr "Hips_Jnt.obcc" "skinCluster8.ifcl[1]";
+connectAttr "Spine_01_Jnt.obcc" "skinCluster8.ifcl[14]";
+connectAttr "Spine_02_Jnt.obcc" "skinCluster8.ifcl[15]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster8.ifcl[16]";
+connectAttr "Spine_04_Jnt.obcc" "skinCluster8.ifcl[17]";
+connectAttr "L_Clavical_Jnt.obcc" "skinCluster8.ifcl[19]";
+connectAttr "R_Clavical_Jnt.obcc" "skinCluster8.ifcl[39]";
+connectAttr "bindPose1.msg" "skinCluster8.bp";
+connectAttr "Spine_02_Jnt.msg" "skinCluster8.ptt";
+connectAttr "groupParts46.og" "tweak22.ip[0].ig";
+connectAttr "groupId105.id" "tweak22.ip[0].gi";
+connectAttr "skinCluster8GroupId.msg" "skinCluster8Set.gn" -na;
+connectAttr "ChestControlBoxShape.iog.og[0]" "skinCluster8Set.dsm" -na;
+connectAttr "skinCluster8.msg" "skinCluster8Set.ub[0]";
+connectAttr "tweak22.og[0]" "skinCluster8GroupParts.ig";
+connectAttr "skinCluster8GroupId.id" "skinCluster8GroupParts.gi";
+connectAttr "groupId105.msg" "tweakSet22.gn" -na;
+connectAttr "ChestControlBoxShape.iog.og[1]" "tweakSet22.dsm" -na;
+connectAttr "tweak22.msg" "tweakSet22.ub[0]";
+connectAttr "ChestControlBoxShapeOrig.w" "groupParts46.ig";
+connectAttr "groupId105.id" "groupParts46.gi";
+connectAttr "skinCluster9GroupParts.og" "skinCluster9.ip[0].ig";
+connectAttr "skinCluster9GroupId.id" "skinCluster9.ip[0].gi";
+connectAttr "COG_Jnt.wm" "skinCluster9.ma[0]";
+connectAttr "Hips_Jnt.wm" "skinCluster9.ma[1]";
+connectAttr "L_Leg_01_Jnt.wm" "skinCluster9.ma[2]";
+connectAttr "R_Leg_01_Jnt.wm" "skinCluster9.ma[8]";
+connectAttr "Spine_01_Jnt.wm" "skinCluster9.ma[14]";
+connectAttr "Spine_02_Jnt.wm" "skinCluster9.ma[15]";
+connectAttr "Spine_03_Jnt.wm" "skinCluster9.ma[16]";
+connectAttr "COG_Jnt.liw" "skinCluster9.lw[0]";
+connectAttr "Hips_Jnt.liw" "skinCluster9.lw[1]";
+connectAttr "L_Leg_01_Jnt.liw" "skinCluster9.lw[2]";
+connectAttr "R_Leg_01_Jnt.liw" "skinCluster9.lw[8]";
+connectAttr "Spine_01_Jnt.liw" "skinCluster9.lw[14]";
+connectAttr "Spine_02_Jnt.liw" "skinCluster9.lw[15]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster9.lw[16]";
+connectAttr "COG_Jnt.obcc" "skinCluster9.ifcl[0]";
+connectAttr "Hips_Jnt.obcc" "skinCluster9.ifcl[1]";
+connectAttr "L_Leg_01_Jnt.obcc" "skinCluster9.ifcl[2]";
+connectAttr "R_Leg_01_Jnt.obcc" "skinCluster9.ifcl[8]";
+connectAttr "Spine_01_Jnt.obcc" "skinCluster9.ifcl[14]";
+connectAttr "Spine_02_Jnt.obcc" "skinCluster9.ifcl[15]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster9.ifcl[16]";
+connectAttr "bindPose1.msg" "skinCluster9.bp";
+connectAttr "COG_Jnt.msg" "skinCluster9.ptt";
+connectAttr "groupParts48.og" "tweak23.ip[0].ig";
+connectAttr "groupId107.id" "tweak23.ip[0].gi";
+connectAttr "skinCluster9GroupId.msg" "skinCluster9Set.gn" -na;
+connectAttr "BeltShape.iog.og[0]" "skinCluster9Set.dsm" -na;
+connectAttr "skinCluster9.msg" "skinCluster9Set.ub[0]";
+connectAttr "tweak23.og[0]" "skinCluster9GroupParts.ig";
+connectAttr "skinCluster9GroupId.id" "skinCluster9GroupParts.gi";
+connectAttr "groupId107.msg" "tweakSet23.gn" -na;
+connectAttr "BeltShape.iog.og[1]" "tweakSet23.dsm" -na;
+connectAttr "tweak23.msg" "tweakSet23.ub[0]";
+connectAttr "BeltShapeOrig.w" "groupParts48.ig";
+connectAttr "groupId107.id" "groupParts48.gi";
+connectAttr "skinCluster10GroupParts.og" "skinCluster10.ip[0].ig";
+connectAttr "skinCluster10GroupId.id" "skinCluster10.ip[0].gi";
+connectAttr "COG_Jnt.wm" "skinCluster10.ma[0]";
+connectAttr "Hips_Jnt.wm" "skinCluster10.ma[1]";
+connectAttr "L_Leg_01_Jnt.wm" "skinCluster10.ma[2]";
+connectAttr "Spine_01_Jnt.wm" "skinCluster10.ma[14]";
+connectAttr "Spine_02_Jnt.wm" "skinCluster10.ma[15]";
+connectAttr "Spine_03_Jnt.wm" "skinCluster10.ma[16]";
+connectAttr "COG_Jnt.liw" "skinCluster10.lw[0]";
+connectAttr "Hips_Jnt.liw" "skinCluster10.lw[1]";
+connectAttr "L_Leg_01_Jnt.liw" "skinCluster10.lw[2]";
+connectAttr "Spine_01_Jnt.liw" "skinCluster10.lw[14]";
+connectAttr "Spine_02_Jnt.liw" "skinCluster10.lw[15]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster10.lw[16]";
+connectAttr "COG_Jnt.obcc" "skinCluster10.ifcl[0]";
+connectAttr "Hips_Jnt.obcc" "skinCluster10.ifcl[1]";
+connectAttr "L_Leg_01_Jnt.obcc" "skinCluster10.ifcl[2]";
+connectAttr "Spine_01_Jnt.obcc" "skinCluster10.ifcl[14]";
+connectAttr "Spine_02_Jnt.obcc" "skinCluster10.ifcl[15]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster10.ifcl[16]";
+connectAttr "bindPose1.msg" "skinCluster10.bp";
+connectAttr "L_BeltBoxShapeOrig.w" "groupParts49.ig";
+connectAttr "groupId108.id" "groupParts49.gi";
+connectAttr "groupParts51.og" "tweak24.ip[0].ig";
+connectAttr "groupId110.id" "tweak24.ip[0].gi";
+connectAttr "skinCluster10GroupId.msg" "skinCluster10Set.gn" -na;
+connectAttr "L_BeltBoxShape.iog.og[1]" "skinCluster10Set.dsm" -na;
+connectAttr "skinCluster10.msg" "skinCluster10Set.ub[0]";
+connectAttr "tweak24.og[0]" "skinCluster10GroupParts.ig";
+connectAttr "skinCluster10GroupId.id" "skinCluster10GroupParts.gi";
+connectAttr "groupId110.msg" "tweakSet24.gn" -na;
+connectAttr "L_BeltBoxShape.iog.og[2]" "tweakSet24.dsm" -na;
+connectAttr "tweak24.msg" "tweakSet24.ub[0]";
+connectAttr "groupParts49.og" "groupParts51.ig";
+connectAttr "groupId110.id" "groupParts51.gi";
+connectAttr "skinCluster11GroupParts.og" "skinCluster11.ip[0].ig";
+connectAttr "skinCluster11GroupId.id" "skinCluster11.ip[0].gi";
+connectAttr "COG_Jnt.wm" "skinCluster11.ma[0]";
+connectAttr "Hips_Jnt.wm" "skinCluster11.ma[1]";
+connectAttr "Spine_01_Jnt.wm" "skinCluster11.ma[14]";
+connectAttr "Spine_02_Jnt.wm" "skinCluster11.ma[15]";
+connectAttr "Spine_03_Jnt.wm" "skinCluster11.ma[16]";
+connectAttr "COG_Jnt.liw" "skinCluster11.lw[0]";
+connectAttr "Hips_Jnt.liw" "skinCluster11.lw[1]";
+connectAttr "Spine_01_Jnt.liw" "skinCluster11.lw[14]";
+connectAttr "Spine_02_Jnt.liw" "skinCluster11.lw[15]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster11.lw[16]";
+connectAttr "COG_Jnt.obcc" "skinCluster11.ifcl[0]";
+connectAttr "Hips_Jnt.obcc" "skinCluster11.ifcl[1]";
+connectAttr "Spine_01_Jnt.obcc" "skinCluster11.ifcl[14]";
+connectAttr "Spine_02_Jnt.obcc" "skinCluster11.ifcl[15]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster11.ifcl[16]";
+connectAttr "bindPose1.msg" "skinCluster11.bp";
+connectAttr "COG_Jnt.msg" "skinCluster11.ptt";
+connectAttr "groupParts53.og" "tweak25.ip[0].ig";
+connectAttr "groupId112.id" "tweak25.ip[0].gi";
+connectAttr "skinCluster11GroupId.msg" "skinCluster11Set.gn" -na;
+connectAttr "BeltClipShape.iog.og[0]" "skinCluster11Set.dsm" -na;
+connectAttr "skinCluster11.msg" "skinCluster11Set.ub[0]";
+connectAttr "tweak25.og[0]" "skinCluster11GroupParts.ig";
+connectAttr "skinCluster11GroupId.id" "skinCluster11GroupParts.gi";
+connectAttr "groupId112.msg" "tweakSet25.gn" -na;
+connectAttr "BeltClipShape.iog.og[1]" "tweakSet25.dsm" -na;
+connectAttr "tweak25.msg" "tweakSet25.ub[0]";
+connectAttr "BeltClipShapeOrig.w" "groupParts53.ig";
+connectAttr "groupId112.id" "groupParts53.gi";
+connectAttr "skinCluster12GroupParts.og" "skinCluster12.ip[0].ig";
+connectAttr "skinCluster12GroupId.id" "skinCluster12.ip[0].gi";
+connectAttr "COG_Jnt.wm" "skinCluster12.ma[0]";
+connectAttr "Hips_Jnt.wm" "skinCluster12.ma[1]";
+connectAttr "R_Leg_01_Jnt.wm" "skinCluster12.ma[8]";
+connectAttr "Spine_01_Jnt.wm" "skinCluster12.ma[14]";
+connectAttr "Spine_02_Jnt.wm" "skinCluster12.ma[15]";
+connectAttr "Spine_03_Jnt.wm" "skinCluster12.ma[16]";
+connectAttr "COG_Jnt.liw" "skinCluster12.lw[0]";
+connectAttr "Hips_Jnt.liw" "skinCluster12.lw[1]";
+connectAttr "R_Leg_01_Jnt.liw" "skinCluster12.lw[8]";
+connectAttr "Spine_01_Jnt.liw" "skinCluster12.lw[14]";
+connectAttr "Spine_02_Jnt.liw" "skinCluster12.lw[15]";
+connectAttr "Spine_03_Jnt.liw" "skinCluster12.lw[16]";
+connectAttr "COG_Jnt.obcc" "skinCluster12.ifcl[0]";
+connectAttr "Hips_Jnt.obcc" "skinCluster12.ifcl[1]";
+connectAttr "R_Leg_01_Jnt.obcc" "skinCluster12.ifcl[8]";
+connectAttr "Spine_01_Jnt.obcc" "skinCluster12.ifcl[14]";
+connectAttr "Spine_02_Jnt.obcc" "skinCluster12.ifcl[15]";
+connectAttr "Spine_03_Jnt.obcc" "skinCluster12.ifcl[16]";
+connectAttr "bindPose1.msg" "skinCluster12.bp";
+connectAttr "Spine_02_Jnt.msg" "skinCluster12.ptt";
+connectAttr "R_BeltBoxShapeOrig.w" "groupParts54.ig";
+connectAttr "groupId113.id" "groupParts54.gi";
+connectAttr "groupParts56.og" "tweak26.ip[0].ig";
+connectAttr "groupId115.id" "tweak26.ip[0].gi";
+connectAttr "skinCluster12GroupId.msg" "skinCluster12Set.gn" -na;
+connectAttr "R_BeltBoxShape.iog.og[1]" "skinCluster12Set.dsm" -na;
+connectAttr "skinCluster12.msg" "skinCluster12Set.ub[0]";
+connectAttr "tweak26.og[0]" "skinCluster12GroupParts.ig";
+connectAttr "skinCluster12GroupId.id" "skinCluster12GroupParts.gi";
+connectAttr "groupId115.msg" "tweakSet26.gn" -na;
+connectAttr "R_BeltBoxShape.iog.og[2]" "tweakSet26.dsm" -na;
+connectAttr "tweak26.msg" "tweakSet26.ub[0]";
+connectAttr "groupParts54.og" "groupParts56.ig";
+connectAttr "groupId115.id" "groupParts56.gi";
 connectAttr "GenericMesh2_1:GenericMesh_V10_1:AR__GenericMeshv3a_GenaricMesh2_lambert5SG.pa" ":renderPartition.st"
 		 -na;
 connectAttr "GenericMesh2_1:GenericMesh_V10_1:AR__GenericMeshv3a_lambert8SG.pa" ":renderPartition.st"
